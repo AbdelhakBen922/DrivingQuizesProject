@@ -29,7 +29,7 @@ const OurExperts = () => {
                     <h1 className=" text-primary-800 text-center mb-4">
                         Notre équipe d’experts
                     </h1>
-                    <h4 className="text-primary-500 text-center font-medimum max-w-2xl">
+                    <h4 className="text-primary-500 text-center font-medium max-w-2xl">
                         Des professionnels passionnés qui vous accompagnent à chaque étape de votre apprentissage.
                     </h4>
                 </div>
