@@ -1,0 +1,31 @@
+import Hero from "~/components/LandingPage/Hero";
+import type { Route } from "./+types/home";
+import QuizPreview from "~/components/LandingPage/QuizPreview";
+import LearningPreview from "~/components/LandingPage/LearningPreview";
+import  WhyUs from "~/components/LandingPage/WhyUs";
+import OurExperts from "~/components/LandingPage/OurExperts";
+import Testimonials from "~/components/LandingPage/Testimonials";
+import FAQ from "~/components/LandingPage/FAQ";
+import Footer from "~/components/Footer";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Driving School" },
+    { name: "description", content: "Welcome to the Driving School!" },
+  ];
+}
+
+export default function Home() {
+  return (
+    <div>
+      <Hero />
+      <QuizPreview />
+      <LearningPreview />
+      <WhyUs />
+      <OurExperts />
+      <Testimonials />
+      <FAQ />
+      <Footer />
+    </div>
+  );
+}
