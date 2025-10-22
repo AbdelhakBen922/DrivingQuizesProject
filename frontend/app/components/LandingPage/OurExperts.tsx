@@ -1,4 +1,3 @@
-import { section } from "framer-motion/client";
 import FadeInSection from "../FadeInSection";
 
 const ExpertCard = ({
