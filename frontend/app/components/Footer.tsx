@@ -16,7 +16,7 @@ const ItemsListBuilder = ({ title, items }: { title: string; items: string[] }) 
 
 const Footer = () => {
   return (
-    <footer className="bg-primary-800 text-white py-10 pt-10  px-24 flex flex-col gap-16">
+    <footer className="bg-primary-800 text-white py-8 pt-8 px-12 sm:py-10 sm:pt-10  sm:px-24 flex flex-col sm:gap-16">
         <div className=" flex flex-col md:flex-row justify-between gap-16">
           <ItemsListBuilder title="Plateforme" items={["Accueil", "Quiz", "Cours", "coté auto-écoles"]} />
           <ItemsListBuilder title="Pour les élèves" items={["Commencer à apprendre", "Suivre mes progrès", "Conseils & astuces","Guide du code"]} />

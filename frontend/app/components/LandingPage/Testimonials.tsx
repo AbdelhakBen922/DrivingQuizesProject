@@ -16,7 +16,7 @@ const TestimonialElement = ({
 };
 const UsersIconsWrapper = ({ children }: { children: ReactNode }) => {
     return (
-        <div className="flex flex-row justify-center items-center -space-x-2">
+        <div className="flex flex-row justify-center items-center -space-x-2 max-w-[180px] sm:max-w-xs overflow-hidden flex-nowrap">
             {children}
         </div>
     );
@@ -47,7 +47,7 @@ const Testimonials = () => {
         "/assets/images/user3.png",
         "/assets/images/user4.png",
         "/assets/images/user5.png",
-        "/assets/images/user6.png",
+        // "/assets/images/user6.png",
     ];
     const renderUserImages = () => {
         return usersImages.map((src, index) => (
@@ -55,7 +55,7 @@ const Testimonials = () => {
                 key={index}
                 src={src}
                 alt={`User ${index + 1}`}
-                className="w-10 h-10 rounded-full border-2 border-white"
+                className="w-10 h-10 rounded-full border-2 border-white shrink-0"
                 style={{ zIndex: usersImages.length - index }}
             />
         ));
@@ -84,7 +84,7 @@ const Testimonials = () => {
                     <div className="hidden sm:block">
                         <DividerBuilder />
                     </div>
-                    <hr className="block md:hidden border-t border-primary-200 my-3 w-full" />
+                    <hr className="block sm:hidden border-t border-primary-200 my-3 w-full" />
                     <TestimonialElement
                         image={starsReview([true, true, true, true, false])}
                         text="Basé sur les retours authentiques"
@@ -93,7 +93,7 @@ const Testimonials = () => {
                         <DividerBuilder />
                     </div>
 
-                    <hr className="block md:hidden border-t border-primary-200 my-3 w-full" />
+                    <hr className="block sm:hidden border-t border-primary-200 my-3 w-full" />
                     <TestimonialElement
                         image={<img src="/assets/icons/iconsax-ranking.svg" alt="" />}
                         text="La meilleure formation à vos côtés."

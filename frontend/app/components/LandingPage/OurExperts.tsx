@@ -24,7 +24,7 @@ const ExpertCard = ({
 const OurExperts = () => {
     return (
         <FadeInSection>
-            <section className="bg-white flex flex-col justify-center items-center gap-10 py-12 px-24">
+            <section className="bg-white flex flex-col justify-center items-center  gap-6 md:gap-10 py-6 px-4 md:py-12 md:px-24">
                 <div className="flex flex-col justify-center items-center ">
                     <h1 className=" text-primary-800 text-center mb-4">
                         Notre équipe d’experts
