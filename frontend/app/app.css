@@ -3,8 +3,8 @@
 
 @theme {
   --color-primary-50: #d1ddfd;
-  --color-primary-50: #a3bafa;
-  --color-primary-100: #7498f8;
+  --color-primary-100: #a3bafa;
+  --color-primary-200: #7498f8;
   --color-primary-300: #1853f3;
   --color-primary-500: #1342c2;
   --color-primary-600: #0e3292;
@@ -28,35 +28,40 @@
     @apply min-h-screen pt-10;
   }
   h1 {
-    @apply text-5xl font-extrabold;
+    @apply text-5xl font-extrabold max-md:text-3xl;
   }
   h2 {
-    @apply text-4xl font-bold;
+    @apply text-4xl font-bold max-md:text-2xl;
   }
   h3 {
-    @apply text-3xl font-semibold;
+    @apply text-3xl font-semibold max-md:text-xl;
   }
   h4 {
-    @apply text-2xl font-semibold;
-  }
+    @apply text-2xl font-semibold max-md:text-lg;
+  } 
   p {
-    @apply text-lg;
+    @apply text-lg max-md:text-sm;
   }
   a {
-    @apply text-lg font-medium;
+    @apply text-lg font-medium max-md:text-sm;
   }
 }
 @layer components {
   .animated-fade-in {
     animation: fadeIn 1s ease-in-out;
   }
-  .btn-primary {
-    @apply bg-primary-500 text-white font-semibold py-2 px-4 rounded hover:bg-primary-600  transition-all duration-300 cursor-pointer;
-  }
+ .btn-primary {
+  @apply bg-primary-300 text-white font-bold rounded-2xl hover:bg-primary-600 transition-all duration-300 cursor-pointer
+  text-base sm:text-lg lg:text-xl 
+  py-2.5 px-5 sm:py-3 sm:px-6;
+}
 
-  .btn-secondary {
-    @apply bg-white text-primary-500 font-semibold py-2 px-4 rounded  hover:opacity-80 transition-all duration-300 cursor-pointer;
-  }
+.btn-secondary {
+  @apply bg-white text-primary-800 font-bold rounded-2xl hover:opacity-80 transition-all duration-300 cursor-pointer
+  text-base sm:text-lg lg:text-xl 
+  py-2.5 px-4 sm:py-3 sm:px-5;
+}
+
   /* In global.css or a component-specific CSS file */
   .fancy-link {
     @apply relative inline-block text-white transition-colors duration-300 hover:text-gray-200;
@@ -70,14 +75,17 @@
   .fancy-link:hover::after {
     @apply scale-x-100;
   }
-
+}
+@layer utilities {
   .two-columns-section {
-    @apply flex flex-row items-center justify-between px-24 py-16 gap-20  transition-all duration-1000  ;
+    @apply flex flex-col items-center justify-center px-6 py-10 gap-10 transition-all duration-1000 md:flex-row md:items-center md:justify-between md:px-24 md:py-16 md:gap-20;
   }
+
   .two-columns-section-left {
-    @apply  pl-0;
+    @apply md:pl-0;
   }
+
   .two-columns-section-right {
-    @apply pr-0;
+    @apply md:pr-0;
   }
 }

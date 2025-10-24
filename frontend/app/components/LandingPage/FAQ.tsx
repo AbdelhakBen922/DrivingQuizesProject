@@ -11,7 +11,7 @@ const QuestionItem = ({
 }) => {
     const [showAnswer, setShowAnswer] = useState<boolean>(false);
     return (
-        <div className={`flex flex-col gap-2 w-full max-w-3xl border border-light-grey rounded-md shadow-sm hover:shadow-md   transition-all duration-200 cursor-pointer ${showAnswer ? "":"h-fit"}`}>
+        <div className={`flex flex-col gap-2 w-full max-w-3xl border border-primary-300 rounded-md shadow-sm hover:shadow-md   transition-all duration-200 cursor-pointer ${showAnswer ? "":"h-fit"}`}>
             <div
                 className="flex flex-row items-center justify-between p-3"
                 onClick={() => setShowAnswer(!showAnswer)}
@@ -31,7 +31,7 @@ const QuestionItem = ({
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                     >
-                        <p className="text-primary-100 font-light text-md p-3">{answer}</p>
+                        <p className="text-primary-200 font-light text-md p-3">{answer}</p>
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -90,6 +90,7 @@ const FAQ = () => {
                             answer={qa.answer}
                         />
                     ))}
+                    
                 </div>
             </section>
         </FadeInSection>

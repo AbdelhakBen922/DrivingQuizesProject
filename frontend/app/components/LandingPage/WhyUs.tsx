@@ -4,7 +4,7 @@ import FeatureCard from "../FeatureCard"
 const WhyUs = () => {
     return (
         <FadeInSection>
-            <section className="bg-white  flex flex-col justify-center items-center gap-15 py-12 px-20">
+            <section className="bg-white  flex flex-col justify-center items-center gap-15 py-12 px-20 max-md:text-center">
                 <h2 className=" text-primary-800">
                     Pourquoi choisir notre plateforme ?
                 </h2>

@@ -14,7 +14,7 @@ const ExpertCard = ({
             <img src={image} alt={name} className="w-24 h-24 rounded-full mb-4" />
             <h4 className="text-primary-800">{name}</h4>
             <p className="text-primary-500">{job}</p>
-            <a className="text-primary-100 underline underline-offset-2 text-lg font-bold" href="#">
+            <a className="text-primary-200 underline underline-offset-2 text-lg font-bold" href="#">
                 contactez-moi
             </a>
         </div>

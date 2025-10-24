@@ -7,7 +7,7 @@ const Hero = () => {
                 <img
                     src="/assets/images/hero.png"
                     alt=""
-                    className="w-full h-full object-cover absolute top-0 left-0 z-0 "
+                    className="absolute top-0 left-0 w-full h-full object-cover object-center max-w-none z-0"
                 />
                 <NavBar />
 
@@ -24,8 +24,12 @@ const Hero = () => {
                         Votre réussite commence ici — sur la route de la liberté.
                     </p>
                     <div className="flex flex-row justify-center items-center gap-6">
-                        <button className="btn-primary text-lg">Faire Quiz</button>
-                        <button className="btn-secondary text-lg">Apprendre le code</button>
+                        <button className="btn-primary max-md:w-full ">
+                        Faire Quiz
+                            </button>
+                        <button className="btn-secondary max-md:w-full ">
+                            Apprendre le code
+                        </button>
                     </div>
                 </div>
             </section>

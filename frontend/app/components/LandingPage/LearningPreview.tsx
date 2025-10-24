@@ -13,21 +13,28 @@ const LearningPreview = () => {
     return (
         <FadeInSection>
             <section className="two-columns-section two-columns-section-left ">
-                <div className="w-full flex justify-center items-center">
+                <div className="w-full flex justify-center items-center ">
                     <img
                         src="/assets/images/learning_preview.png"
                         alt="Learning Preview"
-                        className="w-full h-auto rounded-lg shadow-lg"
+                        className="w-full h-auto rounded-lg shadow-lg hidden md:block"
                     />
                 </div>
-                <div className="flex flex-col gap-7 justify-center items-start">
+                <div className="flex flex-col gap-7 justify-center items-center text-center md:text-start md:items-start">
                     <h1 className="text-primary-800">
                         Apprenez le code avant de passer à la pratique.
                     </h1>
                     <p className="font-medium text-primary-600">
-                       Maîtrisez la théorie avec des leçons simples et visuelles.Comprenez les panneaux, les priorités et les règles de conduite — étape par étape.
+                        Maîtrisez la théorie avec des leçons simples et visuelles.Comprenez
+                        les panneaux, les priorités et les règles de conduite — étape par
+                        étape.
                     </p>
-                    <div className="flex flex-col justify-center items-start gap-2">
+                        <img
+                            src="/assets/images/learning_preview_mobile.png"
+                            alt="Learning Preview Mobile"
+                            className="w-full h-auto rounded-lg  md:hidden"
+                        />
+                    <div className="flex flex-col justify-center items-start gap-2 text-start">
                         <FeatureLine
                             icon="/assets/icons/school.svg"
                             text="Leçons interactives et illustrées pour chaque thème"
@@ -41,7 +48,9 @@ const LearningPreview = () => {
                             text="Suivi de progression pour savoir où vous en êtes"
                         />
                     </div>
-                    <button className="btn-primary mt-4">Apprendre le code</button>
+                    <button className="btn-primary text-2xl mt-4">
+                        Apprendre le code
+                    </button>
                 </div>
             </section>
         </FadeInSection>
