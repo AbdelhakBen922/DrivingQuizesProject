@@ -28,22 +28,22 @@
     @apply min-h-screen pt-10;
   }
   h1 {
-    @apply text-5xl font-extrabold max-md:text-3xl;
+    @apply text-5xl font-extrabold max-sm:text-3xl;
   }
   h2 {
-    @apply text-4xl font-bold max-md:text-2xl;
+    @apply text-4xl font-bold max-sm:text-2xl;
   }
   h3 {
-    @apply text-3xl font-semibold max-md:text-xl;
+    @apply text-3xl font-semibold max-sm:text-xl;
   }
   h4 {
-    @apply text-2xl font-semibold max-md:text-lg;
+    @apply text-2xl font-semibold max-sm:text-lg;
   } 
   p {
-    @apply text-lg max-md:text-sm;
+    @apply text-lg max-sm:text-sm;
   }
   a {
-    @apply text-lg font-medium max-md:text-sm;
+    @apply text-lg font-medium max-sm:text-sm;
   }
 }
 @layer components {
