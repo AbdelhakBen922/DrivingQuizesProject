@@ -29,6 +29,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="title" content="Driving School" />
+        <meta
+          name="description"
+          content="Welcome to the Driving School!"
+        />
         <Meta />
         <Links />
       </head>

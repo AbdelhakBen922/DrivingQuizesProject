@@ -9,11 +9,11 @@ const FeatureLine = ({ icon, text }: { icon: string; text: string }) => {
     );
 };
 
-const QuizPreview = () => {
+const QuizPreview = ({className}: {className?: string}) => {
     return (
         <FadeInSection>
-            <section className=" two-columns-section two-columns-section-right ">
-                <div className="flex flex-col gap-7 justify-center items-center text-center md:text-start md:items-start">
+            <section className={` two-columns-section two-columns-section-right ${className}`}>
+                <div className="flex flex-col gap-7 justify-center items-center w-full text-center md:text-start md:items-start">
                     <h1 className="text-primary-800">
                         Testez vos connaissances avant de prendre la route.
                     </h1>

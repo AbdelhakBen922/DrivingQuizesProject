@@ -1,5 +1,5 @@
 import FadeInSection from "../FadeInSection";
-import NavBar from "./NavBar";
+import NavBar from "../NavBar";
 
 const Hero = () => {
     return (
@@ -9,7 +9,7 @@ const Hero = () => {
                     alt=""
                     className="absolute top-0 left-0 w-full h-full object-cover object-center max-w-none z-0"
                 />
-                <NavBar />
+                <NavBar dark={true} />
 
                 <div className="z-10 text-center flex flex-col gap-6 text-white px-4  mt-30">
                     <div className="flex flex-col gap-2">
