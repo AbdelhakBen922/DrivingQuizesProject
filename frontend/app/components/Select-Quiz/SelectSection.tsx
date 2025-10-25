@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import InputField from "../ui/InputFeild";
-import DropdownField from "../ui/DropdownFeild";
+import InputField from "../ui/InputField";
+import DropdownField from "../ui/DropdownField";
 
 type IconRowProps = {
     icon: string;
