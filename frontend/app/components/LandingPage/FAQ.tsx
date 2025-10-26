@@ -76,7 +76,7 @@ const FAQ = () => {
         <FadeInSection>
             <section className="flex flex-col justify-center items-center gap-10 py-10 px-8 md:gap-20 md:py-16 md:px-24 bg-white">
                 <div className=" flex flex-col justify-center items-center text-center gap-6 px-4 max-w-3xl">
-                    <h1 className="text-primary-800">Questions Fréquemment Posées</h1>
+                    <h1 className="text-primary-800">Questions Fréquentes</h1>
                     <h4 className="text-primary-600 font-normal">
                         Trouvez des réponses aux questions les plus courantes sur notre
                         service.
