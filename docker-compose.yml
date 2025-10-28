@@ -1,0 +1,111 @@
+
+services:
+  # Backend - Laravel API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: driving-quiz-backend
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    environment:
+      - APP_NAME=DrivingQuizAPI
+      - APP_ENV=production
+      - APP_DEBUG=false
+      - APP_URL=http://localhost:8000
+      - DB_CONNECTION=mysql
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_DATABASE=driving_quiz
+      - DB_USERNAME=laravel_user
+      - DB_PASSWORD=laravel
+      - CACHE_DRIVER=redis
+      - SESSION_DRIVER=redis
+      - QUEUE_CONNECTION=redis
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - db
+      - redis
+    networks:
+      - driving-quiz-network
+    volumes:
+     - ./backend:/var/www/html
+
+  # Frontend - React/Remix Application
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: driving-quiz-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - API_URL=http://backend:80
+    depends_on:
+      - backend
+    networks:
+      - driving-quiz-network
+
+  # MySQL Database
+  db:
+    image: mysql:8.0 
+    container_name: driving-quiz-db
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: driving_quiz
+      MYSQL_USER: laravel_user
+      MYSQL_PASSWORD: laravel
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./backend/docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    networks:
+      - driving-quiz-network
+    command: --default-authentication-plugin=mysql_native_password
+
+  # Redis Cache & Queue
+  redis:
+    image: redis:7-alpine
+    container_name: driving-quiz-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - driving-quiz-network
+    command: redis-server --appendonly yes
+
+  # PhpMyAdmin (Optional - for database management)
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: driving-quiz-phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: laravel_user
+      PMA_PASSWORD: laravel
+      UPLOAD_LIMIT: 50M
+    depends_on:
+      - db
+    networks:
+      - driving-quiz-network
+
+networks:
+  driving-quiz-network:
+    driver: bridge
+
+volumes:
+  db-data:
+    driver: local
+  redis-data:
+    driver: local
