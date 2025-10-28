@@ -30,7 +30,7 @@ services:
       - redis
     networks:
       - driving-quiz-network
-     volumes:
+    volumes:
       - ./backend/.env:/var/www/html/.env:ro
       - ./backend/storage:/var/www/html/storage
       - ./backend/bootstrap/cache:/var/www/html/bootstrap/cache
