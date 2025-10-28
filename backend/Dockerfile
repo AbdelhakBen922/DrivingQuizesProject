@@ -19,7 +19,6 @@ RUN if [ "$SKIP_COMPOSER_INSTALL" = "true" ]; then \
 FROM php:8.2-fpm-alpine AS production
 
 # Install system dependencies and PHP extensions
-# Install system dependencies and PHP extensions
 RUN apk add --no-cache \
         nginx \
         supervisor \
