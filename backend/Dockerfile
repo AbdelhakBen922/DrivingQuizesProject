@@ -67,6 +67,18 @@ RUN apk add --no-cache --virtual .composer-deps \
     && composer --version \
     && rm -f /tmp/composer-setup.php
 
+# Install Redis PHP extension via PECL (requires build tools)
+RUN set -eux; \
+    if php -m | grep -qi '^redis$'; then \
+        echo 'redis extension already loaded, skipping PECL install'; \
+    else \
+        apk add --no-cache --virtual .build-deps $PHPIZE_DEPS linux-headers; \
+        pecl channel-update pecl.php.net; \
+        printf "\n" | pecl install -o -f redis; \
+        docker-php-ext-enable redis; \
+        apk del .build-deps; \
+    fi
+
 
 # Set working directory
 WORKDIR /var/www/html
