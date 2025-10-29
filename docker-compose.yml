@@ -33,7 +33,7 @@ services:
     networks:
       - driving-quiz-network
     volumes:
-      - ./backend/.env:/var/www/html/.env:ro
+      - ./backend/.env:/var/www/html/.env
       - ./backend/storage:/var/www/html/storage
       - ./backend/bootstrap/cache:/var/www/html/bootstrap/cache
     healthcheck:
