@@ -63,7 +63,7 @@ docker compose exec backend php artisan migrate --seed
 - **Backend API**: http://localhost:8000
 - **PhpMyAdmin**: http://localhost:8080
   - Username: `laravel_user`
-  - Password: `laravel_password`
+  - Password: `laravel`
 
 ## Common Commands
 
