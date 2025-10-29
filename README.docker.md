@@ -287,7 +287,7 @@ Create a `backup.sh` script:
 ```bash
 #!/bin/bash
 DATE=$(date +%Y%m%d_%H%M%S)
-docker compose exec -T db mysqldump -u laravel_user -plaravel_password driving_quiz > "backups/db_backup_${DATE}.sql"
+docker compose exec -T db mysqldump -u laravel_user -plaravel driving_quiz > "backups/db_backup_${DATE}.sql"
 tar -czf "backups/storage_backup_${DATE}.tar.gz" ./backend/storage/app
 ```
 
