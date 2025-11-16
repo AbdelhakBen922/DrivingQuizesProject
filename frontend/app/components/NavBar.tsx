@@ -18,8 +18,8 @@ const NavBar = ({ dark }: { dark: boolean }) => {
             {/* Desktop Menu */}
             <nav className="hidden md:block mx-12">
                 <ul className="flex flex-row gap-6">
-                    <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="#">Home</a></li>
-                    <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="#">Quiz</a></li>
+                    <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="/">Home</a></li>
+                    <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="/select-quiz">Quiz</a></li>
                     <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="#">Learn</a></li>
                     <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="#">Q&A</a></li>
                 </ul>
