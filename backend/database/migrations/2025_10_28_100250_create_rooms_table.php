@@ -8,18 +8,18 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('quizzes', function (Blueprint $table) {
+        Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->foreignId('school_id')->constrained('schools')->cascadeOnDelete();
-            $table->boolean('is_public')->default(false);
-            $table->string('title', 255);
+            $table->string('name', 255);
             $table->text('description')->nullable();
+            $table->string('join_code', 50)->unique();
             $table->timestamp('created_at')->useCurrent();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('quizzes');
+        Schema::dropIfExists('rooms');
     }
 };

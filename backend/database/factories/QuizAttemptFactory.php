@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\QuizAttempt;
 use App\Models\Quiz;
+use App\Models\RoomMember;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /** @extends Factory<QuizAttempt> */
@@ -13,16 +14,17 @@ class QuizAttemptFactory extends Factory
 
     public function definition(): array
     {
-        $startedAt = $this->faker->dateTimeBetween('-10 days', 'now');
-        $finished = $this->faker->boolean(70);
+        $faker = $this->withFaker();
+        $startedAt = $faker->dateTimeBetween('-10 days', 'now');
+        $finished = $faker->boolean(70);
 
         return [
             'quiz_id' => Quiz::factory(),
+            'room_member_id' => RoomMember::factory(),
             'access_code_id' => null,
-            'full_name' => $this->faker->name(),
-            'score' => $finished ? $this->faker->numberBetween(0, 100) : 0,
+            'score' => $finished ? $faker->numberBetween(0, 100) : 0,
             'started_at' => $startedAt,
-            'finished_at' => $finished ? $this->faker->dateTimeBetween($startedAt, 'now') : null,
+            'finished_at' => $finished ? $faker->dateTimeBetween($startedAt, 'now') : null,
         ];
     }
 

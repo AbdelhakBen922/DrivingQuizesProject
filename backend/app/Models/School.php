@@ -27,4 +27,14 @@ class School extends Model
     {
         return $this->hasMany(Quiz::class);
     }
+
+    public function rooms(): HasMany
+    {
+        return $this->hasMany(Room::class);
+    }
+
+    public function roomAccessCodes(): HasMany
+    {
+        return $this->hasMany(RoomAccessCode::class);
+    }
 }

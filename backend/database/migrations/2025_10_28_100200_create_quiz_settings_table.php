@@ -14,7 +14,6 @@ return new class extends Migration
             $table->foreignId('quiz_id')->unique()->constrained('quizzes')->cascadeOnDelete();
             $table->enum('vehicle_type', ['car', 'motorcycle', 'truck'])->default('car');
             $table->integer('question_count')->default(10);
-            $table->integer('time_limit_sec')->default(600);
             $table->enum('mode', ['training', 'exam', 'school_code'])->default('training');
             $table->boolean('randomize_questions')->default(true);
             $table->boolean('randomize_choices')->default(true);

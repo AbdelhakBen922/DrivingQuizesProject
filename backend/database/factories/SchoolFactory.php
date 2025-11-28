@@ -13,9 +13,11 @@ class SchoolFactory extends Factory
 
     public function definition(): array
     {
+        $faker = $this->withFaker();
+        
         return [
-            'name' => $this->faker->company(),
-            'email' => $this->faker->unique()->safeEmail(),
+            'name' => $faker->company(),
+            'email' => $faker->unique()->safeEmail(),
             'password' => bcrypt('password'),
             'created_at' => now(),
         ];

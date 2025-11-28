@@ -35,11 +35,16 @@ class Question extends Model
     public function quizzes(): BelongsToMany
     {
         return $this->belongsToMany(Quiz::class, 'quiz_questions')
-            ->withPivot('position');
+            ->withPivot(['position', 'duration_sec', 'is_required']);
     }
 
     public function answers(): HasMany
     {
         return $this->hasMany(Answer::class);
+    }
+
+    public function quizQuestions(): HasMany
+    {
+        return $this->hasMany(QuizQuestion::class);
     }
 }

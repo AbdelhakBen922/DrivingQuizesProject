@@ -11,8 +11,8 @@ return new class extends Migration
         Schema::create('quiz_attempts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('quiz_id')->constrained('quizzes')->cascadeOnDelete();
-            $table->foreignId('access_code_id')->nullable()->constrained('access_codes')->nullOnDelete();
-            $table->string('full_name', 255)->nullable();
+            $table->foreignId('room_member_id')->constrained('room_members')->cascadeOnDelete();
+            $table->foreignId('access_code_id')->nullable()->constrained('room_access_codes')->nullOnDelete();
             $table->timestamp('started_at')->useCurrent();
             $table->timestamp('finished_at')->nullable();
             $table->integer('score')->default(0);

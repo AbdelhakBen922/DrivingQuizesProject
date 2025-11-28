@@ -7,15 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class AccessCode extends Model
+class RoomAccessCode extends Model
 {
     use HasFactory;
 
     public $timestamps = false;
 
+    protected $table = 'room_access_codes';
+
     protected $fillable = [
         'school_id',
-        'quiz_id',
+        'room_id',
         'code',
         'valid_from',
         'valid_to',
@@ -35,13 +37,13 @@ class AccessCode extends Model
         return $this->belongsTo(School::class);
     }
 
-    public function quiz(): BelongsTo
+    public function room(): BelongsTo
     {
-        return $this->belongsTo(Quiz::class);
+        return $this->belongsTo(Room::class);
     }
 
-    public function attempts(): HasMany
+    public function quizAttempts(): HasMany
     {
-        return $this->hasMany(QuizAttempt::class);
+        return $this->hasMany(QuizAttempt::class, 'access_code_id');
     }
 }

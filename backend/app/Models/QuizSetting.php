@@ -20,7 +20,6 @@ class QuizSetting extends Model
         'quiz_id',
         'vehicle_type',
         'question_count',
-        'time_limit_sec',
         'mode',
         'randomize_questions',
         'randomize_choices',
@@ -32,7 +31,6 @@ class QuizSetting extends Model
         'randomize_questions' => 'boolean',
         'randomize_choices' => 'boolean',
         'question_count' => 'integer',
-        'time_limit_sec' => 'integer',
     ];
 
     public function quiz(): BelongsTo

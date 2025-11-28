@@ -8,18 +8,17 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('quiz_questions', function (Blueprint $table) {
+        Schema::create('room_quizzes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('room_id')->constrained('rooms')->cascadeOnDelete();
             $table->foreignId('quiz_id')->constrained('quizzes')->cascadeOnDelete();
-            $table->foreignId('question_id')->constrained('questions')->cascadeOnDelete();
-            $table->integer('position')->nullable();
-            $table->integer('duration_sec')->default(30);
-            $table->boolean('is_required')->default(true);
+            $table->timestamp('published_at')->useCurrent();
+            $table->unique(['room_id', 'quiz_id']);
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('quiz_questions');
+        Schema::dropIfExists('room_quizzes');
     }
 };

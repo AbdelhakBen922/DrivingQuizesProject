@@ -9,14 +9,14 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class QuizAttempt extends Model
 {
-    use HasFactory;
+    use HasFactory; # this is needed for factory usage factroy is defined by laravel for model creation and testing
 
-    public $timestamps = false;
+    public $timestamps = false; // Disable automatic timestamps
 
     protected $fillable = [
         'quiz_id',
+        'room_member_id',
         'access_code_id',
-        'full_name',
         'started_at',
         'finished_at',
         'score',
@@ -33,9 +33,14 @@ class QuizAttempt extends Model
         return $this->belongsTo(Quiz::class);
     }
 
+    public function roomMember(): BelongsTo
+    {
+        return $this->belongsTo(RoomMember::class);
+    }
+
     public function accessCode(): BelongsTo
     {
-        return $this->belongsTo(AccessCode::class);
+        return $this->belongsTo(RoomAccessCode::class, 'access_code_id');
     }
 
     public function answers(): HasMany

@@ -13,10 +13,12 @@ class ChoiceFactory extends Factory
 
     public function definition(): array
     {
+        $faker = $this->withFaker();
+        
         return [
             'question_id' => Question::factory(),
-            'text' => $this->faker->sentence(6),
-            'is_correct' => false, // mark one as true in seeder
+            'text' => $faker->sentence(6),
+            'is_correct' => false,
             'position' => 0,
         ];
     }

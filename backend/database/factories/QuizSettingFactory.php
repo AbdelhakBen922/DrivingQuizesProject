@@ -15,14 +15,15 @@ class QuizSettingFactory extends Factory
 
     public function definition(): array
     {
+        $faker = $this->withFaker();
+        
         return [
             'quiz_id' => Quiz::factory(),
-            'vehicle_type' => $this->faker->randomElement([VehicleType::Car, VehicleType::Motorcycle, VehicleType::Truck]),
-            'question_count' => $this->faker->numberBetween(10, 20),
-            'time_limit_sec' => $this->faker->numberBetween(600, 1800),
-            'mode' => $this->faker->randomElement([QuizMode::Training, QuizMode::Exam]),
-            'randomize_questions' => $this->faker->boolean(80),
-            'randomize_choices' => $this->faker->boolean(80),
+            'vehicle_type' => $faker->randomElement([VehicleType::Car, VehicleType::Motorcycle, VehicleType::Truck]),
+            'question_count' => $faker->numberBetween(10, 20),
+            'mode' => $faker->randomElement([QuizMode::Training, QuizMode::Exam]),
+            'randomize_questions' => $faker->boolean(80),
+            'randomize_choices' => $faker->boolean(80),
         ];
     }
 }

@@ -2,14 +2,15 @@
 
 namespace Database\Factories;
 
-use App\Models\Quiz;
+use App\Models\Room;
 use App\Models\School;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
-/** @extends Factory<Quiz> */
-class QuizFactory extends Factory
+/** @extends Factory<Room> */
+class RoomFactory extends Factory
 {
-    protected $model = Quiz::class;
+    protected $model = Room::class;
 
     public function definition(): array
     {
@@ -17,9 +18,9 @@ class QuizFactory extends Factory
         
         return [
             'school_id' => School::factory(),
-            'is_public' => $faker->boolean(30),
-            'title' => $faker->sentence(3),
+            'name' => $faker->words(3, true),
             'description' => $faker->optional()->paragraph(),
+            'join_code' => strtoupper(Str::random(6)),
             'created_at' => now(),
         ];
     }

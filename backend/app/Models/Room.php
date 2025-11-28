@@ -7,9 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Quiz extends Model
+class Room extends Model
 {
     use HasFactory;
 
@@ -17,14 +16,13 @@ class Quiz extends Model
 
     protected $fillable = [
         'school_id',
-        'is_public',
-        'title',
+        'name',
         'description',
+        'join_code',
         'created_at',
     ];
 
     protected $casts = [
-        'is_public' => 'boolean',
         'created_at' => 'datetime',
     ];
 
@@ -33,25 +31,19 @@ class Quiz extends Model
         return $this->belongsTo(School::class);
     }
 
-    public function settings(): HasOne
+    public function members(): HasMany
     {
-        return $this->hasOne(QuizSetting::class, 'quiz_id');
+        return $this->hasMany(RoomMember::class);
     }
 
-    public function questions(): BelongsToMany
+    public function accessCodes(): HasMany
     {
-        return $this->belongsToMany(Question::class, 'quiz_questions')
-            ->withPivot(['position', 'duration_sec', 'is_required']);
+        return $this->hasMany(RoomAccessCode::class);
     }
 
-    public function attempts(): HasMany
+    public function quizzes(): BelongsToMany
     {
-        return $this->hasMany(QuizAttempt::class);
-    }
-
-    public function rooms(): BelongsToMany
-    {
-        return $this->belongsToMany(Room::class, 'room_quizzes')
+        return $this->belongsToMany(Quiz::class, 'room_quizzes')
             ->withPivot('published_at');
     }
 

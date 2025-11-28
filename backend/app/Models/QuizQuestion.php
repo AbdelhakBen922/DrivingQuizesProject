@@ -18,6 +18,13 @@ class QuizQuestion extends Model
         'quiz_id',
         'question_id',
         'position',
+        'duration_sec',
+        'is_required',
+    ];
+
+    protected $casts = [
+        'duration_sec' => 'integer',
+        'is_required' => 'boolean',
     ];
 
     public function quiz(): BelongsTo

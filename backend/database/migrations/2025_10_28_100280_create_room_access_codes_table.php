@@ -8,11 +8,10 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('access_codes', function (Blueprint $table) {
+        Schema::create('room_access_codes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('school_id')->constrained('schools')->cascadeOnDelete();
-            // Note: SQL specified NOT NULL but FK uses SET NULL on delete; column must be nullable to allow SET NULL.
-            $table->foreignId('quiz_id')->nullable()->constrained('quizzes')->nullOnDelete();
+            $table->foreignId('room_id')->nullable()->constrained('rooms')->nullOnDelete();
             $table->string('code', 100)->unique();
             $table->dateTime('valid_from')->nullable();
             $table->dateTime('valid_to')->nullable();
@@ -23,6 +22,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('access_codes');
+        Schema::dropIfExists('room_access_codes');
     }
 };

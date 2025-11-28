@@ -12,12 +12,14 @@ class QuestionFactory extends Factory
 
     public function definition(): array
     {
+        $faker = $this->withFaker();
+        
         return [
-            'text' => $this->faker->sentence(12),
-            'image_url' => $this->faker->optional(30)->imageUrl(640, 480, 'transport'),
-            'category' => $this->faker->randomElement(['sign', 'rule', 'priority']),
-            'type' => $this->faker->randomElement(['single_choice', 'multiple_choice']),
-            'is_required' => $this->faker->boolean(30),
+            'text' => $faker->sentence(12),
+            'image_url' => $faker->optional(30)->imageUrl(640, 480, 'transport'),
+            'category' => $faker->randomElement(['sign', 'rule', 'priority']),
+            'type' => $faker->randomElement(['single_choice', 'multiple_choice']),
+            'is_required' => $faker->boolean(30),
             'created_at' => now(),
         ];
     }
