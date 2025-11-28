@@ -16,6 +16,9 @@
   --color-green: #00c04d;
   --color-red: #ed2d30;
   --color-yellow: #ffb800;
+  --color-sidebar-bg: #E9EEFD;
+  --color-blue: #1853f3; /* Main blue color used throughout the Quiz Editor */
+  --color-text-dark: #182A66; /* Dark text color for sidebar, question, quick suggestions, and choices */
 
   --font-sans: "Mulish", sans-serif;
 }
@@ -84,9 +87,10 @@
   }
 
   .form-field {
-    @apply w-full bg-white rounded-2xl px-4 py-2 text-primary-800 placeholder-gray-400
+    @apply w-full bg-white rounded-2xl px-4 py-2 placeholder-gray-400
          border border-grey outline-none transition-all duration-200
          focus:border-primary-500 focus:ring-4 focus:ring-primary-200/60;
+    color: var(--color-text-dark);
   }
 
   .form-field-error {
