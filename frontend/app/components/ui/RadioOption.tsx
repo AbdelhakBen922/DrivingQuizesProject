@@ -23,7 +23,7 @@ const RadioOption = ({ label, value, isConfirmed, isTrue, isSelected, onChange }
             }
         } else {
             if (isSelected) {
-                setColorStyle('bg-primary-300 border-primary-500 border-grey text-white');
+                setColorStyle('bg-primary-300 border-primary-500 text-white');
             } else {
                 setColorStyle('bg-white border-grey text-primary-800');
             }
