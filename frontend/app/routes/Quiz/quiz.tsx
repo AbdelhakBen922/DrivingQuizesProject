@@ -83,7 +83,7 @@ const Quiz = () => {
                         {/* Confirm Button */}
                         <div className="mt-6 flex justify-end">
                             <button 
-                                onClick={() => setIsConfirmed(!isConfirmed)}
+                                onClick={() => setIsConfirmed(true)}
                                 className={`px-6 py-2.5 text-white font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
                                     progressColor === 'bg-green' ? 'bg-green hover:bg-green-700' : 
                                     progressColor === 'bg-red' ? 'bg-red hover:bg-red-700' : 
