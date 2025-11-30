@@ -18,7 +18,26 @@
   --color-yellow: #ffb800;
   --color-sidebar-bg: #E9EEFD;
   --color-blue: #1853f3; /* Main blue color used throughout the Quiz Editor */
+  --color-blue-accent: #4169E1; /* Accent blue color */
   --color-text-dark: #182A66; /* Dark text color for sidebar, question, quick suggestions, and choices */
+  
+  /* White colors */
+  --color-white: #ffffff;
+  --color-white-opacity-20: rgba(255, 255, 255, 0.2);
+  --color-white-opacity-10: rgba(255, 255, 255, 0.1);
+  --color-white-opacity-70: rgba(255, 255, 255, 0.7);
+  --color-white-opacity-90: rgba(255, 255, 255, 0.9);
+  
+  /* Gray colors */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  
+  /* Red colors */
+  --color-red-50: #fef2f2;
+  --color-red-500: #ef4444;
 
   --font-sans: "Mulish", sans-serif;
 }
@@ -83,14 +102,20 @@
   }
 
   .form-label {
-    @apply text-sm font-semibold text-primary-800 ;
+    @apply text-sm font-semibold;
+    color: var(--color-text-dark);
   }
 
   .form-field {
-    @apply w-full bg-white rounded-2xl px-4 py-2 placeholder-gray-400
+    @apply w-full rounded-2xl px-4 py-2
          border border-grey outline-none transition-all duration-200
          focus:border-primary-500 focus:ring-4 focus:ring-primary-200/60;
     color: var(--color-text-dark);
+    background-color: var(--color-white);
+  }
+  
+  .form-field::placeholder {
+    color: var(--color-gray-400);
   }
 
   .form-field-error {
@@ -99,6 +124,110 @@
 
   .form-field:disabled {
     @apply opacity-60 cursor-not-allowed bg-gray-100;
+  }
+
+  .question-textarea-desktop textarea {
+    @apply w-full;
+    max-width: 100%;
+  }
+
+  @media (min-width: 1024px) {
+    .question-textarea-desktop textarea {
+      width: 547px !important;
+      max-width: 547px !important;
+      height: 80.65684509277344px !important;
+    }
+  }
+
+  @media (min-width: 1261px) {
+    .question-textarea-desktop textarea {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: 80.65684509277344px !important;
+    }
+  }
+
+  .question-image-desktop {
+    @apply w-full;
+    transition: width 0.3s ease, height 0.3s ease;
+  }
+
+  /* Hide sidebar completely on screens less than 1022px */
+  @media (max-width: 1022px) {
+    .sidebar-container:not(.lg\:relative) {
+      display: none !important;
+    }
+  }
+  
+  /* Hide sidebar div when it's closed on mobile/tablet */
+  .sidebar-wrapper.-translate-x-full:not(.lg\:relative) {
+    display: none !important;
+  }
+  
+  /* Hide question item cards on screens less than 1022px, but show them when sidebar is open */
+  @media (max-width: 1022px) {
+    .question-item-card {
+      display: none !important;
+    }
+    
+    /* Show question cards when sidebar is open */
+    .sidebar-wrapper.sidebar-open .question-item-card {
+      display: block !important;
+    }
+  }
+  
+  /* Hide sidebar header elements on small screens */
+  @media (max-width: 1015.861px) {
+    .sidebar-title,
+    .sidebar-add-button,
+    .sidebar-braille-icon {
+      display: none !important;
+    }
+    
+    .sidebar-header {
+      height: 0 !important;
+      padding: 0 !important;
+      border: none !important;
+      min-height: 0 !important;
+    }
+  }
+
+  /* Responsive scaling for image placeholder */
+  @media (max-width: 640px) {
+    .question-image-desktop {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      min-height: 150px !important;
+      max-height: 200px !important;
+    }
+  }
+
+  @media (min-width: 641px) and (max-width: 768px) {
+    .question-image-desktop {
+      width: 100% !important;
+      max-width: 250px !important;
+      height: auto !important;
+      min-height: 180px !important;
+      max-height: 230px !important;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1023px) {
+    .question-image-desktop {
+      width: 100% !important;
+      max-width: 260px !important;
+      height: auto !important;
+      min-height: 200px !important;
+      max-height: 260px !important;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .question-image-desktop {
+      width: 277px !important;
+      height: 274.6568603515625px !important;
+    }
   }
 }
 
