@@ -19,7 +19,8 @@ const QuizEditorHeader = ({
   onSettings,
 }: QuizEditorHeaderProps) => {
   return (
-    <header className="h-16 border-b border-light-grey bg-white px-6 flex items-center justify-between sticky top-0 z-10 relative">
+    <header className="h-16 border-b px-6 flex items-center justify-between sticky top-0 z-10 relative"
+      style={{ borderColor: 'var(--color-light-grey)', backgroundColor: 'var(--color-white)' }}>
       {/* Left side - Back button and last edited */}
       <div className="flex items-center gap-4 flex-shrink-0">
         <Link
@@ -54,7 +55,8 @@ const QuizEditorHeader = ({
           type="text"
           value={quizName}
           onChange={(e) => onQuizNameChange(e.target.value)}
-          className="text-base font-medium text-primary-800 bg-transparent border-none outline-none focus:ring-2 focus:ring-primary-200 rounded px-2 py-1 min-w-0 text-center"
+          className="text-base font-medium bg-transparent border-none outline-none focus:ring-2 focus:ring-primary-200 rounded px-2 py-1 min-w-0 text-center"
+          style={{ color: 'var(--color-text-dark)' }}
           placeholder="Name of the quizz"
         />
         <svg
@@ -151,8 +153,8 @@ const QuizEditorHeader = ({
         {/* Publish button */}
         <button
           onClick={onPublish}
-          className="text-white font-semibold rounded-lg px-6 py-2 transition-colors text-sm whitespace-nowrap"
-          style={{ backgroundColor: 'var(--color-blue)' }}
+          className="font-semibold rounded-lg px-6 py-2 transition-colors text-sm whitespace-nowrap"
+          style={{ backgroundColor: 'var(--color-blue)', color: 'var(--color-white)' }}
           onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--color-primary-600)'}
           onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--color-blue)'}
         >
