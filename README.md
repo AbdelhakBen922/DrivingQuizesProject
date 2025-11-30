@@ -13,10 +13,12 @@ This a web application aims to provide users (students preparing for driving tes
 
 ## System Architecture:
 - **Frontend:** ReactJS, Shadcn/UI, TailwindCSS
-- **Backend:** Laravel (PHP)
-- **Database:** MySQL
-- **Server:** Nginx
+- **Backend:** FastAPI (Python)
+- **Database:** PostgreSQL
+- **Authentication:** JWT (JSON Web Tokens)
+
 ## Created by
+
 - **Abdelhak Benbouziane (Team Leader) :** `AbdelhakBen922`
 - **Zakaria Chetouane :** `2EDX7`
 - **DhiaaEddine Guerfi :** `Dhia0Eddine`

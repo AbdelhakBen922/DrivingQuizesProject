@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+.env
+.venv/
+venv/
+env/
+*.sqlite3
+*.db
+
+# FastAPI/Starlette
+instance/
+static/uploads/
+static/profile_pics/
+static/uploads/profile_pics/
+
+# Alembic
+alembic/versions/
+alembic.ini
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# React/Frontend
+*.log
+build/
+dist/
+.cache/
+*.local
+*.DS_Store
+
+# VSCode
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+*.swp
+*.swo
+.idea/
+*.iml
+*.bak
+*.tmp
+
+# Ignore uploaded pictures and static images
+backend/static/
+backend/static/service_pics/
+backend/static/profile_pics/
