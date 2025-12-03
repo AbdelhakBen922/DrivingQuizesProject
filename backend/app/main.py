@@ -1,13 +1,17 @@
 from fastapi import Depends, FastAPI
-from sqlalchemy.orm import Session
+from sqlalchemy import text
+from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.api.router import api_router
+from app.core.config import settings
 from app.core.database import get_db
 
-app = FastAPI(title="Driving Quiz API")
+app = FastAPI(title=settings.app_name)
+app.include_router(api_router, prefix="/api")
 
 
 @app.get("/health")
-def health_check(db: Session = Depends(get_db)):
+async def health_check(session: AsyncSession = Depends(get_db)):
     """Health endpoint that validates DB connectivity."""
-    db.execute("SELECT 1")
+    await session.execute(text("SELECT 1"))
     return {"status": "ok"}

@@ -73,7 +73,31 @@ uvicorn app.main:app --reload
 ```
 Visit `http://127.0.0.1:8000/health` to confirm the service and DB connection are working.
 
-## 7. Project Structure
+## 7. Seed Sample Data
+
+Generate deterministic demo entities (plan, school, staff, template, etc.) with the provided script. It safely upserts the same UUIDs, so rerunning is fine when you need to refresh.
+
+```bash
+python scripts/seed_data.py
+```
+
+If you're using a named Conda environment run `conda run -n <env> python scripts/seed_data.py` instead.
+
+## 8. Endpoint Smoke Tests
+
+After the API server is running, execute the async smoke suite to verify the main CRUD flows stay healthy. The script hits `/health`, schools, students, quiz templates, and template-question routes, failing fast on any non-2xx response.
+
+```bash
+python scripts/test_endpoints.py --base-url http://localhost:8000
+```
+
+Flags:
+- `--base-url`: target service URL (defaults to `API_BASE_URL` env var or `http://localhost:8000`).
+- `--timeout`: per-request timeout in seconds (default 10).
+
+Use `conda run -n <env> python ...` if you keep dependencies inside a Conda env. The script prints PASS/FAIL per endpoint and returns exit code 1 on failure, making it suitable for CI or pre-commit checks.
+
+## 9. Project Structure
 ```
 backend/
 ├── .env
@@ -91,7 +115,15 @@ backend/
     └── main.py
 ```
 
-## 8. Common Tasks
+## 10. API Documentation
+
+FastAPI automatically serves interactive docs:
+- Swagger UI: `http://localhost:8000/docs`
+- ReDoc: `http://localhost:8000/redoc`
+
+Use them to explore schemas, execute requests with custom payloads, and share reproducible examples with teammates when debugging.
+
+## 11. Common Tasks
 - **Install new packages:** `pip install <pkg> && pip freeze > requirements.txt`
 - **Format / lint (optional):** add tools like `ruff` or `black` if needed.
 - **DB connection test:** `psql postgresql://myuser:mypassword@localhost:5432/drivingquiz -c "SELECT 1;"`

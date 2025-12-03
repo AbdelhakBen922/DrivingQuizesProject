@@ -17,10 +17,6 @@ static/uploads/
 static/profile_pics/
 static/uploads/profile_pics/
 
-# Alembic
-alembic/versions/
-alembic.ini
-
 # Node
 node_modules/
 npm-debug.log*
