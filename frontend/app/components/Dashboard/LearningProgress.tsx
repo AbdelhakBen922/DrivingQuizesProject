@@ -1,0 +1,77 @@
+import { useTranslation } from "react-i18next";
+
+interface ProgressItem {
+  key: string;
+  group: string;
+  subject: string;
+  percentage: number;
+  color: string;
+}
+
+export default function LearningProgress() {
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.language === 'ar';
+
+  const progressData: ProgressItem[] = [
+    { key: 'group3', group: 'Group 3', subject: 'Turning Priorities', percentage: 75, color: 'bg-blue-500' },
+    { key: 'group12', group: 'Group 12', subject: 'Cross Overs', percentage: 51, color: 'bg-blue-500' },
+    { key: 'group1', group: 'Group 1', subject: 'Road Signs', percentage: 23, color: 'bg-blue-500' },
+    { key: 'group5', group: 'Group 5', subject: 'Final Quiz', percentage: 97, color: 'bg-blue-500' },
+  ];
+
+  return (
+    <div className="bg-white rounded-2xl p-6 shadow-md">
+      {/* Header */}
+      <div className={`flex items-center justify-between mb-6 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+        <h3 className="text-xl font-bold text-primary-800">
+          {t('dashboard.progress.title', 'Learning Progress')}
+        </h3>
+        <button className="text-primary-500 text-sm font-semibold hover:text-primary-600">
+          {t('dashboard.progress.seeAll', 'See All')}
+          <span className={isRTL ? ' mr-1' : ' ml-1'}>→</span>
+        </button>
+      </div>
+
+      {/* Progress Items */}
+      <div className="space-y-4">
+        {progressData.map((item) => (
+          <div key={item.key} className="flex items-center gap-4">
+            {/* Text Content - Group name and topic */}
+            <div className={`flex-1 ${isRTL ? 'text-right' : 'text-left'}`}>
+              <p className="font-semibold text-primary-800">{item.group}</p>
+              <p className="text-sm text-grey">{item.subject}</p>
+            </div>
+
+            {/* Circle Progress - Most Left (in LTR) / Most Right (in RTL) */}
+            <div className="relative w-16 h-16 flex-shrink-0">
+              <svg className="transform -rotate-90 w-16 h-16">
+                <circle
+                  cx="32"
+                  cy="32"
+                  r="28"
+                  stroke="#e5e7eb"
+                  strokeWidth="6"
+                  fill="none"
+                />
+                <circle
+                  cx="32"
+                  cy="32"
+                  r="28"
+                  stroke="#1853f3"
+                  strokeWidth="6"
+                  fill="none"
+                  strokeDasharray={`${2 * Math.PI * 28}`}
+                  strokeDashoffset={`${2 * Math.PI * 28 * (1 - item.percentage / 100)}`}
+                  strokeLinecap="round"
+                />
+              </svg>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-xs font-bold text-primary-800">{item.percentage}%</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}

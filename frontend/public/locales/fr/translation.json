@@ -80,5 +80,52 @@
     "support": "Support",
     "supportItems": ["FAQ", "Contactez-nous", "Centre d'aide", "Mentions légales"],
     "copyright": "© 2025 — Tous droits réservés."
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "welcome": "Bienvenue Ecole_nom !",
+    "subtitle": "voici quelques statistiques rapides sur votre école",
+    "logout": "Déconnexion",
+    "nav": {
+      "home": "Accueil",
+      "groups": "Groupes",
+      "learning": "Apprentissage",
+      "quizzes": "Examens",
+      "settings": "Paramètres"
+    },
+    "user": {
+      "name": "[Nom de l'école]",
+      "role": "[Nom du propriétaire]",
+      "initials": "NE"
+    },
+    "stats": {
+      "groups": "Nombre de Groupes",
+      "students": "Nombre d'Élèves",
+      "quizzes": "Examens Actifs"
+    },
+    "calendar": {
+      "title": "Calendrier"
+    },
+    "chart": {
+      "quizScores": "Résultats des Examens",
+      "overall": "Global",
+      "monthly": "Mensuel",
+      "weekly": "Hebdomadaire"
+    },
+    "progress": {
+      "title": "Progression de l'Apprentissage",
+      "seeAll": "Tout voir"
+    },
+    "upcoming": {
+      "title": "Examens à Venir",
+      "seeAll": "Tout voir"
+    },
+    "enrollments": {
+      "title": "Nouvelles Inscriptions",
+      "viewAll": "voir tout"
+    },
+    "topStudents": {
+      "title": "Meilleurs Élèves"
+    }
   }
 }

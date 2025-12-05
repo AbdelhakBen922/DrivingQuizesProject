@@ -53,10 +53,10 @@ export default function Sidebar() {
       )}
 
       {/* Sidebar */}
-      <aside
+      <div
         className={`
-          fixed lg:sticky top-0 h-screen
-          w-64 bg-white shadow-lg z-40
+          fixed lg:relative top-0 h-screen
+          w-[270px] bg-white shadow-lg z-40
           transition-transform duration-300 ease-in-out
           ${isOpen ? 'translate-x-0' : '-translate-x-full'}
           lg:translate-x-0
@@ -123,7 +123,7 @@ export default function Sidebar() {
             </button>
           </div>
         </div>
-      </aside>
+      </div>
     </>
   );
 }

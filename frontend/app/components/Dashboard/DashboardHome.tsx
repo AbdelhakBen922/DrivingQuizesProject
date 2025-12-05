@@ -1,0 +1,46 @@
+import { useTranslation } from "react-i18next";
+import StatsCards from "./StatsCards";
+import QuizzesScoreChart from "./QuizzesScoreChart";
+import LearningProgress from "./LearningProgress";
+import NewEnrollments from "./NewEnrollments";
+import TopStudents from "./TopStudents";
+
+export default function DashboardHome() {
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.language === 'ar';
+
+  return (
+    <div className="space-y-6">
+      {/* HEADER */}
+      <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
+        <h1 className="text-3xl font-bold text-primary-800">
+          {t('dashboard.welcome', 'Welcome Back!')}
+        </h1>
+        <p className="text-grey mt-2">
+          {t('dashboard.subtitle', 'Here is your overview')}
+        </p>
+      </div>
+
+      {/* QUICK STATISTICS */}
+      <StatsCards />
+
+      {/* FIRST ROW: Quizzes Score Chart + Learning Progress */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* COLUMN 1: Quizzes Score Chart */}
+        <QuizzesScoreChart />
+
+        {/* COLUMN 2: Learning Progress */}
+        <LearningProgress />
+      </div>
+
+      {/* SECOND ROW: New Enrollments + Top Students */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* COLUMN 1: New Enrollments */}
+        <NewEnrollments />
+
+        {/* COLUMN 2: Top Students */}
+        <TopStudents />
+      </div>
+    </div>
+  );
+}
