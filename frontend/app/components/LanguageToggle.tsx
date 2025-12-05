@@ -1,11 +1,17 @@
-import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function LanguageToggle({ dark }: { dark: boolean }) {
-  const [lang, setLang] = useState<'FR' | 'AR'>('FR');
+  const { i18n } = useTranslation();
+  const lang = i18n.language === 'ar' ? 'AR' : 'FR';
+
+  const toggleLanguage = () => {
+    const newLang = lang === 'AR' ? 'fr' : 'ar';
+    i18n.changeLanguage(newLang);
+  };
 
   return (
     <div
-      onClick={() => setLang(lang === 'AR' ? 'FR' : 'AR')}
+      onClick={toggleLanguage}
       className={`
         relative flex w-24 cursor-pointer select-none items-center justify-between 
         rounded-full border px-2 py-1 text-sm transition-colors duration-300

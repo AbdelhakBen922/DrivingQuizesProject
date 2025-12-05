@@ -1,4 +1,5 @@
 import FadeInSection from "../FadeInSection";
+import { useTranslation } from "react-i18next";
 
 const FeatureLine = ({ icon, text }: { icon: string; text: string }) => {
     return (
@@ -10,6 +11,7 @@ const FeatureLine = ({ icon, text }: { icon: string; text: string }) => {
 };
 
 const LearningPreview = () => {
+    const { t } = useTranslation();
     return (
         <FadeInSection>
             <section className="two-columns-section two-columns-section-left ">
@@ -22,12 +24,10 @@ const LearningPreview = () => {
                 </div>
                 <div className="flex flex-col gap-7 justify-center items-center text-center md:text-start md:items-start">
                     <h1 className="text-primary-800">
-                        Apprenez le code avant de passer à la pratique.
+                        {t('learningPreview.title')}
                     </h1>
                     <p className="font-medium text-primary-600">
-                        Maîtrisez la théorie avec des leçons simples et visuelles.Comprenez
-                        les panneaux, les priorités et les règles de conduite — étape par
-                        étape.
+                        {t('learningPreview.description')}
                     </p>
                         <img
                             src="/assets/images/learning_preview_mobile.png"
@@ -37,19 +37,19 @@ const LearningPreview = () => {
                     <div className="flex flex-col justify-center items-start gap-2 text-start">
                         <FeatureLine
                             icon="/assets/icons/school.svg"
-                            text="Leçons interactives et illustrées pour chaque thème"
+                            text={t('learningPreview.feature1')}
                         />
                         <FeatureLine
                             icon="/assets/icons/poll.svg"
-                            text="Panneaux et situations réelles expliqués en détail"
+                            text={t('learningPreview.feature2')}
                         />
                         <FeatureLine
                             icon="/assets/icons/explore.svg"
-                            text="Suivi de progression pour savoir où vous en êtes"
+                            text={t('learningPreview.feature3')}
                         />
                     </div>
                     <button className="btn-primary text-2xl mt-4">
-                        Apprendre le code
+                        {t('learningPreview.btn')}
                     </button>
                 </div>
             </section>
