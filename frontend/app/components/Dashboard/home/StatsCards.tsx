@@ -19,18 +19,18 @@ export default function StatsCards() {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       {stats.map((stat) => (
         <div
           key={stat.key}
-          className="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition-all duration-200 hover:scale-105"
+          className="bg-white rounded-xl shadow-md p-4 hover:shadow-lg transition-all duration-200"
         >
-          <div className={`flex items-center gap-4 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+          <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
             <div 
-              className="w-[60px] h-[60px] rounded-xl flex items-center justify-center p-[7.5px]"
+              className="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-[6px]"
               style={{ backgroundColor: stat.bgColorHex }}
             >
-              <div className="w-full h-full bg-white bg-opacity-80 rounded-lg flex items-center justify-center p-1">
+              <div className="w-full h-full bg-white bg-opacity-80 rounded-md flex items-center justify-center p-1">
                 <img 
                   src={stat.iconPath} 
                   alt={stat.key}
@@ -39,10 +39,10 @@ export default function StatsCards() {
               </div>
             </div>
             <div className={isRTL ? 'text-right' : 'text-left'}>
-              <p className="text-grey text-sm font-medium">
+              <p className="text-grey text-xs font-medium">
                 {t(`dashboard.stats.${stat.key}`, stat.key)}
               </p>
-              <p className="text-4xl font-bold text-primary-800 mt-1">
+              <p className="text-3xl font-bold text-primary-800 mt-0.5">
                 {stat.value}
               </p>
             </div>

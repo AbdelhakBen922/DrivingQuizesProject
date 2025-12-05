@@ -10,22 +10,24 @@ export default function DashboardHome() {
   const isRTL = i18n.language === 'ar';
 
   return (
-    <div className="space-y-6">
+    <div className="h-full flex flex-col space-y-3 overflow-hidden">
       {/* HEADER */}
-      <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
-        <h1 className="text-3xl font-bold text-primary-800">
+      <div className={`${isRTL ? 'text-right' : 'text-left'} flex-shrink-0`}>
+        <h1 className="text-2xl font-bold text-primary-800">
           {t('dashboard.welcome', 'Welcome Back!')}
         </h1>
-        <p className="text-grey mt-2">
+        <p className="text-grey text-sm mt-1">
           {t('dashboard.subtitle', 'Here is your overview')}
         </p>
       </div>
 
       {/* QUICK STATISTICS */}
-      <StatsCards />
+      <div className="flex-shrink-0">
+        <StatsCards />
+      </div>
 
       {/* FIRST ROW: Quizzes Score Chart + Learning Progress */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 flex-1 min-h-0">
         {/* COLUMN 1: Quizzes Score Chart */}
         <QuizzesScoreChart />
 
@@ -34,7 +36,7 @@ export default function DashboardHome() {
       </div>
 
       {/* SECOND ROW: New Enrollments + Top Students */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 flex-1 min-h-0">
         {/* COLUMN 1: New Enrollments */}
         <NewEnrollments />
 

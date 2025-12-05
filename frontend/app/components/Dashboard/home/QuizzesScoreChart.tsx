@@ -27,10 +27,10 @@ export default function QuizzesScoreChart() {
   const maxValue = Math.max(...data.map(d => d.value));
 
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-md">
+    <div className="bg-white rounded-xl p-4 shadow-md h-full flex flex-col overflow-hidden">
       {/* Header */}
-      <div className={`flex items-center justify-between mb-6 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
-        <h3 className="text-xl font-bold text-primary-800">
+      <div className={`flex items-center justify-between mb-3 flex-shrink-0 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+        <h3 className="text-lg font-bold text-primary-800">
           {t('dashboard.chart.quizScores', 'Quizzes Scores')}
         </h3>
 
@@ -39,29 +39,29 @@ export default function QuizzesScoreChart() {
           <select
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
-            className="appearance-none bg-primary-50 text-primary-800 font-semibold px-4 py-2 pr-8 rounded-lg border-none outline-none cursor-pointer"
+            className="appearance-none bg-primary-50 text-primary-800 font-semibold px-3 py-1 pr-7 rounded-lg border-none outline-none cursor-pointer text-xs"
           >
             <option value="overall">{t('dashboard.chart.overall', 'Overall')}</option>
             <option value="monthly">{t('dashboard.chart.monthly', 'Monthly')}</option>
             <option value="weekly">{t('dashboard.chart.weekly', 'Weekly')}</option>
           </select>
-          <svg className={`absolute ${isRTL ? 'left-2' : 'right-2'} top-1/2 -translate-y-1/2 w-4 h-4 text-primary-800 pointer-events-none`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className={`absolute ${isRTL ? 'left-2' : 'right-2'} top-1/2 -translate-y-1/2 w-3 h-3 text-primary-800 pointer-events-none`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
         </div>
       </div>
 
       {/* Chart */}
-      <div className="relative h-64">
+      <div className="relative flex-1 min-h-0">
         {/* Y-axis labels */}
-        <div className="absolute left-0 top-0 bottom-0 flex flex-col justify-between text-xs text-grey">
+        <div className="absolute left-0 top-0 bottom-0 flex flex-col justify-between text-[10px] text-grey">
           {[4, 3.5, 3, 2.5, 2, 1.5, 1, 0.5, 0].map((val) => (
             <div key={val}>{val}</div>
           ))}
         </div>
 
         {/* Chart Area */}
-        <div className={`${isRTL ? 'mr-8' : 'ml-8'} h-full relative`}>
+        <div className={`${isRTL ? 'mr-6' : 'ml-6'} h-full relative`}>
           {/* Grid Lines */}
           <div className="absolute inset-0 flex flex-col justify-between">
             {[...Array(9)].map((_, i) => (
@@ -119,7 +119,7 @@ export default function QuizzesScoreChart() {
         </div>
 
         {/* X-axis labels */}
-        <div className={`absolute bottom-0 ${isRTL ? 'right-8 left-0' : 'left-8 right-0'} flex justify-around text-xs text-grey mt-2`}>
+        <div className={`absolute bottom-0 ${isRTL ? 'right-6 left-0' : 'left-6 right-0'} flex justify-around text-[10px] text-grey mt-2`}>
           {data.map((point, idx) => (
             <div key={idx}>{point.month}</div>
           ))}

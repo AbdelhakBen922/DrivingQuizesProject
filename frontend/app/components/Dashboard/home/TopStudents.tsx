@@ -42,36 +42,36 @@ export default function TopStudents() {
   };
 
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-md">
+    <div className="bg-white rounded-xl p-4 shadow-md h-full flex flex-col overflow-hidden">
       {/* Header */}
-      <div className={`flex items-center justify-between mb-6 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
-        <h3 className="text-xl font-bold text-primary-800">
+      <div className={`flex items-center justify-between mb-3 flex-shrink-0 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+        <h3 className="text-lg font-bold text-primary-800">
           {t('dashboard.topStudents.title', 'Top Students')}
         </h3>
       </div>
 
       {/* Students List - Scrollable, shows 4 initially */}
-      <div className="max-h-[400px] overflow-y-auto space-y-3 pr-2">
+      <div className="overflow-y-auto space-y-2 pr-2 flex-1">
         {students.map((student) => (
           <div
             key={student.id}
-            className="bg-gray-50 rounded-xl p-4 hover:bg-gray-100 transition-all"
+            className="bg-gray-50 rounded-lg p-3 hover:bg-gray-100 transition-all"
           >
-            <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+            <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
               {/* Avatar with rank color */}
-              <div className={`w-12 h-12 ${getRankColor(student.rank)} rounded-full flex items-center justify-center text-white font-bold flex-shrink-0`}>
+              <div className={`w-10 h-10 ${getRankColor(student.rank)} rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 text-sm`}>
                 {student.avatar}
               </div>
 
               {/* Content */}
               <div className={`flex-1 ${isRTL ? 'text-right' : 'text-left'}`}>
-                <p className="font-semibold text-primary-800">{student.name}</p>
-                <p className="text-sm text-grey">{student.points} Points</p>
+                <p className="font-semibold text-primary-800 text-sm">{student.name}</p>
+                <p className="text-xs text-grey">{student.points} Points</p>
               </div>
 
               {/* Rank Icon (only for top 3) */}
               {getRankIcon(student.rank) && (
-                <div className="text-2xl">
+                <div className="text-xl">
                   {getRankIcon(student.rank)}
                 </div>
               )}

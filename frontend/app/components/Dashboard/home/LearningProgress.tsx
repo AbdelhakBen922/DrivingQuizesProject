@@ -20,53 +20,53 @@ export default function LearningProgress() {
   ];
 
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-md">
+    <div className="bg-white rounded-xl p-4 shadow-md h-full flex flex-col overflow-hidden">
       {/* Header */}
-      <div className={`flex items-center justify-between mb-6 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
-        <h3 className="text-xl font-bold text-primary-800">
+      <div className={`flex items-center justify-between mb-3 flex-shrink-0 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+        <h3 className="text-lg font-bold text-primary-800">
           {t('dashboard.progress.title', 'Learning Progress')}
         </h3>
-        <button className="text-primary-500 text-sm font-semibold hover:text-primary-600">
+        <button className="text-primary-500 text-xs font-semibold hover:text-primary-600">
           {t('dashboard.progress.seeAll', 'See All')}
           <span className={isRTL ? ' mr-1' : ' ml-1'}>→</span>
         </button>
       </div>
 
-      {/* Progress Items */}
-      <div className="space-y-4">
+      {/* Progress Items - Scrollable */}
+      <div className="space-y-3 overflow-y-auto flex-1 pr-2">
         {progressData.map((item) => (
-          <div key={item.key} className="flex items-center gap-4">
+          <div key={item.key} className="flex items-center gap-3">
             {/* Text Content - Group name and topic */}
             <div className={`flex-1 ${isRTL ? 'text-right' : 'text-left'}`}>
-              <p className="font-semibold text-primary-800">{item.group}</p>
-              <p className="text-sm text-grey">{item.subject}</p>
+              <p className="font-semibold text-primary-800 text-sm">{item.group}</p>
+              <p className="text-xs text-grey">{item.subject}</p>
             </div>
 
             {/* Circle Progress - Most Left (in LTR) / Most Right (in RTL) */}
-            <div className="relative w-16 h-16 flex-shrink-0">
-              <svg className="transform -rotate-90 w-16 h-16">
+            <div className="relative w-12 h-12 flex-shrink-0">
+              <svg className="transform -rotate-90 w-12 h-12">
                 <circle
-                  cx="32"
-                  cy="32"
-                  r="28"
+                  cx="24"
+                  cy="24"
+                  r="20"
                   stroke="#e5e7eb"
-                  strokeWidth="6"
+                  strokeWidth="4"
                   fill="none"
                 />
                 <circle
-                  cx="32"
-                  cy="32"
-                  r="28"
+                  cx="24"
+                  cy="24"
+                  r="20"
                   stroke="#1853f3"
-                  strokeWidth="6"
+                  strokeWidth="4"
                   fill="none"
-                  strokeDasharray={`${2 * Math.PI * 28}`}
-                  strokeDashoffset={`${2 * Math.PI * 28 * (1 - item.percentage / 100)}`}
+                  strokeDasharray={`${2 * Math.PI * 20}`}
+                  strokeDashoffset={`${2 * Math.PI * 20 * (1 - item.percentage / 100)}`}
                   strokeLinecap="round"
                 />
               </svg>
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-xs font-bold text-primary-800">{item.percentage}%</span>
+                <span className="text-[10px] font-bold text-primary-800">{item.percentage}%</span>
               </div>
             </div>
           </div>

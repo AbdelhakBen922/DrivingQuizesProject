@@ -5,6 +5,6 @@ export default [
     route("select-quiz","routes/Quiz/quiz-select.tsx"),
     route("quiz/:quizId","routes/Quiz/quiz.tsx"),
     layout("routes/Dashboard/dashboard.tsx", [
-        route("dashboard", "components/Dashboard/DashboardHome.tsx"),
+        route("dashboard", "components/Dashboard/home/DashboardHome.tsx"),
     ]),
 ] satisfies RouteConfig;
