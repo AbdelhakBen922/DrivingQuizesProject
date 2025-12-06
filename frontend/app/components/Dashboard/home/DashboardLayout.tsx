@@ -21,7 +21,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       
       {/* Main Content Body - No scrolling, fits in viewport */}
       <main className="flex-1 h-screen overflow-hidden min-w-0">
-        <div className="w-full h-full p-4 lg:p-6">
+        <div className="w-full h-full px-4 lg:px-6 py-3 lg:py-4">
           {children}
         </div>
       </main>

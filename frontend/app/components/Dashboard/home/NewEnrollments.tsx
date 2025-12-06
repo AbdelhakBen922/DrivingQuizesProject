@@ -32,8 +32,8 @@ export default function NewEnrollments() {
         </button>
       </div>
 
-      {/* Enrollment List - Only 3 students */}
-      <div className="space-y-3 flex-1">
+      {/* Enrollment List - Only 3 students, no scroll */}
+      <div className="space-y-3">
         {enrollments.map((enrollment) => (
           <div
             key={enrollment.id}
