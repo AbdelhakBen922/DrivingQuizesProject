@@ -12,7 +12,6 @@ class QuizBase(ORMModel):
 	is_public: bool = False
 	title: str
 	description: str | None = None
-	total_time_seconds: int | None = None
 	created_by_id: int | None = None
 
 

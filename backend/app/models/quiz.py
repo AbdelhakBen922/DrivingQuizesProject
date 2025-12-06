@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Boolean, ForeignKey, Integer, String, Text, text
+from sqlalchemy import Boolean, ForeignKey, String, Text, text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.models.base import Base, BigIntPrimaryKeyMixin, SoftDeleteMixin, TimestampMixin
@@ -26,7 +26,6 @@ class Quiz(BigIntPrimaryKeyMixin, TimestampMixin, SoftDeleteMixin, Base):
     is_public: Mapped[bool] = mapped_column(Boolean, nullable=False, server_default=text("false"))
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     description: Mapped[str | None] = mapped_column(Text)
-    total_time_seconds: Mapped[int | None] = mapped_column(Integer)
     created_by_id: Mapped[int | None] = mapped_column(ForeignKey("staff_user.id", ondelete="SET NULL"))
 
     school: Mapped["School | None"] = relationship(back_populates="quizzes")

@@ -213,7 +213,6 @@ async def seed() -> None:
             "setting_id": quiz_setting.id,
             "title": "Fundamentals Assessment",
             "description": "Covers basic priority and safety rules",
-            "total_time_seconds": 900,
             "created_by_id": staff.id,
         }
         quiz, created = await get_or_create(
