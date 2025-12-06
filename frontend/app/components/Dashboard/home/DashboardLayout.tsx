@@ -28,7 +28,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
 
       {/* Right Sidebar - Calendar & Upcoming Quizzes - 480px base width, fixed, no scrolling */}
       <aside className="hidden xl:flex w-[480px] flex-shrink-0 h-screen bg-primary-25 shadow-lg overflow-hidden">
-        <div className="w-full h-full flex flex-col p-4 md:p-6 lg:p-[30px] space-y-3">
+        <div className="w-full h-full flex flex-col p-4 md:p-6 lg:p-[30px] space-y-3 border-l border-grey">
           <CalendarWidget />
           <UpcomingQuizzes />
         </div>
