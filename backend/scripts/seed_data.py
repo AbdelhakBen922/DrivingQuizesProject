@@ -15,6 +15,9 @@ if str(BASE_DIR) not in sys.path:
 from app.core.database import AsyncSessionLocal
 from app.models.answer import Answer
 from app.models.choice import Choice
+from app.models.learning_module import LearningModule
+from app.models.learning_module_lesson import LearningModuleLesson
+from app.models.learning_progress import LearningProgress
 from app.models.plan import Plan
 from app.models.question import Question
 from app.models.quiz import Quiz
@@ -235,6 +238,79 @@ async def seed() -> None:
             quiz_question_defaults,
         )
         report.append(f"Quiz question link: {'created' if created else 'updated'}")
+
+        module_defaults = {
+            "school_id": school.id,
+            "created_by_id": staff.id,
+            "title": "Traffic Theory Essentials",
+            "description": "Sequenced lessons that reinforce the quiz material",
+            "content": {"estimated_time_minutes": 90, "objectives": ["Understand right-of-way", "Master safe maneuvers"]},
+            "tags": {"level": "beginner"},
+        }
+        learning_module, created = await get_or_create(
+            session,
+            LearningModule,
+            {"title": module_defaults["title"], "school_id": school.id},
+            module_defaults,
+        )
+        report.append(f"Learning module: {'created' if created else 'updated'}")
+
+        lessons_payload = [
+            {
+                "order_index": 1,
+                "title": "Right-of-Way Basics",
+                "content": {
+                    "summary": "When to yield at intersections",
+                    "media": {"type": "video", "url": "https://example.com/right-of-way"},
+                },
+            },
+            {
+                "order_index": 2,
+                "title": "Safe Turning Techniques",
+                "content": {
+                    "summary": "Mirror-signal-maneuver routine",
+                    "media": {"type": "diagram", "url": "https://example.com/turning"},
+                },
+            },
+        ]
+
+        lessons: list[LearningModuleLesson] = []
+        for lesson_data in lessons_payload:
+            lookup = {
+                "learning_module_id": learning_module.id,
+                "order_index": lesson_data["order_index"],
+            }
+            defaults = {
+                "title": lesson_data["title"],
+                "content": lesson_data["content"],
+            }
+            lesson, lesson_created = await get_or_create(
+                session,
+                LearningModuleLesson,
+                lookup,
+                defaults,
+            )
+            lessons.append(lesson)
+            report.append(
+                "Lesson order {order}: {state}".format(
+                    order=lesson_data["order_index"],
+                    state="created" if lesson_created else "updated",
+                )
+            )
+
+        first_lesson_id = lessons[0].id if lessons else None
+        progress_defaults = {
+            "lesson_id": first_lesson_id,
+            "completed": False,
+            "progress_data": {"percent_complete": 0.25, "last_activity": "seed"},
+        }
+        _, created = await get_or_create(
+            session,
+            LearningProgress,
+            {"student_id": student.id, "learning_module_id": learning_module.id},
+            progress_defaults,
+        )
+        report.append(f"Learning progress: {'created' if created else 'updated'}")
 
         room_defaults = {
             "school_id": school.id,

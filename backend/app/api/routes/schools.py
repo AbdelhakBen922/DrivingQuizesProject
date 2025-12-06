@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Response, status
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
@@ -9,7 +9,7 @@ from app.core.database import get_db
 from app.models.enums import PlanTier
 from app.models.plan import Plan
 from app.models.school import School
-from app.schemas.school import SchoolCreate, SchoolRead
+from app.schemas.school import SchoolCreate, SchoolRead, SchoolUpdate
 
 router = APIRouter(prefix="/schools", tags=["schools"])
 
@@ -81,3 +81,37 @@ async def get_school(school_id: int, session: AsyncSession = Depends(get_db)) ->
     if not school:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="School not found")
     return school
+
+
+@router.patch("/{school_id}", response_model=SchoolRead)
+async def update_school(
+    school_id: int, payload: SchoolUpdate, session: AsyncSession = Depends(get_db)
+) -> School:
+    school = await session.get(School, school_id)
+    if not school:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="School not found")
+
+    data = payload.model_dump(exclude_unset=True)
+    plan_id = data.get("plan_id")
+    if plan_id is not None:
+        await _get_plan_by_id(session, plan_id)
+
+    for field, value in data.items():
+        setattr(school, field, value)
+
+    await session.commit()
+    result = await session.execute(
+        select(School).options(selectinload(School.plan)).where(School.id == school.id)
+    )
+    return result.scalar_one()
+
+
+@router.delete("/{school_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_school(school_id: int, session: AsyncSession = Depends(get_db)) -> Response:
+    school = await session.get(School, school_id)
+    if not school:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="School not found")
+
+    await session.delete(school)
+    await session.commit()
+    return Response(status_code=status.HTTP_204_NO_CONTENT)

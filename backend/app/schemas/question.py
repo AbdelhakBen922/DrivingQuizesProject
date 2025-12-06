@@ -36,3 +36,18 @@ class QuestionRead(QuestionBase):
 	deleted_at: datetime | None = None
 
 	model_config = ORMModel.model_config
+
+
+class QuestionUpdate(ORMModel):
+	text: str | None = None
+	image_url: str | None = None
+	category: QuestionCategory | None = None
+	type: QuestionType | None = None
+	difficulty: QuestionDifficulty | None = None
+	is_required: bool | None = None
+	score: int | None = None
+	explanation: str | None = None
+	tags: dict[str, Any] | None = None
+	version: int | None = None
+	school_id: int | None = None
+	author_id: int | None = None

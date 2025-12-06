@@ -20,6 +20,18 @@ class QuizSettingCreate(QuizSettingBase):
     pass
 
 
+class QuizSettingUpdate(ORMModel):
+    vehicle_type: VehicleType | None = None
+    mode: QuizMode | None = None
+    question_count: int | None = None
+    randomize_questions: bool | None = None
+    randomize_choices: bool | None = None
+    passing_score: int | None = None
+    review_allowed: bool | None = None
+
+    model_config = ORMModel.model_config
+
+
 class QuizSettingRead(QuizSettingBase):
     id: int
     created_at: datetime

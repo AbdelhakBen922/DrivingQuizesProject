@@ -27,3 +27,12 @@ class QuizRead(QuizBase):
 	setting: QuizSettingRead | None = None
 
 	model_config = ORMModel.model_config
+
+
+class QuizUpdate(ORMModel):
+	school_id: int | None = None
+	setting_id: int | None = None
+	is_public: bool | None = None
+	title: str | None = None
+	description: str | None = None
+	created_by_id: int | None = None
