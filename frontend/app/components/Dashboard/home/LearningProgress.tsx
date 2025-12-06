@@ -42,9 +42,10 @@ export default function LearningProgress() {
               <p className="text-xs text-grey">{item.subject}</p>
             </div>
 
-            {/* Circle Progress - Most Left (in LTR) / Most Right (in RTL) */}
+            {/* Circle Progress - Most Right (shows percentage) */}
             <div className="relative w-12 h-12 flex-shrink-0">
-              <svg className="transform -rotate-90 w-12 h-12">
+              <svg className="w-12 h-12 transform -rotate-90" viewBox="0 0 48 48">
+                {/* Background circle */}
                 <circle
                   cx="24"
                   cy="24"
@@ -53,6 +54,7 @@ export default function LearningProgress() {
                   strokeWidth="4"
                   fill="none"
                 />
+                {/* Progress circle */}
                 <circle
                   cx="24"
                   cy="24"
@@ -60,8 +62,8 @@ export default function LearningProgress() {
                   stroke="#1853f3"
                   strokeWidth="4"
                   fill="none"
-                  strokeDasharray={`${2 * Math.PI * 20}`}
-                  strokeDashoffset={`${2 * Math.PI * 20 * (1 - item.percentage / 100)}`}
+                  strokeDasharray={125.66}
+                  strokeDashoffset={125.66 * (1 - item.percentage / 100)}
                   strokeLinecap="round"
                 />
               </svg>

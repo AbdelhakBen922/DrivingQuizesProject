@@ -8,15 +8,15 @@ interface StatCard {
   bgColorHex: string;
 }
 
+const stats: StatCard[] = [
+  { key: 'groups', iconPath: '/assets/icons/dashboard/statistics/groups.svg', value: 13, bgColorClass: 'bg-primary-300', bgColorHex: '#D0E7E9' },
+  { key: 'students', iconPath: '/assets/icons/dashboard/statistics/User_03.svg', value: 256, bgColorClass: 'bg-primary-800', bgColorHex: '#E8DAEA' },
+  { key: 'quizzes', iconPath: '/assets/icons/dashboard/statistics/Select_Multiple.svg', value: 13, bgColorClass: 'bg-grey', bgColorHex: '#D1DDFD' },
+];
+
 export default function StatsCards() {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === 'ar';
-
-  const stats: StatCard[] = [
-    { key: 'groups', iconPath: '/assets/icons/dashboard/statistics/groups.svg', value: 13, bgColorClass: 'bg-primary-300', bgColorHex: '#1853f3' },
-    { key: 'students', iconPath: '/assets/icons/dashboard/statistics/User_03.svg', value: 256, bgColorClass: 'bg-primary-800', bgColorHex: '#0a2161' },
-    { key: 'quizzes', iconPath: '/assets/icons/dashboard/statistics/Select_Multiple.svg', value: 13, bgColorClass: 'bg-grey', bgColorHex: '#6d7d8b' },
-  ];
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -27,16 +27,14 @@ export default function StatsCards() {
         >
           <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
             <div 
-              className="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-[6px]"
+              className="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3"
               style={{ backgroundColor: stat.bgColorHex }}
             >
-              <div className="w-full h-full bg-white bg-opacity-80 rounded-md flex items-center justify-center p-1">
-                <img 
-                  src={stat.iconPath} 
-                  alt={stat.key}
-                  className="w-full h-full object-contain"
-                />
-              </div>
+              <img 
+                src={stat.iconPath} 
+                alt={stat.key}
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className={isRTL ? 'text-right' : 'text-left'}>
               <p className="text-grey text-xs font-medium">
