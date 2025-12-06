@@ -15,7 +15,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
     <div className={`h-screen flex ${isRTL ? 'flex-row-reverse' : 'flex-row'} bg-gray-50 overflow-hidden`}>
       {/* Left Sidebar - Navigation - 270px base width, fixed, no scroll */}
-      <aside className="hidden lg:flex w-[270px] flex-shrink-0 h-screen overflow-hidden">
+      <aside className="hidden lg:flex w-[270px] flex-shrink-0 h-screen overflow-hidden bg-primary-25">
         <Sidebar />
       </aside>
       
@@ -26,13 +26,11 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         </div>
       </main>
 
-      {/* Right Sidebar - Calendar & Upcoming Quizzes - 480px base width, fixed */}
-      <aside className="hidden xl:flex w-[480px] flex-shrink-0 h-screen bg-white shadow-lg overflow-hidden">
-        <div className="w-full h-full overflow-y-auto">
-          <div className="p-4 space-y-4">
-            <CalendarWidget />
-            <UpcomingQuizzes />
-          </div>
+      {/* Right Sidebar - Calendar & Upcoming Quizzes - 480px base width, fixed, no scrolling */}
+      <aside className="hidden xl:flex w-[480px] flex-shrink-0 h-screen bg-primary-25 shadow-lg overflow-hidden">
+        <div className="w-full h-full flex flex-col p-4 md:p-6 lg:p-[30px] space-y-3">
+          <CalendarWidget />
+          <UpcomingQuizzes />
         </div>
       </aside>
     </div>

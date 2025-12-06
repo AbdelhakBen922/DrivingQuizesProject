@@ -56,7 +56,7 @@ export default function Sidebar() {
       <div
         className={`
           fixed lg:relative top-0 h-screen
-          w-[270px] bg-white shadow-lg z-40
+          w-[270px] bg-primary-25 shadow-lg z-40
           transition-transform duration-300 ease-in-out
           ${isOpen ? 'translate-x-0' : '-translate-x-full'}
           lg:translate-x-0

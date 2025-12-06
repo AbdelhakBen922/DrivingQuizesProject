@@ -33,7 +33,7 @@ export default function LearningProgress() {
       </div>
 
       {/* Progress Items - Scrollable */}
-      <div className="space-y-3 overflow-y-auto flex-1 pr-2">
+      <div className="space-y-3 overflow-y-auto flex-1 pr-2 custom-scrollbar">
         {progressData.map((item) => (
           <div key={item.key} className="flex items-center gap-3">
             {/* Text Content - Group name and topic */}

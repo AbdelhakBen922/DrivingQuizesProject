@@ -33,16 +33,16 @@ export default function CalendarWidget() {
   }
 
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-md">
+    <div className="bg-white rounded-xl p-3 shadow-md flex-shrink-0">
       {/* Header */}
-      <div className={`flex items-center justify-between mb-4 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+      <div className={`flex items-center justify-between mb-2 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
         <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
           <svg className={`w-5 h-5 text-grey ${isRTL ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
 
-        <h3 className="text-lg font-bold text-primary-800">
+        <h3 className="text-base font-bold text-primary-800">
           {t('dashboard.calendar.title', 'Calendar')}
         </h3>
 

@@ -51,7 +51,7 @@ export default function TopStudents() {
       </div>
 
       {/* Students List - Scrollable, shows 4 initially */}
-      <div className="overflow-y-auto space-y-2 pr-2 flex-1">
+      <div className="overflow-y-auto space-y-2 pr-2 flex-1 custom-scrollbar">
         {students.map((student) => (
           <div
             key={student.id}
