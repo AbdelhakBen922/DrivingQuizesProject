@@ -129,3 +129,45 @@ Use them to explore schemas, execute requests with custom payloads, and share re
 - **DB connection test:** `psql postgresql://myuser:mypassword@localhost:5432/drivingquiz -c "SELECT 1;"`
 
 Feel free to extend routers under `app/api/`, schemas in `app/schemas/`, and services in `app/services/` as features evolve.
+
+## 12. Authentication & Sample Accounts
+
+Most dashboard and student endpoints require a JWT bearer token. Use the bootstrap script to seed a default owner-level staff user and a demo student:
+
+```bash
+python scripts/bootstrap_users.py
+```
+
+This creates:
+
+| Role | Username | Password |
+| --- | --- | --- |
+| Staff (owner) | `admin@example.com` | `admin123` |
+| Student | `S1001` | `student123` |
+
+Flow:
+1. Call `POST /api/dashboard/auth/login` with the staff credentials to receive a JWT.
+2. Send subsequent dashboard requests with `Authorization: Bearer <token>`.
+3. Students authenticate via `POST /api/student/auth/login` using their code/password and use the issued token for `/api/student/*` routes.
+
+## 13. Endpoint Overview
+
+Summary of the primary features implemented so far:
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `POST` | `/api/dashboard/auth/login` | Staff authentication (email + password). |
+| `POST` | `/api/student/auth/login` | Student authentication (code + password). |
+| `GET` | `/api/dashboard/students/` | List students in the current staff member's school. |
+| `POST` | `/api/dashboard/students/` | Create a student (auto-hashes password, scopes to staff school). |
+| `POST` | `/api/dashboard/staff/` | Create another staff user (owner/admin only). |
+| `POST` | `/api/dashboard/rooms/` | Create a room owned by the staff member's school. |
+| `DELETE` | `/api/dashboard/rooms/{room_id}` | Remove a room. |
+| `POST` | `/api/dashboard/rooms/{room_id}/members` | Add/activate a student in the room. |
+| `DELETE` | `/api/dashboard/rooms/{room_id}/members/{student_id}` | Soft-remove a student (status `REMOVED`). |
+| `POST` | `/api/dashboard/rooms/{room_id}/quizzes` | Publish a quiz to the room (prevents duplicates). |
+| `DELETE` | `/api/dashboard/rooms/{room_id}/quizzes/{quiz_id}` | Unpublish a quiz from the room. |
+| `GET` | `/api/student/rooms/` | Authenticated student room list (pending full implementation). |
+| `GET` | `/api/student/quizzes/` | Authenticated student quiz list (pending full implementation). |
+
+All dashboard routes share the same staff JWT guard via `get_current_staff`, ensuring school isolation. Student routes use `get_current_student`, so even the current stubs already enforce authentication while you continue iterating on the business logic.
