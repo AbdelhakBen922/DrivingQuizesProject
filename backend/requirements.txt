@@ -12,3 +12,5 @@ pydantic-settings==2.2.1
 email-validator==2.1.0.post1
 faker==23.3.0 # for generating seed data
 httpx[http2]==0.27.0 # for HTTP/2 support
+passlib[bcrypt]==1.7.4
+python-jose[cryptography]==3.3.0

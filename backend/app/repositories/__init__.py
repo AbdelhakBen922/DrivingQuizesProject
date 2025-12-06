@@ -1,3 +1,5 @@
 """Data access layer abstractions."""
 
-__all__ = []
+from app.repositories import staff, student
+
+__all__ = ["staff", "student"]

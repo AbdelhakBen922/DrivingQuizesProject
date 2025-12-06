@@ -29,3 +29,12 @@ class StaffUserRead(StaffUserBase):
     updated_at: datetime
 
     model_config = ORMModel.model_config
+
+
+class StaffUserCreateRequest(ORMModel):
+    email: EmailStr = Field(..., max_length=255)
+    role: StaffRole
+    password: str = Field(..., min_length=8)
+    name: str | None = Field(default=None, max_length=255)
+    phone: str | None = Field(default=None, max_length=50)
+    is_active: bool = True
