@@ -80,5 +80,70 @@
     "support": "الدعم",
     "supportItems": ["الأسئلة الشائعة", "اتصل بنا", "مركز المساعدة", "الشروط القانونية"],
     "copyright": "© 2025 — جميع الحقوق محفوظة."
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "welcome": "مرحبًا بك في لوحة التحكم",
+    "nav": {
+      "home": "الرئيسية",
+      "groups": "المجموعات",
+      "learning": "قسم التعلم",
+      "quizzes": "الامتحانات",
+      "settings": "الإعدادات"
+    },
+    "user": {
+      "name": "[اسم المدرسة]",
+      "role": "[اسم المالك]",
+      "initials": "س م"
+    },
+    "logout": "تسجيل الخروج"
+  },
+  "groups": {
+    "title": "إدارة المجموعات",
+    "subtitle": "قم بإدارة مجموعاتك وتلاميذك",
+    "create_group": "إنشاء مجموعة",
+    "search_placeholder": "البحث عن مجموعة",
+    "all_classes": "جميع الأصناف",
+    "all_groups": "كل المجموعات",
+    "manage_description": "قم بإدارة مجموعاتك وتلاميذك",
+    "stats": {
+      "groups_count": "عدد المجموعات",
+      "students_count": "عدد التلاميذ",
+      "progress_rate": "معدل التقدم"
+    },
+    "table": {
+      "group": "المجموعة",
+      "creation_date": "تاريخ الإنشاء",
+      "room_code": "كود الغرفة",
+      "class": "الصنف",
+      "topic": "الموضوع",
+      "progress": "التقدم",
+      "actions": "الإجراءات"
+    },
+    "modal": {
+      "create_title": "إنشاء مجموعة جديدة",
+      "create_subtitle": "أدخل معلومات المجموعة وسيتم إنشاء كود المجموعة تلقائيًا",
+      "edit_title": "تعديل المجموعة",
+      "edit_subtitle": "قم بتعديل معلومات المجموعة",
+      "group_name": "إسم المجموعة",
+      "group_name_placeholder": "المجموعة 10",
+      "student_count": "عدد التلاميذ",
+      "class": "الصنف",
+      "class_a": "صنف -أ-",
+      "class_b": "صنف -ب-",
+      "class_c": "صنف -ج-",
+      "description": "وصف المجموعة",
+      "description_placeholder": "قم بتوفير وصف للمجموعة",
+      "add_group": "اضافة المجموعة",
+      "update_group": "تحديث المجموعة",
+      "cancel": "إلغاء"
+    }
+  },
+  "common": {
+    "ok": "حسنًا",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "save": "حفظ",
+    "close": "إغلاق"
   }
 }

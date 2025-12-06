@@ -80,5 +80,70 @@
     "support": "Support",
     "supportItems": ["FAQ", "Contactez-nous", "Centre d'aide", "Mentions légales"],
     "copyright": "© 2025 — Tous droits réservés."
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "welcome": "Bienvenue sur votre tableau de bord",
+    "nav": {
+      "home": "Accueil",
+      "groups": "Groupes",
+      "learning": "Apprentissage",
+      "quizzes": "Quiz",
+      "settings": "Paramètres"
+    },
+    "user": {
+      "name": "[Nom de l'école]",
+      "role": "[Nom du propriétaire]",
+      "initials": "SN"
+    },
+    "logout": "Déconnexion"
+  },
+  "groups": {
+    "title": "Gestion des groupes",
+    "subtitle": "Gérez vos groupes et vos élèves",
+    "create_group": "Créer un groupe",
+    "search_placeholder": "Rechercher un groupe",
+    "all_classes": "Toutes les classes",
+    "all_groups": "Tous les groupes",
+    "manage_description": "Gérez vos groupes et vos élèves ici",
+    "stats": {
+      "groups_count": "Nombre de groupes",
+      "students_count": "Nombre d'élèves",
+      "progress_rate": "Taux de progression"
+    },
+    "table": {
+      "group": "Groupe",
+      "creation_date": "Date de création",
+      "room_code": "Code de salle",
+      "class": "Classe",
+      "topic": "Sujet",
+      "progress": "Progression",
+      "actions": "Actions"
+    },
+    "modal": {
+      "create_title": "Créer un nouveau groupe",
+      "create_subtitle": "Entrez les informations du groupe et le code sera créé automatiquement",
+      "edit_title": "Modifier le groupe",
+      "edit_subtitle": "Modifiez les informations du groupe",
+      "group_name": "Nom du groupe",
+      "group_name_placeholder": "Groupe 10",
+      "student_count": "Nombre d'élèves",
+      "class": "Classe",
+      "class_a": "Classe -A-",
+      "class_b": "Classe -B-",
+      "class_c": "Classe -C-",
+      "description": "Description du groupe",
+      "description_placeholder": "Fournissez une description pour le groupe",
+      "add_group": "Ajouter le groupe",
+      "update_group": "Mettre à jour le groupe",
+      "cancel": "Annuler"
+    }
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "save": "Enregistrer",
+    "close": "Fermer"
   }
 }

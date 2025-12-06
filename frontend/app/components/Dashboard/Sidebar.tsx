@@ -37,7 +37,9 @@ export default function Sidebar() {
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-primary-300 text-white rounded-lg"
+        className={`lg:hidden fixed top-4 z-50 p-2 bg-primary-300 text-white rounded-lg ${
+          isRTL ? 'right-4' : 'left-4'
+        }`}
       >
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -58,9 +60,9 @@ export default function Sidebar() {
           fixed lg:sticky top-0 h-screen
           w-64 bg-white shadow-lg z-40
           transition-transform duration-300 ease-in-out
-          ${isOpen ? 'translate-x-0' : '-translate-x-full'}
+          ${isOpen ? 'translate-x-0' : (isRTL ? 'translate-x-full' : '-translate-x-full')}
           lg:translate-x-0
-          ${isRTL ? 'right-0 lg:right-auto' : 'left-0 lg:left-auto'}
+          ${isRTL ? 'right-0' : 'left-0'}
         `}
       >
         <div className="flex flex-col h-full">
