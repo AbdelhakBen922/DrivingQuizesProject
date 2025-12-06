@@ -50,3 +50,6 @@ Thumbs.db
 backend/static/
 backend/static/service_pics/
 backend/static/profile_pics/
+
+# ignore .sql file in the root directory
+/*.sql

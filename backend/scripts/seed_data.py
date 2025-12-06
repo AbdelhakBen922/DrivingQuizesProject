@@ -1,42 +1,44 @@
 from __future__ import annotations
 
 import asyncio
-import uuid
-from datetime import timedelta, timezone
+import sys
+from datetime import timedelta
+from decimal import Decimal
+from pathlib import Path
 
-from faker import Faker
 from sqlalchemy import select
 
+BASE_DIR = Path(__file__).resolve().parents[1]
+if str(BASE_DIR) not in sys.path:
+    sys.path.append(str(BASE_DIR))
+
 from app.core.database import AsyncSessionLocal
+from app.models.answer import Answer
+from app.models.choice import Choice
 from app.models.plan import Plan
-from app.models.question_bank_question import QuestionBankQuestion
-from app.models.quiz_template import QuizTemplate
-from app.models.quiz_template_question import QuizTemplateQuestion
+from app.models.question import Question
+from app.models.quiz import Quiz
+from app.models.quiz_attempt import QuizAttempt
+from app.models.quiz_question import QuizQuestion
+from app.models.quiz_setting import QuizSetting
 from app.models.room import Room
-from app.models.room_quiz_instance import RoomQuizInstance
+from app.models.room_member import RoomMember
+from app.models.room_quiz import RoomQuiz
 from app.models.school import School
 from app.models.staff_user import StaffUser
 from app.models.student import Student
-from app.models.student_room_membership import StudentRoomMembership
 from app.models.enums import (
     PlanTier,
+    QuestionCategory,
     QuestionDifficulty,
+    QuestionType,
+    QuizMode,
     RoomMembershipStatus,
+    RoomQuizStatus,
+    RoomType,
     StaffRole,
+    VehicleType,
 )
-
-faker = Faker()
-
-PLAN_ID = uuid.UUID("11111111-1111-1111-1111-111111111111")
-SCHOOL_ID = uuid.UUID("22222222-2222-2222-2222-222222222222")
-STAFF_ID = uuid.UUID("33333333-3333-3333-3333-333333333333")
-QUESTION_ID = uuid.UUID("44444444-4444-4444-4444-444444444444")
-TEMPLATE_ID = uuid.UUID("55555555-5555-5555-5555-555555555555")
-TEMPLATE_QUESTION_ID = uuid.UUID("66666666-6666-6666-6666-666666666666")
-ROOM_ID = uuid.UUID("77777777-7777-7777-7777-777777777777")
-ROOM_QUIZ_ID = uuid.UUID("88888888-8888-8888-8888-888888888888")
-STUDENT_ID = uuid.UUID("99999999-9999-9999-9999-999999999999")
-MEMBERSHIP_ID = uuid.UUID("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa")
 
 
 async def get_or_create(session, model, lookup: dict, defaults: dict):
@@ -56,234 +58,247 @@ async def get_or_create(session, model, lookup: dict, defaults: dict):
     return instance, created
 
 
-async def seed():
+async def sync_choices(session, question_id: int, options: list[dict]) -> None:
+    existing_stmt = await session.execute(select(Choice).where(Choice.question_id == question_id))
+    existing = {choice.position: choice for choice in existing_stmt.scalars()}
+    seen_positions: set[int] = set()
+
+    for option in options:
+        position = option["position"]
+        seen_positions.add(position)
+        lookup = {"question_id": question_id, "position": position}
+        defaults = {"text": option["text"], "is_correct": option["is_correct"]}
+        choice, _ = await get_or_create(session, Choice, lookup, defaults)
+        # ensure updates when record already existed
+        choice.text = option["text"]
+        choice.is_correct = option["is_correct"]
+
+    for position, choice in existing.items():
+        if position not in seen_positions:
+            await session.delete(choice)
+
+
+async def seed() -> None:
     async with AsyncSessionLocal() as session:
-        faker.seed_instance(2024)
-        faker.unique.clear()
         report: list[str] = []
 
         plan_defaults = {
-            "name": PlanTier.BASIC,
-            "description": f"{faker.catch_phrase()} plan",
-            "monthly_price_cents": faker.random_int(min=2000, max=5000),
-            "features": {
-                "max_students": faker.random_int(min=100, max=500),
-                "support": faker.random_element(elements=["email", "chat", "phone"]),
-            },
-            "limits": {
-                "rooms_per_school": faker.random_int(min=3, max=10),
-                "questions_per_template": faker.random_int(min=40, max=120),
-            },
+            "description": "Professional tier for medium schools",
+            "price_monthly": Decimal("49.00"),
+            "max_students": 500,
+            "max_staff_users": 25,
+            "max_rooms": 50,
+            "max_questions_per_quiz": 40,
+            "features": {"analytics": True, "priority_support": True},
+            "is_active": True,
         }
-
         plan, created = await get_or_create(
             session,
             Plan,
-            {"id": PLAN_ID},
+            {"name": PlanTier.PROFESSIONAL.value},
             plan_defaults,
         )
         report.append(f"Plan: {'created' if created else 'updated'}")
 
         school_defaults = {
-            "name": f"{faker.city()} Driving School",
-            "legal_name": f"{faker.company()} Training",
-            "registration_number": faker.bothify(text="??-######").upper(),
-            "address": faker.address().replace("\n", " "),
-            "phone": faker.phone_number(),
-            "email": faker.company_email(),
-            "timezone": faker.random_element(
-                elements=["Africa/Algiers", "Europe/Paris", "UTC"]
-            ),
+            "name": "Atlas Driving Academy",
+            "legal_name": "Atlas Mobility Services",
+            "registration_number": "DRV-001",
+            "email": "contact@atlas-driving.com",
+            "password": "not-a-real-hash",
+            "timezone": "Africa/Algiers",
             "locale": "fr-DZ",
-            "language_defaults": faker.random_element(elements=["fr", "en", "ar"]),
+            "language_defaults": {"primary": "fr", "fallback": "en"},
             "plan_id": plan.id,
-            "billing_info": {
-                "vat_number": faker.bothify(text="??########").upper(),
-                "billing_contact": faker.name(),
-            },
-            "settings": {"default_room_duration": faker.random_int(min=60, max=120)},
+            "billing_info": {"vat_number": "DZ123456789"},
+            "settings": {"default_passing_score": 32},
         }
-
         school, created = await get_or_create(
             session,
             School,
-            {"id": SCHOOL_ID},
+            {"registration_number": school_defaults["registration_number"]},
             school_defaults,
         )
         report.append(f"School: {'created' if created else 'updated'}")
 
         staff_defaults = {
             "school_id": school.id,
-            "email": faker.unique.company_email(),
-            "password_hash": "not-a-real-hash",
-            "role": faker.random_element(
-                elements=[StaffRole.ADMIN, StaffRole.INSTRUCTOR, StaffRole.SECRETARY]
-            ),
-            "name": faker.name(),
-            "phone": faker.phone_number(),
+            "email": "owner@atlas-driving.com",
+            "password_hash": "pbkdf2:demo-hash",
+            "role": StaffRole.OWNER,
+            "name": "Leila Ait",
+            "phone": "+213555010101",
             "is_active": True,
         }
-
         staff, created = await get_or_create(
             session,
             StaffUser,
-            {"id": STAFF_ID},
+            {"email": staff_defaults["email"]},
             staff_defaults,
         )
         report.append(f"Staff user: {'created' if created else 'updated'}")
 
-        option_labels = ["A", "B", "C", "D"]
-        option_texts = faker.sentences(nb=len(option_labels))
-        options = [
-            {"id": label, "text": text}
-            for label, text in zip(option_labels, option_texts)
-        ]
-        correct_option_id = faker.random_element(elements=[opt["id"] for opt in options])
-
-        question_defaults = {
-            "school_id": school.id,
-            "author_id": staff.id,
-            "category": faker.random_element(
-                elements=["traffic_signs", "safety", "regulations", "etiquette"]
-            ),
-            "difficulty": faker.random_element(
-                elements=[
-                    QuestionDifficulty.EASY,
-                    QuestionDifficulty.MEDIUM,
-                    QuestionDifficulty.HARD,
-                ]
-            ),
-            "question_text": f"{faker.sentence(nb_words=10).rstrip('.')}?",
-            "options": options,
-            "correct_option_ids": [correct_option_id],
-            "is_multiple_choice": False,
-            "score": faker.random_int(min=1, max=10),
-            "explanation": faker.sentence(nb_words=12),
-            "tags": faker.words(nb=3),
-            "version": 1,
-        }
-
-        question, created = await get_or_create(
-            session,
-            QuestionBankQuestion,
-            {"id": QUESTION_ID},
-            question_defaults,
-        )
-        report.append(f"Question: {'created' if created else 'updated'}")
-
-        template_defaults = {
-            "school_id": school.id,
-            "title": f"{faker.word().capitalize()} Theory Exam",
-            "description": faker.sentence(nb_words=12),
-            "total_time_seconds": faker.random_int(min=1200, max=3600),
-            "settings": {
-                "passing_score": faker.random_int(min=60, max=90),
-                "shuffle_questions": True,
-            },
-            "visibility": faker.random_element(elements=["private", "internal"]),
-            "created_by_id": staff.id,
-        }
-
-        template, created = await get_or_create(
-            session,
-            QuizTemplate,
-            {"id": TEMPLATE_ID},
-            template_defaults,
-        )
-        report.append(f"Quiz template: {'created' if created else 'updated'}")
-
-        template_question_defaults = {
-            "quiz_template_id": template.id,
-            "question_id": question.id,
-            "question_order": 1,
-            "override_score": question_defaults["score"],
-            "is_required": True,
-            "randomize_options": True,
-            "estimation_time_seconds": faker.random_int(min=30, max=90),
-        }
-
-        template_question, created = await get_or_create(
-            session,
-            QuizTemplateQuestion,
-            {"id": TEMPLATE_QUESTION_ID},
-            template_question_defaults,
-        )
-        report.append(f"Template question: {'created' if created else 'updated'}")
-
-        room_start = faker.future_datetime(end_date="+30d", tzinfo=timezone.utc)
-        room_end = room_start + timedelta(hours=2)
-
-        room_defaults = {
-            "school_id": school.id,
-            "name": f"{faker.color_name()} Cohort",
-            "code": faker.bothify(text="DRV-###").upper(),
-            "start_at": room_start,
-            "end_at": room_end,
-            "is_active": True,
-            "settings": {"max_attempts": faker.random_int(min=1, max=3)},
-            "created_by_id": staff.id,
-        }
-
-        room, created = await get_or_create(
-            session,
-            Room,
-            {"id": ROOM_ID},
-            room_defaults,
-        )
-        report.append(f"Room: {'created' if created else 'updated'}")
-
-        room_quiz_defaults = {
-            "room_id": room.id,
-            "quiz_template_id": template.id,
-            "instance_settings": {
-                "time_multiplier": faker.random_element(elements=[0.75, 1.0, 1.25])
-            },
-            "assigned_at": room_start - timedelta(minutes=15),
-            "due_at": room_end,
-            "created_by_id": staff.id,
-        }
-
-        room_quiz, created = await get_or_create(
-            session,
-            RoomQuizInstance,
-            {"id": ROOM_QUIZ_ID},
-            room_quiz_defaults,
-        )
-        report.append(f"Room quiz instance: {'created' if created else 'updated'}")
-
         student_defaults = {
             "school_id": school.id,
-            "full_name": faker.name(),
-            "dob": faker.date_of_birth(minimum_age=18, maximum_age=40),
-            "student_code": faker.unique.bothify(text="STU-###"),
-            "phone": faker.phone_number(),
-            "email": faker.unique.email(),
-            "profile_data": {"note": faker.sentence(nb_words=8)},
+            "full_name": "Karim Bensaid",
+            "student_code": "STU-001",
+            "password_hash": "pbkdf2:demo-student",
+            "phone": "+213555020202",
+            "email": "karim@example.com",
+            "profile_data": {"notes": "Prefers evening sessions"},
             "created_by_id": staff.id,
         }
-
         student, created = await get_or_create(
             session,
             Student,
-            {"id": STUDENT_ID},
+            {
+                "school_id": school.id,
+                "student_code": student_defaults["student_code"],
+            },
             student_defaults,
         )
         report.append(f"Student: {'created' if created else 'updated'}")
 
-        membership_defaults = {
-            "student_id": student.id,
-            "room_id": room.id,
-            "joined_at": room_start,
+        question_defaults = {
+            "school_id": school.id,
+            "author_id": staff.id,
+            "text": "What does a flashing amber traffic light indicate at an intersection?",
+            "category": QuestionCategory.PRIORITY,
+            "difficulty": QuestionDifficulty.MEDIUM,
+            "type": QuestionType.SINGLE_CHOICE,
+            "explanation": "Slow down and proceed only when it is safe to do so.",
+            "tags": {"topic": "priority_rules"},
+        }
+        question, created = await get_or_create(
+            session,
+            Question,
+            {"text": question_defaults["text"]},
+            question_defaults,
+        )
+        report.append(f"Question: {'created' if created else 'updated'}")
+
+        options = [
+            {"position": 1, "text": "You must stop completely", "is_correct": False},
+            {"position": 2, "text": "Proceed with caution, giving priority", "is_correct": True},
+            {"position": 3, "text": "Speed up to clear the intersection", "is_correct": False},
+            {"position": 4, "text": "Turn off your headlights", "is_correct": False},
+        ]
+        await sync_choices(session, question.id, options)
+
+        choice_stmt = await session.execute(
+            select(Choice).where(Choice.question_id == question.id).order_by(Choice.position)
+        )
+        choices = choice_stmt.scalars().all()
+        correct_choice = next(choice for choice in choices if choice.is_correct)
+
+        setting_defaults = {
+            "vehicle_type": VehicleType.CAR,
+            "mode": QuizMode.TRAINING,
+            "question_count": 10,
+            "randomize_questions": True,
+            "randomize_choices": True,
+            "passing_score": 8,
+            "review_allowed": True,
+        }
+        quiz_setting, created = await get_or_create(
+            session,
+            QuizSetting,
+            {"vehicle_type": setting_defaults["vehicle_type"], "mode": setting_defaults["mode"]},
+            setting_defaults,
+        )
+        report.append(f"Quiz setting: {'created' if created else 'updated'}")
+
+        quiz_defaults = {
+            "school_id": school.id,
+            "setting_id": quiz_setting.id,
+            "title": "Fundamentals Assessment",
+            "description": "Covers basic priority and safety rules",
+            "total_time_seconds": 900,
+            "created_by_id": staff.id,
+        }
+        quiz, created = await get_or_create(
+            session,
+            Quiz,
+            {"title": quiz_defaults["title"]},
+            quiz_defaults,
+        )
+        report.append(f"Quiz: {'created' if created else 'updated'}")
+
+        quiz_question_defaults = {
+            "position": 1,
+            "duration_sec": 45,
+            "is_required": True,
+        }
+        _, created = await get_or_create(
+            session,
+            QuizQuestion,
+            {"quiz_id": quiz.id, "question_id": question.id},
+            quiz_question_defaults,
+        )
+        report.append(f"Quiz question link: {'created' if created else 'updated'}")
+
+        room_defaults = {
+            "school_id": school.id,
+            "name": "Morning Cohort",
+            "description": "Weekday training group",
+            "room_type": RoomType.B,
+            "created_by_id": staff.id,
+        }
+        room, created = await get_or_create(
+            session,
+            Room,
+            {"school_id": school.id, "name": room_defaults["name"]},
+            room_defaults,
+        )
+        report.append(f"Room: {'created' if created else 'updated'}")
+
+        room_member_defaults = {
             "status": RoomMembershipStatus.ACTIVE,
         }
-
-        membership, created = await get_or_create(
+        room_member, created = await get_or_create(
             session,
-            StudentRoomMembership,
-            {"id": MEMBERSHIP_ID},
-            membership_defaults,
+            RoomMember,
+            {"room_id": room.id, "student_id": student.id},
+            room_member_defaults,
         )
-        report.append(f"Room membership: {'created' if created else 'updated'}")
+        report.append(f"Room member: {'created' if created else 'updated'}")
+
+        room_quiz_defaults = {
+            "instance_settings": {"available_attempts": 2},
+            "status": RoomQuizStatus.ACTIVE,
+        }
+        _, created = await get_or_create(
+            session,
+            RoomQuiz,
+            {"room_id": room.id, "quiz_id": quiz.id},
+            room_quiz_defaults,
+        )
+        report.append(f"Room quiz: {'created' if created else 'updated'}")
+
+        quiz_attempt_defaults = {
+            "time_spent_sec": 120,
+            "score": 10,
+            "extra_metadata": {"submitted_via": "seed"},
+        }
+        quiz_attempt, created = await get_or_create(
+            session,
+            QuizAttempt,
+            {"quiz_id": quiz.id, "room_member_id": room_member.id, "attempt_number": 1},
+            quiz_attempt_defaults,
+        )
+        report.append(f"Quiz attempt: {'created' if created else 'updated'}")
+
+        answer_defaults = {
+            "choice_id": correct_choice.id,
+            "is_correct": True,
+        }
+        _, created = await get_or_create(
+            session,
+            Answer,
+            {"attempt_id": quiz_attempt.id, "question_id": question.id},
+            answer_defaults,
+        )
+        report.append(f"Answer: {'created' if created else 'updated'}")
 
         await session.commit()
         for line in report:
