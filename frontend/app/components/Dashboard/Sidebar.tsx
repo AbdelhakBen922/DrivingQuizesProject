@@ -66,7 +66,7 @@ export default function Sidebar() {
       >
         <div className="flex flex-col h-full">
           {/* Logo/Header */}
-          <div className="p-6 pb-[60px] border-b border-grey mb-[60px]">
+          <div className="p-6 pt-[60px] pb-[60px] border-b border-grey mb-[60px]">
             <h2 className="text-2xl font-bold text-primary-800">
               {t('dashboard.title', 'Dashboard')}
             </h2>
