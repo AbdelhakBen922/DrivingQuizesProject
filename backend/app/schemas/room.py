@@ -18,6 +18,12 @@ class RoomCreate(RoomBase):
     pass
 
 
+class RoomCreateRequest(ORMModel):
+    name: str
+    description: str | None = None
+    room_type: RoomType = RoomType.B
+
+
 class RoomUpdate(ORMModel):
     school_id: int | None = None
     name: str | None = None

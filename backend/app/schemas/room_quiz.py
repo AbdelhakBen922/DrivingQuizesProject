@@ -21,6 +21,12 @@ class RoomQuizCreate(RoomQuizBase):
     pass
 
 
+class RoomQuizAssignRequest(ORMModel):
+    quiz_id: int
+    instance_settings: dict[str, Any] | None = None
+    status: RoomQuizStatus = RoomQuizStatus.ACTIVE
+
+
 class RoomQuizUpdate(ORMModel):
     room_id: int | None = None
     quiz_id: int | None = None
