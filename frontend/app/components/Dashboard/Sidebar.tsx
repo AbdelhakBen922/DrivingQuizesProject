@@ -114,11 +114,11 @@ export default function Sidebar() {
                 </p>
               </div>
             </div>
-            <button className="w-full mt-2 flex items-center justify-center gap-2 px-4 py-2 text-red rounded-lg hover:bg-red-50 transition-colors">
+            <button className="w-full mt-2 flex items-center justify-center gap-2 px-4 py-2 text-red rounded-lg hover:bg-red transition-colors hover:text-white group">
               <img 
                 src="/assets/icons/dashboard/sidebar/Logout.svg" 
                 alt="logout"
-                className="w-5 h-5"
+                className="w-5 h-5 group-hover:brightness-0 group-hover:invert transition-all"
               />
               <span className="font-semibold">{t('dashboard.logout', 'Logout')}</span>
             </button>
