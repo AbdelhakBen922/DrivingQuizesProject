@@ -23,6 +23,20 @@ class QuestionDifficulty(str, Enum):
     HARD = "hard"
 
 
+class QuestionCategory(str, Enum):
+    SIGN = "sign"
+    RULE = "rule"
+    PRIORITY = "priority"
+    SPEED = "speed"
+    SAFETY = "safety"
+    MECHANICS = "mechanics"
+
+
+class QuestionType(str, Enum):
+    SINGLE_CHOICE = "single_choice"
+    MULTIPLE_CHOICE = "multiple_choice"
+
+
 class QuizAttemptStatus(str, Enum):
     IN_PROGRESS = "in_progress"
     SUBMITTED = "submitted"
@@ -42,8 +56,34 @@ class AuditActorType(str, Enum):
 
 class PlanTier(str, Enum):
     FREE = "free"
-    BASIC = "basic"
-    PREMIUM = "premium"
+    PROFESSIONAL = "professional"
+    ENTERPRISE = "enterprise"
+
+
+class VehicleType(str, Enum):
+    CAR = "car"
+    MOTORCYCLE = "motorcycle"
+    TRUCK = "truck"
+    BUS = "bus"
+
+
+class QuizMode(str, Enum):
+    TRAINING = "training"
+    EXAM = "exam"
+    PRACTICE = "practice"
+
+
+class RoomType(str, Enum):
+    A = "a"
+    B = "b"
+    C = "c"
+    D = "d"
+
+
+class RoomQuizStatus(str, Enum):
+    ACTIVE = "active"
+    CLOSED = "closed"
+    SCHEDULED = "scheduled"
 
 
 class OCRJobStatus(str, Enum):
