@@ -11,6 +11,7 @@ if TYPE_CHECKING:
     from app.models.quiz_attempt import QuizAttempt
     from app.models.quiz_question import QuizQuestion
     from app.models.quiz_setting import QuizSetting
+    from app.models.quiz_template import QuizTemplate
     from app.models.room_quiz import RoomQuiz
     from app.models.school import School
     from app.models.staff_user import StaffUser
@@ -23,6 +24,7 @@ class Quiz(BigIntPrimaryKeyMixin, TimestampMixin, SoftDeleteMixin, Base):
     setting_id: Mapped[int | None] = mapped_column(
         ForeignKey("quiz_setting.id", ondelete="CASCADE"), unique=True
     )
+    template_id: Mapped[int | None] = mapped_column(ForeignKey("quiz_template.id", ondelete="SET NULL"))
     is_public: Mapped[bool] = mapped_column(Boolean, nullable=False, server_default=text("false"))
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     description: Mapped[str | None] = mapped_column(Text)
@@ -32,6 +34,7 @@ class Quiz(BigIntPrimaryKeyMixin, TimestampMixin, SoftDeleteMixin, Base):
     setting: Mapped["QuizSetting | None"] = relationship(
         back_populates="quiz", cascade="all, delete-orphan", uselist=False, single_parent=True
     )
+    template: Mapped["QuizTemplate | None"] = relationship(back_populates="quizzes")
     created_by_user: Mapped["StaffUser | None"] = relationship(back_populates="created_quizzes")
     quiz_questions: Mapped[list["QuizQuestion"]] = relationship(back_populates="quiz")
     room_quizzes: Mapped[list["RoomQuiz"]] = relationship(back_populates="quiz")

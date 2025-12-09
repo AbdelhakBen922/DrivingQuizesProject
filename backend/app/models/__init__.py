@@ -10,6 +10,8 @@ from app.models.question import Question
 from app.models.quiz import Quiz
 from app.models.quiz_attempt import QuizAttempt
 from app.models.quiz_question import QuizQuestion
+from app.models.quiz_template import QuizTemplate
+from app.models.quiz_template_question import QuizTemplateQuestion
 from app.models.quiz_setting import QuizSetting
 from app.models.room import Room
 from app.models.room_member import RoomMember
@@ -30,6 +32,8 @@ __all__ = [
     "Quiz",
     "QuizAttempt",
     "QuizQuestion",
+    "QuizTemplate",
+    "QuizTemplateQuestion",
     "QuizSetting",
     "Room",
     "RoomMember",

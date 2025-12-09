@@ -4,11 +4,13 @@ from datetime import datetime
 
 from app.schemas.base import ORMModel
 from app.schemas.quiz_setting import QuizSettingRead
+from app.schemas.quiz_template import QuizTemplateRead
 
 
 class QuizBase(ORMModel):
 	school_id: int | None = None
 	setting_id: int | None = None
+	template_id: int | None = None
 	is_public: bool = False
 	title: str
 	description: str | None = None
@@ -25,6 +27,7 @@ class QuizRead(QuizBase):
 	updated_at: datetime
 	deleted_at: datetime | None = None
 	setting: QuizSettingRead | None = None
+	template: QuizTemplateRead | None = None
 
 	model_config = ORMModel.model_config
 
@@ -32,6 +35,7 @@ class QuizRead(QuizBase):
 class QuizUpdate(ORMModel):
 	school_id: int | None = None
 	setting_id: int | None = None
+	template_id: int | None = None
 	is_public: bool | None = None
 	title: str | None = None
 	description: str | None = None

@@ -13,6 +13,7 @@ if TYPE_CHECKING:
     from app.models.learning_module import LearningModule
     from app.models.question import Question
     from app.models.quiz import Quiz
+    from app.models.quiz_template import QuizTemplate
     from app.models.room import Room
     from app.models.school import School
     from app.models.student import Student
@@ -41,4 +42,5 @@ class StaffUser(BigIntPrimaryKeyMixin, TimestampMixin, Base):
     authored_questions: Mapped[list["Question"]] = relationship(back_populates="author")
     created_quizzes: Mapped[list["Quiz"]] = relationship(back_populates="created_by_user")
     created_rooms: Mapped[list["Room"]] = relationship(back_populates="created_by_user")
+    created_templates: Mapped[list["QuizTemplate"]] = relationship(back_populates="created_by_user")
     learning_modules: Mapped[list["LearningModule"]] = relationship(back_populates="created_by_user")
