@@ -11,6 +11,7 @@ if TYPE_CHECKING:
     from app.models.learning_module import LearningModule
     from app.models.plan import Plan
     from app.models.quiz import Quiz
+    from app.models.quiz_template import QuizTemplate
     from app.models.question import Question
     from app.models.room import Room
     from app.models.staff_user import StaffUser
@@ -42,6 +43,7 @@ class School(BigIntPrimaryKeyMixin, TimestampMixin, SoftDeleteMixin, Base):
     students: Mapped[list["Student"]] = relationship(back_populates="school", cascade="all, delete-orphan")
     questions: Mapped[list["Question"]] = relationship(back_populates="school")
     quizzes: Mapped[list["Quiz"]] = relationship(back_populates="school")
+    quiz_templates: Mapped[list["QuizTemplate"]] = relationship(back_populates="school")
     rooms: Mapped[list["Room"]] = relationship(back_populates="school", cascade="all, delete-orphan")
     learning_modules: Mapped[list["LearningModule"]] = relationship(
         back_populates="school", cascade="all, delete-orphan"

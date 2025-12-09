@@ -14,6 +14,8 @@ class QuizBase(ORMModel):
 	is_public: bool = False
 	title: str
 	description: str | None = None
+	starts_at: datetime | None = None
+	ends_at: datetime | None = None
 	created_by_id: int | None = None
 
 
@@ -39,4 +41,6 @@ class QuizUpdate(ORMModel):
 	is_public: bool | None = None
 	title: str | None = None
 	description: str | None = None
+	starts_at: datetime | None = None
+	ends_at: datetime | None = None
 	created_by_id: int | None = None

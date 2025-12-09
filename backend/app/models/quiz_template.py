@@ -12,12 +12,14 @@ from app.models.enums import QuestionDifficulty, enum_values
 if TYPE_CHECKING:
     from app.models.quiz import Quiz
     from app.models.quiz_template_question import QuizTemplateQuestion
+    from app.models.school import School
     from app.models.staff_user import StaffUser
 
 
 class QuizTemplate(BigIntPrimaryKeyMixin, TimestampMixin, SoftDeleteMixin, Base):
     __tablename__ = "quiz_template"
 
+    school_id: Mapped[int | None] = mapped_column(ForeignKey("school.id", ondelete="SET NULL"))
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     description: Mapped[str | None] = mapped_column(Text)
     topic_id: Mapped[int | None] = mapped_column(Integer)
@@ -31,6 +33,7 @@ class QuizTemplate(BigIntPrimaryKeyMixin, TimestampMixin, SoftDeleteMixin, Base)
     is_public: Mapped[bool] = mapped_column(Boolean, nullable=False, server_default=text("false"))
     created_by_id: Mapped[int | None] = mapped_column(ForeignKey("staff_user.id", ondelete="SET NULL"))
 
+    school: Mapped["School | None"] = relationship(back_populates="quiz_templates")
     created_by_user: Mapped["StaffUser | None"] = relationship(back_populates="created_templates")
     template_questions: Mapped[list["QuizTemplateQuestion"]] = relationship(
         back_populates="template", cascade="all, delete-orphan"

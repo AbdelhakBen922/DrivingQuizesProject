@@ -10,6 +10,7 @@ from app.schemas.quiz_template_question import QuizTemplateQuestionInput
 
 
 class QuizTemplateBase(ORMModel):
+    school_id: int | None = None
     title: str
     description: str | None = None
     topic_id: int | None = None

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException, Query, Response, status
-from sqlalchemy import delete, func, or_, select
+from sqlalchemy import delete, func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.deps.auth import get_current_staff
@@ -28,6 +28,8 @@ async def _get_editable_template(
     template = await session.get(QuizTemplate, template_id)
     if not template:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Template not found")
+    if template.school_id != staff.school_id:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Template belongs to another school")
     if template.created_by_id != staff.id:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="You cannot modify this template")
     return template
@@ -72,8 +74,7 @@ async def list_templates(
         .order_by(QuizTemplate.created_at.desc())
     )
 
-    visibility_clause = or_(QuizTemplate.is_public.is_(True), QuizTemplate.created_by_id == current_staff.id)
-    stmt = stmt.where(visibility_clause)
+    stmt = stmt.where(QuizTemplate.school_id == current_staff.school_id)
 
     if topic_id is not None:
         stmt = stmt.where(QuizTemplate.topic_id == topic_id)
@@ -105,6 +106,7 @@ async def create_template(
     question_ids = await _validate_question_payloads(session, payload.questions, current_staff)
 
     template = QuizTemplate(
+        school_id=current_staff.school_id,
         title=payload.title,
         description=payload.description,
         topic_id=payload.topic_id,
