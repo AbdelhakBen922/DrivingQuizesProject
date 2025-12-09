@@ -2,11 +2,12 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Boolean, ForeignKey, Integer, String, Text, text
+from sqlalchemy import Boolean, Enum, ForeignKey, Integer, String, Text, text
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.models.base import Base, BigIntPrimaryKeyMixin, SoftDeleteMixin, TimestampMixin
+from app.models.enums import QuestionDifficulty, enum_values
 
 if TYPE_CHECKING:
     from app.models.quiz import Quiz
@@ -19,6 +20,12 @@ class QuizTemplate(BigIntPrimaryKeyMixin, TimestampMixin, SoftDeleteMixin, Base)
 
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     description: Mapped[str | None] = mapped_column(Text)
+    topic_id: Mapped[int | None] = mapped_column(Integer)
+    difficulty: Mapped[QuestionDifficulty] = mapped_column(
+        Enum(QuestionDifficulty, name="question_difficulty_enum", values_callable=enum_values),
+        nullable=False,
+        server_default=text(f"'{QuestionDifficulty.MEDIUM.value}'"),
+    )
     default_duration_sec: Mapped[int | None] = mapped_column(Integer)
     settings: Mapped[dict] = mapped_column(JSONB, nullable=False, server_default=text("'{}'::jsonb"))
     is_public: Mapped[bool] = mapped_column(Boolean, nullable=False, server_default=text("false"))
