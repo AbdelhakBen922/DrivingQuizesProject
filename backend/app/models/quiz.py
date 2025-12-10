@@ -10,7 +10,6 @@ from app.models.base import Base, BigIntPrimaryKeyMixin, SoftDeleteMixin, Timest
 
 if TYPE_CHECKING:
     from app.models.quiz_attempt import QuizAttempt
-    from app.models.quiz_question import QuizQuestion
     from app.models.quiz_setting import QuizSetting
     from app.models.quiz_template import QuizTemplate
     from app.models.room_quiz import RoomQuiz
@@ -39,6 +38,5 @@ class Quiz(BigIntPrimaryKeyMixin, TimestampMixin, SoftDeleteMixin, Base):
     )
     template: Mapped["QuizTemplate | None"] = relationship(back_populates="quizzes")
     created_by_user: Mapped["StaffUser | None"] = relationship(back_populates="created_quizzes")
-    quiz_questions: Mapped[list["QuizQuestion"]] = relationship(back_populates="quiz")
     room_quizzes: Mapped[list["RoomQuiz"]] = relationship(back_populates="quiz")
     attempts: Mapped[list["QuizAttempt"]] = relationship(back_populates="quiz")

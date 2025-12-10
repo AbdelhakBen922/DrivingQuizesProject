@@ -22,8 +22,9 @@ from app.models.plan import Plan
 from app.models.question import Question
 from app.models.quiz import Quiz
 from app.models.quiz_attempt import QuizAttempt
-from app.models.quiz_question import QuizQuestion
 from app.models.quiz_setting import QuizSetting
+from app.models.quiz_template import QuizTemplate
+from app.models.quiz_template_question import QuizTemplateQuestion
 from app.models.room import Room
 from app.models.room_member import RoomMember
 from app.models.room_quiz import RoomQuiz
@@ -194,6 +195,39 @@ async def seed() -> None:
         choices = choice_stmt.scalars().all()
         correct_choice = next(choice for choice in choices if choice.is_correct)
 
+        template_defaults = {
+            "school_id": school.id,
+            "title": "Priority Rules Fundamentals",
+            "description": "Template focusing on intersection priority decisions",
+            "difficulty": QuestionDifficulty.MEDIUM,
+            "default_duration_sec": 600,
+            "settings": {"question_count": 10, "passing_score": 8},
+            "is_public": False,
+            "created_by_id": staff.id,
+        }
+        template, created = await get_or_create(
+            session,
+            QuizTemplate,
+            {"title": template_defaults["title"], "school_id": school.id},
+            template_defaults,
+        )
+        report.append(f"Quiz template: {'created' if created else 'updated'}")
+
+        template_question_defaults = {
+            "position": 1,
+            "duration_sec": 45,
+            "is_required": True,
+            "randomize_options": True,
+            "estimation_time_seconds": 45,
+        }
+        _, created = await get_or_create(
+            session,
+            QuizTemplateQuestion,
+            {"template_id": template.id, "question_id": question.id},
+            template_question_defaults,
+        )
+        report.append(f"Template question link: {'created' if created else 'updated'}")
+
         setting_defaults = {
             "vehicle_type": VehicleType.CAR,
             "mode": QuizMode.TRAINING,
@@ -214,6 +248,7 @@ async def seed() -> None:
         quiz_defaults = {
             "school_id": school.id,
             "setting_id": quiz_setting.id,
+            "template_id": template.id,
             "title": "Fundamentals Assessment",
             "description": "Covers basic priority and safety rules",
             "created_by_id": staff.id,
@@ -225,19 +260,6 @@ async def seed() -> None:
             quiz_defaults,
         )
         report.append(f"Quiz: {'created' if created else 'updated'}")
-
-        quiz_question_defaults = {
-            "position": 1,
-            "duration_sec": 45,
-            "is_required": True,
-        }
-        _, created = await get_or_create(
-            session,
-            QuizQuestion,
-            {"quiz_id": quiz.id, "question_id": question.id},
-            quiz_question_defaults,
-        )
-        report.append(f"Quiz question link: {'created' if created else 'updated'}")
 
         module_defaults = {
             "school_id": school.id,

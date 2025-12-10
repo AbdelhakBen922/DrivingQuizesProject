@@ -12,7 +12,6 @@ from app.models.enums import QuestionCategory, QuestionDifficulty, QuestionType,
 if TYPE_CHECKING:
     from app.models.answer import Answer
     from app.models.choice import Choice
-    from app.models.quiz_question import QuizQuestion
     from app.models.quiz_template_question import QuizTemplateQuestion
     from app.models.school import School
     from app.models.staff_user import StaffUser
@@ -47,6 +46,5 @@ class Question(BigIntPrimaryKeyMixin, TimestampMixin, SoftDeleteMixin, Base):
     school: Mapped["School | None"] = relationship(back_populates="questions")
     author: Mapped["StaffUser | None"] = relationship(back_populates="authored_questions")
     choices: Mapped[list["Choice"]] = relationship(back_populates="question", cascade="all, delete-orphan")
-    quiz_questions: Mapped[list["QuizQuestion"]] = relationship(back_populates="question")
     template_questions: Mapped[list["QuizTemplateQuestion"]] = relationship(back_populates="question")
     answers: Mapped[list["Answer"]] = relationship(back_populates="question")
