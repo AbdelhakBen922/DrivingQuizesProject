@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.api.routes.dashboard import auth, quizzes, rooms, settings, staff, students, templates
+from app.api.routes.dashboard import auth, overview, quizzes, rooms, settings, staff, students, templates
 
 router = APIRouter(prefix="/dashboard")
 router.include_router(auth.router)
@@ -9,6 +9,7 @@ router.include_router(staff.router)
 router.include_router(rooms.router)
 router.include_router(templates.router)
 router.include_router(quizzes.router)
+router.include_router(overview.router)
 router.include_router(settings.router)
 
 __all__ = [
@@ -17,6 +18,7 @@ __all__ = [
 	"students",
 	"staff",
 	"rooms",
+	"overview",
 	"quizzes",
 	"settings",
 	"templates",
