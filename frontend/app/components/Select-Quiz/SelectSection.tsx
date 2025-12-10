@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import InputField from "../ui/InputField";
 import DropdownField from "../ui/DropdownField";
-
+import {  useNavigate } from "react-router";
 type IconRowProps = {
     icon: string;
     title: string;
@@ -41,6 +41,7 @@ const SelectionCard = ({
     inputs,
     button,
 }: SelectionCardProps) => {
+    const Navigate = useNavigate()
     return (
         <div className="bg-primary-25 w-full rounded-2xl p-8 flex flex-col gap-3 max-w-xl shadow-md ">
             <IconRow {...iconRow} />
@@ -52,8 +53,10 @@ const SelectionCard = ({
                     <div key={index}>{input}</div>
                 ))}
             </div>
-
-            <button className="btn-primary w-full">
+            {/* move to quiz/ route*/}
+            <button className="btn-primary w-full" onClick={()=>{
+                Navigate("/quiz/01", )
+            }}>
                 {button}
             </button>
         </div>
