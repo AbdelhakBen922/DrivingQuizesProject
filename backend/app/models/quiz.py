@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     from app.models.quiz_attempt import QuizAttempt
     from app.models.quiz_setting import QuizSetting
     from app.models.quiz_template import QuizTemplate
-    from app.models.room_quiz import RoomQuiz
+    from app.models.room import Room
     from app.models.school import School
     from app.models.staff_user import StaffUser
 
@@ -24,6 +24,7 @@ class Quiz(BigIntPrimaryKeyMixin, TimestampMixin, SoftDeleteMixin, Base):
     setting_id: Mapped[int | None] = mapped_column(
         ForeignKey("quiz_setting.id", ondelete="CASCADE"), unique=True
     )
+    room_id: Mapped[int | None] = mapped_column(ForeignKey("room.id", ondelete="SET NULL"))
     template_id: Mapped[int | None] = mapped_column(ForeignKey("quiz_template.id", ondelete="SET NULL"))
     is_public: Mapped[bool] = mapped_column(Boolean, nullable=False, server_default=text("false"))
     title: Mapped[str] = mapped_column(String(255), nullable=False)
@@ -38,5 +39,5 @@ class Quiz(BigIntPrimaryKeyMixin, TimestampMixin, SoftDeleteMixin, Base):
     )
     template: Mapped["QuizTemplate | None"] = relationship(back_populates="quizzes")
     created_by_user: Mapped["StaffUser | None"] = relationship(back_populates="created_quizzes")
-    room_quizzes: Mapped[list["RoomQuiz"]] = relationship(back_populates="quiz")
+    room: Mapped["Room | None"] = relationship(back_populates="quizzes")
     attempts: Mapped[list["QuizAttempt"]] = relationship(back_populates="quiz")

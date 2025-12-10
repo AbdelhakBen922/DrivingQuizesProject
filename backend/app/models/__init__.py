@@ -14,7 +14,6 @@ from app.models.quiz_template_question import QuizTemplateQuestion
 from app.models.quiz_setting import QuizSetting
 from app.models.room import Room
 from app.models.room_member import RoomMember
-from app.models.room_quiz import RoomQuiz
 from app.models.school import School
 from app.models.staff_user import StaffUser
 from app.models.student import Student
@@ -35,7 +34,6 @@ __all__ = [
     "QuizSetting",
     "Room",
     "RoomMember",
-    "RoomQuiz",
     "School",
     "StaffUser",
     "Student",

@@ -11,6 +11,7 @@ class QuizBase(ORMModel):
 	school_id: int | None = None
 	setting_id: int | None = None
 	template_id: int | None = None
+	room_id: int | None = None
 	is_public: bool = False
 	title: str
 	description: str | None = None
@@ -38,6 +39,7 @@ class QuizUpdate(ORMModel):
 	school_id: int | None = None
 	setting_id: int | None = None
 	template_id: int | None = None
+	room_id: int | None = None
 	is_public: bool | None = None
 	title: str | None = None
 	description: str | None = None

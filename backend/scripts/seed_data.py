@@ -27,7 +27,6 @@ from app.models.quiz_template import QuizTemplate
 from app.models.quiz_template_question import QuizTemplateQuestion
 from app.models.room import Room
 from app.models.room_member import RoomMember
-from app.models.room_quiz import RoomQuiz
 from app.models.school import School
 from app.models.staff_user import StaffUser
 from app.models.student import Student
@@ -38,7 +37,6 @@ from app.models.enums import (
     QuestionType,
     QuizMode,
     RoomMembershipStatus,
-    RoomQuizStatus,
     RoomType,
     StaffRole,
     VehicleType,
@@ -105,6 +103,7 @@ async def seed() -> None:
         report.append(f"Plan: {'created' if created else 'updated'}")
 
         school_defaults = {
+            "plan_id": plan.id,
             "name": "Atlas Driving Academy",
             "legal_name": "Atlas Mobility Services",
             "registration_number": "DRV-001",
@@ -112,12 +111,11 @@ async def seed() -> None:
             "password": "not-a-real-hash",
             "timezone": "Africa/Algiers",
             "locale": "fr-DZ",
-            "address": "Si Di Abdellah, Algiers",
-            "phone": "+213667341234",
-            "language_defaults": {"primary": "fr", "fallback": "en"},
-            "plan_id": plan.id,
-            "billing_info": {"vat_number": "DZ123456789"},
-            "settings": {"default_passing_score": 32},
+            "address": "18 Rue Didouche Mourad, Algiers",
+            "phone": "+213555000000",
+            "language_defaults": {"primary": "fr", "secondary": "ar"},
+            "billing_info": {"tax_id": "AL-DRV-001", "contact": "Finance"},
+            "settings": {"default_vehicle_type": "car"},
         }
         school, created = await get_or_create(
             session,
@@ -365,17 +363,10 @@ async def seed() -> None:
         )
         report.append(f"Room member: {'created' if created else 'updated'}")
 
-        room_quiz_defaults = {
-            "instance_settings": {"available_attempts": 2},
-            "status": RoomQuizStatus.ACTIVE,
-        }
-        _, created = await get_or_create(
-            session,
-            RoomQuiz,
-            {"room_id": room.id, "quiz_id": quiz.id},
-            room_quiz_defaults,
-        )
-        report.append(f"Room quiz: {'created' if created else 'updated'}")
+        if quiz.room_id != room.id:
+            quiz.room_id = room.id
+            await session.flush()
+            report.append("Quiz assigned to room")
 
         quiz_attempt_defaults = {
             "time_spent_sec": 120,

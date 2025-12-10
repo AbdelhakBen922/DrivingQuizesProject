@@ -12,12 +12,12 @@ from app.models.enums import RoomMembershipStatus
 from app.models.quiz import Quiz
 from app.models.room import Room
 from app.models.room_member import RoomMember
-from app.models.room_quiz import RoomQuiz
 from app.models.staff_user import StaffUser
 from app.models.student import Student
 from app.schemas.room import RoomCreateRequest, RoomRead
 from app.schemas.room_member import RoomMemberAddRequest, RoomMemberRead
-from app.schemas.room_quiz import RoomQuizAssignRequest, RoomQuizRead
+from app.schemas.room_assignment import RoomQuizAssignRequest
+from app.schemas.quiz import QuizRead
 
 router = APIRouter(prefix="/rooms", tags=["dashboard-rooms"])
 
@@ -136,33 +136,34 @@ async def remove_student_from_room(
 
 @router.post(
     "/{room_id}/quizzes",
-    response_model=RoomQuizRead,
-    status_code=status.HTTP_201_CREATED,
+    response_model=QuizRead,
+    status_code=status.HTTP_200_OK,
 )
 async def assign_quiz_to_room(
     room_id: int,
     payload: RoomQuizAssignRequest,
     session: AsyncSession = Depends(get_db),
     current_staff: StaffUser = Depends(get_current_staff),
-) -> RoomQuizRead:
+) -> QuizRead:
     room = await _get_room_for_staff(session, room_id, current_staff)
     quiz = await _get_quiz_for_staff(session, payload.quiz_id, current_staff)
 
-    existing_stmt = select(RoomQuiz).where(RoomQuiz.room_id == room.id, RoomQuiz.quiz_id == quiz.id)
-    existing = await session.execute(existing_stmt)
-    if existing.scalars().first():
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quiz already published to room")
+    if quiz.room_id and quiz.room_id != room.id:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quiz already assigned to another room")
 
-    room_quiz = RoomQuiz(
-        room_id=room.id,
-        quiz_id=quiz.id,
-        status=payload.status,
-        instance_settings=payload.instance_settings or {},
-    )
-    session.add(room_quiz)
+    if quiz.school_id is not None and quiz.school_id != room.school_id:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Quiz must belong to the same school as the room",
+        )
+
+    quiz.room_id = room.id
+    if quiz.school_id is None:
+        quiz.school_id = room.school_id
+
     await session.commit()
-    await session.refresh(room_quiz)
-    return room_quiz
+    await session.refresh(quiz)
+    return quiz
 
 
 @router.delete("/{room_id}/quizzes/{quiz_id}", status_code=status.HTTP_204_NO_CONTENT)
@@ -172,13 +173,11 @@ async def remove_quiz_from_room(
     session: AsyncSession = Depends(get_db),
     current_staff: StaffUser = Depends(get_current_staff),
 ) -> Response:
-    await _get_room_for_staff(session, room_id, current_staff)
-    stmt = select(RoomQuiz).where(RoomQuiz.room_id == room_id, RoomQuiz.quiz_id == quiz_id)
-    result = await session.execute(stmt)
-    room_quiz = result.scalars().first()
-    if not room_quiz:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Room quiz not found")
+    room = await _get_room_for_staff(session, room_id, current_staff)
+    quiz = await _get_quiz_for_staff(session, quiz_id, current_staff)
+    if quiz.room_id != room.id:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Quiz not assigned to this room")
 
-    await session.delete(room_quiz)
+    quiz.room_id = None
     await session.commit()
     return Response(status_code=status.HTTP_204_NO_CONTENT)

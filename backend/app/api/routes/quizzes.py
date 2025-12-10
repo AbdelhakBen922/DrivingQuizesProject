@@ -8,6 +8,7 @@ from sqlalchemy.orm import selectinload
 from app.core.database import get_db
 from app.models.quiz import Quiz
 from app.models.quiz_setting import QuizSetting
+from app.models.room import Room
 from app.models.school import School
 from app.models.staff_user import StaffUser
 from app.schemas.quiz import QuizCreate, QuizRead, QuizUpdate
@@ -36,6 +37,15 @@ async def _ensure_quiz_setting(session: AsyncSession, setting_id: int) -> QuizSe
     if not setting:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Quiz setting not found")
     return setting
+
+
+async def _ensure_room(session: AsyncSession, room_id: int | None) -> Room | None:
+    if room_id is None:
+        return None
+    room = await session.get(Room, room_id)
+    if not room:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Room not found")
+    return room
 
 
 @router.post("/quiz-settings", response_model=QuizSettingRead, status_code=status.HTTP_201_CREATED)
@@ -75,6 +85,16 @@ async def create_quiz(payload: QuizCreate, session: AsyncSession = Depends(get_d
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="setting_id is required")
     await _ensure_quiz_setting(session, setting_id)
 
+    room = await _ensure_room(session, data.get("room_id"))
+    if room is not None:
+        if data.get("school_id") is None:
+            data["school_id"] = room.school_id
+        elif data["school_id"] != room.school_id:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Quiz school must match the room school",
+            )
+
     quiz = Quiz(**data)
     session.add(quiz)
     await session.commit()
@@ -89,10 +109,13 @@ async def create_quiz(payload: QuizCreate, session: AsyncSession = Depends(get_d
 async def list_quizzes(
     session: AsyncSession = Depends(get_db),
     school_id: int | None = Query(default=None),
+    room_id: int | None = Query(default=None),
 ) -> list[Quiz]:
     stmt = select(Quiz).options(selectinload(Quiz.setting)).order_by(Quiz.created_at.desc())
     if school_id is not None:
         stmt = stmt.where(Quiz.school_id == school_id)
+    if room_id is not None:
+        stmt = stmt.where(Quiz.room_id == room_id)
     result = await session.execute(stmt)
     return result.scalars().all()
 
@@ -132,6 +155,18 @@ async def update_quiz(
                 detail="setting_id cannot be null",
             )
         await _ensure_quiz_setting(session, setting_id)
+
+    if "room_id" in data:
+        room = await _ensure_room(session, data["room_id"])
+        if room is not None:
+            target_school = data.get("school_id", quiz.school_id)
+            if target_school not in (None, room.school_id):
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Quiz school must match the room school",
+                )
+            if data.get("school_id") is None:
+                data["school_id"] = room.school_id
 
     for field, value in data.items():
         setattr(quiz, field, value)

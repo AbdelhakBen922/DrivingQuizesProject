@@ -6,16 +6,13 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.database import get_db
 from app.models.enums import RoomMembershipStatus
-from app.models.quiz import Quiz
 from app.models.room import Room
 from app.models.room_member import RoomMember
-from app.models.room_quiz import RoomQuiz
 from app.models.school import School
 from app.models.staff_user import StaffUser
 from app.models.student import Student
 from app.schemas.room import RoomCreate, RoomRead, RoomUpdate
 from app.schemas.room_member import RoomMemberCreate, RoomMemberRead, RoomMemberUpdate
-from app.schemas.room_quiz import RoomQuizCreate, RoomQuizRead, RoomQuizUpdate
 
 router = APIRouter()
 
@@ -53,20 +50,6 @@ async def _get_room_member(session: AsyncSession, member_id: int) -> RoomMember:
     if not member:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Room member not found")
     return member
-
-
-async def _get_room_quiz(session: AsyncSession, room_quiz_id: int) -> RoomQuiz:
-    room_quiz = await session.get(RoomQuiz, room_quiz_id)
-    if not room_quiz:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Room quiz not found")
-    return room_quiz
-
-
-async def _get_quiz(session: AsyncSession, quiz_id: int) -> Quiz:
-    quiz = await session.get(Quiz, quiz_id)
-    if not quiz:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Quiz not found")
-    return quiz
 
 
 @router.post("/rooms", response_model=RoomRead, status_code=status.HTTP_201_CREATED, tags=["rooms"])
@@ -236,83 +219,3 @@ async def delete_room_member(member_id: int, session: AsyncSession = Depends(get
     return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 
-@router.post(
-    "/room-quizzes",
-    response_model=RoomQuizRead,
-    status_code=status.HTTP_201_CREATED,
-    tags=["room-quizzes"],
-)
-async def create_room_quiz(
-    payload: RoomQuizCreate, session: AsyncSession = Depends(get_db)
-) -> RoomQuiz:
-    data = payload.model_dump(exclude_unset=True)
-    room = await _get_room(session, data["room_id"])
-    quiz = await _get_quiz(session, data["quiz_id"])
-
-    if quiz.school_id is not None and quiz.school_id != room.school_id:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Quiz must belong to the same school as the room",
-        )
-
-    room_quiz = RoomQuiz(**data)
-    session.add(room_quiz)
-    await session.commit()
-    await session.refresh(room_quiz)
-    return room_quiz
-
-
-@router.get("/room-quizzes", response_model=list[RoomQuizRead], tags=["room-quizzes"])
-async def list_room_quizzes(
-    session: AsyncSession = Depends(get_db),
-    room_id: int | None = Query(default=None),
-    quiz_id: int | None = Query(default=None),
-) -> list[RoomQuiz]:
-    stmt = select(RoomQuiz).order_by(RoomQuiz.id.desc())
-    if room_id is not None:
-        stmt = stmt.where(RoomQuiz.room_id == room_id)
-    if quiz_id is not None:
-        stmt = stmt.where(RoomQuiz.quiz_id == quiz_id)
-    result = await session.execute(stmt)
-    return result.scalars().all()
-
-
-@router.get("/room-quizzes/{room_quiz_id}", response_model=RoomQuizRead, tags=["room-quizzes"])
-async def get_room_quiz(room_quiz_id: int, session: AsyncSession = Depends(get_db)) -> RoomQuiz:
-    return await _get_room_quiz(session, room_quiz_id)
-
-
-@router.patch("/room-quizzes/{room_quiz_id}", response_model=RoomQuizRead, tags=["room-quizzes"])
-async def update_room_quiz(
-    room_quiz_id: int,
-    payload: RoomQuizUpdate,
-    session: AsyncSession = Depends(get_db),
-) -> RoomQuiz:
-    room_quiz = await _get_room_quiz(session, room_quiz_id)
-    data = payload.model_dump(exclude_unset=True)
-
-    room_id = data.get("room_id") or room_quiz.room_id
-    quiz_id = data.get("quiz_id") or room_quiz.quiz_id
-
-    room = await _get_room(session, room_id)
-    quiz = await _get_quiz(session, quiz_id)
-    if quiz.school_id is not None and quiz.school_id != room.school_id:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Quiz must belong to the same school as the room",
-        )
-
-    for field, value in data.items():
-        setattr(room_quiz, field, value)
-
-    await session.commit()
-    await session.refresh(room_quiz)
-    return room_quiz
-
-
-@router.delete("/room-quizzes/{room_quiz_id}", status_code=status.HTTP_204_NO_CONTENT, tags=["room-quizzes"])
-async def delete_room_quiz(room_quiz_id: int, session: AsyncSession = Depends(get_db)) -> Response:
-    room_quiz = await _get_room_quiz(session, room_quiz_id)
-    await session.delete(room_quiz)
-    await session.commit()
-    return Response(status_code=status.HTTP_204_NO_CONTENT)

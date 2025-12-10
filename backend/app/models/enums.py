@@ -80,12 +80,6 @@ class RoomType(str, Enum):
     D = "d"
 
 
-class RoomQuizStatus(str, Enum):
-    ACTIVE = "active"
-    CLOSED = "closed"
-    SCHEDULED = "scheduled"
-
-
 class OCRJobStatus(str, Enum):
     PENDING = "pending"
     PROCESSING = "processing"
