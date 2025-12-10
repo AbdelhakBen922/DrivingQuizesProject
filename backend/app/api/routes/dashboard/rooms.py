@@ -22,6 +22,12 @@ from app.schemas.quiz import QuizRead
 router = APIRouter(prefix="/rooms", tags=["dashboard-rooms"])
 
 
+def _require_staff_school(staff: StaffUser) -> int:
+    if staff.school_id is None:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Staff must belong to a school")
+    return staff.school_id
+
+
 async def _get_room_for_staff(session: AsyncSession, room_id: int, staff: StaffUser) -> Room:
     room = await session.get(Room, room_id)
     if not room or room.school_id != staff.school_id:
@@ -51,17 +57,33 @@ async def _get_quiz_for_staff(session: AsyncSession, quiz_id: int, staff: StaffU
     return quiz
 
 
+@router.get("/", response_model=list[RoomRead])
+async def list_rooms(
+    session: AsyncSession = Depends(get_db),
+    current_staff: StaffUser = Depends(get_current_staff),
+) -> list[RoomRead]:
+    school_id = _require_staff_school(current_staff)
+    stmt = (
+        select(Room)
+        .where(Room.school_id == school_id, Room.deleted_at.is_(None))
+        .order_by(Room.created_at.desc())
+    )
+    result = await session.execute(stmt)
+    return result.scalars().all()
+
+
 @router.post("/", response_model=RoomRead, status_code=status.HTTP_201_CREATED)
 async def create_room(
     payload: RoomCreateRequest,
     session: AsyncSession = Depends(get_db),
     current_staff: StaffUser = Depends(get_current_staff),
 ) -> RoomRead:
+    school_id = _require_staff_school(current_staff)
     room = Room(
         name=payload.name,
         description=payload.description,
         room_type=payload.room_type,
-        school_id=current_staff.school_id,
+        school_id=school_id,
         created_by_id=current_staff.id,
     )
     session.add(room)
