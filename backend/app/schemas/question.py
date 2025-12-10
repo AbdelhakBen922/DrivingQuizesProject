@@ -51,3 +51,13 @@ class QuestionUpdate(ORMModel):
 	version: int | None = None
 	school_id: int | None = None
 	author_id: int | None = None
+
+
+class QuestionChoiceInput(ORMModel):
+	text: str
+	is_correct: bool = False
+	position: int | None = None
+
+
+class QuestionWithChoicesCreate(QuestionBase):
+	choices: list[QuestionChoiceInput]

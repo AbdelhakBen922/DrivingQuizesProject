@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+from pydantic import model_validator
+
 from app.schemas.base import ORMModel
+from app.schemas.question import QuestionWithChoicesCreate
 
 
 class QuizTemplateQuestionBase(ORMModel):
@@ -24,9 +27,18 @@ class QuizTemplateQuestionRead(QuizTemplateQuestionBase):
 
 
 class QuizTemplateQuestionInput(ORMModel):
-    question_id: int
+    question_id: int | None = None
+    question: QuestionWithChoicesCreate | None = None
     position: int | None = None
     duration_sec: int | None = None
     is_required: bool = True
     randomize_options: bool = False
     estimation_time_seconds: int | None = None
+
+    @model_validator(mode="after")
+    def _ensure_question_reference(self) -> "QuizTemplateQuestionInput":
+        if (self.question_id is None and self.question is None) or (
+            self.question_id is not None and self.question is not None
+        ):
+            raise ValueError("Provide either question_id or question payload")
+        return self

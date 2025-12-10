@@ -6,12 +6,14 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.deps.auth import get_current_staff
 from app.core.database import get_db
+from app.models.choice import Choice
 from app.models.enums import QuestionDifficulty
 from app.models.question import Question
 from app.models.quiz import Quiz
 from app.models.quiz_template import QuizTemplate
 from app.models.quiz_template_question import QuizTemplateQuestion
 from app.models.staff_user import StaffUser
+from app.schemas.question import QuestionRead, QuestionWithChoicesCreate
 from app.schemas.quiz_template import (
     QuizTemplateCreateRequest,
     QuizTemplateListItem,
@@ -35,28 +37,99 @@ async def _get_editable_template(
     return template
 
 
-async def _validate_question_payloads(
+async def _create_question_with_choices(
+    session: AsyncSession,
+    question_payload: QuestionWithChoicesCreate,
+    staff: StaffUser,
+) -> Question:
+    if staff.school_id is None:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Staff user must belong to a school")
+
+    choices = question_payload.choices or []
+    if len(choices) < 2:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="At least two choices are required")
+    if not any(choice.is_correct for choice in choices):
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Mark at least one choice as correct")
+
+    seen_positions: set[int] = set()
+    processed_choices: list[dict[str, int | str | bool]] = []
+    for index, choice in enumerate(choices):
+        position = choice.position if choice.position is not None else index
+        if position in seen_positions:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Duplicate choice positions detected")
+        seen_positions.add(position)
+        processed_choices.append({
+            "text": choice.text,
+            "is_correct": choice.is_correct,
+            "position": position,
+        })
+
+    question_data = question_payload.model_dump(exclude={"choices"})
+    question = Question(
+        school_id=staff.school_id,
+        author_id=staff.id,
+        **question_data,
+    )
+    session.add(question)
+    await session.flush()
+
+    for choice_data in processed_choices:
+        session.add(
+            Choice(
+                question_id=question.id,
+                text=choice_data["text"],
+                is_correct=choice_data["is_correct"],
+                position=choice_data["position"],
+            )
+        )
+
+    await session.flush()
+    return question
+
+
+async def _resolve_question_from_payload(
+    session: AsyncSession,
+    payload: QuizTemplateQuestionInput,
+    staff: StaffUser,
+) -> Question:
+    if payload.question_id is not None:
+        question = await session.get(Question, payload.question_id)
+        if not question:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Question not found")
+        if question.school_id not in (None, staff.school_id):
+            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Question not accessible for this school")
+        return question
+
+    if payload.question is None:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Question payload is required")
+    return await _create_question_with_choices(session, payload.question, staff)
+
+
+async def _prepare_template_question_entries(
     session: AsyncSession,
     question_payloads: list[QuizTemplateQuestionInput],
     staff: StaffUser,
-) -> list[int]:
-    question_ids = [item.question_id for item in question_payloads]
-    if len(question_ids) != len(set(question_ids)):
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Duplicate question IDs are not allowed")
+) -> list[dict[str, int | bool | None]]:
+    resolved_entries: list[dict[str, int | bool | None]] = []
+    seen_question_ids: set[int] = set()
 
-    stmt = select(Question).where(Question.id.in_(question_ids))
-    result = await session.execute(stmt)
-    questions = result.scalars().all()
-    found_ids = {question.id for question in questions}
-    missing_ids = sorted(set(question_ids) - found_ids)
-    if missing_ids:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail={"missing_question_ids": missing_ids})
+    for index, payload in enumerate(question_payloads):
+        question = await _resolve_question_from_payload(session, payload, staff)
+        if question.id in seen_question_ids:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Duplicate question IDs are not allowed")
+        seen_question_ids.add(question.id)
+        resolved_entries.append(
+            {
+                "question_id": question.id,
+                "position": payload.position if payload.position is not None else index,
+                "duration_sec": payload.duration_sec,
+                "is_required": payload.is_required,
+                "randomize_options": payload.randomize_options,
+                "estimation_time_seconds": payload.estimation_time_seconds,
+            }
+        )
 
-    for question in questions:
-        if question.school_id not in (None, staff.school_id):
-            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Question not accessible for this school")
-
-    return question_ids
+    return resolved_entries
 
 
 @router.get("/", response_model=list[QuizTemplateListItem])
@@ -103,7 +176,7 @@ async def create_template(
     if not payload.questions:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="At least one question is required")
 
-    question_ids = await _validate_question_payloads(session, payload.questions, current_staff)
+    question_entries = await _prepare_template_question_entries(session, payload.questions, current_staff)
 
     template = QuizTemplate(
         school_id=current_staff.school_id,
@@ -119,22 +192,34 @@ async def create_template(
     session.add(template)
     await session.flush()
 
-    for index, question_payload in enumerate(payload.questions):
+    for entry in question_entries:
         template_question = QuizTemplateQuestion(
             template_id=template.id,
-            question_id=question_payload.question_id,
-            position=question_payload.position if question_payload.position is not None else index,
-            duration_sec=question_payload.duration_sec,
-            is_required=question_payload.is_required,
-            randomize_options=question_payload.randomize_options,
-            estimation_time_seconds=question_payload.estimation_time_seconds,
+            question_id=entry["question_id"],
+            position=entry["position"],
+            duration_sec=entry["duration_sec"],
+            is_required=entry["is_required"],
+            randomize_options=entry["randomize_options"],
+            estimation_time_seconds=entry["estimation_time_seconds"],
         )
         session.add(template_question)
 
     await session.commit()
     await session.refresh(template)
-    template.question_count = len(question_ids)
+    template.question_count = len(question_entries)
     return QuizTemplateListItem.model_validate(template)
+
+
+@router.post("/questions", response_model=QuestionRead, status_code=status.HTTP_201_CREATED)
+async def create_question_for_template(
+    payload: QuestionWithChoicesCreate,
+    session: AsyncSession = Depends(get_db),
+    current_staff: StaffUser = Depends(get_current_staff),
+) -> QuestionRead:
+    question = await _create_question_with_choices(session, payload, current_staff)
+    await session.commit()
+    await session.refresh(question)
+    return QuestionRead.model_validate(question)
 
 
 @router.put("/{template_id}", response_model=QuizTemplateListItem)
@@ -165,22 +250,22 @@ async def update_template(
     if payload.questions is not None:
         if not payload.questions:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="At least one question is required")
-        question_ids = await _validate_question_payloads(session, payload.questions, current_staff)
+        question_entries = await _prepare_template_question_entries(session, payload.questions, current_staff)
         await session.execute(
             delete(QuizTemplateQuestion).where(QuizTemplateQuestion.template_id == template.id)
         )
-        for index, question_payload in enumerate(payload.questions):
+        for entry in question_entries:
             template_question = QuizTemplateQuestion(
                 template_id=template.id,
-                question_id=question_payload.question_id,
-                position=question_payload.position if question_payload.position is not None else index,
-                duration_sec=question_payload.duration_sec,
-                is_required=question_payload.is_required,
-                randomize_options=question_payload.randomize_options,
-                estimation_time_seconds=question_payload.estimation_time_seconds,
+                question_id=entry["question_id"],
+                position=entry["position"],
+                duration_sec=entry["duration_sec"],
+                is_required=entry["is_required"],
+                randomize_options=entry["randomize_options"],
+                estimation_time_seconds=entry["estimation_time_seconds"],
             )
             session.add(template_question)
-        question_count = len(question_ids)
+        question_count = len(question_entries)
 
     await session.commit()
     await session.refresh(template)
