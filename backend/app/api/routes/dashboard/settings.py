@@ -40,22 +40,6 @@ async def _get_owner(session: AsyncSession, staff: StaffUser) -> StaffUser:
     return owner
 
 
-def _split_owner_name(full_name: str | None) -> tuple[str, str]:
-    if not full_name:
-        return "", ""
-    parts = full_name.strip().split(" ", 1)
-    first_name = parts[0]
-    last_name = parts[1] if len(parts) > 1 else ""
-    return first_name, last_name
-
-
-def _compose_owner_name(first_name: str, last_name: str) -> str:
-    parts = [part.strip() for part in (first_name, last_name) if part and part.strip()]
-    if not parts:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Owner name is required")
-    return " ".join(parts)
-
-
 def _build_school_info(school: School) -> DashboardSchoolInfo:
     return DashboardSchoolInfo(
         name=school.name,
@@ -66,12 +50,12 @@ def _build_school_info(school: School) -> DashboardSchoolInfo:
 
 
 def _build_owner_info(owner: StaffUser) -> DashboardOwnerInfo:
-    first_name, last_name = _split_owner_name(owner.name)
     return DashboardOwnerInfo(
-        first_name=first_name,
-        last_name=last_name,
+        first_name=owner.first_name or "",
+        last_name=owner.last_name or "",
         email=owner.email,
         phone=owner.phone,
+        avatar_url=owner.avatar_url,
     )
 
 
@@ -113,7 +97,10 @@ async def update_owner_settings(
     owner = await _get_owner(session, current_staff)
     owner.email = payload.email
     owner.phone = payload.phone
-    owner.name = _compose_owner_name(payload.first_name, payload.last_name)
+    owner.first_name = payload.first_name
+    owner.last_name = payload.last_name
+    owner.avatar_url = payload.avatar_url
+    owner.name = f"{payload.first_name} {payload.last_name}".strip() or owner.name
     await session.commit()
     await session.refresh(owner)
     return _build_owner_info(owner)

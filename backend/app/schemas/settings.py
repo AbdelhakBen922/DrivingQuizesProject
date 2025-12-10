@@ -17,6 +17,7 @@ class DashboardOwnerInfo(ORMModel):
     last_name: str
     email: EmailStr
     phone: str | None = None
+    avatar_url: str | None = None
 
 
 class DashboardSettingsResponse(ORMModel):
@@ -36,3 +37,4 @@ class DashboardOwnerUpdate(ORMModel):
     last_name: str
     email: EmailStr
     phone: str | None = None
+    avatar_url: str | None = None

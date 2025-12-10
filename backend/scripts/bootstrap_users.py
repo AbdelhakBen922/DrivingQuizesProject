@@ -34,7 +34,10 @@ async def create_default_users() -> None:
                 school_id=1,
                 role=StaffRole.OWNER,
                 is_active=True,
-                name="Administrator",
+                first_name="Admin",
+                last_name="User",
+                name="Admin User",
+                avatar_url=None,
             )
             session.add(staff)
             created_any = True

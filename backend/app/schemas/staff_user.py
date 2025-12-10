@@ -11,7 +11,9 @@ from app.schemas.base import ORMModel
 class StaffUserBase(ORMModel):
     email: EmailStr = Field(..., max_length=255)
     role: StaffRole
-    name: str | None = Field(default=None, max_length=255)
+    first_name: str | None = Field(default=None, max_length=255)
+    last_name: str | None = Field(default=None, max_length=255)
+    avatar_url: str | None = Field(default=None, max_length=255)
     phone: str | None = Field(default=None, max_length=50)
     last_login_at: datetime | None = None
     is_active: bool = True
@@ -35,6 +37,8 @@ class StaffUserCreateRequest(ORMModel):
     email: EmailStr = Field(..., max_length=255)
     role: StaffRole
     password: str = Field(..., min_length=8)
-    name: str | None = Field(default=None, max_length=255)
+    first_name: str = Field(..., max_length=255)
+    last_name: str = Field(..., max_length=255)
+    avatar_url: str | None = Field(default=None, max_length=255)
     phone: str | None = Field(default=None, max_length=50)
     is_active: bool = True

@@ -32,7 +32,10 @@ class StaffUser(BigIntPrimaryKeyMixin, TimestampMixin, Base):
     role: Mapped[StaffRole] = mapped_column(
         Enum(StaffRole, name="staff_user_role_enum", values_callable=enum_values), nullable=False
     )
+    first_name: Mapped[str | None] = mapped_column(String(255))
+    last_name: Mapped[str | None] = mapped_column(String(255))
     name: Mapped[str | None] = mapped_column(String(255))
+    avatar_url: Mapped[str | None] = mapped_column(String(255))
     phone: Mapped[str | None] = mapped_column(String(50))
     last_login_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     is_active: Mapped[bool] = mapped_column(Boolean, nullable=False, server_default=text("true"))

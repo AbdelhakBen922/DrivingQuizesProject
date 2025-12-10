@@ -132,7 +132,10 @@ async def seed() -> None:
             "email": "owner@atlas-driving.com",
             "password_hash": "pbkdf2:demo-hash",
             "role": StaffRole.OWNER,
+            "first_name": "Leila",
+            "last_name": "Ait",
             "name": "Leila Ait",
+            "avatar_url": "https://example.com/assets/leila.png",
             "phone": "+213555010101",
             "is_active": True,
         }
