@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 
 from fastapi import APIRouter, Depends, HTTPException, Response, status
 from sqlalchemy import select
+from sqlalchemy.orm import selectinload
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.deps.auth import get_current_staff
@@ -184,8 +185,15 @@ async def assign_quiz_to_room(
         quiz.school_id = room.school_id
 
     await session.commit()
-    await session.refresh(quiz)
-    return quiz
+    result = await session.execute(
+        select(Quiz)
+            .options(
+                selectinload(Quiz.setting),
+                selectinload(Quiz.template),
+            )
+            .where(Quiz.id == quiz.id)
+    )
+    return result.scalar_one()
 
 
 @router.delete("/{room_id}/quizzes/{quiz_id}", status_code=status.HTTP_204_NO_CONTENT)
