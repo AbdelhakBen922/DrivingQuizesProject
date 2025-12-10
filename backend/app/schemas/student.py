@@ -57,3 +57,14 @@ class StudentUpdate(ORMModel):
 	profile_data: dict[str, Any] | None = None
 	school_id: int | None = None
 	created_by_id: int | None = None
+
+
+class StudentUpdateRequest(ORMModel):
+	full_name: str | None = Field(default=None, max_length=255)
+	student_code: str | None = Field(default=None, max_length=20)
+	password: str | None = Field(default=None, min_length=8)
+	dob: date | None = None
+	national_id: str | None = Field(default=None, max_length=50)
+	phone: str | None = Field(default=None, max_length=50)
+	email: EmailStr | None = None
+	profile_data: dict[str, Any] | None = None
