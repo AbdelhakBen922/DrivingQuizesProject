@@ -1,0 +1,644 @@
+{
+  "test-01": [
+    {
+      "question_number": 1,
+      "question_ar": "بأي عامل ترتبط مسافة الأمان؟",
+      "question_fr": "De quels facteurs dépend la distance de sécurité ?"
+    },
+    {
+      "question_number": 2,
+      "question_ar": "ما هي الأخطار المتعلقة بالسياقة أثناء المطر الغزير؟",
+      "question_fr": "Quels sont les dangers liés à la conduite par temps de pluie forte ?"
+    },
+    {
+      "question_number": 3,
+      "question_ar": "اذكر 05 حالات لسحب الفوري لرخصة السياقة مع تعليق نافذ",
+      "question_fr": "Expliquer la procédure de \" retrait immédiat du permis de conduire avec effet suspensif \" ? Citer 05 cas."
+    },
+    {
+      "question_number": 4,
+      "question_ar": "ما هي المناورات الممنوعة في الطريق السريع للسيارات ؟",
+      "question_fr": "Quelles sont les manoeuvres interdites sur autoroute ?"
+    },
+    {
+      "question_number": 5,
+      "question_ar": "ماذا يمكن السياقة برخصة صنف ب ؟",
+      "question_fr": "Que peut-on conduire avec la catégorie \"B\" ?"
+    },
+    {
+      "question_number": 6,
+      "question_ar": "كيف تثبت حدود شريط التوقف الإستعجالي؟ هل يمكن عبور هذه الخطوط؟",
+      "question_fr": "Comment sont délimitées les bandes d'arrêt d'urgence ? Peut-on franchir ces lignes ?"
+    }
+  ],
+  "test-02": [
+    {
+      "question_number": 1,
+      "question_ar": "ما هو الالتصاق ؟ بماذا يتعلق ؟",
+      "question_fr": "Qu'est-ce que l'adhérence ? De quoi dépend elle?"
+    },
+    {
+      "question_number": 2,
+      "question_ar": "ما هي فائدة مسافة الأمن؟",
+      "question_fr": "Quelle est l'utilité de la distance de sécurité ?"
+    },
+    {
+      "question_number": 3,
+      "question_ar": "ما هو دور مختلف أضواء المركبات ذات المحرك ؟ أذكرهم.",
+      "question_fr": "Quels sont les rôles des différents feux des véhicules automobiles ? Citez les."
+    },
+    {
+      "question_number": 4,
+      "question_ar": "كيف يجب أن يكون تصرف كل سائق في طريق ذو اتجاه واحد وبعدة مسالك ؟",
+      "question_fr": "Comment doit se comporter tout conducteur circulant sur une chaussée à sens unique à plusieurs voies ?"
+    },
+    {
+      "question_number": 5,
+      "question_ar": "ما هي السرعة المحددة في الطريق السريع للسيارات (السيار) وفي الطرق الأخرى و في المناطق العمرانية؟",
+      "question_fr": "Quelles sont les vitesses maximales autorisées sur autoroute, sur les autres routes et en agglomération ?"
+    },
+    {
+      "question_number": 6,
+      "question_ar": "أذكر 05 حالات لتخفيض السرعة.",
+      "question_fr": "Citer 05 cas de réduction de vitesse."
+    }
+  ],
+  "test-03": [
+    {
+      "question_number": 1,
+      "question_ar": "ما هي الأخطار المتعلقة بضغط غير مناسب للأطر المطاطية ؟",
+      "question_fr": "Quels sont les risques liés à une pression inadequate des pneumatiques ?"
+    },
+    {
+      "question_number": 2,
+      "question_ar": "ما هي نسبة الكحول المسموحة في الجزائر ؟ كيف يمكن قياسها ؟",
+      "question_fr": "Quel est le taux d'alcoolémie admis en Algérie ? Par quels moyens peut-il être déterminé ?"
+    },
+    {
+      "question_number": 3,
+      "question_ar": "أذكر 03 حالات تؤدي إلى السحب الفوري لرخصة السياقة دون تعليق نافذ.",
+      "question_fr": "Citer 03 cas de retrait immédiat du permis de conduire sans effet suspensif."
+    },
+    {
+      "question_number": 4,
+      "question_ar": "ما هي حالات الأولوية لليمين ؟",
+      "question_fr": "Quels sont les cas de priorité à droite ?"
+    },
+    {
+      "question_number": 5,
+      "question_ar": "ما هي القاعدتين التي يجب احترامهما في الطرق الجبلية أو الطرق ذات الانحدار الكبير، يتبين أن التلاقي صعب ؟",
+      "question_fr": "Quelles sont les 02 règles à respecter lorsque, sur les routes de montagne ou sur les routes a forte déclivité, le croisement s'avère difficile ?"
+    },
+    {
+      "question_number": 6,
+      "question_ar": "ما هو الجهاز الذي يبين السائق الجديد ؟",
+      "question_fr": "Comment on reconnaît un nouveau conducteur ?"
+    }
+  ],
+  "test-04": [
+    {
+      "question_number": 1,
+      "question_ar": "ماذا يعني \"شهادة سياقة مؤقتة\" ؟",
+      "question_fr": "Qu'est-ce qu'une attestation provisoire de conduite ?"
+    },
+    {
+      "question_number": 2,
+      "question_ar": "بماذا يؤدي عدم وضع حزام الأمن ؟",
+      "question_fr": "Par quoi est sanctionné le non port de la ceinture de sécurité ?"
+    },
+    {
+      "question_number": 3,
+      "question_ar": "بماذا يؤدي السير في الرصيف المخصص للوقوف الاستعجالي ؟",
+      "question_fr": "Que risque le conducteur qui circule sur la bande d'arrêt d'urgence ?"
+    },
+    {
+      "question_number": 4,
+      "question_ar": "ماذا يجب القيام به عندما يكون السائق الذي يوشك تجاوزه ؟",
+      "question_fr": "Que doit-on faire lorsqu'on est sur le point d'être dépassé ?"
+    },
+    {
+      "question_number": 5,
+      "question_ar": "ما هي مركبات الأولوية ؟ و ما يجب على كل سائق أن يقوم به عندما تنبني هذه المركبات باقترابها ؟",
+      "question_fr": "Quels sont les véhicules prioritaires ?"
+    },
+    {
+      "question_number": 6,
+      "question_ar": "ما هو الفرق بين الخطوط المتقطعة \"العادية\" و الخطوط المتقطعة للتحذير ؟",
+      "question_fr": "Quelle est la différence entre une ligne discontinue \"normale\" et une ligne discontinue d'avertissement ?"
+    }
+  ],
+  "test-05": [
+    {
+      "question_number": 1,
+      "question_ar": "أذكر خمس حالات تؤدي إلى السحب الفوري لرخصة السياقة مع تعليق نفاذ؟",
+      "question_fr": "Citer 05 cas de retrait immédiat du permis de conduire avec effet suspensif."
+    },
+    {
+      "question_number": 2,
+      "question_ar": "ما هو الهدف من الفحص التقني الدوري للمركبات؟",
+      "question_fr": "Que vise le contrôle technique périodique des véhicules?"
+    },
+    {
+      "question_number": 3,
+      "question_ar": "ما هي الأخطار المتعلقة بالسياقة أثناء الليل؟",
+      "question_fr": "Quels sont les dangers particuliers de la conduite de nuit?"
+    },
+    {
+      "question_number": 4,
+      "question_ar": "ما هي المراحل الثلاثة المتعلقة بتغيير الإتجاه؟",
+      "question_fr": "Quelles sont les 03 phases d'un changement de direction?"
+    },
+    {
+      "question_number": 5,
+      "question_ar": "أذكر خمس حالات متعلقة بالوقوف أو التوقف الخطير.",
+      "question_fr": "Citer 05 cas d'arrêt et de stationnement dangereux."
+    },
+    {
+      "question_number": 6,
+      "question_ar": "من أي جهة نقوم بالتجاوز؟ أذكر الحالات الإستثنائية.",
+      "question_fr": "De quel côté s'effectuent les dépassements? Quelles sont les exceptions?"
+    }
+  ],
+  "test-06": [
+    {
+      "question_number": 1,
+      "question_ar": "أذكر 04 حالات تؤدي إلى سحب رخصة السيارة تحت طائل إجراء المتابعة من قبل السيد الوالي؟",
+      "question_fr": "Citer 04 cas de retrait de permis de conduire nécessitant une procédure de saisine de Monsieur le Wali ?"
+    },
+    {
+      "question_number": 2,
+      "question_ar": "ماذا يجب على السائق أن يقوم به في حالة مكوث مركبته على الطريق السريع للسيارات ؟",
+      "question_fr": "Que doit faire le conducteur dont le véhicule est immobilisé sur autoroute ?"
+    },
+    {
+      "question_number": 3,
+      "question_ar": "متى يجب تجنب السياقة ؟",
+      "question_fr": "Dans quels cas doit-on s'abstenir de conduire ?"
+    },
+    {
+      "question_number": 4,
+      "question_ar": "أذكر 05 حالات التوقف أو الوقوف المعيق.",
+      "question_fr": "Citer 05 cas d'arrêt et de stationnement gênant."
+    },
+    {
+      "question_number": 5,
+      "question_ar": "أذكر مختلف أنظمة الأولوية.",
+      "question_fr": "Citer les différents régimes de priorité."
+    },
+    {
+      "question_number": 6,
+      "question_ar": "ما هو تصرف كل سائق يوجد في مسلك ذات سهم فردي أو مزدوج؟",
+      "question_fr": "Quel doit-être le comportement de tout conducteur se trouvant sur une voie comportant une flèche simple ou bifide ?"
+    }
+  ],
+  "test-07": [
+    {
+      "question_number": 1,
+      "question_ar": "اذكر خمس حالات تؤدي إلى السحب الفوري لرخصة السياقة مع تعليق نافذ؟",
+      "question_fr": "Citer 05 cas de retrait immédiat du permis de conduire avec effet suspensif."
+    },
+    {
+      "question_number": 2,
+      "question_ar": "ما هو الهدف من الفحص التقني الدوري للمركبات؟",
+      "question_fr": "Que vise le contrôle technique périodique des véhicules ?"
+    },
+    {
+      "question_number": 3,
+      "question_ar": "ما هي الأخطار المتعلقة بالقيادة أثناء الليل؟",
+      "question_fr": "Quels sont les dangers particuliers de la conduite de nuit ?"
+    },
+    {
+      "question_number": 4,
+      "question_ar": "ما هي المراحل الثلاثة المتعلقة بتغيير الإتجاه؟",
+      "question_fr": "Quelles sont les 03 phases d'un changement de direction ?"
+    },
+    {
+      "question_number": 5,
+      "question_ar": "اذكر خمس حالات متعلقة بالوقوف أو التوقف الخطير.",
+      "question_fr": "Citer 05 cas d'arrêt et de stationnement dangereux."
+    },
+    {
+      "question_number": 6,
+      "question_ar": "من أي جهة نقوم بالتجاوز؟ اذكر الحالات الإستثنائية.",
+      "question_fr": "De quel côté s'effectuent les dépassements ? Quelles sont les exceptions ?"
+    }
+  ],
+  "test-08": [
+    {
+      "question_number": 1,
+      "question_ar": "إشرح إجراء السحب الفوري لرخصة السياقة مع تعليق نافذ ؟ أنكر خمس حالات تؤدي لهذا الإجرام.",
+      "question_fr": "Citer 05 cas de retrait immédiat du permis de conduire avec effet suspensif."
+    },
+    {
+      "question_number": 2,
+      "question_ar": "ما هي الإحتياطات اللازمة لمتابعة مركبة أخرى في أحسن ظروف أمنية.",
+      "question_fr": "Quelles sont les précautions à prendre pour suivre un autre véhicule en toute sécurité ?"
+    },
+    {
+      "question_number": 3,
+      "question_ar": "",
+      "question_fr": "Comment aborder un virage dans de bonnes conditions de sécurité ?"
+    },
+    {
+      "question_number": 4,
+      "question_ar": "ما هي المراحل الثلاثة للتجاوز؟ إشرح المرحلة الأولى.",
+      "question_fr": "Quelles sont les 03 phases d'un dépassement ? Expliquer la 1ère phase."
+    },
+    {
+      "question_number": 5,
+      "question_ar": "ما هي المركبات التي تستفيد من تسهيل المرور؟",
+      "question_fr": "Quels sont les véhicules bénéficiant de facilité de passage ?"
+    },
+    {
+      "question_number": 6,
+      "question_ar": "",
+      "question_fr": "Quelles sont les précautions à prendre pour tourner à droite ?"
+    }
+  ],
+  "test-09": [
+    {
+      "question_number": 1,
+      "question_ar": "كيف يجب أن تكون خصوصيات العناصر الأساسية المشتركة في أمن المرور ؟",
+      "question_fr": "Comment aborder une décente ou une côte à forte inclinaison ?"
+    },
+    {
+      "question_number": 2,
+      "question_ar": "ما هي فائدة مسافة الأمن ؟",
+      "question_fr": "Quelle est l'utilité de la distance de sécurité ?"
+    },
+    {
+      "question_number": 3,
+      "question_ar": "ما هي الأخطار المتعلقة بالسياقة عند بداية المطر ؟",
+      "question_fr": "Quels sont les dangers liés à la conduite lorsqu'il commence à pleuvoir ?"
+    },
+    {
+      "question_number": 4,
+      "question_ar": "ما هي المناورات الممنوعة في الطريق السريع ؟",
+      "question_fr": "Quelles sont les manoeuvres interdites sur route express ?"
+    },
+    {
+      "question_number": 5,
+      "question_ar": "ما هو الفرق بين الوقوف و التوقف ؟",
+      "question_fr": "Quelles sont les différences entre l'arrêt et le stationnement ?"
+    },
+    {
+      "question_number": 6,
+      "question_ar": "ما هو تصرف كل سائق يقترب بممر سكة حديدية غير محروس ؟",
+      "question_fr": "Quels sont les comportements à adopter par tout conducteur abordant un passage à niveau non gardé ?"
+    }
+  ],
+  "test-10": [
+    {
+      "question_number": 1,
+      "question_ar": "ما هي الأخطار الخاصة المتعلقة بالسياقة أثناء الليل ؟",
+      "question_fr": "Quels sont les dangers particuliers de la conduite de nuit ?"
+    },
+    {
+      "question_number": 2,
+      "question_ar": "ما هي العمليتان المسبقتان التي يجب القيام بها من طرف كل سائق يستعد لتغيير ذي شأن في سرعة مركبته؟",
+      "question_fr": "Quelles sont les 02 opérations préalables à effectuer par le conducteur qui s'apprête à apporter un changement important dans l'allure ?"
+    },
+    {
+      "question_number": 3,
+      "question_ar": "أذكر خمس حالات تؤدي إلى السحب الفوري لرخصة السياقة مع تعليق نافذ؟",
+      "question_fr": "Citer 05 cas de retrait immédiat du permis de conduire avec effet suspensif."
+    },
+    {
+      "question_number": 4,
+      "question_ar": "ما هي المراحل الثلاثة لمناورة تغيير الإتجاه ؟ إشرح المرحلة الأولى و المرحلة الثالثة للدوران إلى اليسار ؟",
+      "question_fr": "Quelles sont les 03 phases du changement de direction pour tourner à gauche ?"
+    },
+    {
+      "question_number": 5,
+      "question_ar": "أذكر مختلف اللوحات الإضافية ؟",
+      "question_fr": "Citer les différents types de panneaux additionnels."
+    },
+    {
+      "question_number": 6,
+      "question_ar": "ماذا يعني الضوء الإضافي في شكل سهم و الذي يرافق نظام الأضواء الثلاثي ؟",
+      "question_fr": "Que signifie le feu supplémentaire en forme de flèche accompagnant les 03 feux du système tricolore ?"
+    }
+  ],
+  "test-11": [
+    {
+      "question_number": 1,
+      "question_ar": "ما هي الأخطار الخاصة المتعلقة بالسياقة أثناء الليل؟",
+      "question_fr": "Quels sont les dangers particuliers de la conduite de nuit ?"
+    },
+    {
+      "question_number": 2,
+      "question_ar": "ما هي العمليتان المسبقتان التي يجب القيام بها من طرف كل سائق يستعد لتغيير ذي شأن في سرعة مركبته؟",
+      "question_fr": "Quelles sont les 02 opérations préalables à effectuer par le conducteur qui s'apprête à apporter un changement important dans l'allure ?"
+    },
+    {
+      "question_number": 3,
+      "question_ar": "أذكر خمس حالات تؤدي إلى السحب الفوري لرخصة السياقة مع تعليق نافذ؟",
+      "question_fr": "Citer 05 cas de retrait immédiat du permis de conduire avec effet suspensif."
+    },
+    {
+      "question_number": 4,
+      "question_ar": "ما هي المراحل الثلاثة لمناورة تغيير الاتجاه ؟ اشرح المرحلة الأولى و المرحلة الثالثة للدوران إلى اليسار؟",
+      "question_fr": "Quelles sont les 03 phases du changement de direction pour tourner à gauche ?"
+    },
+    {
+      "question_number": 5,
+      "question_ar": "أذكر مختلف اللوحات الإضافية؟",
+      "question_fr": "Citer les différents types de panneaux additionnels."
+    },
+    {
+      "question_number": 6,
+      "question_ar": "ماذا يعني الضوء الإضافي في شكل سهم و الذي يرافق نظام الأضواء الثلاثي؟",
+      "question_fr": "Que signifie le feu supplémentaire en forme de flèche accompagnant les 03 feux du système tricolore ?"
+    }
+  ],
+  "test-12": [
+    {
+      "question_number": 1,
+      "question_ar": "ما هو تصرف السائق عند لقاء إشارة \"الضوء الأحمر الثابت أو الغماز\" ؟",
+      "question_fr": "Quel est le comportement à adopter devant un feu de signalisation rouge (fixe ou clignotant) ?"
+    },
+    {
+      "question_number": 2,
+      "question_ar": "كيف يتم السير في منعرج بصفة آمنة؟",
+      "question_fr": "Comment aborder un virage dans de bonnes conditions ?"
+    },
+    {
+      "question_number": 3,
+      "question_ar": "ما هو تصرف السائق عند لقاء إشارة \"انتباه وجود الأولاد\" ؟",
+      "question_fr": "Quel doit être le comportement de tout conducteur à la rencontre du signal \"endroit fréquenté par les enfants\" ?"
+    },
+    {
+      "question_number": 4,
+      "question_ar": "ما هي صفة الخطوط التي تأتي قبل الخط المستمر ؟",
+      "question_fr": "Par quoi est précédée une ligne continue ?"
+    },
+    {
+      "question_number": 5,
+      "question_ar": "أذكر خمس حالات تؤدي إلى السحب الفوري لرخصة السياقة مع تعليق نافذ ؟",
+      "question_fr": "Citer 05 cas de retrait immédiat du permis de conduire avec la suspension de votre capacité de conduite."
+    },
+    {
+      "question_number": 6,
+      "question_ar": "ماذا يعني الضوء الإضافي في شكل سهم و الذي يرافق نظام الأضواء الثلاثي ؟",
+      "question_fr": "Que signifie le feu supplémentaire en forme de flèche(s) accompagnant le système des feux tricolores ?"
+    }
+  ],
+  "test-13": [
+    {
+      "question_number": 1,
+      "question_ar": "كيف يجب الإقتراب، بكل أمن، من، من منحدّر [أو من ارتفاع] ذات الإنحدار الكبير؟",
+      "question_fr": "Comment aborder en toute sécurité une descente (ou une côte) à forte inclinaison ?"
+    },
+    {
+      "question_number": 2,
+      "question_ar": "كيف يمكن تفادي كل خطر حادث مرور ينجر عن غياب السائق؟",
+      "question_fr": "Comment prévenir tout risque d'accident du fait de l'absence du conducteur ?"
+    },
+    {
+      "question_number": 3,
+      "question_ar": "ما هو تصرف كل سائق يقترب من مفترق طرق مزدحم؟",
+      "question_fr": "Quel doit-être le comportement de tout conducteur abordant une intersection encombrée ?"
+    },
+    {
+      "question_number": 4,
+      "question_ar": "ماذا يعني \"الوزن الإجمالي للحمولة المرخص بها\"؟ في أي صنف نرتب المركبة التي يساوي وزنها الإجمالي للحمولة المرخص بها 3.5 طن؟",
+      "question_fr": "Définir le poids Total Autorisé en Charge. Dans quelle catégorie est classé un véhicule dont le PTAC est égal à 3,5 tonnes ?"
+    },
+    {
+      "question_number": 5,
+      "question_ar": "ما هي الإختلافات و التناظرات التي توجد بين الطريق السريع للسيارات و الطريق السريع ؟",
+      "question_fr": "Quelles sont les différences et les similitudes entre une autoroute et une route expresse ?"
+    },
+    {
+      "question_number": 6,
+      "question_ar": "كيف يتم التوقف بالتعاقب ؟",
+      "question_fr": "Comment s'effectue le stationnement unilatéral alterné ?"
+    }
+  ],
+  "test-14": [
+    {
+      "question_number": 1,
+      "question_ar": "ما هو تصرف كل سائق عند لقاء إشارات الخطر ؟",
+      "question_fr": "Quel doit-être le comportement de tout conducteur rencontrant un signal de danger ?"
+    },
+    {
+      "question_number": 2,
+      "question_ar": "حسب أي الظروف يجب ضبط السرعة ؟",
+      "question_fr": "En fonction de quelles circonstances doit-être réglée la vitesse ?"
+    },
+    {
+      "question_number": 3,
+      "question_ar": "ماذا يعني \"شهادة سياقة مؤقتة\" و ما هي الحالات التي تؤدي إلى إلغائها \"ست حالات\" ؟",
+      "question_fr": "Qu'est ce qu'une attestation provisoire de conduite, et dans quels cas peut-il être annulé (06 cas) ?"
+    },
+    {
+      "question_number": 4,
+      "question_ar": "ما هي مختلف أجزاء الطريق ؟",
+      "question_fr": "Quelles sont les différentes parties d'une route ?"
+    },
+    {
+      "question_number": 5,
+      "question_ar": "من، من مستعملي الطريق، لا يجوز له المرور عبر الطريق السريع ؟",
+      "question_fr": "Quels sont les usagers qui ne sont pas admis à circuler sur autoroute ?"
+    },
+    {
+      "question_number": 6,
+      "question_ar": "ما هي الأضواء الخلفية الإجبارية لكل سيارة ؟",
+      "question_fr": "De quels feux doit-être muni tout véhicule à l'arrière ?"
+    }
+  ],
+  "test-15": [
+    {
+      "question_number": 1,
+      "question_ar": "ما هي التزامات السواق نحو الراجليين؟",
+      "question_fr": "Quelles sont les obligations des conducteurs envers les piétons ?"
+    },
+    {
+      "question_number": 2,
+      "question_ar": "ما هي العمليتان المسبقتان التي يجب القيام بها من طرف كل سائق يستعد لتغيير ذي شأن في اتجاه مركبته؟",
+      "question_fr": "Quelles sont les 02 opérations préalables à effectuer par le conducteur qui s'arrête à apporter un changement de direction ?"
+    },
+    {
+      "question_number": 3,
+      "question_ar": "ما هي أدنى \"حدة الرؤية\" المطلوبة حسب الصنف؟",
+      "question_fr": "Quel est le minimum requis pour l'acuité visuelle \"par catégorie\"?"
+    },
+    {
+      "question_number": 4,
+      "question_ar": "ما هي الأضواء الثلاثة لنظام الأضواء الثلاثي و معناها؟",
+      "question_fr": "Quels sont les 03 feux du système tricolore et leur signification ?"
+    },
+    {
+      "question_number": 5,
+      "question_ar": "ما هي الأصناف الثلاثة للوقوف ؟",
+      "question_fr": "Quels sont les 03 types de stationnement ?"
+    },
+    {
+      "question_number": 6,
+      "question_ar": "أذكر مختلف أصناف الإشارات العمودية.",
+      "question_fr": "Citer les différents types de signalisation verticale."
+    }
+  ],
+  "test-16": [
+    {
+      "question_number": 1,
+      "question_ar": "كيف يجب أن تكون خصوصيات العناصر الأساسية المشتركة في أمن المرور ؟",
+      "question_fr": "Comment aborder une décente ou une côte à forte inclinaison ?"
+    },
+    {
+      "question_number": 2,
+      "question_ar": "ما هي فائدة مسافة الأمن ؟",
+      "question_fr": "Quelle est l'utilité de la distance de sécurité ?"
+    },
+    {
+      "question_number": 3,
+      "question_ar": "ما هي الأخطار المتعلقة بالسيّاقة عند بداية المطر ؟",
+      "question_fr": "Quels sont les dangers liés à le conduite lorsqu'il commence a pleuvoir ?"
+    },
+    {
+      "question_number": 4,
+      "question_ar": "ما هي المناورات الممنوعة في الطريق السريع ؟",
+      "question_fr": "Quelles sont les manoeuvres interdites sur route express ?"
+    },
+    {
+      "question_number": 5,
+      "question_ar": "ما هو الفرق بين الوقوف و التوقف ؟",
+      "question_fr": "Quelles sont les différences entre l'arrêt et le stationnement ?"
+    },
+    {
+      "question_number": 6,
+      "question_ar": "ما هو تصرّف كل سائق يقترب بممر سكة حديدية غير محروس ؟",
+      "question_fr": "Quels sont les comportements à adopter par tout conducteur abordant un passage à niveau non gardé ?"
+    }
+  ],
+  "test-17": [
+    {
+      "question_number": 1,
+      "question_ar": "اذكر خمس حالات تؤدي إلى السحب الفوري لرخصة السياقة مع تعليق نافذ؟",
+      "question_fr": "Citer 05 cas de retrait immédiat du permis de conduire avec effet suspensif."
+    },
+    {
+      "question_number": 2,
+      "question_ar": "ما هو الهدف من الفحص التقني الدوري للمركبات؟",
+      "question_fr": "Que vise le contrôle technique périodique des véhicules ?"
+    },
+    {
+      "question_number": 3,
+      "question_ar": "ما هي الأخطار المتعلقة بالسياقة أثناء الليل؟",
+      "question_fr": "Quels sont les dangers particuliers de la conduite de nuit ?"
+    },
+    {
+      "question_number": 4,
+      "question_ar": "ما هي المراحل الثلاثة المتعلقة بتغيير الإتجاه؟",
+      "question_fr": "Quelles sont les 03 phases d'un changement de direction ?"
+    },
+    {
+      "question_number": 5,
+      "question_ar": "اذكر خمس حالات متعلقة بالوقوف أو التوقف الخطير.",
+      "question_fr": "Citer 05 cas d'arrêt et de stationnement dangereux."
+    },
+    {
+      "question_number": 6,
+      "question_ar": "من أي جهة نقوم بالتجاوز؟ اذكر الحالات الإستثنائية.",
+      "question_fr": "De quel côté s'effectuent les dépassements ? Quelles sont les exceptions ?"
+    }
+  ],
+  "test-18": [
+    {
+      "question_number": 1,
+      "question_ar": "أذكر خمس حالات تؤدي إلى السحب الفوري لرخصة السياقة مع تعليق نافذ؟",
+      "question_fr": "Citer 05 cas de retrait immédiat du permis de conduire avec effet suspensif."
+    },
+    {
+      "question_number": 2,
+      "question_ar": "ما هو الهدف من الفحص التقني الدوري للمركبات؟",
+      "question_fr": "Que vise le contrôle technique périodique des véhicules ?"
+    },
+    {
+      "question_number": 3,
+      "question_ar": "ما هي الأخطار المتعلقة بالسياقة أثناء الليل؟",
+      "question_fr": "Quels sont les dangers particuliers de la conduite de nuit ?"
+    },
+    {
+      "question_number": 4,
+      "question_ar": "ما هي المراحل الثلاثة المتعلقة بتغيير الإتجاه؟",
+      "question_fr": "Quelles sont les 03 phases d'un changement de direction ?"
+    },
+    {
+      "question_number": 5,
+      "question_ar": "أذكر خمس حالات متعلقة بالوقوف أو التوقف الخطير.",
+      "question_fr": "Citer 05 cas d'arrêt et de stationnement dangereux."
+    },
+    {
+      "question_number": 6,
+      "question_ar": "من أي جهة نقوم بالتجاوز؟ أذكر الحالات الإستثنائية.",
+      "question_fr": "De quel côté s'effectuent les dépassements ? Quelles sont les exceptions ?"
+    }
+  ],
+    "test-19": [
+    {
+      "question_number": 1,
+      "question_ar": "ما هو تصرف كل سائق عند لقاء إشارات الخطر؟",
+      "question_fr": "Quel doit-être le comportement de tout conducteur rencontrant un signal de danger ?"
+    },
+    {
+      "question_number": 2,
+      "question_ar": "حسب أي الظروف يجب ضبط السرعة؟",
+      "question_fr": "En fonction de quelles circonstances doit-être réglée la vitesse ?"
+    },
+    {
+      "question_number": 3,
+      "question_ar": "ماذا يعني \"شهادة سياقة مؤقتة\"؟ وما هي الحالات التي تؤدي إلى إلغائها؟ ست حالات.",
+      "question_fr": "Qu'est ce qu’une attestation provisoire de conduite, et dans quels cas peut-elle être annulée (06 cas) ?"
+    },
+    {
+      "question_number": 4,
+      "question_ar": "ما هي مختلف أجزاء الطريق؟",
+      "question_fr": "Quelles sont les différentes parties d’une route ?"
+    },
+    {
+      "question_number": 5,
+      "question_ar": "من هي مستعملي الطريق، لا يجوز له المرور عبر الطريق السريع للسيارات؟",
+      "question_fr": "Quels sont les usagers qui ne sont pas admis à circuler sur autoroute ?"
+    },
+    {
+      "question_number": 6,
+      "question_ar": "ما هي الأضواء الخلفية الإجبارية لكل سيارة؟",
+      "question_fr": "De quels feux doit-être muni tout véhicule à l’arrière ?"
+    }
+  ],
+
+  "test-20": [
+    {
+      "question_number": 1,
+      "question_ar": "اذكر خمس حالات تؤدي إلى السحب الفوري لرخصة السياقة مع تعليق نافذ.",
+      "question_fr": "Citer 05 cas de retrait immédiat du permis de conduire avec effet suspensif."
+    },
+    {
+      "question_number": 2,
+      "question_ar": "ما هو الهدف من الفحص التقني الدوري للمركبات؟",
+      "question_fr": "Que vise le contrôle technique périodique des véhicules ?"
+    },
+    {
+      "question_number": 3,
+      "question_ar": "ما هي الأخطار المتعلقة بالسياقة أثناء الليل؟",
+      "question_fr": "Quels sont les dangers particuliers de la conduite de nuit ?"
+    },
+    {
+      "question_number": 4,
+      "question_ar": "ما هي المراحل الثلاثة المتعلقة بتغيير الإتجاه؟",
+      "question_fr": "Quelles sont les 03 phases d’un changement de direction ?"
+    },
+    {
+      "question_number": 5,
+      "question_ar": "اذكر خمس حالات متعلقة بالوقوف أو التوقف الخطير.",
+      "question_fr": "Citer 05 cas d’arrêt et de stationnement dangereux."
+    },
+    {
+      "question_number": 6,
+      "question_ar": "من أي جهة نقوم بالتجاوز؟ اذكر الحالات الإستثنائية.",
+      "question_fr": "De quel côté s’effectuent les dépassements ? Quelles sont les exceptions ?"
+    }
+  ]
+
+}
