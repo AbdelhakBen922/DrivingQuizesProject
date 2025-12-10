@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime
 
-from app.models.enums import RoomType
+from app.models.enums import RoomMembershipStatus, RoomType
 from app.schemas.base import ORMModel
 
 
@@ -41,3 +41,28 @@ class RoomRead(RoomBase):
     deleted_at: datetime | None = None
 
     model_config = ORMModel.model_config
+
+
+class RoomStudentSummary(ORMModel):
+    membership_id: int
+    student_id: int | None
+    full_name: str | None
+    student_code: str | None
+    email: str | None
+    status: RoomMembershipStatus
+    joined_at: datetime | None = None
+    left_at: datetime | None = None
+
+
+class RoomQuizSummary(ORMModel):
+    id: int
+    title: str
+    template_id: int | None = None
+    starts_at: datetime | None = None
+    ends_at: datetime | None = None
+
+
+class RoomDetail(ORMModel):
+    room: RoomRead
+    students: list[RoomStudentSummary]
+    quizzes: list[RoomQuizSummary]

@@ -15,7 +15,7 @@ from app.models.room import Room
 from app.models.room_member import RoomMember
 from app.models.staff_user import StaffUser
 from app.models.student import Student
-from app.schemas.room import RoomCreateRequest, RoomRead
+from app.schemas.room import RoomCreateRequest, RoomDetail, RoomQuizSummary, RoomRead, RoomStudentSummary
 from app.schemas.room_member import RoomMemberAddRequest, RoomMemberRead
 from app.schemas.room_assignment import RoomQuizAssignRequest
 from app.schemas.quiz import QuizRead
@@ -58,6 +58,56 @@ async def _get_quiz_for_staff(session: AsyncSession, quiz_id: int, staff: StaffU
     return quiz
 
 
+async def _assign_quiz_to_room_record(session: AsyncSession, room: Room, quiz: Quiz) -> Quiz:
+    if quiz.room_id and quiz.room_id != room.id:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quiz already assigned to another room")
+
+    if quiz.school_id is not None and quiz.school_id != room.school_id:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Quiz must belong to the same school as the room",
+        )
+
+    quiz.room_id = room.id
+    if quiz.school_id is None:
+        quiz.school_id = room.school_id
+
+    await session.commit()
+    result = await session.execute(
+        select(Quiz)
+        .options(selectinload(Quiz.setting), selectinload(Quiz.template))
+        .where(Quiz.id == quiz.id)
+    )
+    return result.scalar_one()
+
+
+def _map_member_to_summary(member: RoomMember) -> RoomStudentSummary:
+    student = member.student
+    return RoomStudentSummary(
+        membership_id=member.id,
+        student_id=student.id if student else None,
+        full_name=student.full_name if student else None,
+        student_code=student.student_code if student else None,
+        email=student.email if student else None,
+        status=member.status,
+        joined_at=member.joined_at,
+        left_at=member.left_at,
+    )
+
+
+async def _collect_room_students(session: AsyncSession, room_id: int, active_only: bool = True) -> list[RoomStudentSummary]:
+    stmt = (
+        select(RoomMember)
+        .options(selectinload(RoomMember.student))
+        .where(RoomMember.room_id == room_id)
+    )
+    if active_only:
+        stmt = stmt.where(RoomMember.status == RoomMembershipStatus.ACTIVE)
+    result = await session.execute(stmt)
+    members = result.scalars().all()
+    return [_map_member_to_summary(member) for member in members]
+
+
 @router.get("/", response_model=list[RoomRead])
 async def list_rooms(
     session: AsyncSession = Depends(get_db),
@@ -71,6 +121,48 @@ async def list_rooms(
     )
     result = await session.execute(stmt)
     return result.scalars().all()
+
+
+@router.get("/{room_id}", response_model=RoomDetail)
+async def get_room_detail(
+    room_id: int,
+    session: AsyncSession = Depends(get_db),
+    current_staff: StaffUser = Depends(get_current_staff),
+) -> RoomDetail:
+    stmt = (
+        select(Room)
+        .options(selectinload(Room.members).selectinload(RoomMember.student))
+        .where(Room.id == room_id, Room.school_id == current_staff.school_id)
+    )
+    result = await session.execute(stmt)
+    room = result.scalar_one_or_none()
+    if not room:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Room not found")
+
+    students = [_map_member_to_summary(member) for member in room.members]
+
+    quizzes_stmt = (
+        select(Quiz)
+        .where(Quiz.room_id == room.id, Quiz.deleted_at.is_(None))
+        .order_by(Quiz.created_at.desc())
+    )
+    quizzes_result = await session.execute(quizzes_stmt)
+    quizzes = [
+        RoomQuizSummary(
+            id=quiz.id,
+            title=quiz.title,
+            template_id=quiz.template_id,
+            starts_at=quiz.starts_at,
+            ends_at=quiz.ends_at,
+        )
+        for quiz in quizzes_result.scalars().all()
+    ]
+
+    return RoomDetail(
+        room=RoomRead.model_validate(room),
+        students=students,
+        quizzes=quizzes,
+    )
 
 
 @router.post("/", response_model=RoomRead, status_code=status.HTTP_201_CREATED)
@@ -91,6 +183,16 @@ async def create_room(
     await session.commit()
     await session.refresh(room)
     return room
+
+
+@router.get("/{room_id}/students", response_model=list[RoomStudentSummary])
+async def list_room_students(
+    room_id: int,
+    session: AsyncSession = Depends(get_db),
+    current_staff: StaffUser = Depends(get_current_staff),
+) -> list[RoomStudentSummary]:
+    await _get_room_for_staff(session, room_id, current_staff)
+    return await _collect_room_students(session, room_id, active_only=False)
 
 
 @router.delete("/{room_id}", status_code=status.HTTP_204_NO_CONTENT)
@@ -157,11 +259,7 @@ async def remove_student_from_room(
     return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 
-@router.post(
-    "/{room_id}/quizzes",
-    response_model=QuizRead,
-    status_code=status.HTTP_200_OK,
-)
+@router.post("/{room_id}/assign-quiz", response_model=QuizRead, status_code=status.HTTP_200_OK)
 async def assign_quiz_to_room(
     room_id: int,
     payload: RoomQuizAssignRequest,
@@ -170,30 +268,7 @@ async def assign_quiz_to_room(
 ) -> QuizRead:
     room = await _get_room_for_staff(session, room_id, current_staff)
     quiz = await _get_quiz_for_staff(session, payload.quiz_id, current_staff)
-
-    if quiz.room_id and quiz.room_id != room.id:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quiz already assigned to another room")
-
-    if quiz.school_id is not None and quiz.school_id != room.school_id:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Quiz must belong to the same school as the room",
-        )
-
-    quiz.room_id = room.id
-    if quiz.school_id is None:
-        quiz.school_id = room.school_id
-
-    await session.commit()
-    result = await session.execute(
-        select(Quiz)
-            .options(
-                selectinload(Quiz.setting),
-                selectinload(Quiz.template),
-            )
-            .where(Quiz.id == quiz.id)
-    )
-    return result.scalar_one()
+    return await _assign_quiz_to_room_record(session, room, quiz)
 
 
 @router.delete("/{room_id}/quizzes/{quiz_id}", status_code=status.HTTP_204_NO_CONTENT)

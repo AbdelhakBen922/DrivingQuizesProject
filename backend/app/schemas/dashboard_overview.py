@@ -44,3 +44,10 @@ class DashboardOverviewResponse(ORMModel):
     study_progress: list[DashboardRoomProgress]
     recent_registrations: list[DashboardRecentRegistration]
     top_students: list[DashboardTopStudent]
+
+
+class DashboardStatsResponse(ORMModel):
+    total_groups: int
+    total_students: int
+    total_instructors: int
+    active_exams: int

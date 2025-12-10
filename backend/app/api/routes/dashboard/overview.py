@@ -23,6 +23,7 @@ from app.schemas.dashboard_overview import (
     DashboardOverviewResponse,
     DashboardRecentRegistration,
     DashboardRoomProgress,
+    DashboardStatsResponse,
     DashboardTopStudent,
 )
 
@@ -218,6 +219,14 @@ async def _fetch_top_students(session: AsyncSession, school_id: int) -> list[Das
     ]
 
 
+async def _fetch_staff_count(session: AsyncSession, school_id: int) -> int:
+    stmt = select(func.count()).select_from(StaffUser).where(
+        StaffUser.school_id == school_id,
+        StaffUser.is_active.is_(True),
+    )
+    return await session.scalar(stmt) or 0
+
+
 @router.get("/", response_model=DashboardOverviewResponse)
 async def get_dashboard_overview(
     session: AsyncSession = Depends(get_db),
@@ -238,3 +247,19 @@ async def get_dashboard_overview(
         recent_registrations=recent_regs,
         top_students=top_students,
     )
+
+
+    @router.get("/stats", response_model=DashboardStatsResponse)
+    async def get_dashboard_stats(
+        session: AsyncSession = Depends(get_db),
+        current_staff: StaffUser = Depends(get_current_staff),
+    ) -> DashboardStatsResponse:
+        school_id = await _require_staff_school(current_staff)
+        metrics = await _fetch_metrics(session, school_id)
+        staff_count = await _fetch_staff_count(session, school_id)
+        return DashboardStatsResponse(
+            total_groups=metrics.total_rooms,
+            total_students=metrics.total_students,
+            total_instructors=staff_count,
+            active_exams=metrics.active_quizzes,
+        )
