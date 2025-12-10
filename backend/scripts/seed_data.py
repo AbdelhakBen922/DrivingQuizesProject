@@ -112,6 +112,8 @@ async def seed() -> None:
             "password": "not-a-real-hash",
             "timezone": "Africa/Algiers",
             "locale": "fr-DZ",
+            "address": "Si Di Abdellah, Algiers",
+            "phone": "+213667341234",
             "language_defaults": {"primary": "fr", "fallback": "en"},
             "plan_id": plan.id,
             "billing_info": {"vat_number": "DZ123456789"},

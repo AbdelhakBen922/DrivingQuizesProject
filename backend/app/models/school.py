@@ -33,6 +33,8 @@ class School(BigIntPrimaryKeyMixin, TimestampMixin, SoftDeleteMixin, Base):
     password: Mapped[str] = mapped_column(Text, nullable=False)
     timezone: Mapped[str | None] = mapped_column(String(50))
     locale: Mapped[str | None] = mapped_column(String(10))
+    address: Mapped[str | None] = mapped_column(String(255))
+    phone: Mapped[str | None] = mapped_column(String(50))
     language_defaults: Mapped[dict] = mapped_column(JSONB, server_default=text("'{}'::jsonb"), nullable=False)
     plan_id: Mapped[int | None] = mapped_column(ForeignKey("plan.id", ondelete="SET NULL"), nullable=True)
     billing_info: Mapped[dict] = mapped_column(JSONB, server_default=text("'{}'::jsonb"), nullable=False)

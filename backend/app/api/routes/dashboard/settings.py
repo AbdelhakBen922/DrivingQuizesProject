@@ -57,12 +57,11 @@ def _compose_owner_name(first_name: str, last_name: str) -> str:
 
 
 def _build_school_info(school: School) -> DashboardSchoolInfo:
-    settings = dict(school.settings or {})
     return DashboardSchoolInfo(
         name=school.name,
         email=school.email,
-        address=settings.get("address"),
-        phone=settings.get("phone"),
+        address=school.address,
+        phone=school.phone,
     )
 
 
@@ -98,10 +97,8 @@ async def update_school_settings(
     school = await _get_school(session, current_staff)
     school.name = payload.name
     school.email = payload.email
-    updated_settings = dict(school.settings or {})
-    updated_settings["address"] = payload.address
-    updated_settings["phone"] = payload.phone
-    school.settings = updated_settings
+    school.address = payload.address
+    school.phone = payload.phone
     await session.commit()
     await session.refresh(school)
     return _build_school_info(school)
