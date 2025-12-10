@@ -236,23 +236,18 @@
     },
     {
       "question_number": 3,
-      "question_ar": "",
-      "question_fr": "Comment aborder un virage dans de bonnes conditions de sécurité ?"
-    },
-    {
-      "question_number": 4,
       "question_ar": "ما هي المراحل الثلاثة للتجاوز؟ إشرح المرحلة الأولى.",
       "question_fr": "Quelles sont les 03 phases d'un dépassement ? Expliquer la 1ère phase."
     },
     {
-      "question_number": 5,
+      "question_number": 4,
       "question_ar": "ما هي المركبات التي تستفيد من تسهيل المرور؟",
       "question_fr": "Quels sont les véhicules bénéficiant de facilité de passage ?"
     },
     {
-      "question_number": 6,
-      "question_ar": "",
-      "question_fr": "Quelles sont les précautions à prendre pour tourner à droite ?"
+      "question_number": 5,
+      "question_ar": "داخل المناطق العرمانية, ما هي وضعية كل مركبة في حالة الوقوف ؟",
+      "question_fr": "Dans les zones urbaines, quelle doit être la position de chaque véhicule en cas d’arrêt ?"
     }
   ],
   "test-09": [
