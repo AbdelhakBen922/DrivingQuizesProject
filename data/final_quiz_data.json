@@ -7,124 +7,124 @@
         {
           "sign_number": 1,
           "image_path": "individual_signs/test-01/test-01_sign_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- حذار، خطر غير معين."
         },
         {
           "sign_number": 2,
           "image_path": "individual_signs/test-01/test-01_sign_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- الدوران إلى اليمين ممنوع."
         },
         {
           "sign_number": 3,
           "image_path": "individual_signs/test-01/test-01_sign_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- التوقف ممنوع من 16 لـ 31 من كل شهر."
         },
         {
           "sign_number": 4,
           "image_path": "individual_signs/test-01/test-01_sign_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- التزام السير باتجاه اليمين إجباري."
         },
         {
           "sign_number": 5,
           "image_path": "individual_signs/test-01/test-01_sign_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- نهاية كل الممنوعات ماعدا الوقوف و التوقف."
         },
         {
           "sign_number": 6,
           "image_path": "individual_signs/test-01/test-01_sign_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- حذار، تقاطع طرق (الأولوية لليمين)."
         },
         {
           "sign_number": 7,
           "image_path": "individual_signs/test-01/test-01_sign_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- نهاية منع التجاوز بالنسبة للشاحنات."
         },
         {
           "sign_number": 8,
           "image_path": "individual_signs/test-01/test-01_sign_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- موقف سيارات الأجرة."
         },
         {
           "sign_number": 9,
           "image_path": "individual_signs/test-01/test-01_sign_09.png",
-          "correct_answer": ""
+          "correct_answer": "9- نهاية الممر الإجباري للدراجات."
         },
         {
           "sign_number": 10,
           "image_path": "individual_signs/test-01/test-01_sign_10.png",
-          "correct_answer": ""
+          "correct_answer": "10- الدخول إلى منطقة التوقف فيها ممنوع."
         },
         {
           "sign_number": 11,
           "image_path": "individual_signs/test-01/test-01_sign_11.png",
-          "correct_answer": ""
+          "correct_answer": "11- ممر إجباري للدراجات."
         },
         {
           "sign_number": 12,
           "image_path": "individual_signs/test-01/test-01_sign_12.png",
-          "correct_answer": ""
+          "correct_answer": "12- الخروج من منطقة التوقف فيها ممنوع."
         },
         {
           "sign_number": 13,
           "image_path": "individual_signs/test-01/test-01_sign_13.png",
-          "correct_answer": ""
+          "correct_answer": "13- غابة سريعة الاشتعال."
         },
         {
           "sign_number": 14,
           "image_path": "individual_signs/test-01/test-01_sign_14.png",
-          "correct_answer": ""
+          "correct_answer": "14- مرور الدرجات والدراجات النارية ممنوع."
         },
         {
           "sign_number": 15,
           "image_path": "individual_signs/test-01/test-01_sign_15.png",
-          "correct_answer": ""
+          "correct_answer": "15- حذار، طريق ذو اتجاهين."
         },
         {
           "sign_number": 16,
           "image_path": "individual_signs/test-01/test-01_sign_16.png",
-          "correct_answer": ""
+          "correct_answer": "16- الدخول إلى منطقة يمنع فيها تجاوز السرعة 30كم/سا."
         }
       ],
       "priorities": [
         {
           "priority_number": 1,
           "image_path": "individual_priorities/test-01/test-01_priority_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- محور دوراني مع إشارة ترك المرور - تمر السيارة الحمراء ثم الصفراء ."
         },
         {
           "priority_number": 2,
           "image_path": "individual_priorities/test-01/test-01_priority_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- تقاطع طرق مع إشارة قف على 150 متر و إشارة قف - تمر السيارتان الزرقاء و الصفراء في نفس الوقت ثم تمر السيارة الحمراء ."
         },
         {
           "priority_number": 3,
           "image_path": "individual_priorities/test-01/test-01_priority_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- تقاطع طرق مع إشارة تقاطع طرق (الأولوية لليمين) - تمر السيارة الزرقاء ثم الحمراء ثم الصفراء ."
         },
         {
           "priority_number": 4,
           "image_path": "individual_priorities/test-01/test-01_priority_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- تقاطع طرق مع إشارة ضوئية و سهم الاتجاه - تمر السيارة الصفراء والراجل في نفس الوقت، ثم تمر السيارة الزرقاء أما السيارة الحمراء فتنتظر الضوء الأخضر."
         },
         {
           "priority_number": 5,
           "image_path": "individual_priorities/test-01/test-01_priority_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- تقاطع طرق مع إشارة طريق رئيسي يقطعه طريق ثانوي، الأولوية للطريق الرئيسي - تمر السيارتان الحمراء و الزرقاء ثم تمر السيارة الصفراء ."
         },
         {
           "priority_number": 6,
           "image_path": "individual_priorities/test-01/test-01_priority_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- تقاطع طرق مع إشارة ضوئية - تمر السيارة الحمراء ، أما السيارتان الصفراء و الزرقاء فتنتظران الضوء الأخضر."
         },
         {
           "priority_number": 7,
           "image_path": "individual_priorities/test-01/test-01_priority_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- تقاطع طرق بدون إشارة، الأولوية لليمين - تمر السيارة الصفراء ثم الحمراء ثم الزرقاء ."
         },
         {
           "priority_number": 8,
           "image_path": "individual_priorities/test-01/test-01_priority_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- السيارة الخضراء تستطيع تجاوز السيارة الحمراء أما السيارة الصفراء فلا تستطيع التجاوز إلى المسار الثالث ولا يمكنها متابعة السيارة الخضراء ، عليها الرجوع إلى اليمين."
         }
       ],
       "general_questions": [
@@ -132,37 +132,37 @@
           "question_number": 1,
           "question_ar": "بأي عامل ترتبط مسافة الأمان؟",
           "question_fr": "De quels facteurs dépend la distance de sécurité ?",
-          "correct_answer": ""
+          "correct_answer": "1- تتعلق مسافة الأمان بـ:\n- السرعة، كلما زادت سرعة السيارة زادت مسافة الأمان.\n- حالة الطريق ( جافة أو مبللة)، إذا كانت الطريق مبللة يجب مضاعفة مسافة الأمان."
         },
         {
           "question_number": 2,
           "question_ar": "ما هي الأخطار المتعلقة بالسياقة أثناء المطر الغزير؟",
           "question_fr": "Quels sont les dangers liés à la conduite par temps de pluie forte ?",
-          "correct_answer": ""
+          "correct_answer": "2- أخطار السياقة أثناء المطر الغزير:\n- التصاق العجلات بسطح الأرض (الطريق) يكون أقل.\n- البرك المائية التي تتشكل وسط الطريق يمكن أن تعيق السيارة بشكل خطير.\n- نقص الرؤية.\n- مسافة الكبح تكون أطول.\n- عدم التحكم في السيارة (توجيه السيارة يصبح صعبا).\n- تصبح العجلات غير قادرة على صرف المياه، بالتالي ستبدأ المركبة في الانزلاق."
         },
         {
           "question_number": 3,
           "question_ar": "اذكر 05 حالات لسحب الفوري لرخصة السياقة مع تعليق نافذ",
           "question_fr": "Expliquer la procédure de \" retrait immédiat du permis de conduire avec effet suspensif \" ? Citer 05 cas.",
-          "correct_answer": ""
+          "correct_answer": "3- حالات السحب الفوري لرخصة السياقة مع تعليق نافذ:\n- ارتكاب جريمة القتل الخطأ أو الجرح نتيجة تهاون أو تغافل أو عدم الامتثال لقواعد حركة المرور.\n- ارتكاب جريمة القتل الخطأ أو الجرح في حالة سكر أو تحت تأثير أعشاب أو مواد تدخل ضمن أصناف المخدرات.\n- عند قيادة مركبة أو مرافقة سائق متدرب في إطار التمهين تحت تأثير مشروب كحولي يتميز بوجوده في الدم بنسبة تعادل أو تزيد عن 0.2 غ/1000.\n- سياقة مركبة تحت تأثير دواء أو أعشاب تدخل ضمن أصناف المخدرات.\n- جنحة الفرار.\n- رفض الخضوع لعملية التفتيش من طرف أعوان الأمن.\n- مخالفة الإجراءات المتعلقة بإشارات الأمر بالتوقف ( الضوء الأحمر أو إشارة قف ).\n- السير على شريط الوقوف الاستعجالي.\n- مخالفة إجراءات إتجاهات المرور الإلزامية (السير في اتجاه ممنوع....)."
         },
         {
           "question_number": 4,
           "question_ar": "ما هي المناورات الممنوعة في الطريق السريع للسيارات ؟",
           "question_fr": "Quelles sont les manoeuvres interdites sur autoroute ?",
-          "correct_answer": ""
+          "correct_answer": "4- المناورات الممنوعة على الطريق السريع:\n- الوقوف والتوقف.\n- السير للخلف.\n- التدريب على قيادة السيارة.\n- الدوران لاسيما عند عبور الشريط المركزي الفاصل بين الطريقين.\n- الوقوف أو المكوث على الشريط المركزي الفاصل بين الطريقين.\n- كذلك تمنع مركبات نقل المسافرين أو البضائع التي يتجاوز طولها 7 م أويتجاوز وزنها الإجمالي مع الحمولة 2 طن من السير على المسلك الأيسر إذا كانت الطريق تحتوي على 03 مسالك أو أكثر في اتجاه واحد.\n * هذه القواعد لا تطبق على المركبات ذات الأولوية أثناء قيامها بمهامها الاستعجالية.  "
         },
         {
           "question_number": 5,
           "question_ar": "ماذا يمكن السياقة برخصة صنف ب ؟",
           "question_fr": "Que peut-on conduire avec la catégorie \"B\" ?",
-          "correct_answer": ""
+          "correct_answer": "5- رخصة السياقة صنف \"ب\" تسمح بقيادة عربة لا يتجاوز وزنها الإجمالي 3.5 طن، عدد ركابها لا يتجاوز 9 (باحتساب السائق)، مع امكانية جر مقطورة لا يتجاوز وزنها 750 كلغ."
         },
         {
           "question_number": 6,
           "question_ar": "كيف تثبت حدود شريط التوقف الإستعجالي؟ هل يمكن عبور هذه الخطوط؟",
           "question_fr": "Comment sont délimitées les bandes d'arrêt d'urgence ? Peut-on franchir ces lignes ?",
-          "correct_answer": ""
+          "correct_answer": "6- نحدد شريط الوقوف الاستعجالي بالخطوط المتقطعة على جانب الطريق، طول الخط 20 م والفراغ بين الخطين 6 متر. لا يمكن عبور هذه الخطوط إلا في الحالات الاضطرارية كتعطل السيارة أو وقوع حادث مرور أو من طرف المركبات ذات الأولوية."
         }
       ]
     }
@@ -175,124 +175,124 @@
         {
           "sign_number": 1,
           "image_path": "individual_signs/test-02/test-02_sign_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- السرعة الأدنى الإجبارية 30 كلم/سا."
         },
         {
           "sign_number": 2,
           "image_path": "individual_signs/test-02/test-02_sign_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- نهاية منع تجاوز السرعة 50 كلم/سا."
         },
         {
           "sign_number": 3,
           "image_path": "individual_signs/test-02/test-02_sign_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- طريق ذات أولوية."
         },
         {
           "sign_number": 4,
           "image_path": "individual_signs/test-02/test-02_sign_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- حذار، محور دوراني."
         },
         {
           "sign_number": 5,
           "image_path": "individual_signs/test-02/test-02_sign_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- نهاية أولويّة الطريق."
         },
         {
           "sign_number": 6,
           "image_path": "individual_signs/test-02/test-02_sign_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- الاتجاه إلى اليمين إجباري."
         },
         {
           "sign_number": 7,
           "image_path": "individual_signs/test-02/test-02_sign_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- ترك المرور على بعد 150م."
         },
         {
           "sign_number": 8,
           "image_path": "individual_signs/test-02/test-02_sign_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- الدوران إلى اليمين ممنوع."
         },
         {
           "sign_number": 9,
           "image_path": "individual_signs/test-02/test-02_sign_09.png",
-          "correct_answer": ""
+          "correct_answer": "9- حذار، تعاقب عدة منعرجات أولها إلى اليمين."
         },
         {
           "sign_number": 10,
           "image_path": "individual_signs/test-02/test-02_sign_10.png",
-          "correct_answer": ""
+          "correct_answer": "10- حذار، ممهل في نفس مكان الإشارة."
         },
         {
           "sign_number": 11,
           "image_path": "individual_signs/test-02/test-02_sign_11.png",
-          "correct_answer": ""
+          "correct_answer": "11- مرور الشاحنات ممنوع."
         },
         {
           "sign_number": 12,
           "image_path": "individual_signs/test-02/test-02_sign_12.png",
-          "correct_answer": ""
+          "correct_answer": "12- اتجاه ممنوع."
         },
         {
           "sign_number": 13,
           "image_path": "individual_signs/test-02/test-02_sign_13.png",
-          "correct_answer": ""
+          "correct_answer": "13- تجاوز السرعة 30 ممنوع."
         },
         {
           "sign_number": 14,
           "image_path": "individual_signs/test-02/test-02_sign_14.png",
-          "correct_answer": ""
+          "correct_answer": "14- التجاوز ممنوع."
         },
         {
           "sign_number": 15,
           "image_path": "individual_signs/test-02/test-02_sign_15.png",
-          "correct_answer": ""
+          "correct_answer": "15- نهاية منع التجاوز."
         },
         {
           "sign_number": 16,
           "image_path": "individual_signs/test-02/test-02_sign_16.png",
-          "correct_answer": ""
+          "correct_answer": "16- التجاوز ممنوع بالنسبة للشاحنات."
         }
       ],
       "priorities": [
         {
           "priority_number": 1,
           "image_path": "individual_priorities/test-02/test-02_priority_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- تقاطع طرق مع إشارة حذار محور دوراني وإشارة ترك المرور - تمر السيارة الزرقاء ثم البيضاء ."
         },
         {
           "priority_number": 2,
           "image_path": "individual_priorities/test-02/test-02_priority_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- تقاطع طرق مع إشارة حذار محور دوراني وإشارة ترك المرور - تمر السيارتان الخضراء و الصفراء في نفس الوقت، ثم تمر الحمراء ."
         },
         {
           "priority_number": 3,
           "image_path": "individual_priorities/test-02/test-02_priority_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- تقاطع طرق مع إشارة طريق ذات أولوية - تمر السيارتان الصفراء و الزرقاء ، ثم تمر الحمراء ."
         },
         {
           "priority_number": 4,
           "image_path": "individual_priorities/test-02/test-02_priority_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- تقاطع طرق مع إشارة ترك المرور - تمر السيارتان الزرقاء و الصفراء ، ثم الحمراء ."
         },
         {
           "priority_number": 5,
           "image_path": "individual_priorities/test-02/test-02_priority_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- تقاطع طرق مع إشارة ترك المرور - تمر السيارتان الحمراء و الزرقاء ، ثم السيارة الصفراء ."
         },
         {
           "priority_number": 6,
           "image_path": "individual_priorities/test-02/test-02_priority_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- تقاطع طرق مع إشارة نهاية طريق ذات أولوية على بعد 400م و إشارة تقاطع طرق، الأولوية إلى اليمين  - تمر السيارة الزرقاء ثم الصفراء ثم الحمراء ."
         },
         {
           "priority_number": 7,
           "image_path": "individual_priorities/test-02/test-02_priority_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- تقاطع طرق مع إشارة ضوئية - السيارة الصفراء تستطيع المرور، أما الحمراء و الزرقاء فتنتظران الضوء الأخضر."
         },
         {
           "priority_number": 8,
           "image_path": "individual_priorities/test-02/test-02_priority_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- المركبة الزرقاء لا يمكنها التجاوز بسبب وجود الخط المستمر على يسارها قبل الخط المتقطع."
         }
       ],
       "general_questions": [
@@ -300,37 +300,37 @@
           "question_number": 1,
           "question_ar": "ما هو الالتصاق ؟ بماذا يتعلق ؟",
           "question_fr": "Qu'est-ce que l'adhérence ? De quoi dépend elle?",
-          "correct_answer": ""
+          "correct_answer": "1- الالتصاق هو الاتصال الدائم بين العجلات والطريق. ويرتبط بحالة الطريق وكذا نوعيتها بحيث يكون: جيدا في طريق إزفلتي جاف، متوسطا في طريق مبلل وضعيفا في الثلج ومنعدما في الجليد، هناك أيضا عوامل أخرى تؤثر على الالتصاق مثل وجود الحصى أو التراب وأيضا حالة العجلات."
         },
         {
           "question_number": 2,
           "question_ar": "ما هي فائدة مسافة الأمن؟",
           "question_fr": "Quelle est l'utilité de la distance de sécurité ?",
-          "correct_answer": ""
+          "correct_answer": "2- فائدة مسافة الأمن هي تجنب الإصطدام في حالة التمهل المفاجئ أو التوقف المباغت للمركبة السابقة."
         },
         {
           "question_number": 3,
           "question_ar": "ما هو دور مختلف أضواء المركبات ذات المحرك ؟ أذكرهم.",
           "question_fr": "Quels sont les rôles des différents feux des véhicules automobiles ? Citez les.",
-          "correct_answer": ""
+          "correct_answer": "3- أضواء السيارة:\n- الأضواء التي تنير الطريق وتساعد على الرؤية:\n- من الأمام ثمانية أضواء:\n* ضوء التقاطع (كود): يضيء على مسافة 30 متر ويستعمل فيما يلي:\nالتقابل - التتبع - التجاوز - في المنعرجات - في قمة مرتفع - داخل نفق - أثناء الضباب - إذا كانت الرؤية الغير واضحة - داخل مدينة قليلة أو عديمة الضوء - عند مدخل أو مخرج مدينة مضيئة عدة كيلومترات - نقابل به مجرى مائي.\n* ضوء الطريق (فار): يضيء على مسافة 100 متر ويستعمل فيما يلي:\nخارج المدن في الليل عندما لا يكون أحد أمامي أو يقابلني - يستعمل مكان المنبه الصوتي ليلا.\n* ضوء الوضعية (فيوز) نراه على بعد 150 متر، ويستعمل فيما يلي:\nقبل طلوع الشمس، وبعد غروبها - عند ركن السيارة ليلا - السير في مدينة مضاءة.\n* ضوء تغيير الاتجاه: ويستعمل فيما يلي:\nعند تغيير الاتجاه - التجاوز - ركن السيارة.\n- من الخلف عشرة أضواء وهي:\n* ضوء الوقوف (ستوب) ويضيء عند استعمال مكابح الأرجل.\n* زجاجتان عاكستان للضوء.\n* ضوء الوضعية (فيوز).\n* ضوء تغيير الاتجاه.\n* ضوء لوحة الترقيم (يتيح إمكانية قراءة لوحة الترقيم من على بعد 20 أو 25 متر).\n* ضوء الرجوع إلى الخلف."
         },
         {
           "question_number": 4,
           "question_ar": "كيف يجب أن يكون تصرف كل سائق في طريق ذو اتجاه واحد وبعدة مسالك ؟",
           "question_fr": "Comment doit se comporter tout conducteur circulant sur une chaussée à sens unique à plusieurs voies ?",
-          "correct_answer": ""
+          "correct_answer": "4- تصرف السائق في طريق ذو اتجاه واحد وبعدة مسالك:\nفي الوضع العادي يجب على السائق أن يلتزم بالسير على المسلك الأيمن.\nعند وجود اكتضاض في جميع المسالك،يجب على السائق أن يلتزم بالسير على المسلك الذي هو فيه ولا يجوز له مغادرته إلا استعدادا لتغيير الاتجاه دون إعاقة السير العادي لبقية للمركبات."
         },
         {
           "question_number": 5,
           "question_ar": "ما هي السرعة المحددة في الطريق السريع للسيارات (السيار) وفي الطرق الأخرى و في المناطق العمرانية؟",
           "question_fr": "Quelles sont les vitesses maximales autorisées sur autoroute, sur les autres routes et en agglomération ?",
-          "correct_answer": ""
+          "correct_answer": "5- السرعة المحددة:\nفي الطريق السريع: 120 كلم/سا إذا كان جافا و 100 كلم/سا إذا كان الطريق مبللا.\nخارج المدن: 100 كلم/سا إذا كان الطريق جافا و 80 كلم/سا إذا كان مبللا.\nداخل المدن: 50 كلم/سا إذا كان الطريق جافا و 40 كلم/سا إذا كان الطريق مبللا."
         },
         {
           "question_number": 6,
           "question_ar": "أذكر 05 حالات لتخفيض السرعة.",
           "question_fr": "Citer 05 cas de réduction de vitesse.",
-          "correct_answer": ""
+          "correct_answer": "6- خمس حالات تتوجب تخفيض السرعة:\nعند وجود إشارة تحديد السرعة - عند مدخل المدينة - عند المنعرجات - عند رأس تلة - عند ملتقى طرق - أثناء الضباب - داخل نفق - فوق أو تحت جسر - على طريق ضيق - أمام مدرسة - عند الاقتراب من ممر المشاة."
         }
       ]
     }
@@ -343,124 +343,124 @@
         {
           "sign_number": 1,
           "image_path": "individual_signs/test-03/test-03_sign_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- يستحسن السير بسرعة 70 كلم/سا."
         },
         {
           "sign_number": 2,
           "image_path": "individual_signs/test-03/test-03_sign_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- نهاية الطريق السريع."
         },
         {
           "sign_number": 3,
           "image_path": "individual_signs/test-03/test-03_sign_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- حذار، ممر للراجلين."
         },
         {
           "sign_number": 4,
           "image_path": "individual_signs/test-03/test-03_sign_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- حاجز أشغال مؤقتة."
         },
         {
           "sign_number": 5,
           "image_path": "individual_signs/test-03/test-03_sign_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- حذار، تقاطع طرق (الأولوية لليمين)."
         },
         {
           "sign_number": 6,
           "image_path": "individual_signs/test-03/test-03_sign_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- نهاية السرعة الأدنى الإجبارية 30 كلم/سا."
         },
         {
           "sign_number": 7,
           "image_path": "individual_signs/test-03/test-03_sign_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- مسلك طوارئ على اليمين."
         },
         {
           "sign_number": 8,
           "image_path": "individual_signs/test-03/test-03_sign_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- يمنع تجاوز السرعة 70 كلم/سا."
         },
         {
           "sign_number": 9,
           "image_path": "individual_signs/test-03/test-03_sign_09.png",
-          "correct_answer": ""
+          "correct_answer": "9- الدوران إلى الخلف ممنوع."
         },
         {
           "sign_number": 10,
           "image_path": "individual_signs/test-03/test-03_sign_10.png",
-          "correct_answer": ""
+          "correct_answer": "10- الدوران إلى اليمين ممنوع."
         },
         {
           "sign_number": 11,
           "image_path": "individual_signs/test-03/test-03_sign_11.png",
-          "correct_answer": ""
+          "correct_answer": "11- تفادي الحاجز إلى اليمين إجباري."
         },
         {
           "sign_number": 12,
           "image_path": "individual_signs/test-03/test-03_sign_12.png",
-          "correct_answer": ""
+          "correct_answer": "12- نهاية منع استعمال المنبه الصوتي."
         },
         {
           "sign_number": 13,
           "image_path": "individual_signs/test-03/test-03_sign_13.png",
-          "correct_answer": ""
+          "correct_answer": "13- اتجاه ممنوع."
         },
         {
           "sign_number": 14,
           "image_path": "individual_signs/test-03/test-03_sign_14.png",
-          "correct_answer": ""
+          "correct_answer": "14- نهاية منع تجاوز السرعة 110 كلم/سا."
         },
         {
           "sign_number": 15,
           "image_path": "individual_signs/test-03/test-03_sign_15.png",
-          "correct_answer": ""
+          "correct_answer": "15- نهاية أولوية الطريق."
         },
         {
           "sign_number": 16,
           "image_path": "individual_signs/test-03/test-03_sign_16.png",
-          "correct_answer": ""
+          "correct_answer": "16- طريق مستحسن للشاحنات التي يزيد طولها عن 10 أمتار."
         }
       ],
       "priorities": [
         {
           "priority_number": 1,
           "image_path": "individual_priorities/test-03/test-03_priority_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- تقاطع طرق مع إشارة تقاطع طرق (الأولوية لليمين) - تمر السيارة الزرقاء ثم الحمراء ."
         },
         {
           "priority_number": 2,
           "image_path": "individual_priorities/test-03/test-03_priority_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- تقاطع طرق مع إشارة طريق رئيسية تقطعها طريق فرعية (الأولوية للطريق الرئيسية) - تمر السيارتان الزرقاء و الحمراء ، ثم تمر السيارة الصفراء ."
         },
         {
           "priority_number": 3,
           "image_path": "individual_priorities/test-03/test-03_priority_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- تقاطع طرق مع إشارة ترك المرور - تمر السيارة الصفراء ثم الزرقاء (الساير قبل الداير) ثم تمر السيارة الحمراء ."
         },
         {
           "priority_number": 4,
           "image_path": "individual_priorities/test-03/test-03_priority_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- تقاطع طرق مع إشارة قف - مكان علامة الاتسفهام تكون إشارة \"قف على 150م\"."
         },
         {
           "priority_number": 5,
           "image_path": "individual_priorities/test-03/test-03_priority_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- تقاطع طرق مع إشارة حذار تقاطع طرق خطير (الأولوية لليمين) - تمر السيارة الصفراء ثم الحمراء ثم الزرقاء ."
         },
         {
           "priority_number": 6,
           "image_path": "individual_priorities/test-03/test-03_priority_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- تقاطع طرق مع إشارة ضوئية - السيارة الحمراء تستطيع المرور، أما السيارتان الزرقاء و الصفراء فتنتظران الضوء الأخضر."
         },
         {
           "priority_number": 7,
           "image_path": "individual_priorities/test-03/test-03_priority_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- تقاطع طرق بدون إشارة، الأولوية لليمين - تمر السيارة الزرقاء ثم الحمراء ثم الصفراء ."
         },
         {
           "priority_number": 8,
           "image_path": "individual_priorities/test-03/test-03_priority_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- تقاطع طرق مع إشارة قف على 150 متر وإشارة قف عند التقاطع - تمر السيارة الزرقاء ثم الصفراء (الساير قبل الداير) ثم تمر السيارة الحمر اء."
         }
       ],
       "general_questions": [
@@ -468,37 +468,37 @@
           "question_number": 1,
           "question_ar": "ما هي الأخطار المتعلقة بضغط غير مناسب للأطر المطاطية ؟",
           "question_fr": "Quels sont les risques liés à une pression inadequate des pneumatiques ?",
-          "correct_answer": ""
+          "correct_answer": "1- الأخطار المتعلقة بالضغط الغير مناسب للإطارات المطاطية:\nانفجار العجلات - عدم توازن السيارة أثناء السير - التآكل السريع للعجلات - الزيادة في استهلاك الوقود.\n * يجب مراقبة ضغط العجلات وهي باردة (أي قبل السير بها كيلومتر أو اثنين) مع زيادة 200 أو 300 غ ضغط إذا كانت محملة أو للسير مسافة طويلة على الطريق السريع.  "
         },
         {
           "question_number": 2,
           "question_ar": "ما هي نسبة الكحول المسموحة في الجزائر ؟ كيف يمكن قياسها ؟",
           "question_fr": "Quel est le taux d'alcoolémie admis en Algérie ? Par quels moyens peut-il être déterminé ?",
-          "correct_answer": ""
+          "correct_answer": "2- نسبة الكحول المسموحة في الجزائر:\nنسبة الكحول في الدم المسموح بها في الجزائر هي 0.1 غ/ل .ويتم قياسها عن طريق جهاز القياس في المكان بالنفخ في الأنبوب، وفي المستشفى عن طريق تحليل الدم."
         },
         {
           "question_number": 3,
           "question_ar": "أذكر 03 حالات تؤدي إلى السحب الفوري لرخصة السياقة دون تعليق نافذ.",
           "question_fr": "Citer 03 cas de retrait immédiat du permis de conduire sans effet suspensif.",
-          "correct_answer": ""
+          "correct_answer": "3- الحالات تؤدي إلى السحب الفوري لرخصة السياقة دون تعليق نافذ:\n- تعطيل حركة السير من خلال تخفيض سرعة المركبة دون أسباب حتمية.\n- عدم شد حزام الأمان بالنسبة للركاب الجالسين في المقاعد الأمامية للمركبة.\n- الاستعمال اليدوي لجهاز الهاتف النقال أثناء السير.\n- وضع سماعات الأذن أثناء السير."
         },
         {
           "question_number": 4,
           "question_ar": "ما هي حالات الأولوية لليمين ؟",
           "question_fr": "Quels sont les cas de priorité à droite ?",
-          "correct_answer": ""
+          "correct_answer": "4- حالات الأولوية لليمين:\n- تقاطع طرق بدون إشارات.\n- تقاطع طريقين ثانويتين.\n- تقاطع طريقين رئيسيتين.\n- إشارة ضوئية تصدر أضواء صفراء غمازة (مع عدم وجود إشارات إضافية)."
         },
         {
           "question_number": 5,
           "question_ar": "ما هي القاعدتين التي يجب احترامهما في الطرق الجبلية أو الطرق ذات الانحدار الكبير، يتبين أن التلاقي صعب ؟",
           "question_fr": "Quelles sont les 02 règles à respecter lorsque, sur les routes de montagne ou sur les routes a forte déclivité, le croisement s'avère difficile ?",
-          "correct_answer": ""
+          "correct_answer": "5- إذا تبينت صعوبة التلاقي في الطرق الجبلية ذات الانحدار الكبير يجب:\n- التوقف: المركبة النازلة يجب أن تتوقف لتفسح الطريق للمركبة الصاعدة.\n- الرجوع إلى الخلف: إذا لزم الأمر رجوع أحد المركبات يجب الالتزام بالقواعد التالية:\n--- المركبة الوحيدة ترجع إلى الخلف لتفسح الطريق للمركبات المتعددة.\n--- المركبات ذات الوزن الخفيف ترجع إلى الخلف لتفسح الطريق للمركبات ذات الوزن الثقيل.\n--- الشاحنات ترجع إلى الخلف لتفسح الطريق للحافلات."
         },
         {
           "question_number": 6,
           "question_ar": "ما هو الجهاز الذي يبين السائق الجديد ؟",
           "question_fr": "Comment on reconnaît un nouveau conducteur ?",
-          "correct_answer": ""
+          "correct_answer": "6- نميز السائق الجديد عن طريق إشارة تحديد السرعة أقل من 80 كلم/سا ملصقة بمؤخرة السيارة على الجهة اليسرى.\n \n* الملصق بقطر 15 سم، الارقام بارتفاع 10 سم.\n* يمنع لصق الملصق على الزجاج الخلفي للسيارة.\n* السائق الذي يملك رخصة سياقة عمرها أقل من سنتين يجب أن لا يتجاوز السرعة المحددة في الملصق (80 كلم/سا).\n  "
         }
       ]
     }
@@ -511,124 +511,124 @@
         {
           "sign_number": 1,
           "image_path": "individual_signs/test-04/test-04_sign_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- حذار، طريق ضيق على اليسار على بعد 400 متر."
         },
         {
           "sign_number": 2,
           "image_path": "individual_signs/test-04/test-04_sign_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- تجاوز السرعة 90 ممنوع. السهم المرفق يعني أنّ المنع يخص المسار الذي يحمل الإشارة فقط."
         },
         {
           "sign_number": 3,
           "image_path": "individual_signs/test-04/test-04_sign_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- حذار، طريق زلقة (إشارة مؤقتة)."
         },
         {
           "sign_number": 4,
           "image_path": "individual_signs/test-04/test-04_sign_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- مرور الشاحنات التي يزيد طولها عن 10 أمتار ممنوع."
         },
         {
           "sign_number": 5,
           "image_path": "individual_signs/test-04/test-04_sign_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- طريق مستحسن للشاحنات التي يزيد طولها عن 10 أمتار."
         },
         {
           "sign_number": 6,
           "image_path": "individual_signs/test-04/test-04_sign_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- التجاوز ممنوع على امتداد 500 متر."
         },
         {
           "sign_number": 7,
           "image_path": "individual_signs/test-04/test-04_sign_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- نهاية منع تجاوز السرعة 90."
         },
         {
           "sign_number": 8,
           "image_path": "individual_signs/test-04/test-04_sign_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- معلومات خاصة بالخدمات أو النشاطات السياحية على يمين الطريق على بعد 50 متر."
         },
         {
           "sign_number": 9,
           "image_path": "individual_signs/test-04/test-04_sign_09.png",
-          "correct_answer": ""
+          "correct_answer": "9- طريق ذو مسلكين، الأيمن يمنع فيه تجاوز السرعة 70 و الأيسر يمنع فيه تجاوز السرعة 90."
         },
         {
           "sign_number": 10,
           "image_path": "individual_signs/test-04/test-04_sign_10.png",
-          "correct_answer": ""
+          "correct_answer": "10- حذار، ممر للراجلين مع ممهل."
         },
         {
           "sign_number": 11,
           "image_path": "individual_signs/test-04/test-04_sign_11.png",
-          "correct_answer": ""
+          "correct_answer": "11- نهاية منع استعمال المنبه الصوتي."
         },
         {
           "sign_number": 12,
           "image_path": "individual_signs/test-04/test-04_sign_12.png",
-          "correct_answer": ""
+          "correct_answer": "12- مخروط أشغال مؤقتة."
         },
         {
           "sign_number": 13,
           "image_path": "individual_signs/test-04/test-04_sign_13.png",
-          "correct_answer": ""
+          "correct_answer": "13- علامات متكررة على بعد 150م، 100 م، 50 م."
         },
         {
           "sign_number": 14,
           "image_path": "individual_signs/test-04/test-04_sign_14.png",
-          "correct_answer": ""
+          "correct_answer": "14- الوقوف و التوقف ممنوعان."
         },
         {
           "sign_number": 15,
           "image_path": "individual_signs/test-04/test-04_sign_15.png",
-          "correct_answer": ""
+          "correct_answer": "15- الخروج من الطريق السريع."
         },
         {
           "sign_number": 16,
           "image_path": "individual_signs/test-04/test-04_sign_16.png",
-          "correct_answer": ""
+          "correct_answer": "16- حذار، طريق زلق بسبب الجليد."
         }
       ],
       "priorities": [
         {
           "priority_number": 1,
           "image_path": "individual_priorities/test-04/test-04_priority_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- تقاطع طرق مع إشارة طريق ذات أولوية و إشارة ترك المرور - تمر السيارة الحمراء ، ثم الزرقاء و الصفراء ."
         },
         {
           "priority_number": 2,
           "image_path": "individual_priorities/test-04/test-04_priority_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- تقاطع طرق مع إشارة ضوئية و إشارة طريق ذات أولوية و إشارة ترك المرور، نتبع الأضواء - تمر السيارات الزرقاء و الصفراوتان، أما الحمراء فتنتظر الضوء الأخضر."
         },
         {
           "priority_number": 3,
           "image_path": "individual_priorities/test-04/test-04_priority_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- تقاطع طرق مع إشارة طريق رئيسي يقطعه طريق ثانوي - الإشارة الناقصة هي ترك المرور(لأن الخطوط على الطريق متقطعة)."
         },
         {
           "priority_number": 4,
           "image_path": "individual_priorities/test-04/test-04_priority_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- تقاطع طرق حذار محور دوراني مع إشارة ترك المرور - تمر السيارة الحمراء ثم الصفراء ."
         },
         {
           "priority_number": 5,
           "image_path": "individual_priorities/test-04/test-04_priority_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- تقاطع طرق بدون إشارة (الأولوية لليمين) - تمر السيارة الزرقاء ثم الصفراء ثم الحمراء ."
         },
         {
           "priority_number": 6,
           "image_path": "individual_priorities/test-04/test-04_priority_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- تقاطع طرق مع إشارة ضوئية و سهم الاتجاه - تمر السيارة الصفراء والراجل في نفس الوقت، ثم تمر السيارة الزرقاء أما السيارة الحمراء فتنتظر الضوء الأخضر."
         },
         {
           "priority_number": 7,
           "image_path": "individual_priorities/test-04/test-04_priority_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- تقاطع طرق مع إشارة ضوئية - تمر السيارة الزرقاء ، أما السيارتان الصفراء و الخضراء فتنتظران الضوء الأخضر."
         },
         {
           "priority_number": 8,
           "image_path": "individual_priorities/test-04/test-04_priority_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- تقاطع طرق مع إشارة ضوئية و أسهم الاتجاه - تمر السيارتان الزرقاء و الخضراء ، أما الصفراء و الحمراء فتنتظران الضوء الأخضر."
         }
       ],
       "general_questions": [
@@ -636,37 +636,37 @@
           "question_number": 1,
           "question_ar": "ماذا يعني \"شهادة سياقة مؤقتة\" ؟",
           "question_fr": "Qu'est-ce qu'une attestation provisoire de conduite ?",
-          "correct_answer": ""
+          "correct_answer": "1- شهادة السياقة المؤقتة هي كل شهادة مر على تاريخ صدورها أقل من سنتين. كل من يملكها يعتبر تحت التدريب، يمكن أن تسحب من صاحبها إذا ارتكب مخالفات معينة."
         },
         {
           "question_number": 2,
           "question_ar": "بماذا يؤدي عدم وضع حزام الأمن ؟",
           "question_fr": "Par quoi est sanctionné le non port de la ceinture de sécurité ?",
-          "correct_answer": ""
+          "correct_answer": "2- عدم وضع حزام الأمان:\n- سلامة الركاب: عدم وضع حزام الأمان يزيد من احتمال ارتطام السائق والركاب بالزجاج الأمامي للسيارة في حالة وقوع حادث.\n- قانونيا: عدم وضع حزام يستوجب السحب الفوري لرخصة السياقة إضافة إلى غرامة مالية."
         },
         {
           "question_number": 3,
           "question_ar": "بماذا يؤدي السير في الرصيف المخصص للوقوف الاستعجالي ؟",
           "question_fr": "Que risque le conducteur qui circule sur la bande d'arrêt d'urgence ?",
-          "correct_answer": ""
+          "correct_answer": "3- السير على الرصيف المخصص للوقوف الاستعجالي يستوجب السحب الفوري لرخصة السياقة إضافة إلى غرامة مالية."
         },
         {
           "question_number": 4,
           "question_ar": "ماذا يجب القيام به عندما يكون السائق الذي يوشك تجاوزه ؟",
           "question_fr": "Que doit-on faire lorsqu'on est sur le point d'être dépassé ?",
-          "correct_answer": ""
+          "correct_answer": "4- عندما نكون محل تجاوز نلتزم بما يلي:\n- التزام اليمين.\n- الحفاظ على نفس وتيرة السير.\n- تجنب التمهل إلا عند الضرورة.\n- في الليل يجب استعمال أضواء التقاطع (كود)."
         },
         {
           "question_number": 5,
           "question_ar": "ما هي مركبات الأولوية ؟ و ما يجب على كل سائق أن يقوم به عندما تنبني هذه المركبات باقترابها ؟",
           "question_fr": "Quels sont les véhicules prioritaires ?",
-          "correct_answer": ""
+          "correct_answer": "5- مركبات الأولوية هي سيارات الشرطة، الدرك، الجمارك.\n- يجب على السائق أن يترك لها الأولوية عند تلقي الإشارة وذلك بتخفيض السرعة أو الوقوف عند الضرورة."
         },
         {
           "question_number": 6,
           "question_ar": "ما هو الفرق بين الخطوط المتقطعة \"العادية\" و الخطوط المتقطعة للتحذير ؟",
           "question_fr": "Quelle est la différence entre une ligne discontinue \"normale\" et une ligne discontinue d'avertissement ?",
-          "correct_answer": ""
+          "correct_answer": "6- الفرق بين الخطوط المتقطعة العادية والخطوط المتقطعة التحذيرية:\n- الخطوط المتقطعة العادية(هذه الخطوط يمكن تجاوزها):\n* داخل المناطق العمرانية: تكون ذات طول 1.5 متر والفراغ بينها 5 متر.\n* خارج المناطق العمرانية: تكون ذات طول 3 متر والفراغ بينها 10 متر.\n- الخطوط المتقطعة التحذيرية(لا يمكن تجاوزها):\n* متقاربة جدا ذات طول 3 متر والفراغ بينها 1.33 متر، تعلن عن اقتراب الخط المستمر."
         }
       ]
     }
@@ -679,124 +679,124 @@
         {
           "sign_number": 1,
           "image_path": "individual_signs/test-05/test-05_sign_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- اتجاه ممنوع."
         },
         {
           "sign_number": 2,
           "image_path": "individual_signs/test-05/test-05_sign_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- الخروج من منطقة التوقف فيها ممنوع."
         },
         {
           "sign_number": 3,
           "image_path": "individual_signs/test-05/test-05_sign_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- طريق ذو اتجاهين، الأولوية للاتجاه المعاكس."
         },
         {
           "sign_number": 4,
           "image_path": "individual_signs/test-05/test-05_sign_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- حذار، خطر غير معين مؤقت."
         },
         {
           "sign_number": 5,
           "image_path": "individual_signs/test-05/test-05_sign_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- حذار، خطر غير معين."
         },
         {
           "sign_number": 6,
           "image_path": "individual_signs/test-05/test-05_sign_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- مركز خاص بالمعاقين."
         },
         {
           "sign_number": 7,
           "image_path": "individual_signs/test-05/test-05_sign_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- حذار، محور دوراني."
         },
         {
           "sign_number": 8,
           "image_path": "individual_signs/test-05/test-05_sign_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- هاتف عمومي."
         },
         {
           "sign_number": 9,
           "image_path": "individual_signs/test-05/test-05_sign_09.png",
-          "correct_answer": ""
+          "correct_answer": "9- ممر إجباري للراجلين."
         },
         {
           "sign_number": 10,
           "image_path": "individual_signs/test-05/test-05_sign_10.png",
-          "correct_answer": ""
+          "correct_answer": "10- ممر مخصص للراجلين."
         },
         {
           "sign_number": 11,
           "image_path": "individual_signs/test-05/test-05_sign_11.png",
-          "correct_answer": ""
+          "correct_answer": "11- قف على بعد 150 متر."
         },
         {
           "sign_number": 12,
           "image_path": "individual_signs/test-05/test-05_sign_12.png",
-          "correct_answer": ""
+          "correct_answer": "12- نهاية منع تجاوز السرعة 110 كلم/سا."
         },
         {
           "sign_number": 13,
           "image_path": "individual_signs/test-05/test-05_sign_13.png",
-          "correct_answer": ""
+          "correct_answer": "13- حذار، طريق زلق بشكل مؤقت."
         },
         {
           "sign_number": 14,
           "image_path": "individual_signs/test-05/test-05_sign_14.png",
-          "correct_answer": ""
+          "correct_answer": "14- موقف سيارات الأجرة."
         },
         {
           "sign_number": 15,
           "image_path": "individual_signs/test-05/test-05_sign_15.png",
-          "correct_answer": ""
+          "correct_answer": "15- سكة حديدية غير محروسة مع إشارة."
         },
         {
           "sign_number": 16,
           "image_path": "individual_signs/test-05/test-05_sign_16.png",
-          "correct_answer": ""
+          "correct_answer": "16- نهاية السرعة الأدنى الإجبارية 30 كلم/سا."
         }
       ],
       "priorities": [
         {
           "priority_number": 1,
           "image_path": "individual_priorities/test-05/test-05_priority_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- تقاطع طرق مع إشارة حذار تقاطع طرق (الأولوية لليمين) - تمر السيارة الحمراء ثم السيارة الزرقاء والتي وراءها ثم تمر السيارة الصفراء ."
         },
         {
           "priority_number": 2,
           "image_path": "individual_priorities/test-05/test-05_priority_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- تقاطع طرق مع إشارة طريق رئيسي يقطعه طريق ثانوي، و إشارة ترك المرور - تمر السيارتان الزرقاء و الصفراء ثم تمر السيارتان الحمراء و التي وراءها."
         },
         {
           "priority_number": 3,
           "image_path": "individual_priorities/test-05/test-05_priority_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- تقاطع طرق مع إشارة ترك المرور - الإشارة الناقصة ترك المرور على بعد 150 م."
         },
         {
           "priority_number": 4,
           "image_path": "individual_priorities/test-05/test-05_priority_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- تقاطع طرق مع إشارة ضوئية - تمر السيارتان الحمراء و الصفراء ، أما السيارتان البيضاء و الزرقاء فتنتظران الضوء الأخضر."
         },
         {
           "priority_number": 5,
           "image_path": "individual_priorities/test-05/test-05_priority_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- تقاطع طرق بدون إشارة (الأولوية لليمين) - تمر السيارة الصفراء ثم السيارتان الزرقاوان ثم تم السيارة الحمراء ."
         },
         {
           "priority_number": 6,
           "image_path": "individual_priorities/test-05/test-05_priority_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- تقاطع طرق مع إشارة نهاية طريق ذات أولوية على بعد 200م و إشارة قف على بعد 150 م و إشارة قف و معالم تقاطع طرق - تمر السيارتان الحمراء و الزرقاء ثم تمر السيارة الصفراء ."
         },
         {
           "priority_number": 7,
           "image_path": "individual_priorities/test-05/test-05_priority_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- تقاطع طرق مع إشارة طريق ذات أولوية و إشارة قف - تمر السيارتان الصفراء و الحمراء ثم تمر السيارتان الزرقاء و البيضاء"
         },
         {
           "priority_number": 8,
           "image_path": "individual_priorities/test-05/test-05_priority_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- تقاطع طرق مع إشارة قف على 150 م وإشارة قف - تمر السيارتان الحمراء و الصفراء ثم تمر السيارة الزرقاء ."
         }
       ],
       "general_questions": [
@@ -804,37 +804,37 @@
           "question_number": 1,
           "question_ar": "أذكر خمس حالات تؤدي إلى السحب الفوري لرخصة السياقة مع تعليق نفاذ؟",
           "question_fr": "Citer 05 cas de retrait immédiat du permis de conduire avec effet suspensif.",
-          "correct_answer": ""
+          "correct_answer": "1- حالات السحب الفوري لرخصة السياقة مع تعليق نافذ:\n- ارتكاب جريمة القتل الخطأ أو الجرح نتيجة تهاون ، تغافل أو عدم الامتثال لقواعد حركة المرور.\n- ارتكاب جريمة القتل الخطأ أو الجرح في حالة سكر أو تحت تأثير أعشاب أو مواد تدخل ضمن أصناف المخدرات.\n- عند قيادة مركبة أو مرافقة سائق متدرب في إطار التمهين تحت تأثير مشروب كحولي يتميز بوجوده في الدم بنسبة تعادل أو تزيد عن 0.2 غ/1000.\n- سياقة مركبة تحت تأثير دواء أو أعشاب تدخل ضمن أصناف المخدرات.\n- جنحة الفرار.\n- رفض الخضوع لعملية التفتيش من طرف أعوان الأمن.\n- مخالفة الإجراءات المتعلقة بإشارات الأمر بالتوقف (الضوء الأحمر أو إشارة قف).\n- السير على شريط الوقوف الاستعجالي.\n- مخالفة إجراءات اتجاهات المرور الإلزامية (السير في اتجاه ممنوع....)."
         },
         {
           "question_number": 2,
           "question_ar": "ما هو الهدف من الفحص التقني الدوري للمركبات؟",
           "question_fr": "Que vise le contrôle technique périodique des véhicules?",
-          "correct_answer": ""
+          "correct_answer": "2- الفحص التقني للسيارات يدخل ضمن إجراءات السلامة عبر الطرقات، وهو عملية دورية للتأكد من حالة السيارة إذا ما كانت صالحة للاستعمال في الطرقات أم غير صالحة.\n- الهدف منه هو الحفاظ على الحالة الجيدة للمركبة وأيضا حماية سلامة الركاب ومستعملي الطريق من الأخطار الناجمة عن سوء حالة المركبة."
         },
         {
           "question_number": 3,
           "question_ar": "ما هي الأخطار المتعلقة بالسياقة أثناء الليل؟",
           "question_fr": "Quels sont les dangers particuliers de la conduite de nuit?",
-          "correct_answer": ""
+          "correct_answer": "3- الأخطار المتعلقة بالسياقة أثناء الليل:\n- الانبهار بالأضواء للسائقين القادمين من الأمام والخلف.\n- انعدام الإنارة للدرجات وبعض السائقين الآخرين.\n- سوء تقدير المسافات والأحجام بسبب نقص مجال الرؤية.\n- انعكاس أضواء السيارات على الطريق المبلل."
         },
         {
           "question_number": 4,
           "question_ar": "ما هي المراحل الثلاثة المتعلقة بتغيير الإتجاه؟",
           "question_fr": "Quelles sont les 03 phases d'un changement de direction?",
-          "correct_answer": ""
+          "correct_answer": "4- مراحل تغيير الاتجاه:\n- المرحلة الأولى: الاستعداد.\n* التأكد من إجراء المناورة دون خطر (النظر في المرآة الداخلية لتحديد ما إذا كنا محل تجاوز).\n* تشغيل الغمازة بمسافة كافية قبل الدوران.\n* أخذ الوضعية المناسبة للدوران دون إعاقة الآخرين.\n* التخفيض من السرعة ودرجة السرعة.\n- المرحلة الثانية: الشروع في المناورة.\n* عند الوصول إلى الملتقى يجب احترام قواعد المرور (الأضواء، الشرطة، الإشارات الأفقية...)\n- المرحلة الثالثة: اكتمال المناورة ومواصلة المسير.\nالدوران إلى اليسار:\n- الحالة الأولى: طريق ذو اتجاهين، بمسلك مزدوج:\n* التزام أقصى اليسار دون مجاوزة وسط الطريق\n* ترك أولوية المرور في حالة قدوم مركبات في الاتجاه المعاكس.\n* إكمال الدوران إلى اليسار مع لزوم الحذر.\n- الحالة الثانية: طريق ذو اتجاهين بمسلك فردي:\n* التزام السير في الوسط دون ملامسة الخط الفاصل إذا لم يكن هناك حاجز.\n- الحالة الثالثة: طريق ذات اتجاهين مع أسهم التوجه:\n* التزام السير في المسلك الذي يحمل سهما يشير إلى اليسار."
         },
         {
           "question_number": 5,
           "question_ar": "أذكر خمس حالات متعلقة بالوقوف أو التوقف الخطير.",
           "question_fr": "Citer 05 cas d'arrêt et de stationnement dangereux.",
-          "correct_answer": ""
+          "correct_answer": "5- حالات الوقوف أو التوقف الخطير:\n- على قمة مرتفع - عند منعرج - داخل نفق - أثناء الضباب - مكان عديم الإضاءة -  طريق ضيق - أمام ممر سكة حديدية غير محروس."
         },
         {
           "question_number": 6,
           "question_ar": "من أي جهة نقوم بالتجاوز؟ أذكر الحالات الإستثنائية.",
           "question_fr": "De quel côté s'effectuent les dépassements? Quelles sont les exceptions?",
-          "correct_answer": ""
+          "correct_answer": "6- التجاوز يكون على الجهة اليسرى إلا في الحالات التالية:\n- المركبة التي أمامي تريد الدوران إلى اليسار.\n- عند تجاوز عربات السكك الحديدية (ترامواي) خارج المحطة.\n- في الطريق السريع إذا كانت حركة السير في الجهة اليسرى بطيئة."
         }
       ]
     }
@@ -847,124 +847,124 @@
         {
           "sign_number": 1,
           "image_path": "individual_signs/test-06/test-06_sign_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- مرور الشاحنات ممنوع."
         },
         {
           "sign_number": 2,
           "image_path": "individual_signs/test-06/test-06_sign_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- مرور المركبات التي يزيد وزنها عن 5.5 طن ممنوع."
         },
         {
           "sign_number": 3,
           "image_path": "individual_signs/test-06/test-06_sign_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- موقف حافلات."
         },
         {
           "sign_number": 4,
           "image_path": "individual_signs/test-06/test-06_sign_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- حذار، ممر للراجلين."
         },
         {
           "sign_number": 5,
           "image_path": "individual_signs/test-06/test-06_sign_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- معلم منعرج جبلي."
         },
         {
           "sign_number": 6,
           "image_path": "individual_signs/test-06/test-06_sign_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- موقف خاص بالعربات التي تجرّ مقطورة."
         },
         {
           "sign_number": 7,
           "image_path": "individual_signs/test-06/test-06_sign_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- حذار، سكة حديدية محروسة بأسلاك كهربائية."
         },
         {
           "sign_number": 8,
           "image_path": "individual_signs/test-06/test-06_sign_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- استعمال المنبه الصوتي ممنوع."
         },
         {
           "sign_number": 9,
           "image_path": "individual_signs/test-06/test-06_sign_09.png",
-          "correct_answer": ""
+          "correct_answer": "9- دخول مدينة من خلال طريق وطني ذات أولوية."
         },
         {
           "sign_number": 10,
           "image_path": "individual_signs/test-06/test-06_sign_10.png",
-          "correct_answer": ""
+          "correct_answer": "10- دخول مدينة من خلال طريق وطني ليست ذات أولوية."
         },
         {
           "sign_number": 11,
           "image_path": "individual_signs/test-06/test-06_sign_11.png",
-          "correct_answer": ""
+          "correct_answer": "11- معلم منعرج خطير إلى اليمين."
         },
         {
           "sign_number": 12,
           "image_path": "individual_signs/test-06/test-06_sign_12.png",
-          "correct_answer": ""
+          "correct_answer": "12- تجاوز السرعة 90 كلم/سا ممنوع."
         },
         {
           "sign_number": 13,
           "image_path": "individual_signs/test-06/test-06_sign_13.png",
-          "correct_answer": ""
+          "correct_answer": "13- السرعة الأدنى الإجبارية 30 كلم/سا."
         },
         {
           "sign_number": 14,
           "image_path": "individual_signs/test-06/test-06_sign_14.png",
-          "correct_answer": ""
+          "correct_answer": "14- نهاية منع تجاوز السرعة 30 كلم/سا."
         },
         {
           "sign_number": 15,
           "image_path": "individual_signs/test-06/test-06_sign_15.png",
-          "correct_answer": ""
+          "correct_answer": "15- التجاوز ممنوع."
         },
         {
           "sign_number": 16,
           "image_path": "individual_signs/test-06/test-06_sign_16.png",
-          "correct_answer": ""
+          "correct_answer": "16- نهاية منع التجاوز بالنسبة للشاحنات."
         }
       ],
       "priorities": [
         {
           "priority_number": 1,
           "image_path": "individual_priorities/test-06/test-06_priority_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- تقاطع طرق مع إشارة طريق ذات أولوية وإشارة ترك المرور على بعد 150 متر و وإشارة ترك المرور - تمر السيارتان الحمراوتان و السيارة الصفراء ثم تمر السيارة الزرقاء ."
         },
         {
           "priority_number": 2,
           "image_path": "individual_priorities/test-06/test-06_priority_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- تقاطع طرق مع إشارة ضوئية - تمر السيارة الزرقاء و السيارتان الصفراوتان، أما السيارة الحمراء فتنتظر الضوء الأخضر."
         },
         {
           "priority_number": 3,
           "image_path": "individual_priorities/test-06/test-06_priority_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- تقاطع طرق مع إشارة نهاية أولوية الطريق على بعد 400 متر وإشارة ترك المرور - السيارة الحمراء تمر أولا."
         },
         {
           "priority_number": 4,
           "image_path": "individual_priorities/test-06/test-06_priority_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- تقاطع طرق مع إشارة ترك المرور على 150 متر و إشارة ترك المرور - الإشارة الناقصة هي إشارة طريق ذات أولوية أو طريق رئيسي يقطعه طريق ثانوي."
         },
         {
           "priority_number": 5,
           "image_path": "individual_priorities/test-06/test-06_priority_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- تقاطع طرق مع إشارة ضوئية (4 أضواء صفراء غمازة) وإشارات طريق ذات أولوية (باتجاه اليمين) وإشارة ترك المرور، نتبع الإشارات - تمر السيارة الحمراء ثم الزرقاء ثم الخضراء ."
         },
         {
           "priority_number": 6,
           "image_path": "individual_priorities/test-06/test-06_priority_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- تقاطع طرق مع إشارة ترك المرور وإشارة محور دوراني - تمر السيارة الحمراء ثم الصفراء ."
         },
         {
           "priority_number": 7,
           "image_path": "individual_priorities/test-06/test-06_priority_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- السيارة الزرقاء تستطيع التجاوز - لأن الخط على يسارها متقطع."
         },
         {
           "priority_number": 8,
           "image_path": "individual_priorities/test-06/test-06_priority_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- تقاطع طرق مع إشارة ضوئية وإشارات أخرى والشرطي، نتبع الشرطي - تمر السيارتان الصفراء و الخضراء أما السيارتان الزرقاء و الحمراء فتنتظران إشارة الشرطي."
         }
       ],
       "general_questions": [
@@ -972,37 +972,37 @@
           "question_number": 1,
           "question_ar": "أذكر 04 حالات تؤدي إلى سحب رخصة السيارة تحت طائل إجراء المتابعة من قبل السيد الوالي؟",
           "question_fr": "Citer 04 cas de retrait de permis de conduire nécessitant une procédure de saisine de Monsieur le Wali ?",
-          "correct_answer": ""
+          "correct_answer": "1- الحالات التي تؤدي إلى سحب رخصة السياقة تحت طائل إجراء المتابعة من قبل السيد الوالي:\n- كل شخص معاقب بسحب رخصة السياقة أو تعليقها أو إلغائها يواصل قيادة السيارة بواسطة وثيقة أو تصريح كاذب.\n- كل سائق تسبب في وقوع حادث ولم يتوقف.\n- كل سائق رفض الامتثال لأوامر أعوان الأمن.\n- كل سائق يسلك طريقا طور الإنجاز أو به أشغال (بالإشارات) أو يمر عبر جسر دون احترام الحمولة المسموحة.\n- لسرعة تتجاوز الحدود المفروضة ( +40 كلم/سا على الطريق السريع، +30 كلم/سا خارج المناطق السكانية، +20 كلم/سا في المناطق السكنية).\n- السياقة في حالة سكر أو تحت تأثير مواد أو أعشاب مصنفة ضمن المخدرات.\n- تجاوز السرعة 80 كلم/سا بالنسبة للسائق الذي يحمل رخصة سياقة جديدة (عمرها أقل من سنتين)."
         },
         {
           "question_number": 2,
           "question_ar": "ماذا يجب على السائق أن يقوم به في حالة مكوث مركبته على الطريق السريع للسيارات ؟",
           "question_fr": "Que doit faire le conducteur dont le véhicule est immobilisé sur autoroute ?",
-          "correct_answer": ""
+          "correct_answer": "2- في حالة توقف السيارة على الطريق السريع يجب على السائق:\n- اللجوء إلى شريط الوقوف الاضطراري.\n- إنارة أضواء الطوارئ ووضع مثلث العطب.\n- عند تعذر الانطلاق من جديد يستعمل السائق مركز هاتف النجدة المجاني للاتصال بشرطة الطريق السريع.\n- في حالة وجود ركاب مرافقين يجب إنزالهم من السيارة وإخراجهم وراء خط الأمان."
         },
         {
           "question_number": 3,
           "question_ar": "متى يجب تجنب السياقة ؟",
           "question_fr": "Dans quels cas doit-on s'abstenir de conduire ?",
-          "correct_answer": ""
+          "correct_answer": "3- يجب تجنب السياقة في الحالات التالية:\n- عند الإرهاق أو النعاس.\n- عند تناول المشروبات الكحولية.\n- عند تناول أي دواء يؤثر على سرعة رد الفعل أوعلى القدرة على السياقة بشكل جيد."
         },
         {
           "question_number": 4,
           "question_ar": "أذكر 05 حالات التوقف أو الوقوف المعيق.",
           "question_fr": "Citer 05 cas d'arrêt et de stationnement gênant.",
-          "correct_answer": ""
+          "correct_answer": "4- حالات للتوقف أو الوقوف المعيق:\nفوق الرصيف - أمام مستودع - أمام المطافئ - على طريق ضيق - أمام محطة الحافلات أو سيارات الأجرة - عند ملتقى طرق - فوق ممر المشاة."
         },
         {
           "question_number": 5,
           "question_ar": "أذكر مختلف أنظمة الأولوية.",
           "question_fr": "Citer les différents régimes de priorité.",
-          "correct_answer": ""
+          "correct_answer": "5- أنظمة الأولوية:\nالأولوية لليمين، حق الأولوية (عند إشارات قف أو إشارات ترك المرور...)، الأولوية لليسار عند المحور الدوراني."
         },
         {
           "question_number": 6,
           "question_ar": "ما هو تصرف كل سائق يوجد في مسلك ذات سهم فردي أو مزدوج؟",
           "question_fr": "Quel doit-être le comportement de tout conducteur se trouvant sur une voie comportant une flèche simple ou bifide ?",
-          "correct_answer": ""
+          "correct_answer": "6- عند وجود السائق في طريق مع سهم فردي أو مزدوج يجب عليه أن يلتزم المسلك الذي يؤدي الاتجاه المختار."
         }
       ]
     }
@@ -1015,124 +1015,124 @@
         {
           "sign_number": 1,
           "image_path": "individual_signs/test-07/test-07_sign_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- حذار، محور دوراني."
         },
         {
           "sign_number": 2,
           "image_path": "individual_signs/test-07/test-07_sign_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- ممر مخصص للراجلين."
         },
         {
           "sign_number": 3,
           "image_path": "individual_signs/test-07/test-07_sign_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- نهاية الممر الإجباري للراجلين."
         },
         {
           "sign_number": 4,
           "image_path": "individual_signs/test-07/test-07_sign_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- ترك المرور."
         },
         {
           "sign_number": 5,
           "image_path": "individual_signs/test-07/test-07_sign_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- الدخول إلى الطريق السريع."
         },
         {
           "sign_number": 6,
           "image_path": "individual_signs/test-07/test-07_sign_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- مطعم (يعمل على مدار أيام الأسبوع)."
         },
         {
           "sign_number": 7,
           "image_path": "individual_signs/test-07/test-07_sign_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- حذار، ممر للراجلين."
         },
         {
           "sign_number": 8,
           "image_path": "individual_signs/test-07/test-07_sign_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- يمنع ترك مسافة أمان أقل من 70 متر."
         },
         {
           "sign_number": 9,
           "image_path": "individual_signs/test-07/test-07_sign_09.png",
-          "correct_answer": ""
+          "correct_answer": "9- حذار، منعرج إلى اليسار."
         },
         {
           "sign_number": 10,
           "image_path": "individual_signs/test-07/test-07_sign_10.png",
-          "correct_answer": ""
+          "correct_answer": "10- التوقف ممنوع."
         },
         {
           "sign_number": 11,
           "image_path": "individual_signs/test-07/test-07_sign_11.png",
-          "correct_answer": ""
+          "correct_answer": "11- ممر إجباري للراجلين."
         },
         {
           "sign_number": 12,
           "image_path": "individual_signs/test-07/test-07_sign_12.png",
-          "correct_answer": ""
+          "correct_answer": "12- نهاية منع التجاوز."
         },
         {
           "sign_number": 13,
           "image_path": "individual_signs/test-07/test-07_sign_13.png",
-          "correct_answer": ""
+          "correct_answer": "13- مرور الدراجات ممنوع."
         },
         {
           "sign_number": 14,
           "image_path": "individual_signs/test-07/test-07_sign_14.png",
-          "correct_answer": ""
+          "correct_answer": "14- مسلك طوارئ على اليمين على بعد 2.5 كلم."
         },
         {
           "sign_number": 15,
           "image_path": "individual_signs/test-07/test-07_sign_15.png",
-          "correct_answer": ""
+          "correct_answer": "15- حذار سكة حديدية محروسة بأسلاك كهربائية."
         },
         {
           "sign_number": 16,
           "image_path": "individual_signs/test-07/test-07_sign_16.png",
-          "correct_answer": ""
+          "correct_answer": "16- موقف مخصص للدراجات."
         }
       ],
       "priorities": [
         {
           "priority_number": 1,
           "image_path": "individual_priorities/test-07/test-07_priority_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- تقاطع طرق مع إشارة ترك المرور - تمر السيارة الحمراء ، ثم السيارة الصفراء ."
         },
         {
           "priority_number": 2,
           "image_path": "individual_priorities/test-07/test-07_priority_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- تقاطع طرق مع إشارة طريق رئيسي يقطعه طريق ثانوي وإشارة قف - تمر السيارتان الصفراء و الخضراء ثم تمر السيارتان الزرقاء و الحمراء ."
         },
         {
           "priority_number": 3,
           "image_path": "individual_priorities/test-07/test-07_priority_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- تقاطع طرق مع إشارة تقاطع طرق خطير (الأولوية لليمين) - تمر الشاحنة و السيارة الخضراء ثم السيارة الحمراء وبعدها الدراجة."
         },
         {
           "priority_number": 4,
           "image_path": "individual_priorities/test-07/test-07_priority_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- تقاطع طرق مع إشارة ضوئية و سهم السماح بالدوران - تمر السيارتان البيضاء و الصفراء ، بعدها يمكن للسيارة الزرقاء الدوران إلى اليمين أما السيارة الحمراء فتنتظر الضوء الأخضر."
         },
         {
           "priority_number": 5,
           "image_path": "individual_priorities/test-07/test-07_priority_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- تقاطع طرق مع إشارة نهاية أولويّة الطريق على بعد 400 متر وإشارة ترك المرور - السيارة الحمراء تمر أولا."
         },
         {
           "priority_number": 6,
           "image_path": "individual_priorities/test-07/test-07_priority_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- تقاطع طرق مع إشارة ترك المرور وإشارة حذار محور دوارني - تمر السيارة الحمراء ثم تمر الصفراء ."
         },
         {
           "priority_number": 7,
           "image_path": "individual_priorities/test-07/test-07_priority_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- تقاطع طرق مع إشارة ضوئية والشرطي، نتبع وضعية الشرطي - تمر السيارتان الزرقاء و الخضراء ، أما الصفراء و الحمراء فتنتظران إشارة الشرطي."
         },
         {
           "priority_number": 8,
           "image_path": "individual_priorities/test-07/test-07_priority_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- السيارة الزرقاء تستطيع التجاوز - لأن الخط المتقطع محاذ لها."
         }
       ],
       "general_questions": [
@@ -1140,37 +1140,37 @@
           "question_number": 1,
           "question_ar": "اذكر خمس حالات تؤدي إلى السحب الفوري لرخصة السياقة مع تعليق نافذ؟",
           "question_fr": "Citer 05 cas de retrait immédiat du permis de conduire avec effet suspensif.",
-          "correct_answer": ""
+          "correct_answer": "1- حالات السحب الفوري لرخصة السياقة مع تعليق نافذ:\n- ارتكاب جريمة القتل الخطأ أو الجرح نتيجة تهاون ، تغافل أو عدم الامتثال لقواعد حركة المرور.\n- ارتكاب جريمة القتل الخطأ أو الجرح في حالة سكر أو تحت تأثير أعشاب أو مواد تدخل ضمن أصناف المخدرات.\n- عند قيادة مركبة أو مرافقة سائق متدرب في إطار التمهين تحت تأثير مشروب كحولي يتميز بوجوده في الدم بنسبة تعادل أو تزيد عن 0.2 غ/1000.\n- سياقة مركبة تحت تأثير دواء أو أعشاب تدخل ضمن أصناف المخدرات.\n- جنحة الفرار.\n- رفض الخضوع لعملية التفتيش من طرف أعوان الأمن.\n- مخالفة الإجراءات المتعلقة بإشارات الأمر بالتوقف (الضوء الأحمر أو إشارة قف).\n- السير على شريط الوقوف الاستعجالي.\n- مخالفة إجراءات اتجاهات المرور الإلزامية (السير في اتجاه ممنوع....)."
         },
         {
           "question_number": 2,
           "question_ar": "ما هو الهدف من الفحص التقني الدوري للمركبات؟",
           "question_fr": "Que vise le contrôle technique périodique des véhicules ?",
-          "correct_answer": ""
+          "correct_answer": "2- الفحص التقني للسيارات يدخل ضمن إجراءات السلامة عبر الطرقات، وهو عملية دورية للتأكد من حالة السيارة إذا ما كانت صالحة للاستعمال في الطرقات أم غير صالحة.\n- الهدف منه هو الحفاظ على الحالة الجيدة للمركبة وأيضا حماية سلامة الركاب ومستعملي الطريق من الأخطار الناجمة عن سوء حالة المركبة."
         },
         {
           "question_number": 3,
           "question_ar": "ما هي الأخطار المتعلقة بالقيادة أثناء الليل؟",
           "question_fr": "Quels sont les dangers particuliers de la conduite de nuit ?",
-          "correct_answer": ""
+          "correct_answer": "3- الأخطار المتعلقة بالسياقة أثناء الليل:\n- الانبهار بالأضواء للسائقين القادمين من الأمام والخلف.\n- انعدام الإنارة للدرجات وبعض السائقين الآخرين.\n- سوء تقدير المسافات والأحجام بسبب نقص مجال الرؤية.\n- انعكاس أضواء السيارات على الطريق المبلل."
         },
         {
           "question_number": 4,
           "question_ar": "ما هي المراحل الثلاثة المتعلقة بتغيير الإتجاه؟",
           "question_fr": "Quelles sont les 03 phases d'un changement de direction ?",
-          "correct_answer": ""
+          "correct_answer": "4- مراحل تغيير الاتجاه:\n- المرحلة الأولى: الاستعداد.\n* التأكد من إجراء المناورة دون خطر (النظر في المرآة الداخلية لتحديد ما إذا كنا محل تجاوز).\n* تشغيل الغمازة بمسافة كافية قبل الدوران.\n* أخذ الوضعية المناسبة للدوران دون إعاقة الآخرين.\n* التخفيض من السرعة ودرجة السرعة.\n- المرحلة الثانية: الشروع في المناورة.\n* عند الوصول إلى الملتقى يجب احترام قواعد المرور (الأضواء، الشرطة، الإشارات الأفقية...)\n- المرحلة الثالثة: اكتمال المناورة ومواصلة المسير.\nالدوران إلى اليسار:\n- الحالة الأولى: طريق ذو اتجاهين، بمسلك مزدوج:\n* التزام أقصى اليسار دون مجاوزة وسط الطريق\n* ترك أولوية المرور في حالة قدوم مركبات في الاتجاه المعاكس.\n* اكمال الدوران إلى اليسار مع لزوم الحذر.\n- الحالة الثانية: طريق ذو اتجاهين بمسلك فردي:\n* التزام السير في الوسط دون ملامسة الخط الفاصل إذا لم يكن هناك حاجز.\n- الحالة الثالثة: طريق ذات اتجاهين مع أسهم التوجه:\n* التزام السير في المسلك الذي يحمل سهما يشير إلى اليسار."
         },
         {
           "question_number": 5,
           "question_ar": "اذكر خمس حالات متعلقة بالوقوف أو التوقف الخطير.",
           "question_fr": "Citer 05 cas d'arrêt et de stationnement dangereux.",
-          "correct_answer": ""
+          "correct_answer": "5- حالات الوقوف أو التوقف الخطير:\n- على قمة مرتفع - عند منعرج - داخل نفق - أثناء الضباب - مكان عديم الإضاءة -  طريق ضيق - أمام ممر سكة حديدية غير محروس."
         },
         {
           "question_number": 6,
           "question_ar": "من أي جهة نقوم بالتجاوز؟ اذكر الحالات الإستثنائية.",
           "question_fr": "De quel côté s'effectuent les dépassements ? Quelles sont les exceptions ?",
-          "correct_answer": ""
+          "correct_answer": "6- التجاوز يكون على الجهة اليسرى إلا في الحالات التالية:\n- المركبة التي أمامي تريد الدوران إلى اليسار.\n- عند تجاوز عربات السكك الحديدية (ترامواي) خارج المحطة.\n- في الطريق السريع إذا كانت حركة السير في الجهة اليسرى بطيئة."
         }
       ]
     }
@@ -1183,124 +1183,124 @@
         {
           "sign_number": 1,
           "image_path": "individual_signs/test-08/test-08_sign_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- مرور العربات التي يزيد وزنها عن 5.5 طن ممنوع."
         },
         {
           "sign_number": 2,
           "image_path": "individual_signs/test-08/test-08_sign_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- طريق مسدود بدون منفذ."
         },
         {
           "sign_number": 3,
           "image_path": "individual_signs/test-08/test-08_sign_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- معلم رياح جانبية قوية."
         },
         {
           "sign_number": 4,
           "image_path": "individual_signs/test-08/test-08_sign_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- الدوران إلى اليسار ممنوع على الحافلات."
         },
         {
           "sign_number": 5,
           "image_path": "individual_signs/test-08/test-08_sign_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- نهاية منع تجاوز السرعة 110 كلم/سا."
         },
         {
           "sign_number": 6,
           "image_path": "individual_signs/test-08/test-08_sign_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- حذار، ممر للرّاجلين."
         },
         {
           "sign_number": 7,
           "image_path": "individual_signs/test-08/test-08_sign_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- موقف خاص بالدراجات."
         },
         {
           "sign_number": 8,
           "image_path": "individual_signs/test-08/test-08_sign_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- حذار، سكة حديدية محروسة بأسلاك كهربائية."
         },
         {
           "sign_number": 9,
           "image_path": "individual_signs/test-08/test-08_sign_09.png",
-          "correct_answer": ""
+          "correct_answer": "9- تجاوز السرعة 90 كلم/سا ممنوع."
         },
         {
           "sign_number": 10,
           "image_path": "individual_signs/test-08/test-08_sign_10.png",
-          "correct_answer": ""
+          "correct_answer": "10- مرور العربات التي تحمل مواد ملوثّة للمياه ممنوع."
         },
         {
           "sign_number": 11,
           "image_path": "individual_signs/test-08/test-08_sign_11.png",
-          "correct_answer": ""
+          "correct_answer": "11- حذار، طريق زلقة مؤقتة."
         },
         {
           "sign_number": 12,
           "image_path": "individual_signs/test-08/test-08_sign_12.png",
-          "correct_answer": ""
+          "correct_answer": "12- ممر إجباري للدرّاجات."
         },
         {
           "sign_number": 13,
           "image_path": "individual_signs/test-08/test-08_sign_13.png",
-          "correct_answer": ""
+          "correct_answer": "13- نهاية الممر الإجباري للدراجات."
         },
         {
           "sign_number": 14,
           "image_path": "individual_signs/test-08/test-08_sign_14.png",
-          "correct_answer": ""
+          "correct_answer": "14- نهاية أولويّة الطريق على بعد 400 متر."
         },
         {
           "sign_number": 15,
           "image_path": "individual_signs/test-08/test-08_sign_15.png",
-          "correct_answer": ""
+          "correct_answer": "15- سكة حديدية غير محروسة مع إشارة."
         },
         {
           "sign_number": 16,
           "image_path": "individual_signs/test-08/test-08_sign_16.png",
-          "correct_answer": ""
+          "correct_answer": "16- حذار، طريق ضيقة على اليسار."
         }
       ],
       "priorities": [
         {
           "priority_number": 1,
           "image_path": "individual_priorities/test-08/test-08_priority_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- تقاطع طرق مع إشارة ضوئية وإشارات أخرى، نتبع الإشارة الضوئية - تمر السيارتان الحمراء و الصفراء ، أما السيارة الزرقاء فتنتظر الضوء الأخضر."
         },
         {
           "priority_number": 2,
           "image_path": "individual_priorities/test-08/test-08_priority_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- تقاطع طرق بدون إشارة (الأولوية لليمين) - تمر السيارتان الحمراء و التي وراءها ثم الصفراء ثم الزرقاء"
         },
         {
           "priority_number": 3,
           "image_path": "individual_priorities/test-08/test-08_priority_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- تقاطع طرق مع إشارة طريق ذات أولوية وإشارة قف على بعد 150 متر وإشارة قف عند التقاطع - تمر السيارة الزرقاء ثم الصفراء ."
         },
         {
           "priority_number": 4,
           "image_path": "individual_priorities/test-08/test-08_priority_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- تقاطع طرق مع إشارة حذار تقاطع طرق (الأولوية لليمين) - تمر السيارات الصفراء الثّلاث ثم تمر السيارة الزرقاء وأخيرا تمر السيارة الحمراء ."
         },
         {
           "priority_number": 5,
           "image_path": "individual_priorities/test-08/test-08_priority_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- تقاطع طرق مع إشارة طريق ذات أولوية، وإشارة نهاية أولوية الطريق على بعد 300 متر وإشارة ترك المرور على 150 متر وإشارة ترك المرور عند التقاطع - تمر السيارة الزرقاء ثم الحمراء ."
         },
         {
           "priority_number": 6,
           "image_path": "individual_priorities/test-08/test-08_priority_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- تقاطع طرق مع إشارة طريق رئيسي يقطعه طريق ثانوي وإشارة ترك المرور على 150 متر وإشارة ترك المرور - تمر السيارة الحمراء ثم الصفراء ."
         },
         {
           "priority_number": 7,
           "image_path": "individual_priorities/test-08/test-08_priority_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- تقاطع طرق مع إشارة طريق ذات أولوية، وإشارة نهاية طريق ذات أولوية على 300 م وإشارة قف على 150 متر وإشارة قف - تمر السيارتان الزرقاء و الحمراء ثم تمر السيارة الصفراء ."
         },
         {
           "priority_number": 8,
           "image_path": "individual_priorities/test-08/test-08_priority_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- السيارة الزرقاء تستطيع التجاوز - لأن الخط على يسارها متقطع."
         }
       ],
       "general_questions": [
@@ -1308,37 +1308,31 @@
           "question_number": 1,
           "question_ar": "إشرح إجراء السحب الفوري لرخصة السياقة مع تعليق نافذ ؟ أنكر خمس حالات تؤدي لهذا الإجرام.",
           "question_fr": "Citer 05 cas de retrait immédiat du permis de conduire avec effet suspensif.",
-          "correct_answer": ""
+          "correct_answer": "1- إجراء السحب الفوري لرخصة السياقة:\n- قبل الوقوف أمام لجنة سحب رخص السياقة يتم تحرير محضر إثبات يدل على إجراء السحب الفوري لرخصة السياقة يبدأ سريانه خلال 48 ساعة بعد تاريخ الإثبات (المدة القصوى لنقل أو ركن المركبة).\n- حالات السحب:\nالسياقة في حالة سكر - القتل الخطأ - عدم الامتثال لأوامر شرطي المرور - السير في اتجاه ممنوع - الفرار - السير على شريط الوقوف الاضطراري - عدم الالتزام بأولوية المرور."
         },
         {
           "question_number": 2,
           "question_ar": "ما هي الإحتياطات اللازمة لمتابعة مركبة أخرى في أحسن ظروف أمنية.",
           "question_fr": "Quelles sont les précautions à prendre pour suivre un autre véhicule en toute sécurité ?",
-          "correct_answer": ""
+          "correct_answer": "2- الاحتياطات اللازمة لمتابعة مركبة في أحسن الظروف:\n- ترك مسافة أمان كافية (تتناسب مع سرعة المركبة وحالة الطريق).\n- البقاء في نفس المسلك وعدم البحث عما هو أسرع إلا في حالاتي التجاوز أو تغيير الاتجاه مع الإشعار المسبق.\n- مراقبة ضوء التوقف والغمازات للمركبة الأمامية."
         },
         {
           "question_number": 3,
-          "question_ar": "",
-          "question_fr": "Comment aborder un virage dans de bonnes conditions de sécurité ?",
-          "correct_answer": ""
+          "question_ar": "ما هي المراحل الثلاثة للتجاوز؟ إشرح المرحلة الأولى.",
+          "question_fr": "Quelles sont les 03 phases d'un dépassement ? Expliquer la 1ère phase.",
+          "correct_answer": "3- المراحل الثلاثة للتجاوز:\nالابتعاد أو الخروج - التجاوز - الرجوع إلى اليمين أو الدخول.\nشرح المرحلة الأولى:\nقبل البدء في عملية التجاوز يجب على السائق أن يتأكد من النقاط التالية:\n- عدم وجود إشارات تمنع التجاوز (إشارة منع التجاوز أو الخط المستمر).\n- عدم وجود خطر من القيام بعملية التجاوز:\n--- عدم وجود مركبات ترغب في القيام بعملية تجاوز سواء في الأمام أو في الخلف ضمن مسافة قريبة.\n--- التأكد من وجود مساحة كافية للرجوع إلى اليمين بعد إتمام عملية التجاوز.\n--- التأكد من قدرة المركبة على السير بسرعة كافية لتجاوز المركبة الأمامية في أقصر مدة ممكنة.\n- التأكد من عدم إرباك حركة السير في الاتجاه المعاكس.\n- تنبيه سائق المركبة الأمامية باستعمال المنبه الصوتي (خارج التجمعات السكانية)، وسائق المركبة الخلفية باستعمال الغمازات.\n* الخروج يكون بخط منحن بمسافة كافية عن المركبة التي نريد تجاوزها.\n* عند التجاوز يجب الزيادة في السرعة والابتعاد بمسافة كافية إلى اليسار (50 سم).\n* الرجوع إلى اليمين يكون بعد رؤية مقدمة المركبة التي تجاوزتها في المرآة الداخلية مع تخفيض السرعة لكي لا نضغط المحرك.\n  "
         },
         {
           "question_number": 4,
-          "question_ar": "ما هي المراحل الثلاثة للتجاوز؟ إشرح المرحلة الأولى.",
-          "question_fr": "Quelles sont les 03 phases d'un dépassement ? Expliquer la 1ère phase.",
-          "correct_answer": ""
+          "question_ar": "ما هي المركبات التي تستفيد من تسهيل المرور؟",
+          "question_fr": "Quels sont les véhicules bénéficiant de facilité de passage ?",
+          "correct_answer": "4- المركبات التي تستفيد من تسهيل المرور:\nالحماية المدنية - مصالح الغابات ومكافحة الحرائق - سيارات الإسعاف - المركبات التابعة لشركات الخدمات العامة (الماء، الكهرباء والغاز...) - مركبات نقل المساجين - المركبات المستعملة من طرف أعوان صيانة شبكات الاتصال."
         },
         {
           "question_number": 5,
-          "question_ar": "ما هي المركبات التي تستفيد من تسهيل المرور؟",
-          "question_fr": "Quels sont les véhicules bénéficiant de facilité de passage ?",
-          "correct_answer": ""
-        },
-        {
-          "question_number": 6,
-          "question_ar": "",
-          "question_fr": "Quelles sont les précautions à prendre pour tourner à droite ?",
-          "correct_answer": ""
+          "question_ar": "داخل المناطق العرمانية, ما هي وضعية كل مركبة في حالة الوقوف ؟",
+          "question_fr": "Dans les zones urbaines, quelle doit être la position de chaque véhicule en cas d’arrêt ?",
+          "correct_answer": "5- في المناطق العمرانية يجب أن تكون وضعية كل مركبة في حالة التوقف أو الوقوف موافقة لاتجاه المرور حسب القواعد الآتية:\n- بالنسبة للطرق ذات الاتجاه الواحد على الجانب الأيمن أوالأيسر من الطريق باستثناء أحكام مختلفة تتخذها السلطة.\n- في كل الحالات على حافة الطريق إذا كانت غير مخصصة لمرور أصناف خاصة من مستعملي وإذا كانت حالة الأرض تسمح بالوقوف."
         }
       ]
     }
@@ -1351,124 +1345,124 @@
         {
           "sign_number": 1,
           "image_path": "individual_signs/test-09/test-09_sign_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- مرور الراجلين ممنوع."
         },
         {
           "sign_number": 2,
           "image_path": "individual_signs/test-09/test-09_sign_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- نهاية كل الممنوعات ماعدا الوقوف و التوقف."
         },
         {
           "sign_number": 3,
           "image_path": "individual_signs/test-09/test-09_sign_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- معلم منعرج خطير إلى اليمين."
         },
         {
           "sign_number": 4,
           "image_path": "individual_signs/test-09/test-09_sign_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- حذار، منعرج إلى اليمين."
         },
         {
           "sign_number": 5,
           "image_path": "individual_signs/test-09/test-09_sign_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- الوقوف والتوقف ممنوعان."
         },
         {
           "sign_number": 6,
           "image_path": "individual_signs/test-09/test-09_sign_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- حذار، طريق ينتهي إلى نهر أو بحر."
         },
         {
           "sign_number": 7,
           "image_path": "individual_signs/test-09/test-09_sign_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- حذار، طريق رئيسي يقطعه طريق ثانوي (الأولوية للطريق الرئيسي)."
         },
         {
           "sign_number": 8,
           "image_path": "individual_signs/test-09/test-09_sign_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- ممر مخصص للراجلين."
         },
         {
           "sign_number": 9,
           "image_path": "individual_signs/test-09/test-09_sign_09.png",
-          "correct_answer": ""
+          "correct_answer": "9- حذار، ممر للراجلين."
         },
         {
           "sign_number": 10,
           "image_path": "individual_signs/test-09/test-09_sign_10.png",
-          "correct_answer": ""
+          "correct_answer": "10- نهاية السرعة الأدنى الإجبارية 30 كلم/سا."
         },
         {
           "sign_number": 11,
           "image_path": "individual_signs/test-09/test-09_sign_11.png",
-          "correct_answer": ""
+          "correct_answer": "11- نهاية منع تجاوز السرعة 30 كلم/سا."
         },
         {
           "sign_number": 12,
           "image_path": "individual_signs/test-09/test-09_sign_12.png",
-          "correct_answer": ""
+          "correct_answer": "12- نهاية أولوية الطريق."
         },
         {
           "sign_number": 13,
           "image_path": "individual_signs/test-09/test-09_sign_13.png",
-          "correct_answer": ""
+          "correct_answer": "13- التوقف ممنوع."
         },
         {
           "sign_number": 14,
           "image_path": "individual_signs/test-09/test-09_sign_14.png",
-          "correct_answer": ""
+          "correct_answer": "14- حذار، طريق زلق."
         },
         {
           "sign_number": 15,
           "image_path": "individual_signs/test-09/test-09_sign_15.png",
-          "correct_answer": ""
+          "correct_answer": "15- الدخول إلى الطريق السريع."
         },
         {
           "sign_number": 16,
           "image_path": "individual_signs/test-09/test-09_sign_16.png",
-          "correct_answer": ""
+          "correct_answer": "16- السير ممنوع في كلا الاتجاهين."
         }
       ],
       "priorities": [
         {
           "priority_number": 1,
           "image_path": "individual_priorities/test-09/test-09_priority_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- تقاطع طرق مع إشارة طريق ذات أولوية و إشارة قف على 150 متر وإشارة قف - تمر السيارة الزرقاء ثم الصفراء ."
         },
         {
           "priority_number": 2,
           "image_path": "individual_priorities/test-09/test-09_priority_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- السيارة الزرقاء (التي تجر مقطورة) تتوقف لتفسح الطريق للسيارة الحمراء (خارج المدينة)."
         },
         {
           "priority_number": 3,
           "image_path": "individual_priorities/test-09/test-09_priority_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- تقاطع طرق مع إشارة ترك المرور على 150 متر وإشارة ترك المرور - الإشارة الناقصة هي إشارة طريق ذات أولوية أو إشارة طريق رئيسي يقطعه طريق ثانوي."
         },
         {
           "priority_number": 4,
           "image_path": "individual_priorities/test-09/test-09_priority_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- السيارة الزرقاء تستطيع التجاوز - لأن الخط على يسارها متقطع."
         },
         {
           "priority_number": 5,
           "image_path": "individual_priorities/test-09/test-09_priority_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- تقاطع طرق مع إشارة طريق ذو اتجاه واحد - السيارة ليست في وضعية صحيحة للدوران إلى اليسار، لأنها في طريق ذو اتجاه واحد (يجب التزام أقصى اليسار)."
         },
         {
           "priority_number": 6,
           "image_path": "individual_priorities/test-09/test-09_priority_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- طريق جبلي ضيق - السيارة التي تجرّ مقطورة تتوقف لتفسح الطريق الحمراء ."
         },
         {
           "priority_number": 7,
           "image_path": "individual_priorities/test-09/test-09_priority_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- تقاطع طرق مع إشارة طريق ذو اتجاه واحد - المركبة في وضعية صحيحة للدوران إلى اليسار."
         },
         {
           "priority_number": 8,
           "image_path": "individual_priorities/test-09/test-09_priority_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- طريق جبلي ضيق - الحافلة تتوقف لتفسح الطريق للسيارة الحمراء ."
         }
       ],
       "general_questions": [
@@ -1476,37 +1470,37 @@
           "question_number": 1,
           "question_ar": "كيف يجب أن تكون خصوصيات العناصر الأساسية المشتركة في أمن المرور ؟",
           "question_fr": "Comment aborder une décente ou une côte à forte inclinaison ?",
-          "correct_answer": ""
+          "correct_answer": "1- العناصر المشتركة في الطريق هي:\n- السائق : يجب أن يكون في حالة صحية جيدة .\n- المركبة : أن تكون المركبة صالحة للاستعمال من كل الجوانب المكابح الأضواء العجلات...\n- المحيط : أن تكون الأحوال الجوية جيدة وحالة الطريق كذلك."
         },
         {
           "question_number": 2,
           "question_ar": "ما هي فائدة مسافة الأمن ؟",
           "question_fr": "Quelle est l'utilité de la distance de sécurité ?",
-          "correct_answer": ""
+          "correct_answer": "2- فائدة مسافة الأمن هي تجنب الاصطدام في حالة التمهل المفاجئ أو التوقف المباغت للمركبة السابقة."
         },
         {
           "question_number": 3,
           "question_ar": "ما هي الأخطار المتعلقة بالسياقة عند بداية المطر ؟",
           "question_fr": "Quels sont les dangers liés à la conduite lorsqu'il commence à pleuvoir ?",
-          "correct_answer": ""
+          "correct_answer": "3- عند بداية نزول المطر تتشكل طبقة رفيعة من الوحل عند امتزاج قطرات المطر مع الغبار الموجود في الهواء وعلى الطريق، هذه الطبقة تجعل الطريق زلج وتؤدي إلى انزلاق المركبة."
         },
         {
           "question_number": 4,
           "question_ar": "ما هي المناورات الممنوعة في الطريق السريع ؟",
           "question_fr": "Quelles sont les manoeuvres interdites sur route express ?",
-          "correct_answer": ""
+          "correct_answer": "4- المناورات الممنوعة على الطريق السريع:\n- الوقوف والتوقف.\n- السير للخلف.\n- التدريب على قيادة السيارة.\n- الدوران لاسيما عند عبور الشريط المركزي الفاصل بين الطريقين.\n- الوقوف أو المكوث على الشريط المركزي الفاصل بين الطريقين.\n- كذلك تمنع مركبات نقل المسافرين أو البضائع التي يتجاوز طولها 7 م أويتجاوز وزنها الإجمالي مع الحمولة 2 طن من السير على المسلك الأيسر إذا كانت الطريق تحتوي على 03 مسالك أو أكثر في اتجاه واحد.\n * هذه القواعد لا تطبق على المركبات ذات الأولوية أثناء قيامها بمهامها الاستعجالية.  "
         },
         {
           "question_number": 5,
           "question_ar": "ما هو الفرق بين الوقوف و التوقف ؟",
           "question_fr": "Quelles sont les différences entre l'arrêt et le stationnement ?",
-          "correct_answer": ""
+          "correct_answer": "5- الفرق بين الوقوف والتوقف:\n- الوقوف: مكوث المركبة مؤقتا على الطريق طوال المدة اللازمة لركوب أشخاص أو نزولهم وشحن البضائع أو تفريغها مع بقاء السائق في مكان القيادة أو على مقربة منها ليتمكن عند الإقتضاء من تغيير مكانها ويكون المحرك مشتغلا دائما.\n- التوقف: مكوث المركبة في الطريق خارج الظروف المميزة للوقوف ويكون المحرك صامتا."
         },
         {
           "question_number": 6,
           "question_ar": "ما هو تصرف كل سائق يقترب بممر سكة حديدية غير محروس ؟",
           "question_fr": "Quels sont les comportements à adopter par tout conducteur abordant un passage à niveau non gardé ?",
-          "correct_answer": ""
+          "correct_answer": "6- عند الاقتراب من ممر السكة الحديدية، ينبغي على السائق الوقوف الإجباري، وأن لا يتقدم من الممر حتى يتأكد من عدم وجود قطار على السكة."
         }
       ]
     }
@@ -1519,124 +1513,124 @@
         {
           "sign_number": 1,
           "image_path": "individual_signs/test-10/test-10_sign_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- يستحسن السير بسرعة 70 كلم/سا."
         },
         {
           "sign_number": 2,
           "image_path": "individual_signs/test-10/test-10_sign_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- السرعة الأدنى الإجبارية 30 كلم/سا."
         },
         {
           "sign_number": 3,
           "image_path": "individual_signs/test-10/test-10_sign_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- طريق غابي رقم 7."
         },
         {
           "sign_number": 4,
           "image_path": "individual_signs/test-10/test-10_sign_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- حاجز أشغال مؤقتة."
         },
         {
           "sign_number": 5,
           "image_path": "individual_signs/test-10/test-10_sign_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- حذار، تقاطع طرق (الأولوية لليمين)."
         },
         {
           "sign_number": 6,
           "image_path": "individual_signs/test-10/test-10_sign_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- حذار، منعرج إلى اليمين."
         },
         {
           "sign_number": 7,
           "image_path": "individual_signs/test-10/test-10_sign_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- مسلك طوارئ على اليمين."
         },
         {
           "sign_number": 8,
           "image_path": "individual_signs/test-10/test-10_sign_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- تجاوز السرعة 70 كلم/سا ممنوع."
         },
         {
           "sign_number": 9,
           "image_path": "individual_signs/test-10/test-10_sign_09.png",
-          "correct_answer": ""
+          "correct_answer": "9- الدروان إلى الخلف ممنوع."
         },
         {
           "sign_number": 10,
           "image_path": "individual_signs/test-10/test-10_sign_10.png",
-          "correct_answer": ""
+          "correct_answer": "10- حذار، خطر غير معين مؤقت."
         },
         {
           "sign_number": 11,
           "image_path": "individual_signs/test-10/test-10_sign_11.png",
-          "correct_answer": ""
+          "correct_answer": "11- تفادي الحاجز إلى اليمين إجباري."
         },
         {
           "sign_number": 12,
           "image_path": "individual_signs/test-10/test-10_sign_12.png",
-          "correct_answer": ""
+          "correct_answer": "12- نهاية منع استعمال المنبه الصوتي."
         },
         {
           "sign_number": 13,
           "image_path": "individual_signs/test-10/test-10_sign_13.png",
-          "correct_answer": ""
+          "correct_answer": "13- اتجاه ممنوع."
         },
         {
           "sign_number": 14,
           "image_path": "individual_signs/test-10/test-10_sign_14.png",
-          "correct_answer": ""
+          "correct_answer": "14- طريق ذو اتجاهين، الأولوية للاتجاه المعاكس."
         },
         {
           "sign_number": 15,
           "image_path": "individual_signs/test-10/test-10_sign_15.png",
-          "correct_answer": ""
+          "correct_answer": "15- نهاية أولوية الطريق."
         },
         {
           "sign_number": 16,
           "image_path": "individual_signs/test-10/test-10_sign_16.png",
-          "correct_answer": ""
+          "correct_answer": "16- طريق مستحسن للعربات التي يزيد طولها عن 10 متر."
         }
       ],
       "priorities": [
         {
           "priority_number": 1,
           "image_path": "individual_priorities/test-10/test-10_priority_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- تقاطع طرق مع إشارة تقاطع طرق (الأولوية لليمين) - الإشارة الناقصة هي نفس الإشارة (حذار، تقاطع طرق)."
         },
         {
           "priority_number": 2,
           "image_path": "individual_priorities/test-10/test-10_priority_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- تقاطع طرق مع إشارة ترك المرور و إشارة حذار، محور دوراني - تمر السيارة الحمراء ثم الصفراء ."
         },
         {
           "priority_number": 3,
           "image_path": "individual_priorities/test-10/test-10_priority_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- تقاطع طرق مع إشارة ضوئية - السيارة الزرقاء إذا كانت قريبة تمر و إذا كانت بعيدة تنتظر الضوء الأخضر، والسيارتان الحمراء و الصفراء تنتظران الضوء الأخضر."
         },
         {
           "priority_number": 4,
           "image_path": "individual_priorities/test-10/test-10_priority_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- تقاطع طرق مع إشارة حذار تقاطع طرق خطير (الأولوية لليمين) - تمر السيارة الصفراء ثم الحمراء ثم الزرقاء ."
         },
         {
           "priority_number": 5,
           "image_path": "individual_priorities/test-10/test-10_priority_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- تقاطع طرق مع إشارة طريق ذات أولوية و إشارة قف على 150 متر و إشارة قف - تمر السيارة الزرقاء ثم الصفراء ."
         },
         {
           "priority_number": 6,
           "image_path": "individual_priorities/test-10/test-10_priority_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- طريق جبلي ضيق - الحافلة تتوقف لتفسح الطريق للسيارة الحمراء ."
         },
         {
           "priority_number": 7,
           "image_path": "individual_priorities/test-10/test-10_priority_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- السيارة الزرقاء تستطيع التجاوز - لأن الخط على يسارها متقطع."
         },
         {
           "priority_number": 8,
           "image_path": "individual_priorities/test-10/test-10_priority_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- تقاطع طرق مع إشارة ضوئية بأربع أضواء صفراء وإشارات أخرى والشرطي، نتبع الشرطي - تمر السيارتان الخضراء و الصفراء ، أما الحمراء و الزرقاء فتنتظران إشارة الشرطي."
         }
       ],
       "general_questions": [
@@ -1644,37 +1638,37 @@
           "question_number": 1,
           "question_ar": "ما هي الأخطار الخاصة المتعلقة بالسياقة أثناء الليل ؟",
           "question_fr": "Quels sont les dangers particuliers de la conduite de nuit ?",
-          "correct_answer": ""
+          "correct_answer": "1- الأخطار المتعلقة بالسياقة أثناء الليل:\n- الانبهار بالأضواء للسائقين القادمين من الأمام والخلف.\n- انعدام الإنارة للدرجات وبعض السائقين الآخرين.\n- سوء تقدير المسافات والأحجام بسبب نقص مجال الرؤية.\n- انعكاس أضواء السيارات على الطريق المبلل."
         },
         {
           "question_number": 2,
           "question_ar": "ما هي العمليتان المسبقتان التي يجب القيام بها من طرف كل سائق يستعد لتغيير ذي شأن في سرعة مركبته؟",
           "question_fr": "Quelles sont les 02 opérations préalables à effectuer par le conducteur qui s'apprête à apporter un changement important dans l'allure ?",
-          "correct_answer": ""
+          "correct_answer": "2- عندما يريد السائق القيام بتغيير مهم في سرعته يلتزم بما يلي:\n- يتأكد مسبقا من أنه يستطيع القيام بذلك بدون خطر (من خلال النظر في المرآة الداخلية).\n- يعلن نيته مسبقا بوقت كاف لمستعملي الطريق الآخرين (استعمال الغماز في حالة الوقوف أو التوقف، الضغط المتكرر على المكابح عند تخفيض السرعة)."
         },
         {
           "question_number": 3,
           "question_ar": "أذكر خمس حالات تؤدي إلى السحب الفوري لرخصة السياقة مع تعليق نافذ؟",
           "question_fr": "Citer 05 cas de retrait immédiat du permis de conduire avec effet suspensif.",
-          "correct_answer": ""
+          "correct_answer": "3- حالات السحب الفوري لرخصة السياقة مع تعليق نافذ:\n- ارتكاب جريمة القتل الخطأ أو الجرح نتيجة تهاون أو تغافل أو عدم الامتثال لقواعد حركة المرور.\n- ارتكاب جريمة القتل الخطأ أو الجرح في حالة سكر أو تحت تأثير أعشاب أو مواد تدخل ضمن أصناف المخدرات.\n- عند قيادة مركبة أو مرافقة سائق متدرب في إطار التمهين تحت تأثير مشروب كحولي يتميز بوجوده في الدم بنسبة تعادل أو تزيد عن 0.2 غ/1000.\n- سياقة مركبة تحت تأثير دواء أو أعشاب تدخل ضمن أصناف المخدرات.\n- جنحة الفرار.\n- رفض الخضوع لعملية التفتيش من طرف أعوان الأمن.\n- مخالفة الإجراءات المتعلقة بإشارات الأمر بالتوقف ( الضوء الأحمر أو إشارة قف ).\n- السير على شريط الوقوف الاستعجالي.\n- مخالفة إجراءات اتجاهات المرور الإلزامية (السير في اتجاه ممنوع....)."
         },
         {
           "question_number": 4,
           "question_ar": "ما هي المراحل الثلاثة لمناورة تغيير الإتجاه ؟ إشرح المرحلة الأولى و المرحلة الثالثة للدوران إلى اليسار ؟",
           "question_fr": "Quelles sont les 03 phases du changement de direction pour tourner à gauche ?",
-          "correct_answer": ""
+          "correct_answer": "4- مراحل تغيير الاتجاه:\n- المرحلة الأولى: الاستعداد.\n* التأكد من إجراء المناورة دون خطر (النظر في المرآة الداخلية لتحديد ما إذا كنا محل تجاوز).\n* تشغيل الغمازة بمسافة كافية قبل الدوران.\n* أخذ الوضعية المناسبة للدوران دون إعاقة الآخرين.\n* التخفيض من السرعة ودرجة السرعة.\n- المرحلة الثانية: الشروع في المناورة.\n* عند الوصول إلى الملتقى يجب احترام قواعد المرور (الأضواء، الشرطة، الإشارات الأفقية...)\n- المرحلة الثالثة: اكتمال المناورة ومواصلة المسير.\nالدوران إلى اليسار:\n- الحالة الأولى: طريق ذو اتجاهين، بمسلك مزدوج:\n* التزام أقصى اليسار دون مجاوزة وسط الطريق\n* ترك أولوية المرور في حالة قدوم مركبات في الاتجاه المعاكس.\n* اكمال الدوران إلى اليسار مع لزوم الحذر.\n- الحالة الثانية: طريق ذو اتجاهين بمسلك فردي:\n* التزام السير في الوسط دون ملامسة الخط الفاصل إذا لم يكن هناك حاجز.\n- الحالة الثالثة: طريق ذات اتجاهين مع أسهم التوجه:\n* التزام السير في المسلك الذي يحمل سهما يشير إلى اليسار."
         },
         {
           "question_number": 5,
           "question_ar": "أذكر مختلف اللوحات الإضافية ؟",
           "question_fr": "Citer les différents types de panneaux additionnels.",
-          "correct_answer": ""
+          "correct_answer": "5- اللوحات الإضافية هي لوحات صغيرة الحجم توضع تحت اللوحة الأساسية من أجل التوضيح ومنها:\nلافتات البعد - لافتات الامتداد - اللافتات التوجيهية - لافتات البيانات المختلفة واللافتات الخاصة بالأصناف - لافتات متممة لإشارات الوقوف والتوقف - لافتات خاصة بمخطط الطريق."
         },
         {
           "question_number": 6,
           "question_ar": "ماذا يعني الضوء الإضافي في شكل سهم و الذي يرافق نظام الأضواء الثلاثي ؟",
           "question_fr": "Que signifie le feu supplémentaire en forme de flèche accompagnant les 03 feux du système tricolore ?",
-          "correct_answer": ""
+          "correct_answer": "6- الضوء على شكل سهم(أخضر أو أصفر غماز) يشير إلى أن بإمكان السائق المتجه في نفس اتجاه السهم اتباعه حتى ولو كانت الإشارة حمراء، ولكن بشرط عدم وجود سيارات قادمة من الاتجاهات الأخرى، وأن يكون ممر الراجلين خاليا."
         }
       ]
     }
@@ -1687,124 +1681,124 @@
         {
           "sign_number": 1,
           "image_path": "individual_signs/test-11/test-11_sign_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- مركز مخصص للمعاقين."
         },
         {
           "sign_number": 2,
           "image_path": "individual_signs/test-11/test-11_sign_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- مرور الدراجات ممنوع."
         },
         {
           "sign_number": 3,
           "image_path": "individual_signs/test-11/test-11_sign_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- ممر إجباري للدراجات."
         },
         {
           "sign_number": 4,
           "image_path": "individual_signs/test-11/test-11_sign_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- حذار، منعرج إلى اليمين."
         },
         {
           "sign_number": 5,
           "image_path": "individual_signs/test-11/test-11_sign_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- التوقف ممنوع من 1 إلى 15 من كل شهر."
         },
         {
           "sign_number": 6,
           "image_path": "individual_signs/test-11/test-11_sign_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- حذار، طريق زلق."
         },
         {
           "sign_number": 7,
           "image_path": "individual_signs/test-11/test-11_sign_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- نهاية أولويّة الطريق."
         },
         {
           "sign_number": 8,
           "image_path": "individual_signs/test-11/test-11_sign_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- حذار، طريق زلق مؤقت."
         },
         {
           "sign_number": 9,
           "image_path": "individual_signs/test-11/test-11_sign_09.png",
-          "correct_answer": ""
+          "correct_answer": "9- موقف محروس."
         },
         {
           "sign_number": 10,
           "image_path": "individual_signs/test-11/test-11_sign_10.png",
-          "correct_answer": ""
+          "correct_answer": "10- حذار، طريق ضيق من الجهتين."
         },
         {
           "sign_number": 11,
           "image_path": "individual_signs/test-11/test-11_sign_11.png",
-          "correct_answer": ""
+          "correct_answer": "11- مرور الراجلين ممنوع."
         },
         {
           "sign_number": 12,
           "image_path": "individual_signs/test-11/test-11_sign_12.png",
-          "correct_answer": ""
+          "correct_answer": "12- حذار، منعرج إلى اليسار."
         },
         {
           "sign_number": 13,
           "image_path": "individual_signs/test-11/test-11_sign_13.png",
-          "correct_answer": ""
+          "correct_answer": "13- حذار، خروج حيوانات أليفة."
         },
         {
           "sign_number": 14,
           "image_path": "individual_signs/test-11/test-11_sign_14.png",
-          "correct_answer": ""
+          "correct_answer": "14- مرور الحافلات ممنوع."
         },
         {
           "sign_number": 15,
           "image_path": "individual_signs/test-11/test-11_sign_15.png",
-          "correct_answer": ""
+          "correct_answer": "15- ممر إجباري للحافلات."
         },
         {
           "sign_number": 16,
           "image_path": "individual_signs/test-11/test-11_sign_16.png",
-          "correct_answer": ""
+          "correct_answer": "16- موقف خاص بالحافلات."
         }
       ],
       "priorities": [
         {
           "priority_number": 1,
           "image_path": "individual_priorities/test-11/test-11_priority_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- تقاطع طرق مع إشارة تقاطع طرق (الأولوية لليمين) - الإشارة الناقصة هي نفس الإشارة (حذار، تقاطع طرق)."
         },
         {
           "priority_number": 2,
           "image_path": "individual_priorities/test-11/test-11_priority_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- تقاطع طرق مع إشارة ترك المرور على 150 متر وإشارة ترك المرور - تمر السيارتان الصفراء و الزرقاء ثم تمر السيارة الحمراء ."
         },
         {
           "priority_number": 3,
           "image_path": "individual_priorities/test-11/test-11_priority_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- تقاطع طرق مع إشارة ضوئية - السيارة الزرقاء إذا كانت قريبة تمر و إذا كانت بعيدة تنتظر الضوء الأخضر، والسيارتان الحمراء و الصفراء تنتظران الضوء الأخضر."
         },
         {
           "priority_number": 4,
           "image_path": "individual_priorities/test-11/test-11_priority_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- تقاطع طرق مع إشارة حذار تقاطع طرق خطير (الأولوية لليمين) - تمر السيارة الصفراء ثم الحمراء ثم الزرقاء ."
         },
         {
           "priority_number": 5,
           "image_path": "individual_priorities/test-11/test-11_priority_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- تقاطع طرق مع إشارة طريق رئيسي يقطعه طريق ثانوي - تمر السيارتان الزرقاء و الحمراء ثم تمر السيارة الصفراء ."
         },
         {
           "priority_number": 6,
           "image_path": "individual_priorities/test-11/test-11_priority_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- تقاطع طرق مع إشارة طريق ذات أولوية - الإشارة الناقصة هي إشارة قف."
         },
         {
           "priority_number": 7,
           "image_path": "individual_priorities/test-11/test-11_priority_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- تقاطع طرق مع إشارة طريق ذات أولوية وإشارة ترك المرور - تمر السيارة الصفراء ثم تمر السيارتان الزرقاء و الحمراء ."
         },
         {
           "priority_number": 8,
           "image_path": "individual_priorities/test-11/test-11_priority_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- طريق جبلي ضيق - السيارة التي تجرّ مقطورة تتوقف لتفسح الطريق الحمراء ."
         }
       ],
       "general_questions": [
@@ -1812,37 +1806,37 @@
           "question_number": 1,
           "question_ar": "ما هي الأخطار الخاصة المتعلقة بالسياقة أثناء الليل؟",
           "question_fr": "Quels sont les dangers particuliers de la conduite de nuit ?",
-          "correct_answer": ""
+          "correct_answer": "1- الأخطار المتعلقة بالسياقة أثناء الليل:\n- الانبهار بالأضواء للسائقين القادمين من الأمام والخلف.\n- انعدام الإنارة للدرجات وبعض السائقين الآخرين.\n- سوء تقدير المسافات والأحجام بسبب نقص مجال الرؤية.\n- انعكاس أضواء السيارات على الطريق المبلل."
         },
         {
           "question_number": 2,
           "question_ar": "ما هي العمليتان المسبقتان التي يجب القيام بها من طرف كل سائق يستعد لتغيير ذي شأن في سرعة مركبته؟",
           "question_fr": "Quelles sont les 02 opérations préalables à effectuer par le conducteur qui s'apprête à apporter un changement important dans l'allure ?",
-          "correct_answer": ""
+          "correct_answer": "2- عندما يريد السائق القيام بتغيير مهم في سرعته يلتزم بما يلي:\n- يتأكد مسبقا من أنه يستطيع القيام بذلك بدون خطر (من خلال النظر في المرآة الداخلية).\n- يعلن نيته مسبقا بوقت كاف لمستعملي الطريق الآخرين (استعمال الغماز في حالة الوقوف أو التوقف، الضغط المتكرر على المكابح عند تخفيض السرعة)."
         },
         {
           "question_number": 3,
           "question_ar": "أذكر خمس حالات تؤدي إلى السحب الفوري لرخصة السياقة مع تعليق نافذ؟",
           "question_fr": "Citer 05 cas de retrait immédiat du permis de conduire avec effet suspensif.",
-          "correct_answer": ""
+          "correct_answer": "3- حالات السحب الفوري لرخصة السياقة مع تعليق نافذ:\n- ارتكاب جريمة القتل الخطأ أو الجرح نتيجة تهاون أو تغافل أو عدم الامتثال لقواعد حركة المرور.\n- ارتكاب جريمة القتل الخطأ أو الجرح في حالة سكر أو تحت تأثير أعشاب أو مواد تدخل ضمن أصناف المخدرات.\n- عند قيادة مركبة أو مرافقة سائق متدرب في إطار التمهين تحت تأثير مشروب كحولي يتميز بوجوده في الدم بنسبة تعادل أو تزيد عن 0.2 غ/1000.\n- سياقة مركبة تحت تأثير دواء أو أعشاب تدخل ضمن أصناف المخدرات.\n- جنحة الفرار.\n- رفض الخضوع لعملية التفتيش من طرف أعوان الأمن.\n- مخالفة الإجراءات المتعلقة بإشارات الأمر بالتوقف ( الضوء الأحمر أو إشارة قف ).\n- السير على شريط الوقوف الاستعجالي.\n- مخالفة إجراءات اتجاهات المرور الإلزامية (السير في اتجاه ممنوع....)."
         },
         {
           "question_number": 4,
           "question_ar": "ما هي المراحل الثلاثة لمناورة تغيير الاتجاه ؟ اشرح المرحلة الأولى و المرحلة الثالثة للدوران إلى اليسار؟",
           "question_fr": "Quelles sont les 03 phases du changement de direction pour tourner à gauche ?",
-          "correct_answer": ""
+          "correct_answer": "4- مراحل تغيير الاتجاه:\n- المرحلة الأولى: الاستعداد.\n* التأكد من إجراء المناورة دون خطر (النظر في المرآة الداخلية لتحديد ما إذا كنا محل تجاوز).\n* تشغيل الغمازة بمسافة كافية قبل الدوران.\n* أخذ الوضعية المناسبة للدوران دون إعاقة الآخرين.\n* التخفيض من السرعة ودرجة السرعة.\n- المرحلة الثانية: الشروع في المناورة.\n* عند الوصول إلى الملتقى يجب احترام قواعد المرور (الأضواء، الشرطة، الإشارات الأفقية...)\n- المرحلة الثالثة: اكتمال المناورة ومواصلة المسير.\nالدوران إلى اليسار:\n- الحالة الأولى: طريق ذو اتجاهين، بمسلك مزدوج:\n* التزام أقصى اليسار دون مجاوزة وسط الطريق\n* ترك أولوية المرور في حالة قدوم مركبات في الاتجاه المعاكس.\n* اكمال الدوران إلى اليسار مع لزوم الحذر.\n- الحالة الثانية: طريق ذو اتجاهين بمسلك فردي:\n* التزام السير في الوسط دون ملامسة الخط الفاصل إذا لم يكن هناك حاجز.\n- الحالة الثالثة: طريق ذات اتجاهين مع أسهم التوجه:\n* التزام السير في المسلك الذي يحمل سهما يشير إلى اليسار."
         },
         {
           "question_number": 5,
           "question_ar": "أذكر مختلف اللوحات الإضافية؟",
           "question_fr": "Citer les différents types de panneaux additionnels.",
-          "correct_answer": ""
+          "correct_answer": "5- اللوحات الإضافية هي لوحات صغيرة الحجم توضع تحت اللوحة الأساسية من أجل التوضيح ومنها:\nلافتات البعد - لافتات الامتداد - اللافتات التوجيهية - لافتات البيانات المختلفة واللافتات الخاصة بالأصناف - لافتات متممة لإشارات الوقوف والتوقف - لافتات خاصة بمخطط الطريق."
         },
         {
           "question_number": 6,
           "question_ar": "ماذا يعني الضوء الإضافي في شكل سهم و الذي يرافق نظام الأضواء الثلاثي؟",
           "question_fr": "Que signifie le feu supplémentaire en forme de flèche accompagnant les 03 feux du système tricolore ?",
-          "correct_answer": ""
+          "correct_answer": "6- الضوء على شكل سهم(أخضر أو أصفر غماز) يشير إلى أن بإمكان السائق المتجه في نفس اتجاه السهم اتّباعه حتى ولو كانت الإشارة حمراء، ولكن بشرط عدم وجود سيارات قادمة من الاتجاهات الأخرى، وأن يكون ممر الراجلين خاليا."
         }
       ]
     }
@@ -1855,124 +1849,124 @@
         {
           "sign_number": 1,
           "image_path": "individual_signs/test-12/test-12_sign_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- حذار، ممر للراجلين."
         },
         {
           "sign_number": 2,
           "image_path": "individual_signs/test-12/test-12_sign_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- اتجاه ممنوع."
         },
         {
           "sign_number": 3,
           "image_path": "individual_signs/test-12/test-12_sign_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- التزام السير باتجاه اليسار إجباري."
         },
         {
           "sign_number": 4,
           "image_path": "individual_signs/test-12/test-12_sign_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- موقف سيارات الأجرة."
         },
         {
           "sign_number": 5,
           "image_path": "individual_signs/test-12/test-12_sign_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- حجر كيلومتري على طريق وطني."
         },
         {
           "sign_number": 6,
           "image_path": "individual_signs/test-12/test-12_sign_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- مرور العربات التي تحمل مواد ملوثّة للمياه ممنوع."
         },
         {
           "sign_number": 7,
           "image_path": "individual_signs/test-12/test-12_sign_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- حذار، طريق زلق مؤقت."
         },
         {
           "sign_number": 8,
           "image_path": "individual_signs/test-12/test-12_sign_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- اتجاه ممنوع."
         },
         {
           "sign_number": 9,
           "image_path": "individual_signs/test-12/test-12_sign_09.png",
-          "correct_answer": ""
+          "correct_answer": "9- مرور العربات التي تحمل مواد متفجرة ممنوع."
         },
         {
           "sign_number": 10,
           "image_path": "individual_signs/test-12/test-12_sign_10.png",
-          "correct_answer": ""
+          "correct_answer": "10- نهاية السرعة الأدنى الإجبارية 30 كلم/سا."
         },
         {
           "sign_number": 11,
           "image_path": "individual_signs/test-12/test-12_sign_11.png",
-          "correct_answer": ""
+          "correct_answer": "11- نهاية منع تجاوز السرعة 110 كلم/سا."
         },
         {
           "sign_number": 12,
           "image_path": "individual_signs/test-12/test-12_sign_12.png",
-          "correct_answer": ""
+          "correct_answer": "12- مسلك طوارئ على اليمين."
         },
         {
           "sign_number": 13,
           "image_path": "individual_signs/test-12/test-12_sign_13.png",
-          "correct_answer": ""
+          "correct_answer": "13- حجر كيلومتري على طريق ولائي."
         },
         {
           "sign_number": 14,
           "image_path": "individual_signs/test-12/test-12_sign_14.png",
-          "correct_answer": ""
+          "correct_answer": "14- معلم تقاطع طرق."
         },
         {
           "sign_number": 15,
           "image_path": "individual_signs/test-12/test-12_sign_15.png",
-          "correct_answer": ""
+          "correct_answer": "15- حذار سكة حديدية غير محروسة."
         },
         {
           "sign_number": 16,
           "image_path": "individual_signs/test-12/test-12_sign_16.png",
-          "correct_answer": ""
+          "correct_answer": "16- ممهل في نفس المكان."
         }
       ],
       "priorities": [
         {
           "priority_number": 1,
           "image_path": "individual_priorities/test-12/test-12_priority_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- تقاطع طرق مع إشارة تقاطع طريق (الأولوية لليمين) - تمر السيارة الحمراء ثم الزرقاء ثم الصفراء ."
         },
         {
           "priority_number": 2,
           "image_path": "individual_priorities/test-12/test-12_priority_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- السيارة الزرقاء تستطيع التجاوز - لأن الخط على يسارها متقطع."
         },
         {
           "priority_number": 3,
           "image_path": "individual_priorities/test-12/test-12_priority_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- تقاطع طرق مع إشارة ضوئية (4 أضواء صفراء غمازة)، مع إشارة طريق ذات أولوية، وإشارة ترك المرور، نعمل بالإشارات - تمر السيارتان الخضراء و الزرقاء ثم تمر الحمراء ."
         },
         {
           "priority_number": 4,
           "image_path": "individual_priorities/test-12/test-12_priority_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- السيارة الزرقاء (التي تجر مقطورة) تتوقف لتفسح الطريق للسيارة الحمراء (خارج المدينة)."
         },
         {
           "priority_number": 5,
           "image_path": "individual_priorities/test-12/test-12_priority_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- تقاطع طرق مع إشارة طريق رئيسي يقطعه طريق ثانوي و إشارة ترك المرور - تمر السيارة الصفراء ثم تدور السيارة الخضراء بعدها تمر السيارتان الزرقاء و الحمراء ."
         },
         {
           "priority_number": 6,
           "image_path": "individual_priorities/test-12/test-12_priority_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- تقاطع طرق مع إشارة طريق ذات أولوية و إشارة ترك المرور - تمر السيارة الصفراء ثم السيارتان الزرقاء و الحمراء ."
         },
         {
           "priority_number": 7,
           "image_path": "individual_priorities/test-12/test-12_priority_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- تقاطع طرق مع إشارة ضوئية (4 أضواء صفراء غمازة) و إشارات أخرى و الشرطي، نلتزم بتعليمات الشرطي - تمر السيارتان الخضراء و الصفراء ، أما الحمراء و الزرقاء فتنتظران إشارة الشرطي."
         },
         {
           "priority_number": 8,
           "image_path": "individual_priorities/test-12/test-12_priority_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- تقاطع طرق مع إشارة ترك المرور - تمر السيارة الحمراء ثم تمر الصفراء ."
         }
       ],
       "general_questions": [
@@ -1980,37 +1974,37 @@
           "question_number": 1,
           "question_ar": "ما هو تصرف السائق عند لقاء إشارة \"الضوء الأحمر الثابت أو الغماز\" ؟",
           "question_fr": "Quel est le comportement à adopter devant un feu de signalisation rouge (fixe ou clignotant) ?",
-          "correct_answer": ""
+          "correct_answer": "1- عند وجود ضوء أحمر (سواء ثابت أو غماز) يجب على السائق التوقف التام."
         },
         {
           "question_number": 2,
           "question_ar": "كيف يتم السير في منعرج بصفة آمنة؟",
           "question_fr": "Comment aborder un virage dans de bonnes conditions ?",
-          "correct_answer": ""
+          "correct_answer": "2- السير في منعرج بصفة آمنة يتطلب ما يلي:\n- التمهل وتخفيض السرعة قبل المنعرج.\n- العمل على تكييف السرعة مع درجة صعوبة المنعرج.\n- النظر إلى أبعد قدر ممكن من الطريق.\n- التزام أقصى اليمين."
         },
         {
           "question_number": 3,
           "question_ar": "ما هو تصرف السائق عند لقاء إشارة \"انتباه وجود الأولاد\" ؟",
           "question_fr": "Quel doit être le comportement de tout conducteur à la rencontre du signal \"endroit fréquenté par les enfants\" ?",
-          "correct_answer": ""
+          "correct_answer": "3- عند وجود إشارة تعلم بوجود الأولاد يجب على السائق اليقضة والانتباه بشكل جيد و أيضا يجب عليه تخفيض السرعة."
         },
         {
           "question_number": 4,
           "question_ar": "ما هي صفة الخطوط التي تأتي قبل الخط المستمر ؟",
           "question_fr": "Par quoi est précédée une ligne continue ?",
-          "correct_answer": ""
+          "correct_answer": "4- الخطوط التي تأتي قبل الخط المستمر تسمى \"الخطوط المتقطعة للتحذير\"، تتميز بالقرب الشديد فيما بينها (طولها 3 متر والفراغ بينها 1.33 متر)."
         },
         {
           "question_number": 5,
           "question_ar": "أذكر خمس حالات تؤدي إلى السحب الفوري لرخصة السياقة مع تعليق نافذ ؟",
           "question_fr": "Citer 05 cas de retrait immédiat du permis de conduire avec la suspension de votre capacité de conduite.",
-          "correct_answer": ""
+          "correct_answer": "5- حالات السحب الفوري لرخصة السياقة مع تعليق نافذ:\n- ارتكاب جريمة القتل الخطأ أو الجرح نتيجة تهاون أو تغافل أو عدم الامتثال لقواعد حركة المرور.\n- ارتكاب جريمة القتل الخطأ أو الجرح في حالة سكر أو تحت تأثير أعشاب أو مواد تدخل ضمن أصناف المخدرات.\n- عند قيادة مركبة أو مرافقة سائق متدرب في إطار التمهين تحت تأثير مشروب كحولي يتميز بوجوده في الدم بنسبة تعادل أو تزيد عن 0.2 غ/1000.\n- سياقة مركبة تحت تأثير دواء أو أعشاب تدخل ضمن أصناف المخدرات.\n- جنحة الفرار.\n- رفض الخضوع لعملية التفتيش من طرف أعوان الأمن.\n- مخالفة الإجراءات المتعلقة بإشارات الأمر بالتوقف ( الضوء الأحمر أو إشارة قف ).\n- السير على شريط الوقوف الاستعجالي.\n- مخالفة إجراءات اتجاهات المرور الإلزامية (السير في اتجاه ممنوع....)."
         },
         {
           "question_number": 6,
           "question_ar": "ماذا يعني الضوء الإضافي في شكل سهم و الذي يرافق نظام الأضواء الثلاثي ؟",
           "question_fr": "Que signifie le feu supplémentaire en forme de flèche(s) accompagnant le système des feux tricolores ?",
-          "correct_answer": ""
+          "correct_answer": "6- الضوء على شكل سهم(أخضر أو أصفر غماز) يشير إلى أن بإمكان السائق المتجه في نفس اتجاه السهم اتّباعه حتى ولو كانت الإشارة حمراء، ولكن بشرط عدم وجود سيارات قادمة من الاتجاهات الأخرى، وأن يكون ممر الراجلين خاليا."
         }
       ]
     }
@@ -2023,124 +2017,124 @@
         {
           "sign_number": 1,
           "image_path": "individual_signs/test-13/test-13_sign_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- حذار، منعرج إلى اليسار."
         },
         {
           "sign_number": 2,
           "image_path": "individual_signs/test-13/test-13_sign_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- حذار، منعرج إلى اليمين."
         },
         {
           "sign_number": 3,
           "image_path": "individual_signs/test-13/test-13_sign_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- السير ممنوع في كلا الاتجاهين."
         },
         {
           "sign_number": 4,
           "image_path": "individual_signs/test-13/test-13_sign_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- نهاية منع التجاوز."
         },
         {
           "sign_number": 5,
           "image_path": "individual_signs/test-13/test-13_sign_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- نهاية الممر الإجباري للراجلين."
         },
         {
           "sign_number": 6,
           "image_path": "individual_signs/test-13/test-13_sign_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- حذار، محور دوراني."
         },
         {
           "sign_number": 7,
           "image_path": "individual_signs/test-13/test-13_sign_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- مطعم."
         },
         {
           "sign_number": 8,
           "image_path": "individual_signs/test-13/test-13_sign_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- معلم رياح جانبية."
         },
         {
           "sign_number": 9,
           "image_path": "individual_signs/test-13/test-13_sign_09.png",
-          "correct_answer": ""
+          "correct_answer": "9- اتجاه ممنوع."
         },
         {
           "sign_number": 10,
           "image_path": "individual_signs/test-13/test-13_sign_10.png",
-          "correct_answer": ""
+          "correct_answer": "10- التوقف ممنوع."
         },
         {
           "sign_number": 11,
           "image_path": "individual_signs/test-13/test-13_sign_11.png",
-          "correct_answer": ""
+          "correct_answer": "11- ممر إجباري للراجلين."
         },
         {
           "sign_number": 12,
           "image_path": "individual_signs/test-13/test-13_sign_12.png",
-          "correct_answer": ""
+          "correct_answer": "12- ممر مخصص للراجلين."
         },
         {
           "sign_number": 13,
           "image_path": "individual_signs/test-13/test-13_sign_13.png",
-          "correct_answer": ""
+          "correct_answer": "13- حذار، طريق تنتهي إلى نهر أو بحر."
         },
         {
           "sign_number": 14,
           "image_path": "individual_signs/test-13/test-13_sign_14.png",
-          "correct_answer": ""
+          "correct_answer": "14- ترك المرور (افسح الطريق)."
         },
         {
           "sign_number": 15,
           "image_path": "individual_signs/test-13/test-13_sign_15.png",
-          "correct_answer": ""
+          "correct_answer": "15- الدخول إلى الطريق السريع."
         },
         {
           "sign_number": 16,
           "image_path": "individual_signs/test-13/test-13_sign_16.png",
-          "correct_answer": ""
+          "correct_answer": "16- قف."
         }
       ],
       "priorities": [
         {
           "priority_number": 1,
           "image_path": "individual_priorities/test-13/test-13_priority_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- تقاطع طرق مع إشارة قف - تمر السيارة الحمراء ثم الصفراء ."
         },
         {
           "priority_number": 2,
           "image_path": "individual_priorities/test-13/test-13_priority_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- تقاطع طرق مع إشارة قف - تمر السيارة الحمراء ثم الزرقاء ثم تمر السيارة الصفراء ."
         },
         {
           "priority_number": 3,
           "image_path": "individual_priorities/test-13/test-13_priority_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- تقاطع طرق مع إشارة حذار، محور دوراني وإشارة ترك المرور - تمر السيارة الحمراء ثم الصفراء ."
         },
         {
           "priority_number": 4,
           "image_path": "individual_priorities/test-13/test-13_priority_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- السائق لا يستطيع التجاوز - لأن سيارة أخرى خلفه تريد تجاوزه."
         },
         {
           "priority_number": 5,
           "image_path": "individual_priorities/test-13/test-13_priority_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- السيارة الزرقاء تستطيع التجاوز - لأن الخط على يسارها متقطع."
         },
         {
           "priority_number": 6,
           "image_path": "individual_priorities/test-13/test-13_priority_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- تقاطع طرق مع إشارة ضوئية ( 4 أربع أضواء صفراء غمازة) وإشارات أخرى، نتبع الإشارات - تمر السيارة الزرقاء ثم الخضراء ثم تمر الحمراء ."
         },
         {
           "priority_number": 7,
           "image_path": "individual_priorities/test-13/test-13_priority_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- عملية التجاوز ممكنة - لأن هناك خط متقطع و أسهم الاتجاه."
         },
         {
           "priority_number": 8,
           "image_path": "individual_priorities/test-13/test-13_priority_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- السيارة الزرقاء تستطيع التجاوز - لأن الخط المتقطع محاذ لها."
         }
       ],
       "general_questions": [
@@ -2148,37 +2142,37 @@
           "question_number": 1,
           "question_ar": "كيف يجب الإقتراب، بكل أمن، من، من منحدّر [أو من ارتفاع] ذات الإنحدار الكبير؟",
           "question_fr": "Comment aborder en toute sécurité une descente (ou une côte) à forte inclinaison ?",
-          "correct_answer": ""
+          "correct_answer": "1- عند الاقتراب من منحدر يجب:\n- التخفيض من السرعة قبل بداية المنحدر.\n- استعمال مكبح المحرك باللجوء إلى درجة سرعة أدنى.\n- الضغط الخفيف على مكبح الرجل من حين إلى آخر وتجنب الكبح المتواصل.\n- التزام أقصى اليمين واحترام مسافة الأمان."
         },
         {
           "question_number": 2,
           "question_ar": "كيف يمكن تفادي كل خطر حادث مرور ينجر عن غياب السائق؟",
           "question_fr": "Comment prévenir tout risque d'accident du fait de l'absence du conducteur ?",
-          "correct_answer": ""
+          "correct_answer": "2- عند مغادرة السائق للسيارة، يمكن تفادي أي حادث مرور باتباع الخطوات التالية:\n- يجب على السائق توقيف المحرك.\n- عدم الابتعاد عن السيارة.\n- إذا كانت السيارة مركونة في منحدر يجب شدّ المكبح اليدوي مع وضع درجة السرعة \"السير إلى الخلف\"، أمّا إذا كانت مركونة في مرتفع فنضع السرعة الأولى.\n- توجيه العجلات الأمامية نحو الرّصيف، أو وضع حاجز أمام العجلة يعيق تحرك السيارة.\n- في حالة وجود خلل في السيارة، يجب استعمال إشارات الطوارئ (مثلث العطب أو الأضواء الغمازة الأربعة)."
         },
         {
           "question_number": 3,
           "question_ar": "ما هو تصرف كل سائق يقترب من مفترق طرق مزدحم؟",
           "question_fr": "Quel doit-être le comportement de tout conducteur abordant une intersection encombrée ?",
-          "correct_answer": ""
+          "correct_answer": "3- عند الاقتراب من مفترق طرق مزدحم:\n- التقليل من السرعة.\n- وضع درجة السرعة على الدرجة الأولى.\n- الضغط الخفيف على مكبح الرجل من حين إلى آخر وتجنب الكبح المتواصل."
         },
         {
           "question_number": 4,
           "question_ar": "ماذا يعني \"الوزن الإجمالي للحمولة المرخص بها\"؟ في أي صنف نرتب المركبة التي يساوي وزنها الإجمالي للحمولة المرخص بها 3.5 طن؟",
           "question_fr": "Définir le poids Total Autorisé en Charge. Dans quelle catégorie est classé un véhicule dont le PTAC est égal à 3,5 tonnes ?",
-          "correct_answer": ""
+          "correct_answer": "4- الوزن الاجمالي للحمولة المرخص هو وزن السيارة + وزن كل ماتحمله هذه السيارة.\n- المركبة التي وزنها الإجمالي للحمولة المرخص بها 3.5 طن تصنف ضمن \"الوزن الخفيف\" أو الصنف \"ب\"."
         },
         {
           "question_number": 5,
           "question_ar": "ما هي الإختلافات و التناظرات التي توجد بين الطريق السريع للسيارات و الطريق السريع ؟",
           "question_fr": "Quelles sont les différences et les similitudes entre une autoroute et une route expresse ?",
-          "correct_answer": ""
+          "correct_answer": "5- مقارنة بين الطريق السريع والطريق السريع للسيارات (الطريق السيار):\n- التشابه:\n* لكل منهما اتجاهان لحركة المرور.\n- الاختلاف:\nالطريق السريع:\n* يمكن أن تقطعه طرق أو سكك حديدية ، كما أنه قد يفصل بين اتجاهي حركة المرور شريط وسطي.\n* الطريق السريع مفتوح لكافة مستعملي الطريق\n* السرعة القصوى المسموح بها 100 كلم/سا\nالطريق السريع للسيارات:\n* لا يقطعه طريق آخر أو سكة حديدية أو ممر للراجلين.\n* لا يمكن الدخول إليه إلا في نقطة مهيأة لذلك.\n* لا يؤدي إلى الممتلكات المتاخمة ويفصل بين اتجاهي حركة المرور شريط أرضي وسطي غير مخصص للمرور.\n* السرعة القصوى المسموح بها 120 كلم/سا"
         },
         {
           "question_number": 6,
           "question_ar": "كيف يتم التوقف بالتعاقب ؟",
           "question_fr": "Comment s'effectue le stationnement unilatéral alterné ?",
-          "correct_answer": ""
+          "correct_answer": "6- التوقف بالتعاقب نصف شهري ويتم حسب الشروط التالية:\n- يرخص بالتوقف بالتعاقب من 01 إلى 15 من الشهر في الجانب الذي تحمل فيه البنايات أرقاما فردية.\n- يرخص من 16 إلى آخر الشهر في الجانب الذي تحمل فيه البنايات أرقاما زوجية.\nيتم تغيير جانب التوقف في اليوم الأخير من كلا الفترتين ما بين الساعة الثامنة والساعة التاسعة ليلا."
         }
       ]
     }
@@ -2191,124 +2185,124 @@
         {
           "sign_number": 1,
           "image_path": "individual_signs/test-14/test-14_sign_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- حذار، تعاقب عدة منعرجات أولها إلى اليسار."
         },
         {
           "sign_number": 2,
           "image_path": "individual_signs/test-14/test-14_sign_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- تفادي الحاجز إلى اليمين إجباري."
         },
         {
           "sign_number": 3,
           "image_path": "individual_signs/test-14/test-14_sign_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- نهاية منع التجاوز."
         },
         {
           "sign_number": 4,
           "image_path": "individual_signs/test-14/test-14_sign_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- حذار، محور دوراني."
         },
         {
           "sign_number": 5,
           "image_path": "individual_signs/test-14/test-14_sign_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- الوقوف و التوقف ممنوعان."
         },
         {
           "sign_number": 6,
           "image_path": "individual_signs/test-14/test-14_sign_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- نهاية منع تجاوز السرعة 30 كلم/سا."
         },
         {
           "sign_number": 7,
           "image_path": "individual_signs/test-14/test-14_sign_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- ترك المرور على بعد 150 متر."
         },
         {
           "sign_number": 8,
           "image_path": "individual_signs/test-14/test-14_sign_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- مستشفى."
         },
         {
           "sign_number": 9,
           "image_path": "individual_signs/test-14/test-14_sign_09.png",
-          "correct_answer": ""
+          "correct_answer": "9- حذار، تعاقب عدة منعرجات أولها إلى اليمين."
         },
         {
           "sign_number": 10,
           "image_path": "individual_signs/test-14/test-14_sign_10.png",
-          "correct_answer": ""
+          "correct_answer": "10- ممهل في نفس المكان."
         },
         {
           "sign_number": 11,
           "image_path": "individual_signs/test-14/test-14_sign_11.png",
-          "correct_answer": ""
+          "correct_answer": "11- طريق ذات أولوية."
         },
         {
           "sign_number": 12,
           "image_path": "individual_signs/test-14/test-14_sign_12.png",
-          "correct_answer": ""
+          "correct_answer": "12- اتجاه ممنوع."
         },
         {
           "sign_number": 13,
           "image_path": "individual_signs/test-14/test-14_sign_13.png",
-          "correct_answer": ""
+          "correct_answer": "13- تجاوز السرعة 30 كلم/سا ممنوع."
         },
         {
           "sign_number": 14,
           "image_path": "individual_signs/test-14/test-14_sign_14.png",
-          "correct_answer": ""
+          "correct_answer": "14- السرعة الأدنى الإجبارية 30 كلم/سا."
         },
         {
           "sign_number": 15,
           "image_path": "individual_signs/test-14/test-14_sign_15.png",
-          "correct_answer": ""
+          "correct_answer": "15- حذار ممر للراجلين."
         },
         {
           "sign_number": 16,
           "image_path": "individual_signs/test-14/test-14_sign_16.png",
-          "correct_answer": ""
+          "correct_answer": "16- قف على بعد 150 متر."
         }
       ],
       "priorities": [
         {
           "priority_number": 1,
           "image_path": "individual_priorities/test-14/test-14_priority_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- محور دوراني مع إشارة ترك المرور - تمر السيارة الحمراء ثم الصفراء ."
         },
         {
           "priority_number": 2,
           "image_path": "individual_priorities/test-14/test-14_priority_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- تقاطع طرق مع إشارة تقاطع طرق (الأولوية لليمين) - تمر السيارة الحمراء ثم الزرقاء ثم تمر الصفراء ."
         },
         {
           "priority_number": 3,
           "image_path": "individual_priorities/test-14/test-14_priority_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- تقاطع طرق مع إشارة نهاية أولوية الطريق وإشارة ترك المرور - السيارة الحمراء تمر أولا."
         },
         {
           "priority_number": 4,
           "image_path": "individual_priorities/test-14/test-14_priority_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- تقاطع طرق مع إشارة ضوئية ( 4 أضواء صفراء غمازة)، الأولوية لليمين - تمر السيارة الزرقاء ثم تمر الصفراء ."
         },
         {
           "priority_number": 5,
           "image_path": "individual_priorities/test-14/test-14_priority_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- تقاطع طرق مع إشارة قف - تمر السيارة الحمراء ثم تدور الزرقاء ثم تمر الصفراء ."
         },
         {
           "priority_number": 6,
           "image_path": "individual_priorities/test-14/test-14_priority_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- السيارة الزرقاء تستطيع التجاوز - لأن الخط المتقطع محاذ لها."
         },
         {
           "priority_number": 7,
           "image_path": "individual_priorities/test-14/test-14_priority_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- السائق لا يستطيع التجاوز - لأن سيارة أخرى خلفه تريد تجاوزه."
         },
         {
           "priority_number": 8,
           "image_path": "individual_priorities/test-14/test-14_priority_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- تقاطع طرق مع إشارة طريق ذات أولوية وإشارة ترك المرور - تمر السيارة الصفراء ثم تمر السيارتان الزرقاء و الحمراء ."
         }
       ],
       "general_questions": [
@@ -2316,37 +2310,37 @@
           "question_number": 1,
           "question_ar": "ما هو تصرف كل سائق عند لقاء إشارات الخطر ؟",
           "question_fr": "Quel doit-être le comportement de tout conducteur rencontrant un signal de danger ?",
-          "correct_answer": ""
+          "correct_answer": "1- عند لقاء إشارات الخطر يجب على السائق الانتباه وتخفيض السرعة بما يتناسب مع الخطر المذكور في الإشارة."
         },
         {
           "question_number": 2,
           "question_ar": "حسب أي الظروف يجب ضبط السرعة ؟",
           "question_fr": "En fonction de quelles circonstances doit-être réglée la vitesse ?",
-          "correct_answer": ""
+          "correct_answer": "2- تضبط السرعة حسب:\n- كثافة حركة المرور.\n- حالة الطريق ( مبلل أو جاف، معبد أو ترابي... ).\n- الظروف الجوية."
         },
         {
           "question_number": 3,
           "question_ar": "ماذا يعني \"شهادة سياقة مؤقتة\" و ما هي الحالات التي تؤدي إلى إلغائها \"ست حالات\" ؟",
           "question_fr": "Qu'est ce qu'une attestation provisoire de conduite, et dans quels cas peut-il être annulé (06 cas) ?",
-          "correct_answer": ""
+          "correct_answer": "3- شهادة السياقة المؤقتة هي كل شهادة مر على تاريخ صدورها أقل من سنتين. كل من يملكها يعتبر تحت التدريب، يمكن أن تسحب من صاحبها إذا ارتكب أحد المخالفات المنصوص عليها قانونا:\n- القتل الخطأ.\n- تجاوز السرعة المسموح بها.\n- جنحة الفرار.\n- السياقة في اتجاه ممنوع.\n- السياقة في حالة سكر.\n- تناول المهلوسات أو الأعشاب المخدرة."
         },
         {
           "question_number": 4,
           "question_ar": "ما هي مختلف أجزاء الطريق ؟",
           "question_fr": "Quelles sont les différentes parties d'une route ?",
-          "correct_answer": ""
+          "correct_answer": "4- أجزاء الطريق هي:\n- وسط الطريق: جزء من الطريق يستعمل لمرور المركبات.\n- الرصيف: جزء من الطريق مخصص لمرور الراجلين.\n- المسلك: وسط الطريق يكون عادة مقسم إلى مسلكين أو أكثر."
         },
         {
           "question_number": 5,
           "question_ar": "من، من مستعملي الطريق، لا يجوز له المرور عبر الطريق السريع ؟",
           "question_fr": "Quels sont les usagers qui ne sont pas admis à circuler sur autoroute ?",
-          "correct_answer": ""
+          "correct_answer": "5- مستعملو الطريق الذين يجب أن لا يسيروا على الطريق السريع للسيارات (الطريق السيار) هم:\n- الراجلون.\n- الفرسان.\n- الدراجون.\n- الحيوانات.\n- المركبات ذات الجر غير الميكانيكي.\n- مركبات ذات الجر الميكانيكي الغير خاضعة للترقيم (الدراجات ذات المحرك).\n- الجرارات والعتاد الفلاحي ومعدات الأشغال العمومية\n- المركبات التي لا يمكنها بلوغ سرعة 60 كلم/ سا على الطريق المستوية."
         },
         {
           "question_number": 6,
           "question_ar": "ما هي الأضواء الخلفية الإجبارية لكل سيارة ؟",
           "question_fr": "De quels feux doit-être muni tout véhicule à l'arrière ?",
-          "correct_answer": ""
+          "correct_answer": "6- الأضواء الخلفية الإجبارية لكل مركبة:\n- ضوء الوقوف (يضيء عند استعمال مكابح الأرجل).\n- ضوء الوضعية (فيوز).\n- ضوء تغيير الاتجاه.\n- ضوء لوحة الترقيم."
         }
       ]
     }
@@ -2359,124 +2353,124 @@
         {
           "sign_number": 1,
           "image_path": "individual_signs/test-15/test-15_sign_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- مركز خاص بالمعاقين."
         },
         {
           "sign_number": 2,
           "image_path": "individual_signs/test-15/test-15_sign_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- مرور الدراجات ممنوع."
         },
         {
           "sign_number": 3,
           "image_path": "individual_signs/test-15/test-15_sign_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- ممر إجباري للدراجات."
         },
         {
           "sign_number": 4,
           "image_path": "individual_signs/test-15/test-15_sign_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- حذار، منعرج إلى اليمين."
         },
         {
           "sign_number": 5,
           "image_path": "individual_signs/test-15/test-15_sign_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- التوقف ممنوع من 1 إلى 15 من كل شهر."
         },
         {
           "sign_number": 6,
           "image_path": "individual_signs/test-15/test-15_sign_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- حذار، طريق زلق."
         },
         {
           "sign_number": 7,
           "image_path": "individual_signs/test-15/test-15_sign_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- نهاية أولية الطريق."
         },
         {
           "sign_number": 8,
           "image_path": "individual_signs/test-15/test-15_sign_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- حذار، منحدر بنسبة 10%."
         },
         {
           "sign_number": 9,
           "image_path": "individual_signs/test-15/test-15_sign_09.png",
-          "correct_answer": ""
+          "correct_answer": "9- موقف."
         },
         {
           "sign_number": 10,
           "image_path": "individual_signs/test-15/test-15_sign_10.png",
-          "correct_answer": ""
+          "correct_answer": "10- حذار، خروج أطفال."
         },
         {
           "sign_number": 11,
           "image_path": "individual_signs/test-15/test-15_sign_11.png",
-          "correct_answer": ""
+          "correct_answer": "11- مرور الراجلين ممنوع."
         },
         {
           "sign_number": 12,
           "image_path": "individual_signs/test-15/test-15_sign_12.png",
-          "correct_answer": ""
+          "correct_answer": "12- حذار، منعرج إلى اليسار."
         },
         {
           "sign_number": 13,
           "image_path": "individual_signs/test-15/test-15_sign_13.png",
-          "correct_answer": ""
+          "correct_answer": "13- حذار، خروج حيوانات أليفة."
         },
         {
           "sign_number": 14,
           "image_path": "individual_signs/test-15/test-15_sign_14.png",
-          "correct_answer": ""
+          "correct_answer": "14- مرور الحافلات ممنوع."
         },
         {
           "sign_number": 15,
           "image_path": "individual_signs/test-15/test-15_sign_15.png",
-          "correct_answer": ""
+          "correct_answer": "15- ممر إجباري للحافلات."
         },
         {
           "sign_number": 16,
           "image_path": "individual_signs/test-15/test-15_sign_16.png",
-          "correct_answer": ""
+          "correct_answer": "16- موقف حافلات."
         }
       ],
       "priorities": [
         {
           "priority_number": 1,
           "image_path": "individual_priorities/test-15/test-15_priority_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- تقاطع طرق مع إشارة ترك المرور وإشارة حذار خروج الدراجات من اليسار و إشارة ممر إجباري للدراجات - تمر الدراجة ثم السيارة الصفراء ثم السيارة الحمراء ."
         },
         {
           "priority_number": 2,
           "image_path": "individual_priorities/test-15/test-15_priority_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- السيارة الزرقاء تستطيع التوقف في الجهتين لأنها في طريق ذو اتجاه واحد."
         },
         {
           "priority_number": 3,
           "image_path": "individual_priorities/test-15/test-15_priority_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- تقاطع طرق مع إشارة طريق ذو اتجاه واحد - السيارة ليست في الوضعية الصحيحة للدوران إلى اليسار، لأنها في طريق ذو اتجاه و احد (يجب التزام أقصى اليسار)."
         },
         {
           "priority_number": 4,
           "image_path": "individual_priorities/test-15/test-15_priority_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- السيارة الزرقاء تستطيع التجاوز - لأن الخط على يسارها متقطع."
         },
         {
           "priority_number": 5,
           "image_path": "individual_priorities/test-15/test-15_priority_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- تقاطع طرق مع إشارة ترك المرور - الإشارة الناقصة هي إشارة ترك المرور على 150 متر"
         },
         {
           "priority_number": 6,
           "image_path": "individual_priorities/test-15/test-15_priority_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- السيارة الزرقاء لا تستطيع التوقف في أي من الجهتين - لأن الجهة اليمنى غير صالحة للتوقف ولا تستطيع تجاوز الخط المستمر للتوقف في الجهة اليسرى."
         },
         {
           "priority_number": 7,
           "image_path": "individual_priorities/test-15/test-15_priority_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- تقاطع طرق مع إشارة ضوئية والشرطي، نتبع الشرطي - تمر السيارتان الزرقاء و الخضراء ، أما السيارتان الحمراء و الصفراء فتنتظران إشارة الشرطي."
         },
         {
           "priority_number": 8,
           "image_path": "individual_priorities/test-15/test-15_priority_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- تقاطع طرق مع إشارة نهاية طريق ذات أولية على بعد 300 م وإشارة قف على بعد 150 متر وإشارة قف ومعالم تقاطع طرق - تمر السيارتان الزرقاء و الحمراء ثم تمر السيارة الصفراء ."
         }
       ],
       "general_questions": [
@@ -2484,37 +2478,37 @@
           "question_number": 1,
           "question_ar": "ما هي التزامات السواق نحو الراجليين؟",
           "question_fr": "Quelles sont les obligations des conducteurs envers les piétons ?",
-          "correct_answer": ""
+          "correct_answer": "1- يلزم سائقو السيارات بالسماح للراجلين الموجودين في الممرات بالمرور في حالة انعدام الإشارات الضوئية.\n- عند الاقتراب من ممرّات للراجلين يجب على السائق الامتناع عن تجاوز السيارات دون التأكد من عدم وجود راجلين يرغبون في استعمال الممر."
         },
         {
           "question_number": 2,
           "question_ar": "ما هي العمليتان المسبقتان التي يجب القيام بها من طرف كل سائق يستعد لتغيير ذي شأن في اتجاه مركبته؟",
           "question_fr": "Quelles sont les 02 opérations préalables à effectuer par le conducteur qui s'arrête à apporter un changement de direction ?",
-          "correct_answer": ""
+          "correct_answer": "2- عندما يريد السائق القيام بتغيير مهم في سرعته يلتزم بما يلي:\n- يتأكد مسبقا من أنه يستطيع القيام بذلك بدون خطر (من خلال النظر في المرآة الداخلية).\n- يعلن نيته مسبقا بوقت كاف لمستعملي الطريق الآخرين (استعمال الغماز في حالة الوقوف أو التوقف، الضغط المتكرر على المكابح عند تخفيض السرعة)."
         },
         {
           "question_number": 3,
           "question_ar": "ما هي أدنى \"حدة الرؤية\" المطلوبة حسب الصنف؟",
           "question_fr": "Quel est le minimum requis pour l'acuité visuelle \"par catégorie\"?",
-          "correct_answer": ""
+          "correct_answer": "3- حدّة الرؤية الأدنى المطلوبة حسب الأصناف:\n- صنف أ – ب – و (الوزن الخفيف) F-B-A يجب أن لا تقل نتيجة فحص البصر عن 12/20\n- صنف ج - د – هـ (الوزن الثقيل) C-D-E يجب أن لا تقل نتيجة فحص البصر عن 16/20"
         },
         {
           "question_number": 4,
           "question_ar": "ما هي الأضواء الثلاثة لنظام الأضواء الثلاثي و معناها؟",
           "question_fr": "Quels sont les 03 feux du système tricolore et leur signification ?",
-          "correct_answer": ""
+          "correct_answer": "4- الأضواء الثلاثة هي: - الأحمر: المرور ممنوع - الأخضر: المرور مسموح - الأصفر: التنبيه باقتراب الضوء الأحمر (يشتعل من 3 إلى 5 ثواني)."
         },
         {
           "question_number": 5,
           "question_ar": "ما هي الأصناف الثلاثة للوقوف ؟",
           "question_fr": "Quels sont les 03 types de stationnement ?",
-          "correct_answer": ""
+          "correct_answer": "5- الأوضاع الثلاث لركن السيارة هي:\n- السيارة موازية للرصيف.\n- السيارة مائلة بالنسبة للرصيف.\n- السيارة متعامدة مع الرصيف."
         },
         {
           "question_number": 6,
           "question_ar": "أذكر مختلف أصناف الإشارات العمودية.",
           "question_fr": "Citer les différents types de signalisation verticale.",
-          "correct_answer": ""
+          "correct_answer": "6- أصناف الإشارات العمودية:\n- إشارات الخطر.\n- إشارات المنع وإشارات نهاية المنع.\n- إشارات الإلزام ونهاية الإلزام.\n- إشارات الإرشاد والتوجيه."
         }
       ]
     }
@@ -2527,124 +2521,124 @@
         {
           "sign_number": 1,
           "image_path": "individual_signs/test-16/test-16_sign_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- حذار، خطر غير معين."
         },
         {
           "sign_number": 2,
           "image_path": "individual_signs/test-16/test-16_sign_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- الدوران إلى اليمين ممنوع."
         },
         {
           "sign_number": 3,
           "image_path": "individual_signs/test-16/test-16_sign_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- يمنع التوقف من 16 إلى 31 من كل شهر."
         },
         {
           "sign_number": 4,
           "image_path": "individual_signs/test-16/test-16_sign_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- إلتزام السير باتجاه اليمين إجباري."
         },
         {
           "sign_number": 5,
           "image_path": "individual_signs/test-16/test-16_sign_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- نهاية كل الممنوعات ماعدا الوقوف و التوقف."
         },
         {
           "sign_number": 6,
           "image_path": "individual_signs/test-16/test-16_sign_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- حذار تقاطع طرق (الأولوية على اليمين)."
         },
         {
           "sign_number": 7,
           "image_path": "individual_signs/test-16/test-16_sign_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- نهاية منع التجاوز بالنسبة للشاحنات."
         },
         {
           "sign_number": 8,
           "image_path": "individual_signs/test-16/test-16_sign_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- موقف سيارات الأجرة."
         },
         {
           "sign_number": 9,
           "image_path": "individual_signs/test-16/test-16_sign_09.png",
-          "correct_answer": ""
+          "correct_answer": "9- نهاية الممر الإجباري للدراجات."
         },
         {
           "sign_number": 10,
           "image_path": "individual_signs/test-16/test-16_sign_10.png",
-          "correct_answer": ""
+          "correct_answer": "10- الدخول إلى منطقة التوقف فيها ممنوع."
         },
         {
           "sign_number": 11,
           "image_path": "individual_signs/test-16/test-16_sign_11.png",
-          "correct_answer": ""
+          "correct_answer": "11- ممر إجباري للدراجات."
         },
         {
           "sign_number": 12,
           "image_path": "individual_signs/test-16/test-16_sign_12.png",
-          "correct_answer": ""
+          "correct_answer": "12- الخروج من منطقة التوقف فيها ممنوع."
         },
         {
           "sign_number": 13,
           "image_path": "individual_signs/test-16/test-16_sign_13.png",
-          "correct_answer": ""
+          "correct_answer": "13- غابة سريعة الاشتعال."
         },
         {
           "sign_number": 14,
           "image_path": "individual_signs/test-16/test-16_sign_14.png",
-          "correct_answer": ""
+          "correct_answer": "14- مرور الدراجات ممنوع."
         },
         {
           "sign_number": 15,
           "image_path": "individual_signs/test-16/test-16_sign_15.png",
-          "correct_answer": ""
+          "correct_answer": "15- حذار، طريق ذو اتجاهين."
         },
         {
           "sign_number": 16,
           "image_path": "individual_signs/test-16/test-16_sign_16.png",
-          "correct_answer": ""
+          "correct_answer": "16- الدخول إلى منطقة يمنع فيها تجاوز السرعة 30 كلم/سا."
         }
       ],
       "priorities": [
         {
           "priority_number": 1,
           "image_path": "individual_priorities/test-16/test-16_priority_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- تقاطع طرق مع إشارة ضوئية ( 4 أربع أضواء صفراء غمازة) وإشارات أخرى، نتبع الإشارات - تمر السيارة الزرقاء ثم الخضراء ثم تمر الحمراء ."
         },
         {
           "priority_number": 2,
           "image_path": "individual_priorities/test-16/test-16_priority_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- السيارة الزرقاء (التي تجر مقطورة) تتوقف لتفسح الطريق للسيارة الحمراء (خارج المدينة)."
         },
         {
           "priority_number": 3,
           "image_path": "individual_priorities/test-16/test-16_priority_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- تقاطع طرق بدون إشارة(الأولوية لليمين) - تمر السيارة الزرقاء ثم الحمراء ."
         },
         {
           "priority_number": 4,
           "image_path": "individual_priorities/test-16/test-16_priority_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- تقاطع طرق مع إشارة ترك المرور - السيارتان الصفراء و الحمراء تتقدمان إلى منتصف الطريق وتلتفان في نفس الوقت ثم تمر السيارة الزرقاء ."
         },
         {
           "priority_number": 5,
           "image_path": "individual_priorities/test-16/test-16_priority_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- تقاطع طرق مع إشارة ضوئية - تمر السيارة الحمراء ، أما السيارتان الصفراء و الخضراء فتنتظران الضوء الأخضر."
         },
         {
           "priority_number": 6,
           "image_path": "individual_priorities/test-16/test-16_priority_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- تقاطع طرق مع إشارة حذار محور دوراني و إشارة ترك المرور - تمر السيارة الحمراء ثم الصفراء ."
         },
         {
           "priority_number": 7,
           "image_path": "individual_priorities/test-16/test-16_priority_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- تقاطع طرق مع إشارة ترك المرور - الإشارة الناقصة هي ترك المرور على  بعد 150 متر."
         },
         {
           "priority_number": 8,
           "image_path": "individual_priorities/test-16/test-16_priority_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- السيارة الزرقاء تستطيع التجاوز - لأن الخط المتقطع محاذ لها."
         }
       ],
       "general_questions": [
@@ -2652,37 +2646,37 @@
           "question_number": 1,
           "question_ar": "كيف يجب أن تكون خصوصيات العناصر الأساسية المشتركة في أمن المرور ؟",
           "question_fr": "Comment aborder une décente ou une côte à forte inclinaison ?",
-          "correct_answer": ""
+          "correct_answer": "1- العناصر المشتركة في الطريق هي:\n- السائق : يجب أن يكون في حالة صحية جيدة .\n- المركبة : أن تكون المركبة صالحة للاستعمال من كل الجوانب المكابح الأضواء العجلات...\n- المحيط : أن تكون الأحوال الجوية جيدة وحالة الطريق كذلك."
         },
         {
           "question_number": 2,
           "question_ar": "ما هي فائدة مسافة الأمن ؟",
           "question_fr": "Quelle est l'utilité de la distance de sécurité ?",
-          "correct_answer": ""
+          "correct_answer": "2- فائدة مسافة الأمن هي تجنب الاصطدام في حالة التمهل المفاجئ أو التوقف المباغت للمركبة السابقة."
         },
         {
           "question_number": 3,
           "question_ar": "ما هي الأخطار المتعلقة بالسيّاقة عند بداية المطر ؟",
           "question_fr": "Quels sont les dangers liés à le conduite lorsqu'il commence a pleuvoir ?",
-          "correct_answer": ""
+          "correct_answer": "3- عند بداية نزول المطر تتشكل طبقة رفيعة من الوحل عند امتزاج قطرات المطر مع الغبار الموجود في الهواء وعلى الطريق، هذه الطبقة تجعل الطريق زلج وتؤدي إلى انزلاق المركبة."
         },
         {
           "question_number": 4,
           "question_ar": "ما هي المناورات الممنوعة في الطريق السريع ؟",
           "question_fr": "Quelles sont les manoeuvres interdites sur route express ?",
-          "correct_answer": ""
+          "correct_answer": "4- المناورات الممنوعة على الطريق السريع:\n- الوقوف والتوقف.\n- السير للخلف.\n- التدريب على قيادة السيارة.\n- الدوران لاسيما عند عبور الشريط المركزي الفاصل بين الطريقين.\n- الوقوف أو المكوث على الشريط المركزي الفاصل بين الطريقين.\n- كذلك تمنع مركبات نقل المسافرين أو البضائع التي يتجاوز طولها 7 م أويتجاوز وزنها الإجمالي مع الحمولة 2 طن من السير على المسلك الأيسر إذا كانت الطريق تحتوي على 03 مسالك أو أكثر في اتجاه واحد.\n * هذه القواعد لا تطبق على المركبات ذات الأولوية أثناء قيامها بمهامها الاستعجالية.  "
         },
         {
           "question_number": 5,
           "question_ar": "ما هو الفرق بين الوقوف و التوقف ؟",
           "question_fr": "Quelles sont les différences entre l'arrêt et le stationnement ?",
-          "correct_answer": ""
+          "correct_answer": "5- الفرق بين الوقوف والتوقف:\n- الوقوف: مكوث المركبة مؤقتا على الطريق طوال المدة اللازمة لركوب أشخاص أو نزولهم وشحن البضائع أو تفريغها مع بقاء السائق في مكان القيادة أو على مقربة منها ليتمكن عند الاقتضاء من تغيير مكانها ويكون المحرك مشتغلا دائما.\n- التوقف: مكوث المركبة في الطريق خارج الظروف المميزة للوقوف ويكون المحرك صامتا."
         },
         {
           "question_number": 6,
           "question_ar": "ما هو تصرّف كل سائق يقترب بممر سكة حديدية غير محروس ؟",
           "question_fr": "Quels sont les comportements à adopter par tout conducteur abordant un passage à niveau non gardé ?",
-          "correct_answer": ""
+          "correct_answer": "6- عند الاقتراب من ممر السكة الحديدية، ينبغي على السائق الوقوف الإجباري، وأن لا يتقدم من الممر حتى يتأكد من عدم وجود قطار على السكة."
         }
       ]
     }
@@ -2695,124 +2689,124 @@
         {
           "sign_number": 1,
           "image_path": "individual_signs/test-17/test-17_sign_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- التجاوز ممنوع بالنسبة للشاحنات."
         },
         {
           "sign_number": 2,
           "image_path": "individual_signs/test-17/test-17_sign_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- تمهل، نقطة تفتيش (الدرك الوطني)."
         },
         {
           "sign_number": 3,
           "image_path": "individual_signs/test-17/test-17_sign_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- حذار، خطر جوي."
         },
         {
           "sign_number": 4,
           "image_path": "individual_signs/test-17/test-17_sign_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- تمهل، نقطة تفتيش (الشرطة)."
         },
         {
           "sign_number": 5,
           "image_path": "individual_signs/test-17/test-17_sign_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- حذار، طريق تنتهي إلى نهر أو بحر."
         },
         {
           "sign_number": 6,
           "image_path": "individual_signs/test-17/test-17_sign_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- وضع السلاسل الثلجية إجباري."
         },
         {
           "sign_number": 7,
           "image_path": "individual_signs/test-17/test-17_sign_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- حجر كيلومتري على طريق وطني."
         },
         {
           "sign_number": 8,
           "image_path": "individual_signs/test-17/test-17_sign_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- معلم منعرج خطير إلى اليسار."
         },
         {
           "sign_number": 9,
           "image_path": "individual_signs/test-17/test-17_sign_09.png",
-          "correct_answer": ""
+          "correct_answer": "9- حذار، خروج الخيالة."
         },
         {
           "sign_number": 10,
           "image_path": "individual_signs/test-17/test-17_sign_10.png",
-          "correct_answer": ""
+          "correct_answer": "10- حذار، جسر متحرك."
         },
         {
           "sign_number": 11,
           "image_path": "individual_signs/test-17/test-17_sign_11.png",
-          "correct_answer": ""
+          "correct_answer": "11- حذار، رياح جانبية."
         },
         {
           "sign_number": 12,
           "image_path": "individual_signs/test-17/test-17_sign_12.png",
-          "correct_answer": ""
+          "correct_answer": "12- الدوران إلى الخلف ممنوع."
         },
         {
           "sign_number": 13,
           "image_path": "individual_signs/test-17/test-17_sign_13.png",
-          "correct_answer": ""
+          "correct_answer": "13- التزام السير باتجاه اليسار إجباري."
         },
         {
           "sign_number": 14,
           "image_path": "individual_signs/test-17/test-17_sign_14.png",
-          "correct_answer": ""
+          "correct_answer": "14- نهاية منع تجاوز السرعة 50 كلم/سا."
         },
         {
           "sign_number": 15,
           "image_path": "individual_signs/test-17/test-17_sign_15.png",
-          "correct_answer": ""
+          "correct_answer": "15- طريق معبّد."
         },
         {
           "sign_number": 16,
           "image_path": "individual_signs/test-17/test-17_sign_16.png",
-          "correct_answer": ""
+          "correct_answer": "16- حذار، طريق ضيق على اليمين."
         }
       ],
       "priorities": [
         {
           "priority_number": 1,
           "image_path": "individual_priorities/test-17/test-17_priority_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- تقاطع طرق مع إشارة طريق ذات أولوية - تمر السيارتان الصفراء و الزرقاء ثم تمر السيارة الحمراء ."
         },
         {
           "priority_number": 2,
           "image_path": "individual_priorities/test-17/test-17_priority_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- تقاطع طرق مع إشارة ترك المرور على بعد 150 متر وإشارة ترك المرور - تمر السيارتان الصفراء و الزرقاء ثم تمر الحمراء ."
         },
         {
           "priority_number": 3,
           "image_path": "individual_priorities/test-17/test-17_priority_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- تقاطع طرق مع إشارة ضوئية - السيارة الصفراء تستطيع المرور، أما الحمراء و الزرقاء فتنتظران الضوء الأخضر."
         },
         {
           "priority_number": 4,
           "image_path": "individual_priorities/test-17/test-17_priority_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- السيارة الزرقاء لا تستطيع التجاوز - بسبب وجود الخط المستمر على يسارها."
         },
         {
           "priority_number": 5,
           "image_path": "individual_priorities/test-17/test-17_priority_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- تقاطع طرق مع إشارة حذار تقاطع طرق خطير (الأولوية لليمين) - تمر السيارة الصفراء ثم الحمراء ثم الزرقاء ."
         },
         {
           "priority_number": 6,
           "image_path": "individual_priorities/test-17/test-17_priority_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- طريق جبلي ضيق - السيارة التي تجرّ مقطورة تتوقف لتفسح الطريق الحمراء ."
         },
         {
           "priority_number": 7,
           "image_path": "individual_priorities/test-17/test-17_priority_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- تقاطع طرق مع إشارة ترك المرور - تمر السيارة الزرقاء ثم الحمراء ثم الصفراء ."
         },
         {
           "priority_number": 8,
           "image_path": "individual_priorities/test-17/test-17_priority_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- طريق جبلي ضيق - الحافلة تتوقف لتفسح الطريق للسيارة الحمراء ."
         }
       ],
       "general_questions": [
@@ -2820,37 +2814,37 @@
           "question_number": 1,
           "question_ar": "اذكر خمس حالات تؤدي إلى السحب الفوري لرخصة السياقة مع تعليق نافذ؟",
           "question_fr": "Citer 05 cas de retrait immédiat du permis de conduire avec effet suspensif.",
-          "correct_answer": ""
+          "correct_answer": "1- حالات السحب الفوري لرخصة السياقة مع تعليق نافذ:\n- ارتكاب جريمة القتل الخطأ أو الجرح نتيجة تهاون ، تغافل أو عدم الإمتثال لقواعد حركة المرور.\n- ارتكاب جريمة القتل الخطأ أو الجرح في حالة سكر أو تحت تأثير أعشاب أو مواد تدخل ضمن أصناف المخدرات.\n- عند قيادة مركبة أو مرافقة سائق متدرب في إطار التمهين تحت تأثير مشروب كحولي يتميز بوجوده في الدم بنسبة تعادل أو تزيد عن 0.2 غ/1000.\n- سياقة مركبة تحت تأثير دواء أو أعشاب تدخل ضمن أصناف المخدرات.\n- جنحة الفرار.\n- رفض الخضوع لعملية التفتيش من طرف أعوان الأمن.\n- مخالفة الإجراءات المتعلقة بإشارات الأمر بالتوقف (الضوء الأحمر أو إشارة قف).\n- السير على شريط الوقوف الاستعجالي.\n- مخالفة إجراءات اتجاهات المرور الإلزامية (السير في اتجاه ممنوع....)."
         },
         {
           "question_number": 2,
           "question_ar": "ما هو الهدف من الفحص التقني الدوري للمركبات؟",
           "question_fr": "Que vise le contrôle technique périodique des véhicules ?",
-          "correct_answer": ""
+          "correct_answer": "2- الفحص التقني للسيارات يدخل ضمن إجراءات السلامة عبر الطرقات، وهو عملية دورية للتأكد من حالة السيارة إذا ما كانت صالحة للاستعمال في الطرقات أم غير صالحة.\n- الهدف منه هو الحفاظ على الحالة الجيدة للمركبة وأيضا حماية سلامة الركاب ومستعملي الطريق من الأخطار الناجمة عن سوء حالة المركبة."
         },
         {
           "question_number": 3,
           "question_ar": "ما هي الأخطار المتعلقة بالسياقة أثناء الليل؟",
           "question_fr": "Quels sont les dangers particuliers de la conduite de nuit ?",
-          "correct_answer": ""
+          "correct_answer": "3- الأخطار المتعلقة بالسياقة أثناء الليل:\n- الانبهار بالأضواء للسائقين القادمين من الأمام والخلف.\n- انعدام الإنارة للدرجات وبعض السائقين الآخرين.\n- سوء تقدير المسافات والأحجام بسبب نقص مجال الرؤية.\n- انعكاس أضواء السيارات على الطريق المبلل."
         },
         {
           "question_number": 4,
           "question_ar": "ما هي المراحل الثلاثة المتعلقة بتغيير الإتجاه؟",
           "question_fr": "Quelles sont les 03 phases d'un changement de direction ?",
-          "correct_answer": ""
+          "correct_answer": "4- مراحل تغيير الاتجاه:\n- المرحلة الأولى: الاستعداد.\n* التأكد من إجراء المناورة دون خطر (النظر في المرآة الداخلية لتحديد ما إذا كنا محل تجاوز).\n* تشغيل الغمازة بمسافة كافية قبل الدوران.\n* أخذ الوضعية المناسبة للدوران دون إعاقة الآخرين.\n* التخفيض من السرعة ودرجة السرعة.\n- المرحلة الثانية: الشروع في المناورة.\n* عند الوصول إلى الملتقى يجب احترام قواعد المرور (الأضواء، الشرطة، الإشارات الأفقية...)\n- المرحلة الثالثة: اكتمال المناورة ومواصلة المسير.\nالدوران إلى اليسار:\n- الحالة الأولى: طريق ذو اتجاهين، بمسلك مزدوج:\n* التزام أقصى اليسار دون مجاوزة وسط الطريق\n* ترك أولوية المرور في حالة قدوم مركبات في الاتجاه المعاكس.\n* اكمال الدوران إلى اليسار مع لزوم الحذر.\n- الحالة الثانية: طريق ذو اتجاهين بمسلك فردي:\n* التزام السير في الوسط دون ملامسة الخط الفاصل إذا لم يكن هناك حاجز.\n- الحالة الثالثة: طريق ذات اتجاهين مع أسهم التوجه:\n* التزام السير في المسلك الذي يحمل سهما يشير إلى اليسار."
         },
         {
           "question_number": 5,
           "question_ar": "اذكر خمس حالات متعلقة بالوقوف أو التوقف الخطير.",
           "question_fr": "Citer 05 cas d'arrêt et de stationnement dangereux.",
-          "correct_answer": ""
+          "correct_answer": "5- حالات الوقوف أو التوقف الخطير:\n- على قمة مرتفع - عند منعرج - داخل نفق - أثناء الضباب - مكان عديم الإضاءة -  طريق ضيق - أمام ممر سكة حديدية غير محروس."
         },
         {
           "question_number": 6,
           "question_ar": "من أي جهة نقوم بالتجاوز؟ اذكر الحالات الإستثنائية.",
           "question_fr": "De quel côté s'effectuent les dépassements ? Quelles sont les exceptions ?",
-          "correct_answer": ""
+          "correct_answer": "6- التجاوز يكون على الجهة اليسرى إلا في الحالات التالية:\n- المركبة التي أمامي تريد الدوران إلى اليسار.\n- عند تجاوز عربات السكك الحديدية (ترامواي) خارج المحطة.\n- في الطريق السريع إذا كانت حركة السير في الجهة اليسرى بطيئة."
         }
       ]
     }
@@ -2863,124 +2857,124 @@
         {
           "sign_number": 1,
           "image_path": "individual_signs/test-18/test-18_sign_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- حذار، طريق ضيقة من الجهتين - إشارة مؤقتة."
         },
         {
           "sign_number": 2,
           "image_path": "individual_signs/test-18/test-18_sign_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- طريق ذو اتجاه واحد."
         },
         {
           "sign_number": 3,
           "image_path": "individual_signs/test-18/test-18_sign_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- الدوران إلى اليمين أو إلى اليسار إجباري عند التقاطع القادم."
         },
         {
           "sign_number": 4,
           "image_path": "individual_signs/test-18/test-18_sign_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- استعمال المنبه الصوتي ممنوع."
         },
         {
           "sign_number": 5,
           "image_path": "individual_signs/test-18/test-18_sign_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- معلم تقاطع طرق."
         },
         {
           "sign_number": 6,
           "image_path": "individual_signs/test-18/test-18_sign_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- نهاية منع تجاوز السرعة 110 كلم/سا."
         },
         {
           "sign_number": 7,
           "image_path": "individual_signs/test-18/test-18_sign_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- نهاية السرعة الأدنى الإجبارية 30 كلم/سا."
         },
         {
           "sign_number": 8,
           "image_path": "individual_signs/test-18/test-18_sign_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- حذار، ممر للرّاجلين."
         },
         {
           "sign_number": 9,
           "image_path": "individual_signs/test-18/test-18_sign_09.png",
-          "correct_answer": ""
+          "correct_answer": "9- حذار، طريق ضيّقة من الجهتين."
         },
         {
           "sign_number": 10,
           "image_path": "individual_signs/test-18/test-18_sign_10.png",
-          "correct_answer": ""
+          "correct_answer": "10- السير إلى الأمام إجباري."
         },
         {
           "sign_number": 11,
           "image_path": "individual_signs/test-18/test-18_sign_11.png",
-          "correct_answer": ""
+          "correct_answer": "11- حذار، تقاطع طريق (الأولوية لليمين)."
         },
         {
           "sign_number": 12,
           "image_path": "individual_signs/test-18/test-18_sign_12.png",
-          "correct_answer": ""
+          "correct_answer": "12- طريق وطني رقم 89."
         },
         {
           "sign_number": 13,
           "image_path": "individual_signs/test-18/test-18_sign_13.png",
-          "correct_answer": ""
+          "correct_answer": "13- محطة بنزين."
         },
         {
           "sign_number": 14,
           "image_path": "individual_signs/test-18/test-18_sign_14.png",
-          "correct_answer": ""
+          "correct_answer": "14- نهاية منع تجاوز السرعة 30 كلم/سا."
         },
         {
           "sign_number": 15,
           "image_path": "individual_signs/test-18/test-18_sign_15.png",
-          "correct_answer": ""
+          "correct_answer": "15- السرعة الأدنى الإجبارية 30 كلم/سا."
         },
         {
           "sign_number": 16,
           "image_path": "individual_signs/test-18/test-18_sign_16.png",
-          "correct_answer": ""
+          "correct_answer": "16- تجاوز السرعة 30 كلم/سا ممنوع."
         }
       ],
       "priorities": [
         {
           "priority_number": 1,
           "image_path": "individual_priorities/test-18/test-18_priority_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- تقاطع طرق مع إشارة ترك المرور - تمر السيارة الحمراء ثم الصفراء ."
         },
         {
           "priority_number": 2,
           "image_path": "individual_priorities/test-18/test-18_priority_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- تقاطع طرق مع إشارة طريق رئيسي يقطعه طريق ثانوي وإشارة قف - تمر السيارتان الصفراء و الخضراء ثم تمر السيارتان الحمراء و الزرقاء ."
         },
         {
           "priority_number": 3,
           "image_path": "individual_priorities/test-18/test-18_priority_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- تقاطع طرق مع إشارة نهاية أولوية الطريق على بعد 400 متر وإشارة ترك المرور - السيارة الحمراء تمر أولا."
         },
         {
           "priority_number": 4,
           "image_path": "individual_priorities/test-18/test-18_priority_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- تقاطع طرق مع إشارة ضوئية وإشارات أخرى، نلتزم بالإشارة الضوئية - تمر السيارتان الصفراء و الحمراء أما السيارة الزرقاء فتنتظر الضوء الأخضر."
         },
         {
           "priority_number": 5,
           "image_path": "individual_priorities/test-18/test-18_priority_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- تقاطع طرق بدون إشارات (الأولوية لليمين) - تمر السيارة الصفراء ثم السيارتان الزرقاوتان ثم تمر السيارة الحمراء ."
         },
         {
           "priority_number": 6,
           "image_path": "individual_priorities/test-18/test-18_priority_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- تقاطع طرق مع إشارة نهاية أولوية الطريق على بعد 200 متر وإشارة قف على بعد 150 متر وإشارة قف ومعالم تقاطع طرق - تمر السيارتان الحمراء و الزرقاء ، ثم تمر الصفراء ."
         },
         {
           "priority_number": 7,
           "image_path": "individual_priorities/test-18/test-18_priority_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- تقاطع طرق مع إشارة طريق ذات أولوية و إشارة قف - تمر السيارة الحمراء و السيارتان الصفراوتان ثم تم السيارتان البيضاء و الزرقاء ."
         },
         {
           "priority_number": 8,
           "image_path": "individual_priorities/test-18/test-18_priority_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- تقاطع طرق مع إشارة قف على بعد 150 متر وإشارة قف - تمر السيارتان الحمراء و الصفراء ثم تمر الزرقاء ."
         }
       ],
       "general_questions": [
@@ -2988,37 +2982,37 @@
           "question_number": 1,
           "question_ar": "أذكر خمس حالات تؤدي إلى السحب الفوري لرخصة السياقة مع تعليق نافذ؟",
           "question_fr": "Citer 05 cas de retrait immédiat du permis de conduire avec effet suspensif.",
-          "correct_answer": ""
+          "correct_answer": "1- حالات السحب الفوري لرخصة السياقة مع تعليق نافذ:\n- ارتكاب جريمة القتل الخطأ أو الجرح نتيجة تهاون ، تغافل أو عدم الإمتثال لقواعد حركة المرور.\n- ارتكاب جريمة القتل الخطأ أو الجرح في حالة سكر أو تحت تأثير أعشاب أو مواد تدخل ضمن أصناف المخدرات.\n- عند قيادة مركبة أو مرافقة سائق متدرب في إطار التمهين تحت تأثير مشروب كحولي يتميز بوجوده في الدم بنسبة تعادل أو تزيد عن 0.2 غ/1000.\n- سياقة مركبة تحت تأثير دواء أو أعشاب تدخل ضمن أصناف المخدرات.\n- جنحة الفرار.\n- رفض الخضوع لعملية التفتيش من طرف أعوان الأمن.\n- مخالفة الإجراءات المتعلقة بإشارات الأمر بالتوقف (الضوء الأحمر أو إشارة قف).\n- السير على شريط الوقوف الاستعجالي.\n- مخالفة إجراءات إتجاهات المرور الإلزامية (السير في اتجاه ممنوع....)."
         },
         {
           "question_number": 2,
           "question_ar": "ما هو الهدف من الفحص التقني الدوري للمركبات؟",
           "question_fr": "Que vise le contrôle technique périodique des véhicules ?",
-          "correct_answer": ""
+          "correct_answer": "2- الفحص التقني للسيارات يدخل ضمن إجراءات السلامة عبر الطرقات، وهو عملية دورية للتأكد من حالة السيارة إذا ما كانت صالحة للاستعمال في الطرقات أم غير صالحة.\n- الهدف منه هو الحفاظ على الحالة الجيدة للمركبة وأيضا حماية سلامة الركاب ومستعملي الطريق من الأخطار الناجمة عن سوء حالة المركبة."
         },
         {
           "question_number": 3,
           "question_ar": "ما هي الأخطار المتعلقة بالسياقة أثناء الليل؟",
           "question_fr": "Quels sont les dangers particuliers de la conduite de nuit ?",
-          "correct_answer": ""
+          "correct_answer": "3- الأخطار المتعلقة بالسياقة أثناء الليل:\n- الإنبهار بالأضواء للسائقين القادمين من الأمام والخلف.\n- إنعدام الإنارة للدرجات وبعض السائقين الآخرين.\n- سوء تقدير المسافات والأحجام بسبب نقص مجال الرؤية.\n- انعكاس أضواء السيارات على الطريق المبلل."
         },
         {
           "question_number": 4,
           "question_ar": "ما هي المراحل الثلاثة المتعلقة بتغيير الإتجاه؟",
           "question_fr": "Quelles sont les 03 phases d'un changement de direction ?",
-          "correct_answer": ""
+          "correct_answer": "4- مراحل تغيير الاتجاه:\n- المرحلة الأولى: الاستعداد.\n* التأكد من إجراء المناورة دون خطر (النظر في المرآة الداخلية لتحديد ما إذا كنا محل تجاوز).\n* تشغيل الغمازة بمسافة كافية قبل الدوران.\n* أخذ الوضعية المناسبة للدوران دون إعاقة الأخرين.\n* التخفيض من السرعة ودرجة السرعة.\n- المرحلة الثانية: الشروع في المناورة.\n* عند الوصول إلى الملتقى يجب احترام قواعد المرور (الأضواء، الشرطة، الإشارات الأفقية...)\n- المرحلة الثالثة: اكتمال المناورة ومواصلة المسير.\nالدوران إلى اليسار:\n- الحالة الأولى: طريق ذو اتجاهين، بمسلك مزدوج:\n* التزام أقصى اليسار دون مجاوزة وسط الطريق\n* ترك أولوية المرور في حالة قدوم مركبات في الاتجاه المعاكس.\n* اكمال الدوران إلى اليسار مع لزوم الحذر.\n- الحالة الثانية: طريق ذو اتجاهين بمسلك فردي:\n* التزام السير في الوسط دون ملامسة الخط الفاصل إذا لم يكن هناك حاجز.\n- الحالة الثالثة: طريق ذات اتجاهين مع أسهم التوجه:\n* التزام السير في المسلك الذي يحمل سهما يشير إلى اليسار."
         },
         {
           "question_number": 5,
           "question_ar": "أذكر خمس حالات متعلقة بالوقوف أو التوقف الخطير.",
           "question_fr": "Citer 05 cas d'arrêt et de stationnement dangereux.",
-          "correct_answer": ""
+          "correct_answer": "5- حالات الوقوف أو التوقف الخطير:\n- على قمة مرتفع - عند منعرج - داخل نفق - أثناء الضباب - مكان عديم الإضاءة -  طريق ضيق - أمام ممر سكة حديدية غير محروس."
         },
         {
           "question_number": 6,
           "question_ar": "من أي جهة نقوم بالتجاوز؟ أذكر الحالات الإستثنائية.",
           "question_fr": "De quel côté s'effectuent les dépassements ? Quelles sont les exceptions ?",
-          "correct_answer": ""
+          "correct_answer": "6- التجاوز يكون على الجهة اليسرى إلا في الحالات التالية:\n- المركبة التي أمامي تريد الدوران إلى اليسار.\n- عند تجاوز عربات السكك الحديدية (ترامواي) خارج المحطة.\n- في الطريق السريع إذا كانت حركة السير في الجهة اليسرى بطيئة."
         }
       ]
     }
@@ -3031,124 +3025,124 @@
         {
           "sign_number": 1,
           "image_path": "individual_signs/test-19/test-19_sign_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- اتجاه ممنوع."
         },
         {
           "sign_number": 2,
           "image_path": "individual_signs/test-19/test-19_sign_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- الخروج من منطقة التوقف فيها ممنوع."
         },
         {
           "sign_number": 3,
           "image_path": "individual_signs/test-19/test-19_sign_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- طريق ذو اتجاهين، الأولوية للاتجاه المعاكس."
         },
         {
           "sign_number": 4,
           "image_path": "individual_signs/test-19/test-19_sign_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- حذار، خطر غير معين مؤقت."
         },
         {
           "sign_number": 5,
           "image_path": "individual_signs/test-19/test-19_sign_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- حذار، خطر غير معين."
         },
         {
           "sign_number": 6,
           "image_path": "individual_signs/test-19/test-19_sign_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- حذار، ممر للراجلين."
         },
         {
           "sign_number": 7,
           "image_path": "individual_signs/test-19/test-19_sign_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- انحراف الطريق إلى اليمين."
         },
         {
           "sign_number": 8,
           "image_path": "individual_signs/test-19/test-19_sign_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- هاتف عمومي."
         },
         {
           "sign_number": 9,
           "image_path": "individual_signs/test-19/test-19_sign_09.png",
-          "correct_answer": ""
+          "correct_answer": "9- ممر إجباري للراجلين."
         },
         {
           "sign_number": 10,
           "image_path": "individual_signs/test-19/test-19_sign_10.png",
-          "correct_answer": ""
+          "correct_answer": "10- ممر مخصص للراجلين."
         },
         {
           "sign_number": 11,
           "image_path": "individual_signs/test-19/test-19_sign_11.png",
-          "correct_answer": ""
+          "correct_answer": "11- نقطة تفتيش (الجمارك)."
         },
         {
           "sign_number": 12,
           "image_path": "individual_signs/test-19/test-19_sign_12.png",
-          "correct_answer": ""
+          "correct_answer": "12- حذار، طريق زلق."
         },
         {
           "sign_number": 13,
           "image_path": "individual_signs/test-19/test-19_sign_13.png",
-          "correct_answer": ""
+          "correct_answer": "13- حذار، طريق زلق مؤقت."
         },
         {
           "sign_number": 14,
           "image_path": "individual_signs/test-19/test-19_sign_14.png",
-          "correct_answer": ""
+          "correct_answer": "14- موقف سيارات الأجرة."
         },
         {
           "sign_number": 15,
           "image_path": "individual_signs/test-19/test-19_sign_15.png",
-          "correct_answer": ""
+          "correct_answer": "15- حذار، سكة حديدية غير محروسة مع إشارة ضوئية."
         },
         {
           "sign_number": 16,
           "image_path": "individual_signs/test-19/test-19_sign_16.png",
-          "correct_answer": ""
+          "correct_answer": "16- انحراف الطريق إلى اليمين."
         }
       ],
       "priorities": [
         {
           "priority_number": 1,
           "image_path": "individual_priorities/test-19/test-19_priority_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- تقاطع طرق مع إشارة حذار محور دوراني، وإشارة ترك المرور - تمر السيارة الزرقاء ثم البيضاء ."
         },
         {
           "priority_number": 2,
           "image_path": "individual_priorities/test-19/test-19_priority_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- تقاطع طرق مع إشارة حذار محور دوراني وإشارة ترك المرور - تمر السيارتان الصفراء و الخضراء ثم تمر الحمراء ."
         },
         {
           "priority_number": 3,
           "image_path": "individual_priorities/test-19/test-19_priority_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- تقاطع طرق مع إشارة طريق ذات أولوية - تمر السيارتان الزرقاء و الصفراء ثم تمر الحمراء ."
         },
         {
           "priority_number": 4,
           "image_path": "individual_priorities/test-19/test-19_priority_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- تقاطع طرق مع إشارة ترك المرور على بعد 150 متر وإشارة ترك المرور - تمر السيارتان الزرقاء و الصفراء ثم تمر الحمراء ."
         },
         {
           "priority_number": 5,
           "image_path": "individual_priorities/test-19/test-19_priority_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- تقاطع طرق مع إشارة ضوئية (4 أضواء صفراء غمازة) وإشارات طريق ذات أولوية (باتجاه اليمين) وإشارة ترك المرور، نتبع الإشارات - تمر السيارة الحمراء ثم الزرقاء ثم الخضراء ."
         },
         {
           "priority_number": 6,
           "image_path": "individual_priorities/test-19/test-19_priority_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- تقاطع طرق مع إشارة ضوئية (4 أضواء صفراء غمازة) وإشارات طريق ذات أولوية (باتجاه اليسار) وإشارات ترك المرور، نتبع الإشارات - تمر السيارة الزرقاء ثم الخضراء ثم الحمراء ."
         },
         {
           "priority_number": 7,
           "image_path": "individual_priorities/test-19/test-19_priority_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- تقاطع طرق مع إشارة ضوئية و الشرطي، نلتزم بتوجيهات الشرطي - تمر السيارتان الزرقاء و الخضراء أما السيارتان الصفراء و الحمراء فتنتظران إشارة الشرطي."
         },
         {
           "priority_number": 8,
           "image_path": "individual_priorities/test-19/test-19_priority_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- تقاطع طرق إشارة ضوئية (4 أضواء صفراء غمازة) وإشارات أخرى، و الشرطي، نلتزم بتوجيهات الشرطي - تمر السيارتان الصفراء و الخضراء ، أما السيارتان الزرقاء و الحمراء فتنتظران إشارة الشرطي."
         }
       ],
       "general_questions": [
@@ -3156,37 +3150,37 @@
           "question_number": 1,
           "question_ar": "ما هو تصرف كل سائق عند لقاء إشارات الخطر؟",
           "question_fr": "Quel doit-être le comportement de tout conducteur rencontrant un signal de danger ?",
-          "correct_answer": ""
+          "correct_answer": "1- عند لقاء إشارات الخطر يجب على السائق الانتباه وتخفيض السرعة بما يتناسب مع الخطر المذكور في الإشارة."
         },
         {
           "question_number": 2,
           "question_ar": "حسب أي الظروف يجب ضبط السرعة؟",
           "question_fr": "En fonction de quelles circonstances doit-être réglée la vitesse ?",
-          "correct_answer": ""
+          "correct_answer": "2- تضبط السرعة حسب:\n- كثافة حركة المرور.\n- حالة الطريق ( مبلل أو جاف، معبد أو ترابي... ).\n- الظروف الجوية."
         },
         {
           "question_number": 3,
           "question_ar": "ماذا يعني \"شهادة سياقة مؤقتة\"؟ وما هي الحالات التي تؤدي إلى إلغائها؟ ست حالات.",
           "question_fr": "Qu'est ce qu’une attestation provisoire de conduite, et dans quels cas peut-elle être annulée (06 cas) ?",
-          "correct_answer": ""
+          "correct_answer": "3- شهادة السياقة المؤقتة هي كل شهادة مر على تاريخ صدورها أقل من سنتين. كل من يملكها يعتبر تحت التدريب، يمكن أن تسحب من صاحبها إذا ارتكب أحد المخالفات المنصوص عليها قانونا:\n- القتل الخطأ.\n- تجاوز السرعة المسموح بها.\n- جنحة الفرار.\n- السياقة في اتجاه ممنوع.\n- السياقة في حالة سكر.\n- تناول المهلوسات أو الأعشاب المخدرة."
         },
         {
           "question_number": 4,
           "question_ar": "ما هي مختلف أجزاء الطريق؟",
           "question_fr": "Quelles sont les différentes parties d’une route ?",
-          "correct_answer": ""
+          "correct_answer": "4- أجزاء الطريق هي:\n- وسط الطريق: جزء من الطريق يستعمل لمرور المركبات.\n- الرصيف: جزء من الطريق مخصص لمرور الراجلين.\n- المسلك: وسط الطريق يكون عادة مقسم إلى مسلكين أو أكثر."
         },
         {
           "question_number": 5,
           "question_ar": "من هي مستعملي الطريق، لا يجوز له المرور عبر الطريق السريع للسيارات؟",
           "question_fr": "Quels sont les usagers qui ne sont pas admis à circuler sur autoroute ?",
-          "correct_answer": ""
+          "correct_answer": "5- مستعملو الطريق الذين يجب أن لا يسيروا على الطريق السريع للسيارات (الطريق السيار) هم:\n- الراجلون.\n- الفرسان.\n- الدراجون.\n- الحيوانات.\n- المركبات ذات الجر غير الميكانيكي.\n- مركبات ذات الجر الميكانيكي الغير خاضعة للترقيم (الدراجات ذات المحرك).\n- الجرارات والعتاد الفلاحي ومعدات الأشغال العمومية\n- المركبات التي لا يمكنها بلوغ سرعة 60 كلم/ سا على الطريق المستوية."
         },
         {
           "question_number": 6,
           "question_ar": "ما هي الأضواء الخلفية الإجبارية لكل سيارة؟",
           "question_fr": "De quels feux doit-être muni tout véhicule à l’arrière ?",
-          "correct_answer": ""
+          "correct_answer": "6- الأضواء الخلفية الإجبارية لكل مركبة:\n- ضوء الوقوف (يضيء عند استعمال مكابح الأرجل).\n- ضوء الوضعية (فيوز).\n- ضوء تغيير الاتجاه.\n- ضوء لوحة الترقيم."
         }
       ]
     }
@@ -3199,124 +3193,124 @@
         {
           "sign_number": 1,
           "image_path": "individual_signs/test-20/test-20_sign_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- يستحسن السير بسرعة 70 كلم/سا"
         },
         {
           "sign_number": 2,
           "image_path": "individual_signs/test-20/test-20_sign_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- حذار، منعرج إلى اليسار."
         },
         {
           "sign_number": 3,
           "image_path": "individual_signs/test-20/test-20_sign_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- طريق غابي رقم 7."
         },
         {
           "sign_number": 4,
           "image_path": "individual_signs/test-20/test-20_sign_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- حاجز أشغال مؤقتة."
         },
         {
           "sign_number": 5,
           "image_path": "individual_signs/test-20/test-20_sign_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- حذار تقاطع طرق."
         },
         {
           "sign_number": 6,
           "image_path": "individual_signs/test-20/test-20_sign_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- محطة تراموي."
         },
         {
           "sign_number": 7,
           "image_path": "individual_signs/test-20/test-20_sign_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- مسلك طوارئ على اليمين."
         },
         {
           "sign_number": 8,
           "image_path": "individual_signs/test-20/test-20_sign_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- تجاوز السرعة 70 كلم/سا ممنوع."
         },
         {
           "sign_number": 9,
           "image_path": "individual_signs/test-20/test-20_sign_09.png",
-          "correct_answer": ""
+          "correct_answer": "9- الدوران إلى الخلف ممنوع."
         },
         {
           "sign_number": 10,
           "image_path": "individual_signs/test-20/test-20_sign_10.png",
-          "correct_answer": ""
+          "correct_answer": "10- حذار، ممرّ للراجلين."
         },
         {
           "sign_number": 11,
           "image_path": "individual_signs/test-20/test-20_sign_11.png",
-          "correct_answer": ""
+          "correct_answer": "11- تفادي الحاجز إلى اليمين إجباري."
         },
         {
           "sign_number": 12,
           "image_path": "individual_signs/test-20/test-20_sign_12.png",
-          "correct_answer": ""
+          "correct_answer": "12- نهاية منع استعمال المنبه الصوتي."
         },
         {
           "sign_number": 13,
           "image_path": "individual_signs/test-20/test-20_sign_13.png",
-          "correct_answer": ""
+          "correct_answer": "13- اتجاه ممنوع."
         },
         {
           "sign_number": 14,
           "image_path": "individual_signs/test-20/test-20_sign_14.png",
-          "correct_answer": ""
+          "correct_answer": "14- طريق ذو اتجاهين، الأولوية للاتجاه المعاكس."
         },
         {
           "sign_number": 15,
           "image_path": "individual_signs/test-20/test-20_sign_15.png",
-          "correct_answer": ""
+          "correct_answer": "15- نهاية أولويّة الطريق."
         },
         {
           "sign_number": 16,
           "image_path": "individual_signs/test-20/test-20_sign_16.png",
-          "correct_answer": ""
+          "correct_answer": "16- طريق مخصص للعربات التي يزيد طولها عن 10 متر."
         }
       ],
       "priorities": [
         {
           "priority_number": 1,
           "image_path": "individual_priorities/test-20/test-20_priority_01.png",
-          "correct_answer": ""
+          "correct_answer": "1- تقاطع طرق مع إشارة حذار، محور دوراني وإشارة ترك المرور - تمر السيارة الحمراء ثم الصفراء ."
         },
         {
           "priority_number": 2,
           "image_path": "individual_priorities/test-20/test-20_priority_02.png",
-          "correct_answer": ""
+          "correct_answer": "2- تقاطع طرق مع إشارة حذار، تقاطع طرق (الأولوية على اليمين) - تمر السيارة الحمراء ثم الزرقاء ثم الصفراء ."
         },
         {
           "priority_number": 3,
           "image_path": "individual_priorities/test-20/test-20_priority_03.png",
-          "correct_answer": ""
+          "correct_answer": "3- تقاطع طرق مع إشارة نهاية أولوية الطريق على بعد 400 م وإشارة ترك المرور - السيارة الحمراء تمر أولا."
         },
         {
           "priority_number": 4,
           "image_path": "individual_priorities/test-20/test-20_priority_04.png",
-          "correct_answer": ""
+          "correct_answer": "4- تقاطع طرق مع إشارة ضوئية (4 أضواء صفراء غمازة)، الأولوية لليمين - تمر السيارة الزرقاء ثم الصفراء ."
         },
         {
           "priority_number": 5,
           "image_path": "individual_priorities/test-20/test-20_priority_05.png",
-          "correct_answer": ""
+          "correct_answer": "5- السائق لا يستطيع التجاوز - لأن سيارة أخرى خلفه تريد تجاوزه."
         },
         {
           "priority_number": 6,
           "image_path": "individual_priorities/test-20/test-20_priority_06.png",
-          "correct_answer": ""
+          "correct_answer": "6- تقاطع طرق مع إشارة طريق ذات أولوية وإشارة ترك المرور - تمر السيارة الصفراء ثم الزرقاء ثم الحمراء ."
         },
         {
           "priority_number": 7,
           "image_path": "individual_priorities/test-20/test-20_priority_07.png",
-          "correct_answer": ""
+          "correct_answer": "7- السيارة الزرقاء تستطيع التجاوز - لأن الخط على يسارها متقطع."
         },
         {
           "priority_number": 8,
           "image_path": "individual_priorities/test-20/test-20_priority_08.png",
-          "correct_answer": ""
+          "correct_answer": "8- السيارة الزرقاء تستطيع التجاوز - لأن الخط المتقطع محاذ لها."
         }
       ],
       "general_questions": [
@@ -3324,37 +3318,37 @@
           "question_number": 1,
           "question_ar": "اذكر خمس حالات تؤدي إلى السحب الفوري لرخصة السياقة مع تعليق نافذ.",
           "question_fr": "Citer 05 cas de retrait immédiat du permis de conduire avec effet suspensif.",
-          "correct_answer": ""
+          "correct_answer": "1- حالات السحب الفوري لرخصة السياقة مع تعليق نافذ:\n- ارتكاب جريمة القتل الخطأ أو الجرح نتيجة تهاون ، تغافل أو عدم الإمتثال لقواعد حركة المرور.\n- ارتكاب جريمة القتل الخطأ أو الجرح في حالة سكر أو تحت تأثير أعشاب أو مواد تدخل ضمن أصناف المخدرات.\n- عند قيادة مركبة أو مرافقة سائق متدرب في إطار التمهين تحت تأثير مشروب كحولي يتميز بوجوده في الدم بنسبة تعادل أو تزيد عن 0.2 غ/1000.\n- سياقة مركبة تحت تأثير دواء أو أعشاب تدخل ضمن أصناف المخدرات.\n- جنحة الفرار.\n- رفض الخضوع لعملية التفتيش من طرف أعوان الأمن.\n- مخالفة الإجراءات المتعلقة بإشارات الأمر بالتوقف (الضوء الأحمر أو إشارة قف).\n- السير على شريط الوقوف الاستعجالي.\n- مخالفة إجراءات إتجاهات المرور الإلزامية (السير في اتجاه ممنوع....)."
         },
         {
           "question_number": 2,
           "question_ar": "ما هو الهدف من الفحص التقني الدوري للمركبات؟",
           "question_fr": "Que vise le contrôle technique périodique des véhicules ?",
-          "correct_answer": ""
+          "correct_answer": "2- الفحص التقني للسيارات يدخل ضمن إجراءات السلامة عبر الطرقات، وهو عملية دورية للتأكد من حالة السيارة إذا ما كانت صالحة للاستعمال في الطرقات أم غير صالحة.\n- الهدف منه هو الحفاظ على الحالة الجيدة للمركبة وأيضا حماية سلامة الركاب ومستعملي الطريق من الأخطار الناجمة عن سوء حالة المركبة."
         },
         {
           "question_number": 3,
           "question_ar": "ما هي الأخطار المتعلقة بالسياقة أثناء الليل؟",
           "question_fr": "Quels sont les dangers particuliers de la conduite de nuit ?",
-          "correct_answer": ""
+          "correct_answer": "3- الأخطار المتعلقة بالسياقة أثناء الليل:\n- الإنبهار بالأضواء للسائقين القادمين من الأمام والخلف.\n- إنعدام الإنارة للدرجات وبعض السائقين الآخرين.\n- سوء تقدير المسافات والأحجام بسبب نقص مجال الرؤية.\n- انعكاس أضواء السيارات على الطريق المبلل."
         },
         {
           "question_number": 4,
           "question_ar": "ما هي المراحل الثلاثة المتعلقة بتغيير الإتجاه؟",
           "question_fr": "Quelles sont les 03 phases d’un changement de direction ?",
-          "correct_answer": ""
+          "correct_answer": "4- مراحل تغيير الاتجاه:\n- المرحلة الأولى: الاستعداد.\n* التأكد من إجراء المناورة دون خطر (النظر في المرآة الداخلية لتحديد ما إذا كنا محل تجاوز).\n* تشغيل الغمازة بمسافة كافية قبل الدوران.\n* أخذ الوضعية المناسبة للدوران دون إعاقة الأخرين.\n* التخفيض من السرعة ودرجة السرعة.\n- المرحلة الثانية: الشروع في المناورة.\n* عند الوصول إلى الملتقى يجب احترام قواعد المرور (الأضواء، الشرطة، الإشارات الأفقية...)\n- المرحلة الثالثة: اكتمال المناورة ومواصلة المسير.\nالدوران إلى اليسار:\n- الحالة الأولى: طريق ذو اتجاهين، بمسلك مزدوج:\n* التزام أقصى اليسار دون مجاوزة وسط الطريق\n* ترك أولوية المرور في حالة قدوم مركبات في الاتجاه المعاكس.\n* اكمال الدوران إلى اليسار مع لزوم الحذر.\n- الحالة الثانية: طريق ذو اتجاهين بمسلك فردي:\n* التزام السير في الوسط دون ملامسة الخط الفاصل إذا لم يكن هناك حاجز.\n- الحالة الثالثة: طريق ذات اتجاهين مع أسهم التوجه:\n* التزام السير في المسلك الذي يحمل سهما يشير إلى اليسار."
         },
         {
           "question_number": 5,
           "question_ar": "اذكر خمس حالات متعلقة بالوقوف أو التوقف الخطير.",
           "question_fr": "Citer 05 cas d’arrêt et de stationnement dangereux.",
-          "correct_answer": ""
+          "correct_answer": "5- حالات الوقوف أو التوقف الخطير:\n- على قمة مرتفع - عند منعرج - داخل نفق - أثناء الضباب - مكان عديم الإضاءة -  طريق ضيق - أمام ممر سكة حديدية غير محروس."
         },
         {
           "question_number": 6,
           "question_ar": "من أي جهة نقوم بالتجاوز؟ اذكر الحالات الإستثنائية.",
           "question_fr": "De quel côté s’effectuent les dépassements ? Quelles sont les exceptions ?",
-          "correct_answer": ""
+          "correct_answer": "6- التجاوز يكون على الجهة اليسرى إلا في الحالات التالية:\n- المركبة التي أمامي تريد الدوران إلى اليسار.\n- عند تجاوز عربات السكك الحديدية (ترامواي) خارج المحطة.\n- في الطريق السريع إذا كانت حركة السير في الجهة اليسرى بطيئة."
         }
       ]
     }
