@@ -8,8 +8,8 @@ export default function ModalFooter({ children, className = "" }: ModalFooterPro
   return (
     <div 
       className={`
-        flex items-center gap-3 px-6 py-4 border-t border-gray-100
-        ${isRTL ? 'flex-row-reverse' : 'flex-row'}
+        flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 border-t border-gray-100
+        ${isRTL ? 'sm:flex-row-reverse' : 'sm:flex-row'}
         ${className}
       `}
     >

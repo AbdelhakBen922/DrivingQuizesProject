@@ -11,7 +11,8 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import "./i18n/config";
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
+import Loading from "./components/Loading";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -28,16 +29,24 @@ export const links: Route.LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const { i18n } = useTranslation();
+  // Use a stable initial value to prevent hydration mismatch
   const [currentLang, setCurrentLang] = useState('fr');
+  const [mounted, setMounted] = useState(false);
+
+  useLayoutEffect(() => {
+    // Set the correct language after mounting on client
+    setCurrentLang(i18n.language);
+    setMounted(true);
+  }, [i18n.language]);
 
   useEffect(() => {
-    setCurrentLang(i18n.language);
     const handleLanguageChange = (lng: string) => setCurrentLang(lng);
     i18n.on('languageChanged', handleLanguageChange);
     return () => i18n.off('languageChanged', handleLanguageChange);
   }, [i18n]);
 
   const dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+
 
   return (
     <html lang={currentLang} dir={dir}>
@@ -53,7 +62,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <Mount isMounted={mounted}>{children}</Mount>
+        
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -92,4 +102,8 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
       )}
     </main>
   );
+}
+
+function Mount({ children ,isMounted }: { children: React.ReactNode, isMounted: boolean }) {
+  return isMounted ? <>{children}</> : <Loading className="min-h-screen flex justify-center items-center"/>;
 }

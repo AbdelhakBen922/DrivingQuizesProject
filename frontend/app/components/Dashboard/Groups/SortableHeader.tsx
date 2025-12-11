@@ -37,7 +37,7 @@ export default function SortableHeader({
           <img
             src="/assets/icons/dashboard/groups/arrow_down_table.svg"
             alt="sort"
-            className={`w-4 h-4 transition-transform ${
+            className={`w-4 h-4 max-w-4 transition-transform ${
               currentSort === 'asc' 
                 ? 'rotate-180' 
                 : currentSort === 'desc' 
@@ -57,14 +57,14 @@ export default function SortableHeader({
           <img
             src="/assets/icons/dashboard/groups/arrow_down_table.svg"
             alt="sort up"
-            className={`w-3 h-3 transition-all ${
-              currentSort === 'asc' ? 'rotate-180 opacity-100' : 'opacity-40'
+            className={`w-3 h-3 max-w-3 transition-all ${
+              currentSort === 'asc' ? 'rotate-180 opacity-100' : ' rotate-180 opacity-40'
             }`}
           />
           <img
             src="/assets/icons/dashboard/groups/arrow_down_table.svg"
             alt="sort down"
-            className={`w-3 h-3 -mt-1 transition-all ${
+            className={`w-3 h-3 max-w-3 -mt-1 transition-all ${
               currentSort === 'desc' ? 'opacity-100' : 'opacity-40'
             }`}
           />
@@ -80,7 +80,7 @@ export default function SortableHeader({
           <img
             src="/assets/icons/dashboard/groups/filter.svg"
             alt="filter"
-            className="w-4 h-4"
+            className="w-4 h-4 max-w-4"
           />
         </button>
       )}

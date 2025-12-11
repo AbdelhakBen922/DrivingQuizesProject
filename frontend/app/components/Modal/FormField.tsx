@@ -30,11 +30,11 @@ export default function FormField({
   `;
 
   return (
-    <div className={`mb-4 ${className}`}>
+    <div className={`mb-3 sm:mb-4 ${className}`}>
       {/* Label */}
       <label 
         htmlFor={name}
-        className={`form-label block mb-2 ${isRTL ? 'text-right' : 'text-left'}`}
+        className={`form-label block mb-1.5 sm:mb-2 text-sm sm:text-base ${isRTL ? 'text-right' : 'text-left'}`}
       >
         {label}
         {required && <span className="text-red ml-1">*</span>}

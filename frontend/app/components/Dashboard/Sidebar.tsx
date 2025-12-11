@@ -1,9 +1,7 @@
-import { Link, useLocation } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
-
-
-
+import { useState, useEffect } from "react";
+import * as api from "../../services/api";
 
 interface NavItem {
   key: string;
@@ -14,8 +12,27 @@ interface NavItem {
 export default function Sidebar() {
   const { t, i18n } = useTranslation();
   const location = useLocation();
+  const navigate = useNavigate();
   const isRTL = i18n.language === 'ar';
   const [isOpen, setIsOpen] = useState(false);
+
+  // State for school and owner info
+  const [schoolInfo, setSchoolInfo] = useState<api.DashboardSchoolInfo | null>(null);
+  const [ownerInfo, setOwnerInfo] = useState<api.DashboardOwnerInfo | null>(null);
+
+  // Load settings on mount
+  useEffect(() => {
+    async function loadSettings() {
+      try {
+        const settings = await api.getDashboardSettings();
+        setSchoolInfo(settings.school);
+        setOwnerInfo(settings.owner);
+      } catch (err) {
+        console.error('Failed to load settings:', err);
+      }
+    }
+    loadSettings();
+  }, []);
 
   const navItems: NavItem[] = [
     { key: 'home', iconPath: '/assets/icons/dashboard/sidebar/House_01.svg', path: '/dashboard' },
@@ -49,7 +66,7 @@ export default function Sidebar() {
       {/* Overlay for mobile */}
       {isOpen && (
         <div
-          className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
+          className="lg:hidden fixed inset-0 backdrop-blur-sm bg-black/30 z-40"
           onClick={() => setIsOpen(false)}
         />
       )}
@@ -102,26 +119,50 @@ export default function Sidebar() {
 
           {/* User Profile */}
           <div className={`p-4 border-t border-gray-200`}>
-            <div className={`flex items-center gap-3 p-3 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
-              <div className="w-12 h-12 rounded-full bg-primary-300 flex items-center justify-center text-white font-bold text-lg">
-                {t('dashboard.user.initials', 'SN')}
+            {schoolInfo && ownerInfo ? (
+              <div className={`flex items-center gap-3 p-3 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+                <div className="w-12 h-12 rounded-full bg-primary-300 overflow-hidden flex items-center justify-center text-white font-bold text-lg">
+                  {ownerInfo.avatar_url ? (
+                    <img
+                      src={ownerInfo.avatar_url}
+                      alt={`${ownerInfo.first_name} ${ownerInfo.last_name}`}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = 'none';
+                        (e.target as HTMLImageElement).parentElement!.innerHTML = `${ownerInfo.first_name[0]}${ownerInfo.last_name[0]}`;
+                      }}
+                    />
+                  ) : (
+                    `${ownerInfo.first_name[0]}${ownerInfo.last_name[0]}`
+                  )}
+                </div>
+                <div className={`flex-1 ${isRTL ? 'text-right' : 'text-left'}`}>
+                  <p className="font-semibold text-primary-800">
+                    {schoolInfo.name}
+                  </p>
+                  <p className="text-sm text-grey">
+                    {ownerInfo.first_name} {ownerInfo.last_name}
+                  </p>
+                </div>
               </div>
-              <div className={`flex-1 ${isRTL ? 'text-right' : 'text-left'}`}>
-                <p className="font-semibold text-primary-800">
-                  {t('dashboard.user.name', '[School Name]')}
-                </p>
-                <p className="text-sm text-grey">
-                  {t('dashboard.user.role', '[Owner name]')}
-                </p>
+            ) : (
+              <div className="text-sm text-gray-500 text-center p-3">
+                {t('common.loading', 'جاري التحميل...')}
               </div>
-            </div>
-            <button className="w-full mt-2 flex items-center justify-center gap-2 px-4 py-2 text-red rounded-lg hover:bg-red-50 transition-colors">
+            )}
+            <button 
+              onClick={() => {
+                api.logout();
+                navigate('/login');
+              }}
+              className="w-full mt-2 flex items-center justify-center gap-2 px-4 py-2 text-red rounded-lg hover:bg-red-50 transition-colors cursor-pointer"
+            >
               <img 
                 src="/assets/icons/dashboard/sidebar/Logout.svg" 
                 alt="logout"
                 className="w-5 h-5"
               />
-              <span className="font-semibold">{t('dashboard.logout', 'Logout')}</span>
+              <span className="font-semibold">{t('dashboard.logout', 'تسجيل الخروج')}</span>
             </button>
           </div>
         </div>

@@ -11,26 +11,28 @@ interface TableProps<T> {
   columns: ColumnProps<T>[];
   data: T[];
   rowKey: keyof T;
+  onRowClick?: (item: T) => void;
 }
 
 export default function Table<T extends Record<string, any>>({ 
   columns, 
   data, 
-  rowKey 
+  rowKey,
+  onRowClick
 }: TableProps<T>) {
   const { i18n } = useTranslation();
   const isRTL = i18n.language === 'ar';
 
   return (
     <div className="w-full overflow-x-auto bg-white rounded-xl shadow-sm border border-gray-100">
-      <table className="w-full">
+      <table className="w-full min-w-[800px]">
         <thead>
           <tr className="border-b border-gray-200 bg-gray-50">
             {columns.map((column, idx) => (
               <th
                 key={`${String(column.key)}-${idx}`}
                 className={`
-                  px-6 py-4 text-sm font-semibold text-grey uppercase tracking-wider
+                  px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-semibold text-grey uppercase tracking-wider whitespace-nowrap
                   ${isRTL ? 'text-right' : 'text-left'}
                   ${idx === 0 ? (isRTL ? 'rounded-tr-xl' : 'rounded-tl-xl') : ''}
                   ${idx === columns.length - 1 ? (isRTL ? 'rounded-tl-xl' : 'rounded-tr-xl') : ''}
@@ -45,12 +47,19 @@ export default function Table<T extends Record<string, any>>({
           {data.map((item, rowIdx) => (
             <tr
               key={String(item[rowKey])}
-              className="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-150"
+              onClick={() => onRowClick?.(item)}
+              className={`border-b border-gray-100 hover:bg-gray-50 transition-colors duration-150 ${onRowClick ? 'cursor-pointer' : ''}`}
             >
               {columns.map((column, colIdx) => (
                 <td
                   key={`${String(item[rowKey])}-${String(column.key)}-${colIdx}`}
-                  className={`px-6 py-4 text-grey ${isRTL ? 'text-right' : 'text-left'}`}
+                  className={`px-3 sm:px-6 py-3 sm:py-4 text-sm sm:text-base text-grey ${isRTL ? 'text-right' : 'text-left'}`}
+                  onClick={(e) => {
+                    // Prevent row click when clicking on action buttons
+                    if (column.type === 'actions') {
+                      e.stopPropagation();
+                    }
+                  }}
                 >
                   {column.render ? (
                     column.render(item)

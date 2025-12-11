@@ -57,14 +57,14 @@ export default function Modal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/50 backdrop-blur-sm animate-fadeIn"
       onClick={handleOverlayClick}
       dir={isRTL ? 'rtl' : 'ltr'}
     >
       <div
         className={`
-          relative w-full ${sizeClasses[size]} 
-          bg-primary-25 rounded-2xl shadow-2xl 
+          relative w-full ${sizeClasses[size]} max-h-[95vh] sm:max-h-[90vh]
+          bg-primary-25 rounded-xl sm:rounded-2xl shadow-2xl overflow-y-auto
           animate-slideUp
           ${className}
         `}

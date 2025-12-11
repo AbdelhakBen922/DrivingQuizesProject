@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router";
 import StatsCard from "./StatsCard";
 import SearchBar from "./SearchBar";
 import FilterSelect from "./FilterSelect";
@@ -8,6 +9,12 @@ import type { ColumnProps } from "./Table";
 import { Modal, ModalHeader, ModalBody, ModalFooter, FormField } from "../../Modal";
 import SortableHeader from "./SortableHeader";
 import type { SortDirection } from "./SortableHeader";
+import { ToastContainer } from "../../Toast";
+import { useToast } from "../../../hooks/useToast";
+import type { ToastItem } from "../../../hooks/useToast";
+import AssignQuizToGroupModal from "./Modals/AssignQuizToGroupModal";
+import * as api from "../../../services/api";
+import { getLicenseClasses } from "../../../data/mockData";
 
 interface GroupData {
   id: string;
@@ -15,19 +22,70 @@ interface GroupData {
   createdAt: string;
   roomCode: string;
   class: string;
+  roomType: 'a' | 'b' | 'c' | 'd';
   topic: string;
+  description: string;
   progress: number;
 }
 
 export default function GroupsPage() {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === 'ar';
+  const navigate = useNavigate();
+  const [toasts, setToasts] = useState<ToastItem[]>([]);
+  const { success, error: showError } = useToast({ toasts, setToasts });
+
+  // State for API data
+  const [groups, setGroups] = useState<api.Room[]>([]);
+  const [stats, setStats] = useState<api.DashboardStats | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [groupToDelete, setGroupToDelete] = useState<GroupData | null>(null);
+  const licenseClasses = getLicenseClasses();
+
+  // Load data from API
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  async function loadData() {
+    try {
+      setLoading(true);
+      const [roomsData, statsData] = await Promise.all([
+        api.getRooms(),
+        api.getDashboardStats()
+      ]);
+      setGroups(roomsData);
+      setStats(statsData);
+    } catch (err: any) {
+      showError(err.message || t('common.loadError', 'فشل تحميل البيانات'));
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  // Transform groups to display format
+  const mockGroups: GroupData[] = groups.map(g => ({
+    id: g.id.toString(),
+    name: g.name,
+    createdAt: g.created_at.split('T')[0],
+    roomCode: `GRP-${g.id.toString().padStart(4, '0')}`,
+    roomType: g.room_type || 'b',
+    class: isRTL 
+      ? licenseClasses.find(c => c.code === (g.room_type || 'b').toUpperCase())?.nameAr.split(' - ')[0] || 'صنف B'
+      : licenseClasses.find(c => c.code === (g.room_type || 'b').toUpperCase())?.nameFr.split(' - ')[0] || 'Catégorie B',
+    topic: g.description || t('groups.no_topic', 'لا يوجد موضوع'),
+    description: g.description || '',
+    progress: 0,
+  }));
 
   // State
   const [searchQuery, setSearchQuery] = useState("");
   const [filterValue, setFilterValue] = useState(t('groups.all_classes'));
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isAssignQuizModalOpen, setIsAssignQuizModalOpen] = useState(false);
   const [selectedGroup, setSelectedGroup] = useState<GroupData | null>(null);
   const [sortColumn, setSortColumn] = useState<string | null>(null);
   const [sortDirection, setSortDirection] = useState<SortDirection>(null);
@@ -37,73 +95,6 @@ export default function GroupsPage() {
     class: t('groups.modal.class_b'),
     description: "",
   });
-
-  // Mock Data
-  const mockGroups: GroupData[] = [
-    {
-      id: "1",
-      name: "المجموعة 01",
-      createdAt: "2025-06-19",
-      roomCode: "8oc882",
-      class: t('groups.modal.class_b'),
-      topic: "أولويات المرور",
-      progress: 23,
-    },
-    {
-      id: "2",
-      name: "المجموعة 02",
-      createdAt: "2025-05-15",
-      roomCode: "7xk291",
-      class: t('groups.modal.class_a'),
-      topic: "إشارات المرور",
-      progress: 67,
-    },
-    {
-      id: "3",
-      name: "المجموعة 03",
-      createdAt: "2025-07-10",
-      roomCode: "9pl442",
-      class: t('groups.modal.class_c'),
-      topic: "قواعد الطريق",
-      progress: 45,
-    },
-    {
-      id: "4",
-      name: "المجموعة 04",
-      createdAt: "2025-04-22",
-      roomCode: "6nm113",
-      class: t('groups.modal.class_b'),
-      topic: "السلامة المرورية",
-      progress: 89,
-    },
-    {
-      id: "5",
-      name: "المجموعة 05",
-      createdAt: "2025-08-03",
-      roomCode: "5rt774",
-      class: t('groups.modal.class_a'),
-      topic: "الوقوف والركن",
-      progress: 12,
-    },
-    {
-      id: "6",
-      name: "المجموعة 06",
-      createdAt: "2025-03-18",
-      roomCode: "4jk556",
-      class: t('groups.modal.class_c'),
-      topic: "الملاحة الحضرية",
-      progress: 34,
-    },
-    {
-      id: "7",
-      name: "المجموعة 07",
-      createdAt: "2025-09-25",
-      roomCode: "3bh887",
-      class: t('groups.modal.class_b'),
-      topic: "القيادة الليلية",
-      progress: 78,
-    },
-  ];
 
   // Filter options
   const filterOptions = [
@@ -173,7 +164,7 @@ export default function GroupsPage() {
             className="p-1.5 hover:bg-gray-100 rounded-md transition-colors"
             title={isRTL ? 'نسخ الكود' : 'Copier le code'}
           >
-            <img src="/assets/icons/dashboard/groups/Copy.svg" alt="copy" className="w-4 h-4" />
+            <img src="/assets/icons/dashboard/groups/Copy.svg" alt="copy" className="w-4 h-4 max-w-4" />
           </button>
         </div>
       ),
@@ -223,7 +214,7 @@ export default function GroupsPage() {
             <img 
               src="/assets/icons/dashboard/groups/add.svg" 
               alt="assign quiz" 
-              className="w-5 h-5"
+              className="w-5 h-5 max-w-5"
             />
           </button>
           <button
@@ -234,7 +225,7 @@ export default function GroupsPage() {
             <img 
               src="/assets/icons/dashboard/groups/Edit_Pencil_01.svg" 
               alt="edit" 
-              className="w-5 h-5"
+              className="w-5 h-5 max-w-5"
             />
           </button>
           <button
@@ -245,7 +236,7 @@ export default function GroupsPage() {
             <img 
               src="/assets/icons/dashboard/groups/trash.svg" 
               alt="delete" 
-              className="w-5 h-5"
+              className="w-5 h-5 max-w-5"
             />
           </button>
         </div>
@@ -256,18 +247,40 @@ export default function GroupsPage() {
   // Handlers
   const handleCopyCode = (code: string) => {
     navigator.clipboard.writeText(code);
-    // TODO: Add toast notification
-    console.log('Code copied:', code);
+    success(t('groups.code_copied', 'تم نسخ الكود بنجاح'));
   };
 
   const handleAssignQuiz = (groupId: string) => {
-    console.log('Assign quiz to group:', groupId);
-    // TODO: Open modal to assign quiz
+    const group = mockGroups.find(g => g.id === groupId);
+    if (group) {
+      setSelectedGroup(group);
+      setIsAssignQuizModalOpen(true);
+    }
   };
 
   const handleDeleteGroup = (groupId: string) => {
-    console.log('Delete group:', groupId);
-    // TODO: Show confirmation dialog
+    const group = mockGroups.find(g => g.id === groupId);
+    if (group) {
+      setGroupToDelete(group);
+      setIsDeleteModalOpen(true);
+    }
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!groupToDelete) return;
+    
+    try {
+      setIsSubmitting(true);
+      await api.deleteRoom(parseInt(groupToDelete.id));
+      success(t('groups.delete_success', 'تم حذف المجموعة بنجاح'));
+      setIsDeleteModalOpen(false);
+      setGroupToDelete(null);
+      loadData(); // Refresh the list
+    } catch (err: any) {
+      showError(err.message || t('groups.delete_error', 'فشل حذف المجموعة'));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleCreateGroup = () => {
@@ -280,17 +293,41 @@ export default function GroupsPage() {
     setIsCreateModalOpen(true);
   };
 
-  const handleSubmitCreate = () => {
-    console.log('Creating group with data:', formData);
-    // TODO: API call to create group
-    setIsCreateModalOpen(false);
-    // Reset form
-    setFormData({
-      groupName: "",
-      studentCount: 25,
-      class: t('groups.modal.class_b'),
-      description: "",
-    });
+  const handleSubmitCreate = async () => {
+    if (!formData.groupName.trim()) {
+      showError(t('groups.name_required', 'اسم المجموعة مطلوب'));
+      return;
+    }
+
+    try {
+      setIsSubmitting(true);
+      // Map class selection to room_type
+      const roomTypeMap: Record<string, 'a' | 'b' | 'c' | 'd'> = {
+        [t('groups.modal.class_a')]: 'a',
+        [t('groups.modal.class_b')]: 'b',
+        [t('groups.modal.class_c')]: 'c',
+      };
+      
+      await api.createRoom({
+        name: formData.groupName,
+        description: formData.description || null,
+        room_type: roomTypeMap[formData.class] || 'b',
+      });
+      
+      success(t('groups.create_success', 'تم إنشاء المجموعة بنجاح'));
+      setIsCreateModalOpen(false);
+      setFormData({
+        groupName: "",
+        studentCount: 25,
+        class: t('groups.modal.class_b'),
+        description: "",
+      });
+      loadData(); // Refresh the list
+    } catch (err: any) {
+      showError(err.message || t('groups.create_error', 'فشل إنشاء المجموعة'));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleEditGroup = (groupId: string) => {
@@ -299,19 +336,44 @@ export default function GroupsPage() {
       setSelectedGroup(group);
       setFormData({
         groupName: group.name,
-        studentCount: 25, // Mock data doesn't have this field
+        studentCount: 25,
         class: group.class,
-        description: "", // Mock data doesn't have this field
+        description: group.description,
       });
       setIsEditModalOpen(true);
     }
   };
 
-  const handleSubmitEdit = () => {
-    console.log('Updating group:', selectedGroup?.id, 'with data:', formData);
-    // TODO: API call to update group
-    setIsEditModalOpen(false);
-    setSelectedGroup(null);
+  const handleSubmitEdit = async () => {
+    if (!selectedGroup || !formData.groupName.trim()) {
+      showError(t('groups.name_required', 'اسم المجموعة مطلوب'));
+      return;
+    }
+
+    try {
+      setIsSubmitting(true);
+      // Map class selection to room_type
+      const roomTypeMap: Record<string, 'a' | 'b' | 'c' | 'd'> = {
+        [t('groups.modal.class_a')]: 'a',
+        [t('groups.modal.class_b')]: 'b',
+        [t('groups.modal.class_c')]: 'c',
+      };
+      
+      await api.updateRoom(parseInt(selectedGroup.id), {
+        name: formData.groupName,
+        description: formData.description || null,
+        room_type: roomTypeMap[formData.class] || 'b',
+      });
+      
+      success(t('groups.update_success', 'تم تحديث المجموعة بنجاح'));
+      setIsEditModalOpen(false);
+      setSelectedGroup(null);
+      loadData(); // Refresh the list
+    } catch (err: any) {
+      showError(err.message || t('groups.update_error', 'فشل تحديث المجموعة'));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Filter and sort data
@@ -344,55 +406,60 @@ export default function GroupsPage() {
   }
 
   return (
-    <div className={`flex-1 bg-gray-50 p-6 lg:p-8 ${isRTL ? 'text-right' : 'text-left'}`}>
+    <>
+      <ToastContainer toasts={toasts} onRemove={(id) => setToasts(prev => prev.filter(t => t.id !== id))} />
+      <div className={`flex-1 bg-gray-50 p-4 sm:p-6 lg:p-8 ${isRTL ? 'text-right' : 'text-left'}`}>
       {/* Header Section */}
-      <div className="flex flex-row justify-between items-center mb-6 px-2">
-
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-primary-800 mb-2">
+      <div className="mb-6 sm:mb-8">
+        <h1 className="text-2xl sm:text-3xl font-bold text-primary-800 mb-2">
           {t('groups.title')}
         </h1>
-        <p className="text-grey text-lg">
+        <p className="text-grey text-base sm:text-lg">
           {t('groups.subtitle')}
         </p>
       </div>
-         {/* Create Group Button */}
+
+      {/* Create Group Button */}
       <div className="mb-6">
         <button
           onClick={handleCreateGroup}
-          className="btn-primary"
+          className="btn-primary w-full sm:w-auto"
         >
           {t('groups.create_group')}
         </button>
       </div>
-      </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-        <StatsCard
-          icon="/assets/icons/dashboard/groups/Vector.svg"
-          label={t('groups.stats.groups_count')}
-          value="13"
-          bgColor="bg-green/10"
-        />
-        <StatsCard
-          icon="/assets/icons/dashboard/groups/one-person.svg"
-          label={t('groups.stats.students_count')}
-          value="256"
-          bgColor="bg-red/10"
-        />
-        <StatsCard
-          icon="/assets/icons/dashboard/groups/graphup.svg"
-          label={t('groups.stats.progress_rate')}
-          value="68%"
-          bgColor="bg-primary-100"
-        />
-    
-      </div>
+      {loading || !stats ? (
+        <div className="flex items-center justify-center py-12">
+          <div className="text-gray-500">{t('common.loading', 'جاري التحميل...')}</div>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
+          <StatsCard
+            icon="/assets/icons/dashboard/groups/multi-person.svg"
+            label={t('groups.stats.groups_count')}
+            value={(stats?.total_rooms ?? 0).toString()}
+            bgColor="bg-green/10"
+          />
+          <StatsCard
+            icon="/assets/icons/dashboard/groups/one-person.svg"
+            label={t('groups.stats.students_count')}
+            value={(stats?.total_students ?? 0).toString()}
+            bgColor="bg-red/10"
+          />
+          <StatsCard
+            icon="/assets/icons/dashboard/groups/graphup.svg"
+            label={t('groups.stats.progress_rate')}
+            value={mockGroups.length > 0 ? `${Math.round(mockGroups.reduce((sum, g) => sum + g.progress, 0) / mockGroups.length)}%` : '0%'}
+            bgColor="bg-primary-100"
+          />
+        </div>
+      )}
 
    
       {/* Search and Filter */}
-      <div className={`flex flex-col sm:flex-row gap-4 mb-6 ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
+      <div className={`flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 `}>
         <SearchBar
           placeholder={t('groups.search_placeholder')}
           value={searchQuery}
@@ -407,10 +474,10 @@ export default function GroupsPage() {
 
       {/* Groups Count Header */}
       <div className="mb-4">
-        <h2 className="text-xl font-bold text-primary-800">
+        <h2 className="text-lg sm:text-xl font-bold text-primary-800">
           {t('groups.all_groups')} ({filteredGroups.length})
         </h2>
-        <p className="text-grey text-sm mt-1">
+        <p className="text-grey text-xs sm:text-sm mt-1">
           {t('groups.manage_description')}
         </p>
       </div>
@@ -420,6 +487,7 @@ export default function GroupsPage() {
         columns={columns}
         data={filteredGroups}
         rowKey="id"
+        onRowClick={(group) => navigate(`/dashboard/groups/${group.id}`)}
       />
 
       {/* Create Group Modal */}
@@ -485,14 +553,16 @@ export default function GroupsPage() {
           <button
             className="btn-secondary"
             onClick={() => setIsCreateModalOpen(false)}
+            disabled={isSubmitting}
           >
             {t('groups.modal.cancel')}
           </button>
           <button
             className="btn-primary"
             onClick={handleSubmitCreate}
+            disabled={isSubmitting}
           >
-            {t('groups.modal.add_group')}
+            {isSubmitting ? t('common.saving', 'جاري الحفظ...') : t('groups.modal.add_group')}
           </button>
         </ModalFooter>
       </Modal>
@@ -560,17 +630,83 @@ export default function GroupsPage() {
           <button
             className="btn-secondary"
             onClick={() => setIsEditModalOpen(false)}
+            disabled={isSubmitting}
           >
             {t('groups.modal.cancel')}
           </button>
           <button
             className="btn-primary"
             onClick={handleSubmitEdit}
+            disabled={isSubmitting}
           >
-            {t('groups.modal.update_group')}
+            {isSubmitting ? t('common.saving', 'جاري الحفظ...') : t('groups.modal.update_group')}
           </button>
         </ModalFooter>
       </Modal>
-    </div>
+
+      {/* Delete Confirmation Modal */}
+      <Modal
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        size="sm"
+      >
+        <ModalHeader
+          title={t('groups.modal.delete_title', 'حذف المجموعة')}
+          subtitle={t('groups.modal.delete_subtitle', 'هل أنت متأكد من حذف هذه المجموعة؟')}
+          onClose={() => setIsDeleteModalOpen(false)}
+          type="standard"
+        />
+
+        <ModalBody>
+          <div className="text-center py-4">
+            <div className="w-16 h-16 mx-auto mb-4 bg-red-100 rounded-full flex items-center justify-center">
+              <img 
+                src="/assets/icons/dashboard/groups/trash.svg" 
+                alt="delete" 
+                className="w-8 h-8"
+              />
+            </div>
+            <p className="text-gray-600">
+              {t('groups.modal.delete_warning', 'سيتم حذف المجموعة')} <strong>{groupToDelete?.name}</strong> {t('groups.modal.delete_warning_end', 'نهائياً. هذا الإجراء لا يمكن التراجع عنه.')}
+            </p>
+          </div>
+        </ModalBody>
+
+        <ModalFooter>
+          <button
+            className="btn-secondary"
+            onClick={() => setIsDeleteModalOpen(false)}
+            disabled={isSubmitting}
+          >
+            {t('groups.modal.cancel')}
+          </button>
+          <button
+            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+            onClick={handleConfirmDelete}
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? t('common.deleting', 'جاري الحذف...') : t('groups.modal.confirm_delete', 'حذف')}
+          </button>
+        </ModalFooter>
+      </Modal>
+
+      {/* Assign Quiz Modal */}
+      {selectedGroup && (
+        <AssignQuizToGroupModal
+          isOpen={isAssignQuizModalOpen}
+          onClose={() => {
+            setIsAssignQuizModalOpen(false);
+            setSelectedGroup(null);
+          }}
+          groupId={parseInt(selectedGroup.id)}
+          groupName={selectedGroup.name}
+          onSuccess={() => {
+            success(t('groups.assignQuiz.success', 'تم تعيين الامتحان بنجاح'));
+            loadData();
+          }}
+        />
+      )}
+      </div>
+    </>
   );
 }

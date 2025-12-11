@@ -1,0 +1,663 @@
+/**
+ * =============================================================================
+ * API SERVICE
+ * =============================================================================
+ * This file contains all API call functions for the backend.
+ * Replace mockData imports with these functions when connecting to the backend.
+ * 
+ * BASE_URL should be set via environment variable in production
+ * =============================================================================
+ */
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8001/api";
+
+// =============================================================================
+// TYPES (should match backend schemas)
+// =============================================================================
+
+export interface ApiError {
+  detail: string;
+}
+
+// Auth
+export interface LoginRequest {
+  email: string;
+  password: string;
+}
+
+export interface LoginResponse {
+  access_token: string;
+  token_type: string;
+}
+
+export interface RegisterRequest {
+  school_name: string;
+  owner_name: string;
+  email: string;
+  phone: string;
+  password: string;
+}
+
+// Dashboard Stats
+export interface DashboardStats {
+  total_rooms: number;
+  total_students: number;
+  upcoming_quizzes: number;
+  active_quizzes: number;
+}
+
+// Rooms (Groups)
+export interface Room {
+  id: number;
+  school_id: number;
+  name: string;
+  description: string | null;
+  room_type: 'a' | 'b' | 'c' | 'd';
+  created_by_id: number | null;
+  created_at: string;
+  updated_at: string;
+  deleted_at: string | null;
+}
+
+export interface RoomCreateRequest {
+  name: string;
+  description?: string | null;
+  room_type?: 'a' | 'b' | 'c' | 'd';
+}
+
+export interface RoomUpdateRequest {
+  name?: string;
+  description?: string | null;
+  room_type?: 'a' | 'b' | 'c' | 'd';
+}
+
+export interface RoomDetail {
+  room: Room;
+  students: RoomStudentSummary[];
+  quizzes: RoomQuizSummary[];
+}
+
+export interface RoomStudentSummary {
+  membership_id: number;
+  student_id: number | null;
+  full_name: string | null;
+  student_code: string | null;
+  email: string | null;
+  status: string;
+  joined_at: string;
+  left_at: string | null;
+}
+
+export interface RoomQuizSummary {
+  quiz_id: number;
+  quiz_title: string;
+  template_name: string | null;
+  starts_at: string | null;
+  ends_at: string | null;
+  deleted_at: string | null;
+}
+
+// Students
+export interface Student {
+  id: number;
+  school_id: number;
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone: string | null;
+  date_of_birth: string | null;
+  student_code: string;
+  avatar_url: string | null;
+  created_at: string;
+  updated_at: string;
+  deleted_at: string | null;
+}
+
+export interface StudentCreateRequest {
+  school_id: number;
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone?: string | null;
+  date_of_birth?: string | null;
+  created_by_id?: number | null;
+}
+
+export interface StudentUpdateRequest {
+  first_name?: string;
+  last_name?: string;
+  email?: string;
+  phone?: string | null;
+  date_of_birth?: string | null;
+}
+
+// Quizzes/Exams
+export interface Quiz {
+  id: number;
+  school_id: number | null;
+  template_id: number | null;
+  room_id: number | null;
+  setting_id: number;
+  title: string;
+  description: string | null;
+  is_public: boolean;
+  starts_at: string | null;
+  ends_at: string | null;
+  created_by_id: number | null;
+  created_at: string;
+  updated_at: string;
+  deleted_at: string | null;
+}
+
+// Quiz Templates
+export interface QuizTemplate {
+  id: number;
+  school_id: number | null;
+  title: string;
+  description: string | null;
+  topic_id: number | null;
+  difficulty: 'easy' | 'medium' | 'hard';
+  default_duration_sec: number | null;
+  settings: Record<string, unknown>;
+  is_public: boolean;
+  created_by_id: number | null;
+  question_count: number;
+  created_at: string;
+  updated_at: string;
+  deleted_at: string | null;
+}
+
+export interface QuestionChoice {
+  id: number;
+  question_id: number;
+  text: string;
+  is_correct: boolean;
+  position: number;
+}
+
+export interface QuestionWithChoicesRead {
+  id: number;
+  text: string;
+  image_url: string | null;
+  category: 'sign' | 'rule' | 'priority' | 'speed' | 'safety' | 'mechanics';
+  type: 'single_choice' | 'multiple_choice';
+  difficulty: 'easy' | 'medium' | 'hard';
+  is_required: boolean;
+  score: number;
+  explanation: string | null;
+  tags: Record<string, unknown>;
+  version: number;
+  school_id: number | null;
+  author_id: number | null;
+  created_at: string;
+  updated_at: string;
+  deleted_at: string | null;
+  choices: QuestionChoice[];
+}
+
+export interface QuestionChoiceInput {
+  text: string;
+  is_correct: boolean;
+  position?: number;
+}
+
+export interface QuestionWithChoicesCreate {
+  text: string;
+  image_url?: string | null;
+  category: 'sign' | 'rule' | 'priority' | 'speed' | 'safety' | 'mechanics';
+  type?: 'single_choice' | 'multiple_choice';
+  difficulty?: 'easy' | 'medium' | 'hard';
+  is_required?: boolean;
+  score?: number;
+  explanation?: string | null;
+  tags?: Record<string, unknown>;
+  version?: number;
+  choices: QuestionChoiceInput[];
+}
+
+export interface QuizTemplateQuestionWithQuestion {
+  id: number;
+  template_id: number;
+  question_id: number;
+  position: number | null;
+  duration_sec: number | null;
+  is_required: boolean;
+  randomize_options: boolean;
+  estimation_time_seconds: number | null;
+  question: QuestionWithChoicesRead;
+}
+
+export interface QuizTemplateDetail extends Omit<QuizTemplate, 'question_count'> {
+  questions: QuizTemplateQuestionWithQuestion[];
+}
+
+export interface QuizTemplateQuestionInput {
+  question_id?: number;
+  question?: QuestionWithChoicesCreate;
+  position?: number;
+  duration_sec?: number | null;
+  is_required?: boolean;
+  randomize_options?: boolean;
+  estimation_time_seconds?: number | null;
+}
+
+export interface QuizTemplateCreateRequest {
+  title: string;
+  description?: string | null;
+  topic_id?: number | null;
+  difficulty?: 'easy' | 'medium' | 'hard';
+  default_duration_sec?: number | null;
+  settings?: Record<string, unknown>;
+  is_public?: boolean;
+  questions: QuizTemplateQuestionInput[];
+}
+
+export interface QuizTemplateUpdateRequest {
+  title?: string;
+  description?: string | null;
+  topic_id?: number | null;
+  difficulty?: 'easy' | 'medium' | 'hard';
+  default_duration_sec?: number | null;
+  settings?: Record<string, unknown>;
+  is_public?: boolean;
+  questions?: QuizTemplateQuestionInput[];
+}
+
+// Quiz Settings for creating exams
+export interface QuizSettingCreate {
+  vehicle_type?: 'car' | 'motorcycle' | 'truck' | 'bus';
+  mode?: 'training' | 'exam' | 'practice';
+  question_count?: number;
+  randomize_questions?: boolean;
+  randomize_choices?: boolean;
+  passing_score?: number;
+  review_allowed?: boolean;
+}
+
+// Dashboard Quiz Create (for assigning exams)
+export interface DashboardQuizCreateRequest {
+  title: string;
+  description?: string | null;
+  template_id: number;
+  room_id: number;
+  starts_at?: string | null;
+  ends_at?: string | null;
+  is_public?: boolean;
+  settings: QuizSettingCreate;
+}
+
+// Settings
+export interface DashboardSchoolInfo {
+  name: string;
+  email: string;
+  address: string;
+  phone: string;
+}
+
+export interface DashboardOwnerInfo {
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone: string;
+  avatar_url: string | null;
+}
+
+export interface DashboardSettingsResponse {
+  school: DashboardSchoolInfo;
+  owner: DashboardOwnerInfo;
+}
+
+export interface DashboardSchoolUpdate {
+  name: string;
+  email: string;
+  address: string;
+  phone: string;
+}
+
+export interface DashboardOwnerUpdate {
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone: string;
+  avatar_url?: string | null;
+}
+
+// =============================================================================
+// UTILITY FUNCTIONS
+// =============================================================================
+
+let authToken: string | null = null;
+
+export function setAuthToken(token: string) {
+  authToken = token;
+  localStorage.setItem("auth_token", token);
+}
+
+export function getAuthToken(): string | null {
+  if (!authToken) {
+    authToken = localStorage.getItem("auth_token");
+  }
+  return authToken;
+}
+
+export function clearAuthToken() {
+  authToken = null;
+  localStorage.removeItem("auth_token");
+}
+
+export function isAuthenticated(): boolean {
+  return !!getAuthToken();
+}
+
+async function fetchAPI<T>(
+  endpoint: string,
+  options: RequestInit = {}
+): Promise<T> {
+  const token = getAuthToken();
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json",
+    ...(options.headers as Record<string, string>),
+  };
+
+  if (token) {
+    headers["Authorization"] = `Bearer ${token}`;
+  }
+
+  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+    ...options,
+    headers,
+  });
+
+  if (!response.ok) {
+    const error: ApiError = await response.json().catch(() => ({
+      detail: "An error occurred",
+    }));
+    throw new Error(error.detail);
+  }
+
+  return response.json();
+}
+
+// =============================================================================
+// AUTH API
+// =============================================================================
+
+export async function login(data: LoginRequest): Promise<LoginResponse> {
+  const response = await fetch(`${API_BASE_URL}/dashboard/auth/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    const error: ApiError = await response.json().catch(() => ({
+      detail: "Login failed",
+    }));
+    throw new Error(error.detail);
+  }
+
+  const result = await response.json();
+  setAuthToken(result.access_token);
+  return result;
+}
+
+export async function register(data: RegisterRequest): Promise<void> {
+  const response = await fetch(`${API_BASE_URL}/dashboard/auth/register`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    const error: ApiError = await response.json().catch(() => ({
+      detail: "Registration failed",
+    }));
+    throw new Error(error.detail);
+  }
+}
+
+export function logout() {
+  clearAuthToken();
+}
+
+// =============================================================================
+// DASHBOARD OVERVIEW API
+// =============================================================================
+
+export async function getDashboardStats(): Promise<DashboardStats> {
+  return fetchAPI<DashboardStats>("/dashboard/overview/stats");
+}
+
+// =============================================================================
+// ROOMS (GROUPS) API
+// =============================================================================
+
+export async function getRooms(): Promise<Room[]> {
+  return fetchAPI<Room[]>("/dashboard/rooms/");
+}
+
+export async function getRoomDetail(roomId: number): Promise<RoomDetail> {
+  return fetchAPI<RoomDetail>(`/dashboard/rooms/${roomId}`);
+}
+
+export async function createRoom(data: RoomCreateRequest): Promise<Room> {
+  return fetchAPI<Room>("/dashboard/rooms/", {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+}
+
+export async function updateRoom(
+  roomId: number,
+  data: RoomUpdateRequest
+): Promise<Room> {
+  return fetchAPI<Room>(`/dashboard/rooms/${roomId}`, {
+    method: "PUT",
+    body: JSON.stringify(data),
+  });
+}
+
+export async function deleteRoom(roomId: number): Promise<void> {
+  return fetchAPI<void>(`/dashboard/rooms/${roomId}`, {
+    method: "DELETE",
+  });
+}
+
+export async function addStudentToRoom(
+  roomId: number,
+  studentId: number
+): Promise<void> {
+  return fetchAPI<void>(`/dashboard/rooms/${roomId}/members`, {
+    method: "POST",
+    body: JSON.stringify({ student_id: studentId }),
+  });
+}
+
+export async function removeStudentFromRoom(
+  roomId: number,
+  membershipId: number
+): Promise<void> {
+  return fetchAPI<void>(`/dashboard/rooms/${roomId}/members/${membershipId}`, {
+    method: "DELETE",
+  });
+}
+
+export async function assignQuizToRoom(
+  roomId: number,
+  quizId: number
+): Promise<Quiz> {
+  return fetchAPI<Quiz>(`/dashboard/rooms/${roomId}/assign-quiz`, {
+    method: "POST",
+    body: JSON.stringify({ quiz_id: quizId }),
+  });
+}
+
+// =============================================================================
+// STUDENTS API
+// =============================================================================
+
+export async function getStudents(): Promise<Student[]> {
+  return fetchAPI<Student[]>("/dashboard/students/");
+}
+
+export async function getStudent(studentId: number): Promise<Student> {
+  return fetchAPI<Student>(`/dashboard/students/${studentId}`);
+}
+
+export async function createStudent(
+  data: StudentCreateRequest
+): Promise<Student> {
+  return fetchAPI<Student>("/students/", {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+}
+
+export async function updateStudent(
+  studentId: number,
+  data: StudentUpdateRequest
+): Promise<Student> {
+  return fetchAPI<Student>(`/students/${studentId}`, {
+    method: "PUT",
+    body: JSON.stringify(data),
+  });
+}
+
+export async function deleteStudent(studentId: number): Promise<void> {
+  return fetchAPI<void>(`/students/${studentId}`, {
+    method: "DELETE",
+  });
+}
+
+// =============================================================================
+// QUIZZES/EXAMS API
+// =============================================================================
+
+export async function getQuizzes(): Promise<Quiz[]> {
+  return fetchAPI<Quiz[]>("/dashboard/quizzes/");
+}
+
+export async function getQuiz(quizId: number): Promise<Quiz> {
+  return fetchAPI<Quiz>(`/dashboard/quizzes/${quizId}`);
+}
+
+export async function createDashboardQuiz(data: DashboardQuizCreateRequest): Promise<Quiz> {
+  return fetchAPI<Quiz>("/dashboard/quizzes/", {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+}
+
+export async function deleteQuiz(quizId: number): Promise<void> {
+  return fetchAPI<void>(`/dashboard/quizzes/${quizId}`, {
+    method: "DELETE",
+  });
+}
+
+export async function updateQuiz(quizId: number, data: Partial<{
+  title?: string;
+  description?: string;
+  starts_at?: string;
+  ends_at?: string;
+  is_public?: boolean;
+  room_id?: number;
+  template_id?: number;
+}>): Promise<Quiz> {
+  return fetchAPI<Quiz>(`/dashboard/quizzes/${quizId}`, {
+    method: "PATCH",
+    body: JSON.stringify(data),
+  });
+}
+
+// =============================================================================
+// QUIZ TEMPLATES API
+// =============================================================================
+
+export async function getQuizTemplates(): Promise<QuizTemplate[]> {
+  return fetchAPI<QuizTemplate[]>("/dashboard/templates/");
+}
+
+export async function getQuizTemplate(templateId: number): Promise<QuizTemplateDetail> {
+  return fetchAPI<QuizTemplateDetail>(`/dashboard/templates/${templateId}`);
+}
+
+export async function createQuizTemplate(
+  data: QuizTemplateCreateRequest
+): Promise<QuizTemplate> {
+  return fetchAPI<QuizTemplate>("/dashboard/templates/", {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+}
+
+export async function updateQuizTemplate(
+  templateId: number,
+  data: QuizTemplateUpdateRequest
+): Promise<QuizTemplate> {
+  return fetchAPI<QuizTemplate>(`/dashboard/templates/${templateId}`, {
+    method: "PUT",
+    body: JSON.stringify(data),
+  });
+}
+
+export async function deleteQuizTemplate(templateId: number, force: boolean = false): Promise<void> {
+  const url = force 
+    ? `/dashboard/templates/${templateId}?force=true`
+    : `/dashboard/templates/${templateId}`;
+  return fetchAPI<void>(url, {
+    method: "DELETE",
+  });
+}
+
+// =============================================================================
+// SETTINGS API
+// =============================================================================
+
+export async function getDashboardSettings(): Promise<DashboardSettingsResponse> {
+  return fetchAPI<DashboardSettingsResponse>("/dashboard/settings/");
+}
+
+export async function updateSchoolSettings(
+  data: DashboardSchoolUpdate
+): Promise<DashboardSchoolInfo> {
+  return fetchAPI<DashboardSchoolInfo>("/dashboard/settings/school", {
+    method: "PUT",
+    body: JSON.stringify(data),
+  });
+}
+
+export async function updateOwnerSettings(
+  data: DashboardOwnerUpdate
+): Promise<DashboardOwnerInfo> {
+  return fetchAPI<DashboardOwnerInfo>("/dashboard/settings/owner", {
+    method: "PUT",
+    body: JSON.stringify(data),
+  });
+}
+
+export async function uploadOwnerAvatar(file: File): Promise<{ avatar_url: string }> {
+  const token = getAuthToken();
+  const formData = new FormData();
+  formData.append("avatar", file);
+
+  const response = await fetch(`${API_BASE_URL}/dashboard/settings/owner/avatar`, {
+    method: "POST",
+    headers: {
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
+    body: formData,
+  });
+
+  if (!response.ok) {
+    const error: ApiError = await response.json().catch(() => ({
+      detail: "Avatar upload failed",
+    }));
+    throw new Error(error.detail);
+  }
+
+  return response.json();
+}

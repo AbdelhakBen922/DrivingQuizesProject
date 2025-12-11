@@ -4,7 +4,39 @@
     "quiz": "اختبار",
     "learn": "تعلّم",
     "qa": "أسئلة وأجوبة",
-    "login": "تسجيل الدخول (مدرسة السياقة)"
+    "login": "تسجيل الدخول"
+  },
+  "auth": {
+    "loginTitle": "تسجيل الدخول",
+    "loginSubtitle": "مرحباً بك مجدداً! قم بتسجيل الدخول للمتابعة",
+    "signupTitle": "إنشاء حساب جديد",
+    "signupSubtitle": "سجّل مدرستك وابدأ في إدارة طلابك",
+    "email": "البريد الإلكتروني",
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "password": "كلمة المرور",
+    "passwordPlaceholder": "أدخل كلمة المرور",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "confirmPasswordPlaceholder": "أعد إدخال كلمة المرور",
+    "schoolName": "اسم المدرسة",
+    "schoolNamePlaceholder": "مدرسة السياقة",
+    "ownerName": "اسم المالك",
+    "ownerNamePlaceholder": "الاسم الكامل",
+    "phone": "رقم الهاتف",
+    "phonePlaceholder": "+213 000 000 000",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "loginButton": "تسجيل الدخول",
+    "signupButton": "إنشاء حساب",
+    "loggingIn": "جاري تسجيل الدخول...",
+    "creating": "جاري إنشاء الحساب...",
+    "or": "أو",
+    "noAccount": "ليس لديك حساب؟",
+    "signUpLink": "سجّل الآن",
+    "haveAccount": "لديك حساب بالفعل؟",
+    "loginLink": "سجّل دخولك",
+    "loginError": "فشل تسجيل الدخول. تحقق من بياناتك",
+    "signupError": "فشل إنشاء الحساب",
+    "passwordMismatch": "كلمات المرور غير متطابقة",
+    "passwordTooShort": "كلمة المرور يجب أن تكون 6 أحرف على الأقل"
   },
   "hero": {
     "title": "أتقن الطريق.",
@@ -98,11 +130,36 @@
     },
     "logout": "تسجيل الخروج"
   },
+  "settings": {
+    "title": "الإعدادات",
+    "subtitle": "قم بتعديل معلومات المالك والمدرسة",
+    "schoolInfo": "معلومات المدرسة",
+    "ownerInfo": "معلومات المالك",
+    "edit": "تعديل",
+    "schoolName": "إسم المدرسة",
+    "email": "البريد الإلكتروني",
+    "phone": "رقم الهاتف",
+    "address": "العنوان",
+    "firstName": "الاسم الأول",
+    "lastName": "الاسم الأخير",
+    "profilePhoto": "الصورة الشخصية",
+    "editPhoto": "تعديل",
+    "editSchoolInfo": "تعديل معلومات المدرسة",
+    "editSchoolSubtitle": "أدخل معلومات المجموعة وسيتم إنشاء كود المجموعة تلقائيًا",
+    "editOwnerInfo": "تعديل معلومات المالك",
+    "editOwnerSubtitle": "قم بتحديث معلومات المالك الشخصية",
+    "saveInfo": "حفظ المعلومات",
+    "cancel": "إلغاء",
+    "changePhoto": "تغيير الصورة",
+    "schoolUpdated": "تم تحديث معلومات المدرسة بنجاح",
+    "ownerUpdated": "تم تحديث معلومات المالك بنجاح"
+  },
   "groups": {
     "title": "إدارة المجموعات",
     "subtitle": "قم بإدارة مجموعاتك وتلاميذك",
     "create_group": "إنشاء مجموعة",
     "search_placeholder": "البحث عن مجموعة",
+    "code_copied": "تم نسخ الكود بنجاح",
     "all_classes": "جميع الأصناف",
     "all_groups": "كل المجموعات",
     "manage_description": "قم بإدارة مجموعاتك وتلاميذك",
@@ -137,8 +194,250 @@
       "add_group": "اضافة المجموعة",
       "update_group": "تحديث المجموعة",
       "cancel": "إلغاء"
+    },
+    "details": {
+      "back": "رجوع",
+      "subtitle": "قم بإدارة المجموعة والطلاب",
+      "edit": "تعديل",
+      "copy_code": "نسخ الكود",
+      "group_info": "معلومات المجموعة",
+      "tabs": {
+        "overview": "نظرة عامة",
+        "students": "الطلاب",
+        "learning": "التعلّم",
+        "settings": "الإعدادات"
+      },
+      "stats": {
+        "average_grade": "متوسط الدرجات",
+        "total_exams": "إجمالي الإمتحانات",
+        "progress_rate": "معدل التقدّم",
+        "student_count": "عدد الطلاب"
+      },
+      "fields": {
+        "group_name": "اسم المجموعة",
+        "class": "الصف",
+        "status": "الحالة",
+        "student_count": "عدد التلاميذ",
+        "room_code": "كود الغرفة",
+        "description": "وصف المجموعة"
+      },
+      "students_placeholder": "قائمة الطلاب سيتم عرضها هنا",
+      "learning_placeholder": "محتوى التعلم سيتم عرضه هنا",
+      "settings_placeholder": "إعدادات المجموعة سيتم عرضها هنا"
     }
   },
+  "exams": {
+      "title": "إدارة الإمتحانات",
+      "stats": {
+        "current_exams": "الإمتحانات الجارية",
+        "scheduled_exams": "الإمتحانات المبرمجة",
+        "templates": "عدد القوالب"
+      },
+      "exams_list": "الإمتحانات",
+      "assign_exam": "تعيين إمتحان",
+      "search_placeholder": "البحث عن امتحان",
+      "all_topics": "جميع المواضيع",
+      "table": {
+        "exam_name": "اسم الاختبار",
+        "group": "المجموعة",
+        "start_date": "تاريخ البداية",
+        "end_date": "تاريخ النهاية",
+        "topic": "الموضوع",
+        "status": "الحالة",
+        "actions": "الإجراءات"
+      },
+      "status": {
+        "active": "نشط",
+        "closed": "مغلق",
+        "scheduled": "مبرمج"
+      },
+      "actions": {
+        "view_stats": "عرض الإحصائيات",
+        "edit": "تعديل",
+        "delete": "حذف",
+        "start": "تشغيل",
+        "stop": "إيقاف"
+      },
+      "deleteModal": {
+        "title": "حذف الإمتحان",
+        "message": "هل أنت متأكد من حذف الإمتحان \"{{name}}\"؟ هذا الإجراء لا يمكن التراجع عنه."
+      },
+      "editWarningModal": {
+        "title": "تعديل إمتحان نشط",
+        "message": "الإمتحان \"{{name}}\" نشط حالياً. تعديله قد يؤثر على الطلاب الذين يجتازونه. هل تريد المتابعة؟",
+        "continue": "متابعة التعديل"
+      },
+      "templates_list": "القوالب",
+      "templates_info": "قم بإنشاء قوالب قابلة لإعادة الاستعمال",
+      "create_template": "إنشاء قالب"
+    },
+    "assignExam": {
+      "title": "تعيين امتحان",
+      "step1Subtitle": "أدخل معلومات الإمتحان وسيتم تعيين الإمتحان إلى المجموعة تلقائيا",
+      "step2Subtitle": "ادخل تاريخ بداية ونهاية الإمتحان",
+      "step3Subtitle": "اختر قالب أو قم بإنشاء امتحان جديد",
+      "examName": "إسم الإمتحان",
+      "examNamePlaceholder": "افتراضي: المجموعة 10",
+      "defaultName": "افتراضي",
+      "group": "المجموعة",
+      "selectGroup": "أدخل اسم المجموعة",
+      "startDate": "تاريخ البداية",
+      "endDate": "تاريخ النهاية",
+      "clickToChange": "انقر على المدة لتغييرها",
+      "duration": "المدة",
+      "examDuration": "مدة الإمتحان",
+      "durationHint": "افتراضي: من تاريخ اليوم إلى 3 أيام بعدها",
+      "selectTemplate": "اختر قالب",
+      "templatePlaceholder": "افتراضي: قالب الامتحان الأول",
+      "questions": "سؤال",
+      "noTemplates": "لا يوجد قوالب مناسبة؟ إنشاء امتحان جديد",
+      "next": "التالي",
+      "back": "رجوع",
+      "confirm": "تأكيد",
+      "assign": "تعيين",
+      "cancel": "إلغاء"
+    },
+    "templates": {
+      "title": "إدارة القوالب",
+      "back_to_exams": "العودة إلى الإمتحانات",
+      "create_template": "إنشاء قالب",
+      "search_placeholder": "البحث عن قالب",
+      "all_topics": "جميع المواضيع",
+      "topics": {
+        "traffic_priorities": "أولويات المرور",
+        "traffic_signs": "إشارات الطريق",
+        "road_rules": "قواعد الطريق",
+        "driving_basics": "أساسيات القيادة",
+        "speeds": "السرعات",
+        "congestion": "الإزدحام"
+      },
+      "table": {
+        "template_name": "اسم القالب",
+        "questions_count": "عدد الأسئلة",
+        "created_at": "تاريخ الإنشاء",
+        "class": "الصنف",
+        "topic": "الموضوع",
+        "difficulty": "الصعوبة",
+        "actions": "الإجراءات"
+      },
+      "difficulty": {
+        "very_easy": "سهل جدا",
+        "easy": "سهل",
+        "medium": "متوسط",
+        "hard": "صعب",
+        "very_hard": "صعب جدا"
+      },
+      "actions": {
+        "edit": "تعديل",
+        "delete": "حذف",
+        "send": "تعيين"
+      },
+      "delete_modal": {
+        "title": "حذف القالب",
+        "message": "هل أنت متأكد من حذف هذا القالب؟ هذا الإجراء لا يمكن التراجع عنه.",
+        "confirm": "حذف",
+        "cancel": "إلغاء"
+      },
+      "deleteModal": {
+        "title": "حذف القالب",
+        "message": "هل أنت متأكد من حذف القالب \"{{name}}\"؟ هذا الإجراء لا يمكن التراجع عنه."
+      },
+      "assignModal": {
+        "title": "تعيين القالب لمجموعة",
+        "subtitle": "اختر المجموعات التي تريد تعيين \"{{name}}\" إليها",
+        "searchPlaceholder": "البحث عن مجموعة...",
+        "selectAll": "تحديد الكل",
+        "students": "طالب",
+        "assign": "تعيين"
+      },
+      "edit_modal": {
+        "title_create": "إنشاء قالب جديد",
+        "title_edit": "تعديل القالب",
+        "name_label": "اسم القالب",
+        "name_placeholder": "أدخل اسم القالب",
+        "questions_count_label": "عدد الأسئلة",
+        "save": "حفظ",
+        "cancel": "إلغاء"
+      },
+      "toast": {
+        "created": "تم إنشاء القالب بنجاح",
+        "updated": "تم تحديث القالب بنجاح",
+        "deleted": "تم حذف القالب بنجاح"
+      }
+    },
+    "createTemplate": {
+      "defaultProjectName": "[إسم المشروع]",
+      "justNow": "تمّ تعديله الآن",
+      "minutesAgo": "منذ {{minutes}} دقائق",
+      "hoursAgo": "منذ {{hours}} ساعات",
+      "preview": "المعاينة",
+      "publish": "النشر",
+      "saving": "جاري الحفظ...",
+      "editQuestion": "تعديل السؤال",
+      "addFromTemplates": "إضافة سؤال من القوالب",
+      "questions": "الأسئلة",
+      "untitledQuestion": "سؤال بدون عنوان",
+      "questionTypes": {
+        "single": "وحيد الإختيار",
+        "multiple": "متعدد الإختيارات"
+      },
+      "required": "إجباري",
+      "singleChoice": "وحيد الإختيار",
+      "multipleChoice": "متعدد الإختيارات",
+      "trueFalse": "صح/خطأ",
+      "trueAnswer": "صحيح",
+      "falseAnswer": "خطأ",
+      "questionLabel": "السؤال",
+      "first": "الأول",
+      "addImage": "إضافة صورة",
+      "questionPlaceholder": "اكتب نص السؤال هنا...",
+      "quickSuggestions": "اقتراحات سريعة",
+      "suggestions": {
+        "whatSign": "إلى ماذا تشير العلامة الموجودة في الصورة",
+        "priority": "اختر ترتيب الأولوية الصحيح",
+        "whatToDo": "ماذا يجب أن تفعل في هذه الحالة"
+      },
+      "defaultAnswers": {
+        "first": "خيار أول",
+        "correct": "الخيار الصحيح",
+        "third": "الخيار الثالث",
+        "fourth": "الخيار الرابع"
+      },
+      "options": "الخيارات",
+      "addOption": "إضافة خيار",
+      "defaultAnswerLabel": "خيار",
+      "points": "عدد النقاط",
+      "timeLimit": "الوقت المقدر",
+      "minutes": "دقيقة",
+      "randomOrder": "ترتيب عشوائي",
+      "randomEnabled": "مفعّل",
+      "keepOrder": "الإحتفاظ بالترتيب الحالي",
+      "cannotDeleteLast": "لا يمكن حذف السؤال الأخير",
+      "questionDeleted": "تم حذف السؤال بنجاح",
+      "saved": "تم الحفظ بنجاح",
+      "emptyQuestions": "يوجد أسئلة فارغة",
+      "noCorrectAnswer": "يوجد أسئلة بدون إجابة صحيحة",
+      "published": "تم نشر القالب بنجاح",
+      "previewNotAvailable": "المعاينة غير متاحة حالياً",
+      "templatesNotAvailable": "إضافة من القوالب غير متاحة حالياً",
+      "questionsAdded": "تم إضافة الأسئلة بنجاح",
+      "searchQuestions": "ابحث عن سؤال...",
+      "questionType": "نوع السؤال",
+      "all": "الكل",
+      "selectAll": "تحديد الكل",
+      "addQuestions": "إضافة الأسئلة",
+      "question": "سؤال",
+      "hasImage": "صورة",
+      "resumingAssignment": "سيتم استكمال تعيين الاختبار بعد النشر",
+      "examAssigned": "تم تعيين الاختبار بنجاح",
+      "examAssignmentFailed": "فشل تعيين الاختبار",
+      "templates": {
+        "roadsigns": "علامات المرور",
+        "rules": "قواعد المرور",
+        "safety": "السلامة المرورية",
+        "parking": "قواعد الوقوف"
+      }
+    },
   "common": {
     "ok": "حسنًا",
     "cancel": "إلغاء",
