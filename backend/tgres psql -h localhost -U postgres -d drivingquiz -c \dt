@@ -1,0 +1,23 @@
+                 List of relations
+ Schema |          Name          | Type  |  Owner   
+--------+------------------------+-------+----------
+ public | alembic_version        | table | postgres
+ public | answer                 | table | postgres
+ public | choice                 | table | postgres
+ public | learning_module        | table | postgres
+ public | learning_module_lesson | table | postgres
+ public | learning_progress      | table | postgres
+ public | plan                   | table | postgres
+ public | question               | table | postgres
+ public | quiz_attempt           | table | postgres
+ public | quiz_setting           | table | postgres
+ public | quiz_template          | table | postgres
+ public | quiz_template_question | table | postgres
+ public | quizze                 | table | postgres
+ public | room                   | table | postgres
+ public | room_member            | table | postgres
+ public | school                 | table | postgres
+ public | staff_user             | table | postgres
+ public | student                | table | postgres
+(18 rows)
+

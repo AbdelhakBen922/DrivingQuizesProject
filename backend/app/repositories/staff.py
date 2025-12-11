@@ -14,3 +14,10 @@ async def get_staff_by_email(session: AsyncSession, email: str) -> StaffUser | N
 
 async def get_staff_by_id(session: AsyncSession, staff_id: int) -> StaffUser | None:
     return await session.get(StaffUser, staff_id)
+
+
+async def create_staff(session: AsyncSession, staff: StaffUser) -> StaffUser:
+    session.add(staff)
+    await session.commit()
+    await session.refresh(staff)
+    return staff

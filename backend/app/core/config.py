@@ -3,7 +3,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    database_url: str = "postgresql://postgres:postgres@localhost:5432/postgres"
+    database_url: str = "postgresql://postgres:postgres@localhost:5432/drivingquiz"
     app_name: str = "Driving Quiz API"
     secret_key: str = "change-me"
     jwt_algorithm: str = "HS256"

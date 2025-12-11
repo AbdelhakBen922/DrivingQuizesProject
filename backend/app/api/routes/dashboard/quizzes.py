@@ -13,7 +13,7 @@ from app.models.quiz_template import QuizTemplate
 from app.models.room import Room
 from app.models.staff_user import StaffUser
 from app.schemas.dashboard_quiz import DashboardQuizCreateRequest
-from app.schemas.quiz import QuizRead
+from app.schemas.quiz import QuizRead, QuizUpdate
 
 router = APIRouter(prefix="/quizzes", tags=["dashboard-quizzes"])
 
@@ -101,3 +101,55 @@ async def create_dashboard_quiz(
 
     result = await session.execute(_quiz_with_relations_stmt(quiz.id))
     return result.scalar_one()
+
+
+@router.patch("/{quiz_id}", response_model=QuizRead)
+async def update_dashboard_quiz(
+    quiz_id: int,
+    payload: QuizUpdate,
+    session: AsyncSession = Depends(get_db),
+    current_staff: StaffUser = Depends(get_current_staff),
+) -> Quiz:
+    school_id = await _require_staff_school(current_staff)
+
+    # Get the quiz and verify it belongs to the staff's school
+    stmt = _quiz_with_relations_stmt(quiz_id).where(Quiz.school_id == school_id)
+    result = await session.execute(stmt)
+    quiz = result.scalar_one_or_none()
+    
+    if not quiz:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Quiz not found")
+
+    # Update only the fields that are provided
+    data = payload.model_dump(exclude_unset=True)
+    
+    for field, value in data.items():
+        setattr(quiz, field, value)
+
+    await session.commit()
+    await session.refresh(quiz)
+
+    # Return the updated quiz with relations
+    result = await session.execute(_quiz_with_relations_stmt(quiz.id))
+    return result.scalar_one()
+
+
+# Return 200 with a small JSON payload to avoid 204 body restrictions
+@router.delete("/{quiz_id}", status_code=status.HTTP_200_OK)
+async def delete_dashboard_quiz(
+    quiz_id: int,
+    session: AsyncSession = Depends(get_db),
+    current_staff: StaffUser = Depends(get_current_staff),
+) -> None:
+    school_id = await _require_staff_school(current_staff)
+
+    # Get the quiz and verify it belongs to the staff's school
+    quiz = await session.get(Quiz, quiz_id)
+    
+    if not quiz or quiz.school_id != school_id:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Quiz not found")
+
+    await session.delete(quiz)
+    await session.commit()
+
+    return {"detail": "Quiz deleted"}

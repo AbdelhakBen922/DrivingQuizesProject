@@ -3,6 +3,7 @@ from __future__ import annotations
 from fastapi import APIRouter, Depends, HTTPException, Query, Response, status
 from sqlalchemy import delete, func, select
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import selectinload
 
 from app.api.deps.auth import get_current_staff
 from app.core.database import get_db
@@ -16,6 +17,7 @@ from app.models.staff_user import StaffUser
 from app.schemas.question import QuestionRead, QuestionWithChoicesCreate
 from app.schemas.quiz_template import (
     QuizTemplateCreateRequest,
+    QuizTemplateDetail,
     QuizTemplateListItem,
     QuizTemplateUpdateRequest,
 )
@@ -165,6 +167,33 @@ async def list_templates(
         templates.append(QuizTemplateListItem.model_validate(template))
 
     return templates
+
+
+@router.get("/{template_id}", response_model=QuizTemplateDetail)
+async def get_template(
+    template_id: int,
+    session: AsyncSession = Depends(get_db),
+    current_staff: StaffUser = Depends(get_current_staff),
+) -> QuizTemplateDetail:
+    """Get a single template with all questions and choices"""
+    stmt = (
+        select(QuizTemplate)
+        .where(QuizTemplate.id == template_id)
+        .where(QuizTemplate.school_id == current_staff.school_id)
+        .options(
+            selectinload(QuizTemplate.template_questions)
+            .selectinload(QuizTemplateQuestion.question)
+            .selectinload(Question.choices)
+        )
+    )
+    
+    result = await session.execute(stmt)
+    template = result.scalar_one_or_none()
+    
+    if not template:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Template not found")
+    
+    return QuizTemplateDetail.model_validate(template)
 
 
 @router.post("/", response_model=QuizTemplateListItem, status_code=status.HTTP_201_CREATED)

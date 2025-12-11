@@ -249,17 +249,17 @@ async def get_dashboard_overview(
     )
 
 
-    @router.get("/stats", response_model=DashboardStatsResponse)
-    async def get_dashboard_stats(
-        session: AsyncSession = Depends(get_db),
-        current_staff: StaffUser = Depends(get_current_staff),
-    ) -> DashboardStatsResponse:
-        school_id = await _require_staff_school(current_staff)
-        metrics = await _fetch_metrics(session, school_id)
-        staff_count = await _fetch_staff_count(session, school_id)
-        return DashboardStatsResponse(
-            total_groups=metrics.total_rooms,
-            total_students=metrics.total_students,
-            total_instructors=staff_count,
-            active_exams=metrics.active_quizzes,
-        )
+@router.get("/stats", response_model=DashboardStatsResponse)
+async def get_dashboard_stats(
+    session: AsyncSession = Depends(get_db),
+    current_staff: StaffUser = Depends(get_current_staff),
+) -> DashboardStatsResponse:
+    school_id = await _require_staff_school(current_staff)
+    metrics = await _fetch_metrics(session, school_id)
+    staff_count = await _fetch_staff_count(session, school_id)
+    return DashboardStatsResponse(
+        total_groups=metrics.total_rooms,
+        total_students=metrics.total_students,
+        total_instructors=staff_count,
+        active_exams=metrics.active_quizzes,
+    )

@@ -1,8 +1,8 @@
-"""init new schema
+"""create_tables
 
-Revision ID: 6bf88d3c005d
-Revises: 
-Create Date: 2025-12-06 14:11:10.856445
+Revision ID: c20e62c4b552
+Revises: 2f0869f1681c
+Create Date: 2025-12-11 00:40:45.029171
 
 """
 from typing import Sequence, Union
@@ -12,8 +12,8 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import postgresql
 
 # revision identifiers, used by Alembic.
-revision: str = '6bf88d3c005d'
-down_revision: Union[str, None] = None
+revision: str = 'c20e62c4b552'
+down_revision: Union[str, None] = '2f0869f1681c'
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 
@@ -58,6 +58,8 @@ def upgrade() -> None:
     sa.Column('password', sa.Text(), nullable=False),
     sa.Column('timezone', sa.String(length=50), nullable=True),
     sa.Column('locale', sa.String(length=10), nullable=True),
+    sa.Column('address', sa.String(length=255), nullable=True),
+    sa.Column('phone', sa.String(length=50), nullable=True),
     sa.Column('language_defaults', postgresql.JSONB(astext_type=sa.Text()), server_default=sa.text("'{}'::jsonb"), nullable=False),
     sa.Column('plan_id', sa.BigInteger(), nullable=True),
     sa.Column('billing_info', postgresql.JSONB(astext_type=sa.Text()), server_default=sa.text("'{}'::jsonb"), nullable=False),
@@ -77,7 +79,10 @@ def upgrade() -> None:
     sa.Column('email', sa.String(length=255), nullable=False),
     sa.Column('password_hash', sa.Text(), nullable=False),
     sa.Column('role', sa.Enum('owner', 'admin', 'instructor', 'secretary', name='staff_user_role_enum'), nullable=False),
+    sa.Column('first_name', sa.String(length=255), nullable=True),
+    sa.Column('last_name', sa.String(length=255), nullable=True),
     sa.Column('name', sa.String(length=255), nullable=True),
+    sa.Column('avatar_url', sa.String(length=255), nullable=True),
     sa.Column('phone', sa.String(length=50), nullable=True),
     sa.Column('last_login_at', sa.DateTime(timezone=True), nullable=True),
     sa.Column('is_active', sa.Boolean(), server_default=sa.text('true'), nullable=False),
@@ -126,13 +131,15 @@ def upgrade() -> None:
     sa.ForeignKeyConstraint(['school_id'], ['school.id'], ondelete='SET NULL'),
     sa.PrimaryKeyConstraint('id')
     )
-    op.create_table('quizze',
+    op.create_table('quiz_template',
     sa.Column('school_id', sa.BigInteger(), nullable=True),
-    sa.Column('setting_id', sa.BigInteger(), nullable=True),
-    sa.Column('is_public', sa.Boolean(), server_default=sa.text('false'), nullable=False),
     sa.Column('title', sa.String(length=255), nullable=False),
     sa.Column('description', sa.Text(), nullable=True),
-    sa.Column('total_time_seconds', sa.Integer(), nullable=True),
+    sa.Column('topic_id', sa.Integer(), nullable=True),
+    sa.Column('difficulty', sa.Enum('easy', 'medium', 'hard', name='question_difficulty_enum'), server_default=sa.text("'medium'"), nullable=False),
+    sa.Column('default_duration_sec', sa.Integer(), nullable=True),
+    sa.Column('settings', postgresql.JSONB(astext_type=sa.Text()), server_default=sa.text("'{}'::jsonb"), nullable=False),
+    sa.Column('is_public', sa.Boolean(), server_default=sa.text('false'), nullable=False),
     sa.Column('created_by_id', sa.BigInteger(), nullable=True),
     sa.Column('id', sa.BigInteger(), autoincrement=True, nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
@@ -140,9 +147,7 @@ def upgrade() -> None:
     sa.Column('deleted_at', sa.DateTime(timezone=True), nullable=True),
     sa.ForeignKeyConstraint(['created_by_id'], ['staff_user.id'], ondelete='SET NULL'),
     sa.ForeignKeyConstraint(['school_id'], ['school.id'], ondelete='SET NULL'),
-    sa.ForeignKeyConstraint(['setting_id'], ['quiz_setting.id'], ondelete='CASCADE'),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('setting_id')
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('room',
     sa.Column('school_id', sa.BigInteger(), nullable=False),
@@ -201,18 +206,43 @@ def upgrade() -> None:
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index('uq_learning_module_lesson_order', 'learning_module_lesson', ['learning_module_id', 'order_index'], unique=True)
-    op.create_table('quiz_question',
-    sa.Column('quiz_id', sa.BigInteger(), nullable=False),
+    op.create_table('quiz_template_question',
+    sa.Column('template_id', sa.BigInteger(), nullable=False),
     sa.Column('question_id', sa.BigInteger(), nullable=False),
     sa.Column('position', sa.Integer(), nullable=True),
-    sa.Column('duration_sec', sa.Integer(), server_default=sa.text('30'), nullable=False),
+    sa.Column('duration_sec', sa.Integer(), nullable=True),
     sa.Column('is_required', sa.Boolean(), server_default=sa.text('true'), nullable=False),
+    sa.Column('randomize_options', sa.Boolean(), server_default=sa.text('false'), nullable=False),
+    sa.Column('estimation_time_seconds', sa.Integer(), nullable=True),
     sa.Column('id', sa.BigInteger(), autoincrement=True, nullable=False),
     sa.ForeignKeyConstraint(['question_id'], ['question.id'], ondelete='CASCADE'),
-    sa.ForeignKeyConstraint(['quiz_id'], ['quizze.id'], ondelete='CASCADE'),
+    sa.ForeignKeyConstraint(['template_id'], ['quiz_template.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
-    op.create_index('uq_quiz_question', 'quiz_question', ['quiz_id', 'question_id'], unique=True)
+    op.create_index('uq_quiz_template_question', 'quiz_template_question', ['template_id', 'question_id'], unique=True)
+    op.create_table('quizze',
+    sa.Column('school_id', sa.BigInteger(), nullable=True),
+    sa.Column('setting_id', sa.BigInteger(), nullable=True),
+    sa.Column('room_id', sa.BigInteger(), nullable=True),
+    sa.Column('template_id', sa.BigInteger(), nullable=True),
+    sa.Column('is_public', sa.Boolean(), server_default=sa.text('false'), nullable=False),
+    sa.Column('title', sa.String(length=255), nullable=False),
+    sa.Column('description', sa.Text(), nullable=True),
+    sa.Column('starts_at', sa.DateTime(timezone=True), nullable=True),
+    sa.Column('ends_at', sa.DateTime(timezone=True), nullable=True),
+    sa.Column('created_by_id', sa.BigInteger(), nullable=True),
+    sa.Column('id', sa.BigInteger(), autoincrement=True, nullable=False),
+    sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
+    sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
+    sa.Column('deleted_at', sa.DateTime(timezone=True), nullable=True),
+    sa.ForeignKeyConstraint(['created_by_id'], ['staff_user.id'], ondelete='SET NULL'),
+    sa.ForeignKeyConstraint(['room_id'], ['room.id'], ondelete='SET NULL'),
+    sa.ForeignKeyConstraint(['school_id'], ['school.id'], ondelete='SET NULL'),
+    sa.ForeignKeyConstraint(['setting_id'], ['quiz_setting.id'], ondelete='CASCADE'),
+    sa.ForeignKeyConstraint(['template_id'], ['quiz_template.id'], ondelete='SET NULL'),
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('setting_id')
+    )
     op.create_table('room_member',
     sa.Column('room_id', sa.BigInteger(), nullable=False),
     sa.Column('student_id', sa.BigInteger(), nullable=True),
@@ -225,18 +255,6 @@ def upgrade() -> None:
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index('uq_room_member_student', 'room_member', ['room_id', 'student_id'], unique=True)
-    op.create_table('room_quizze',
-    sa.Column('room_id', sa.BigInteger(), nullable=False),
-    sa.Column('quiz_id', sa.BigInteger(), nullable=False),
-    sa.Column('instance_settings', postgresql.JSONB(astext_type=sa.Text()), server_default=sa.text("'{}'::jsonb"), nullable=False),
-    sa.Column('published_at', sa.DateTime(timezone=True), server_default=sa.text('CURRENT_TIMESTAMP'), nullable=True),
-    sa.Column('status', sa.Enum('active', 'closed', 'scheduled', name='quiz_status_enum'), server_default=sa.text("'active'"), nullable=False),
-    sa.Column('id', sa.BigInteger(), autoincrement=True, nullable=False),
-    sa.ForeignKeyConstraint(['quiz_id'], ['quizze.id'], ondelete='CASCADE'),
-    sa.ForeignKeyConstraint(['room_id'], ['room.id'], ondelete='CASCADE'),
-    sa.PrimaryKeyConstraint('id')
-    )
-    op.create_index('uq_room_quiz', 'room_quizze', ['room_id', 'quiz_id'], unique=True)
     op.create_table('learning_progress',
     sa.Column('student_id', sa.BigInteger(), nullable=False),
     sa.Column('learning_module_id', sa.BigInteger(), nullable=False),
@@ -292,12 +310,11 @@ def downgrade() -> None:
     op.drop_table('quiz_attempt')
     op.drop_index('uq_learning_progress_student_module', table_name='learning_progress')
     op.drop_table('learning_progress')
-    op.drop_index('uq_room_quiz', table_name='room_quizze')
-    op.drop_table('room_quizze')
     op.drop_index('uq_room_member_student', table_name='room_member')
     op.drop_table('room_member')
-    op.drop_index('uq_quiz_question', table_name='quiz_question')
-    op.drop_table('quiz_question')
+    op.drop_table('quizze')
+    op.drop_index('uq_quiz_template_question', table_name='quiz_template_question')
+    op.drop_table('quiz_template_question')
     op.drop_index('uq_learning_module_lesson_order', table_name='learning_module_lesson')
     op.drop_table('learning_module_lesson')
     op.drop_index('uq_choice_question_position', table_name='choice')
@@ -305,7 +322,7 @@ def downgrade() -> None:
     op.drop_index('ix_student_school', table_name='student')
     op.drop_table('student')
     op.drop_table('room')
-    op.drop_table('quizze')
+    op.drop_table('quiz_template')
     op.drop_table('question')
     op.drop_table('learning_module')
     op.drop_index('ix_staff_user_school', table_name='staff_user')

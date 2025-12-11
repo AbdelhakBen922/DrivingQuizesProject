@@ -6,7 +6,7 @@ from pydantic import Field
 
 from app.models.enums import QuestionDifficulty
 from app.schemas.base import ORMModel
-from app.schemas.quiz_template_question import QuizTemplateQuestionInput
+from app.schemas.quiz_template_question import QuizTemplateQuestionInput, QuizTemplateQuestionWithQuestion
 
 
 class QuizTemplateBase(ORMModel):
@@ -49,6 +49,11 @@ class QuizTemplateRead(QuizTemplateBase):
 
 class QuizTemplateListItem(QuizTemplateRead):
     question_count: int = 0
+
+
+class QuizTemplateDetail(QuizTemplateRead):
+    """Template with full question details including choices"""
+    questions: list[QuizTemplateQuestionWithQuestion] = Field(default_factory=list)
 
 
 class QuizTemplateCreateRequest(ORMModel):

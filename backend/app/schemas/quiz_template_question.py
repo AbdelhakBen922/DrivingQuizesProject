@@ -3,7 +3,7 @@ from __future__ import annotations
 from pydantic import model_validator
 
 from app.schemas.base import ORMModel
-from app.schemas.question import QuestionWithChoicesCreate
+from app.schemas.question import QuestionWithChoicesCreate, QuestionWithChoicesRead
 
 
 class QuizTemplateQuestionBase(ORMModel):
@@ -22,6 +22,14 @@ class QuizTemplateQuestionCreate(QuizTemplateQuestionBase):
 
 class QuizTemplateQuestionRead(QuizTemplateQuestionBase):
     id: int
+
+    model_config = ORMModel.model_config
+
+
+class QuizTemplateQuestionWithQuestion(QuizTemplateQuestionBase):
+    """Template question with full question details including choices"""
+    id: int
+    question: QuestionWithChoicesRead
 
     model_config = ORMModel.model_config
 
