@@ -282,7 +282,6 @@ async def seed() -> None:
             "school_id": school.id,
             "setting_id": quiz_setting.id,
             "template_id": template.id,
-            "title": "Fundamentals Assessment",
             "title_ar": "تقييم الأساسيات",
             "title_fr": "Évaluation des fondamentaux",
             "description": "Covers basic priority and safety rules",
@@ -291,7 +290,7 @@ async def seed() -> None:
         quiz, created = await get_or_create(
             session,
             Quiz,
-            {"title": quiz_defaults["title"]},
+            {"title_fr": quiz_defaults["title_fr"]},
             quiz_defaults,
         )
         report.append(f"Quiz: {'created' if created else 'updated'}")

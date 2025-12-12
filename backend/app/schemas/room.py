@@ -56,7 +56,8 @@ class RoomStudentSummary(ORMModel):
 
 class RoomQuizSummary(ORMModel):
     id: int
-    title: str
+    title_ar: str
+    title_fr: str
     template_id: int | None = None
     starts_at: datetime | None = None
     ends_at: datetime | None = None
