@@ -69,10 +69,15 @@ async def sync_choices(session, question_id: int, options: list[dict]) -> None:
         position = option["position"]
         seen_positions.add(position)
         lookup = {"question_id": question_id, "position": position}
-        defaults = {"text": option["text"], "is_correct": option["is_correct"]}
+        defaults = {
+            "text_ar": option["text_ar"],
+            "text_fr": option["text_fr"],
+            "is_correct": option["is_correct"],
+        }
         choice, _ = await get_or_create(session, Choice, lookup, defaults)
         # ensure updates when record already existed
-        choice.text = option["text"]
+        choice.text_ar = option["text_ar"]
+        choice.text_fr = option["text_fr"]
         choice.is_correct = option["is_correct"]
 
     for position, choice in existing.items():
@@ -169,7 +174,8 @@ async def seed() -> None:
         question_defaults = {
             "school_id": school.id,
             "author_id": staff.id,
-            "text": "What does a flashing amber traffic light indicate at an intersection?",
+            "text_ar": "ماذا يعني ضوء المرور الكهرماني الوامض عند التقاطع؟",
+            "text_fr": "Que signifie un feu orange clignotant à une intersection ?",
             "category": QuestionCategory.PRIORITY,
             "difficulty": QuestionDifficulty.MEDIUM,
             "type": QuestionType.SINGLE_CHOICE,
@@ -179,16 +185,36 @@ async def seed() -> None:
         question, created = await get_or_create(
             session,
             Question,
-            {"text": question_defaults["text"]},
+            {"text_fr": question_defaults["text_fr"]},
             question_defaults,
         )
         report.append(f"Question: {'created' if created else 'updated'}")
 
         options = [
-            {"position": 1, "text": "You must stop completely", "is_correct": False},
-            {"position": 2, "text": "Proceed with caution, giving priority", "is_correct": True},
-            {"position": 3, "text": "Speed up to clear the intersection", "is_correct": False},
-            {"position": 4, "text": "Turn off your headlights", "is_correct": False},
+            {
+                "position": 1,
+                "text_ar": "يجب أن تتوقف تمامًا",
+                "text_fr": "Vous devez vous arrêter complètement",
+                "is_correct": False,
+            },
+            {
+                "position": 2,
+                "text_ar": "تابع بحذر مع إعطاء الأولوية",
+                "text_fr": "Avancez prudemment en donnant la priorité",
+                "is_correct": True,
+            },
+            {
+                "position": 3,
+                "text_ar": "زد سرعتك لعبور التقاطع",
+                "text_fr": "Accélérez pour dégager l'intersection",
+                "is_correct": False,
+            },
+            {
+                "position": 4,
+                "text_ar": "أطفئ أضواءك الأمامية",
+                "text_fr": "Éteignez vos phares",
+                "is_correct": False,
+            },
         ]
         await sync_choices(session, question.id, options)
 
@@ -201,7 +227,11 @@ async def seed() -> None:
         template_defaults = {
             "school_id": school.id,
             "title": "Priority Rules Fundamentals",
+            "title_ar": "أساسيات قواعد الأولوية",
+            "title_fr": "Fondamentaux des règles de priorité",
             "description": "Template focusing on intersection priority decisions",
+            "description_ar": "قالب يركز على قرارات الأولوية عند التقاطعات",
+            "description_fr": "Modèle axé sur les décisions de priorité aux intersections",
             "difficulty": QuestionDifficulty.MEDIUM,
             "default_duration_sec": 600,
             "settings": {"question_count": 10, "passing_score": 8},
@@ -252,14 +282,15 @@ async def seed() -> None:
             "school_id": school.id,
             "setting_id": quiz_setting.id,
             "template_id": template.id,
-            "title": "Fundamentals Assessment",
+            "title_ar": "تقييم الأساسيات",
+            "title_fr": "Évaluation des fondamentaux",
             "description": "Covers basic priority and safety rules",
             "created_by_id": staff.id,
         }
         quiz, created = await get_or_create(
             session,
             Quiz,
-            {"title": quiz_defaults["title"]},
+            {"title_fr": quiz_defaults["title_fr"]},
             quiz_defaults,
         )
         report.append(f"Quiz: {'created' if created else 'updated'}")

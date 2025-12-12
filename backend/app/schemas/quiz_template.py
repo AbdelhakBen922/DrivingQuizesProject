@@ -12,7 +12,11 @@ from app.schemas.quiz_template_question import QuizTemplateQuestionInput, QuizTe
 class QuizTemplateBase(ORMModel):
     school_id: int | None = None
     title: str
+    title_ar: str | None = None
+    title_fr: str | None = None
     description: str | None = None
+    description_ar: str | None = None
+    description_fr: str | None = None
     topic_id: int | None = None
     difficulty: QuestionDifficulty = QuestionDifficulty.MEDIUM
     default_duration_sec: int | None = None
@@ -27,7 +31,11 @@ class QuizTemplateCreate(QuizTemplateBase):
 
 class QuizTemplateUpdate(ORMModel):
     title: str | None = None
+    title_ar: str | None = None
+    title_fr: str | None = None
     description: str | None = None
+    description_ar: str | None = None
+    description_fr: str | None = None
     topic_id: int | None = None
     difficulty: QuestionDifficulty | None = None
     default_duration_sec: int | None = None
@@ -58,7 +66,11 @@ class QuizTemplateDetail(QuizTemplateRead):
 
 class QuizTemplateCreateRequest(ORMModel):
     title: str
+    title_ar: str | None = None
+    title_fr: str | None = None
     description: str | None = None
+    description_ar: str | None = None
+    description_fr: str | None = None
     topic_id: int | None = None
     difficulty: QuestionDifficulty = QuestionDifficulty.MEDIUM
     default_duration_sec: int | None = None
@@ -69,7 +81,11 @@ class QuizTemplateCreateRequest(ORMModel):
 
 class QuizTemplateUpdateRequest(ORMModel):
     title: str | None = None
+    title_ar: str | None = None
+    title_fr: str | None = None
     description: str | None = None
+    description_ar: str | None = None
+    description_fr: str | None = None
     topic_id: int | None = None
     difficulty: QuestionDifficulty | None = None
     default_duration_sec: int | None = None

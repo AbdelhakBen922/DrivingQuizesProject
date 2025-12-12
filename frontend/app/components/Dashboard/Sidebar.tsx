@@ -160,7 +160,7 @@ export default function Sidebar() {
               <img 
                 src="/assets/icons/dashboard/sidebar/Logout.svg" 
                 alt="logout"
-                className="w-5 h-5"
+                className="w-5 h-5 group-hover:brightness-0 group-hover:invert transition-all"
               />
               <span className="font-semibold">{t('dashboard.logout', 'تسجيل الخروج')}</span>
             </button>

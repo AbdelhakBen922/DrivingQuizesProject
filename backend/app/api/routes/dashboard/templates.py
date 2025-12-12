@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException, Query, Response, status
-from sqlalchemy import delete, func, select
+from sqlalchemy import delete, func, or_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
@@ -61,7 +61,8 @@ async def _create_question_with_choices(
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Duplicate choice positions detected")
         seen_positions.add(position)
         processed_choices.append({
-            "text": choice.text,
+            "text_ar": choice.text_ar,
+            "text_fr": choice.text_fr,
             "is_correct": choice.is_correct,
             "position": position,
         })
@@ -77,12 +78,13 @@ async def _create_question_with_choices(
 
     for choice_data in processed_choices:
         session.add(
-            Choice(
-                question_id=question.id,
-                text=choice_data["text"],
-                is_correct=choice_data["is_correct"],
-                position=choice_data["position"],
-            )
+                Choice(
+                    question_id=question.id,
+                    text_ar=choice_data["text_ar"],
+                    text_fr=choice_data["text_fr"],
+                    is_correct=choice_data["is_correct"],
+                    position=choice_data["position"],
+                )
         )
 
     await session.flush()
@@ -156,7 +158,50 @@ async def list_templates(
     if difficulty is not None:
         stmt = stmt.where(QuizTemplate.difficulty == difficulty)
     if search:
-        stmt = stmt.where(QuizTemplate.title.ilike(f"%{search}%"))
+        stmt = stmt.where(
+            or_(
+                QuizTemplate.title.ilike(f"%{search}%"),
+                QuizTemplate.title_ar.ilike(f"%{search}%"),
+                QuizTemplate.title_fr.ilike(f"%{search}%"),
+            )
+        )
+
+    result = await session.execute(stmt)
+    rows = result.all()
+
+    templates: list[QuizTemplateListItem] = []
+    for template, question_count in rows:
+        setattr(template, "question_count", int(question_count or 0))
+        templates.append(QuizTemplateListItem.model_validate(template))
+
+    return templates
+
+
+@router.get("/defaults", response_model=list[QuizTemplateListItem])
+async def list_default_templates(
+    difficulty: QuestionDifficulty | None = Query(default=None),
+    search: str | None = Query(default=None, min_length=1),
+    session: AsyncSession = Depends(get_db),
+    current_staff: StaffUser = Depends(get_current_staff),
+) -> list[QuizTemplateListItem]:
+    stmt = (
+        select(QuizTemplate, func.count(QuizTemplateQuestion.id).label("question_count"))
+        .outerjoin(QuizTemplateQuestion, QuizTemplateQuestion.template_id == QuizTemplate.id)
+        .group_by(QuizTemplate.id)
+        .order_by(QuizTemplate.created_at.desc())
+    )
+    stmt = stmt.where(QuizTemplate.is_public.is_(True))
+
+    if difficulty is not None:
+        stmt = stmt.where(QuizTemplate.difficulty == difficulty)
+    if search:
+        stmt = stmt.where(
+            or_(
+                QuizTemplate.title.ilike(f"%{search}%"),
+                QuizTemplate.title_ar.ilike(f"%{search}%"),
+                QuizTemplate.title_fr.ilike(f"%{search}%"),
+            )
+        )
 
     result = await session.execute(stmt)
     rows = result.all()
@@ -210,7 +255,11 @@ async def create_template(
     template = QuizTemplate(
         school_id=current_staff.school_id,
         title=payload.title,
+        title_ar=payload.title_ar,
+        title_fr=payload.title_fr,
         description=payload.description,
+        description_ar=payload.description_ar,
+        description_fr=payload.description_fr,
         topic_id=payload.topic_id,
         difficulty=payload.difficulty,
         default_duration_sec=payload.default_duration_sec,
@@ -262,8 +311,16 @@ async def update_template(
 
     if payload.title is not None:
         template.title = payload.title
+    if payload.title_ar is not None:
+        template.title_ar = payload.title_ar
+    if payload.title_fr is not None:
+        template.title_fr = payload.title_fr
     if payload.description is not None:
         template.description = payload.description
+    if payload.description_ar is not None:
+        template.description_ar = payload.description_ar
+    if payload.description_fr is not None:
+        template.description_fr = payload.description_fr
     if payload.topic_id is not None:
         template.topic_id = payload.topic_id
     if payload.difficulty is not None:

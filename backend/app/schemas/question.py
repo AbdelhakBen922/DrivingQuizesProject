@@ -11,7 +11,8 @@ from app.schemas.choice import ChoiceRead
 
 
 class QuestionBase(ORMModel):
-	text: str
+	text_ar: str
+	text_fr: str
 	image_url: str | None = None
 	category: QuestionCategory
 	type: QuestionType = QuestionType.SINGLE_CHOICE
@@ -44,7 +45,8 @@ class QuestionWithChoicesRead(QuestionRead):
 
 
 class QuestionUpdate(ORMModel):
-	text: str | None = None
+	text_ar: str | None = None
+	text_fr: str | None = None
 	image_url: str | None = None
 	category: QuestionCategory | None = None
 	type: QuestionType | None = None
@@ -59,7 +61,8 @@ class QuestionUpdate(ORMModel):
 
 
 class QuestionChoiceInput(ORMModel):
-	text: str
+	text_ar: str
+	text_fr: str
 	is_correct: bool = False
 	position: int | None = None
 

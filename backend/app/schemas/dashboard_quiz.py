@@ -7,7 +7,8 @@ from app.schemas.quiz_setting import QuizSettingCreate
 
 
 class DashboardQuizCreateRequest(ORMModel):
-    title: str
+    title_ar: str
+    title_fr: str
     description: str | None = None
     template_id: int
     room_id: int

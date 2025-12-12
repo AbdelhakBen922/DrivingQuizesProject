@@ -21,14 +21,20 @@ from app.schemas.question import (
 
 router = APIRouter(prefix="/questions", tags=["dashboard-questions"])
 
+DEFAULT_SCHOOL_ID = 0
+
 
 def _question_with_choices_stmt() -> Select:
     return select(Question).options(selectinload(Question.choices)).where(Question.deleted_at.is_(None))
 
 
-def _school_scope_clause(school_id: int, include_public: bool):
-    if include_public:
-        return or_(Question.school_id == school_id, Question.school_id.is_(None))
+def _school_scope_clause(school_id: int, include_default: bool):
+    if include_default:
+        return or_(
+            Question.school_id == school_id,
+            Question.school_id == DEFAULT_SCHOOL_ID,
+            Question.school_id.is_(None),
+        )
     return Question.school_id == school_id
 
 
@@ -46,7 +52,14 @@ def _normalize_choice_inputs(choices: list[QuestionChoiceInput]) -> list[dict[st
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Duplicate choice positions detected")
         seen_positions.add(position)
         has_correct = has_correct or choice.is_correct
-        normalized.append({"text": choice.text, "is_correct": choice.is_correct, "position": position})
+        normalized.append(
+            {
+                "text_ar": choice.text_ar,
+                "text_fr": choice.text_fr,
+                "is_correct": choice.is_correct,
+                "position": position,
+            }
+        )
 
     if not has_correct:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Mark at least one choice as correct")
@@ -65,12 +78,12 @@ async def _get_question_for_school(
     question_id: int,
     school_id: int,
     *,
-    include_public: bool,
+    include_default: bool,
 ) -> Question:
     stmt = (
         _question_with_choices_stmt()
         .where(Question.id == question_id)
-        .where(_school_scope_clause(school_id, include_public))
+        .where(_school_scope_clause(school_id, include_default))
     )
     result = await session.execute(stmt)
     question = result.scalar_one_or_none()
@@ -85,7 +98,6 @@ async def list_dashboard_questions(
     category: QuestionCategory | None = Query(default=None),
     difficulty: QuestionDifficulty | None = Query(default=None),
     question_type: QuestionType | None = Query(default=None),
-    include_public: bool = Query(default=True),
     limit: int = Query(default=50, ge=1, le=100),
     offset: int = Query(default=0, ge=0),
     session: AsyncSession = Depends(get_db),
@@ -95,14 +107,19 @@ async def list_dashboard_questions(
 
     stmt = (
         _question_with_choices_stmt()
-        .where(_school_scope_clause(school_id, include_public))
+        .where(_school_scope_clause(school_id, include_default=True))
         .order_by(Question.created_at.desc())
         .offset(offset)
         .limit(limit)
     )
 
     if search:
-        stmt = stmt.where(Question.text.ilike(f"%{search}%"))
+        stmt = stmt.where(
+            or_(
+                Question.text_ar.ilike(f"%{search}%"),
+                Question.text_fr.ilike(f"%{search}%"),
+            )
+        )
     if category is not None:
         stmt = stmt.where(Question.category == category)
     if difficulty is not None:
@@ -148,7 +165,7 @@ async def get_dashboard_question(
     current_staff: StaffUser = Depends(get_current_staff),
 ) -> QuestionWithChoicesRead:
     school_id = _require_staff_school(current_staff)
-    question = await _get_question_for_school(session, question_id, school_id, include_public=True)
+    question = await _get_question_for_school(session, question_id, school_id, include_default=True)
     return QuestionWithChoicesRead.model_validate(question)
 
 
@@ -160,7 +177,7 @@ async def update_dashboard_question(
     current_staff: StaffUser = Depends(get_current_staff),
 ) -> QuestionWithChoicesRead:
     school_id = _require_staff_school(current_staff)
-    question = await _get_question_for_school(session, question_id, school_id, include_public=False)
+    question = await _get_question_for_school(session, question_id, school_id, include_default=False)
 
     update_data = payload.model_dump(exclude_unset=True, exclude={"choices"})
     for field, value in update_data.items():
@@ -185,7 +202,7 @@ async def delete_dashboard_question(
     current_staff: StaffUser = Depends(get_current_staff),
 ) -> Response:
     school_id = _require_staff_school(current_staff)
-    question = await _get_question_for_school(session, question_id, school_id, include_public=False)
+    question = await _get_question_for_school(session, question_id, school_id, include_default=False)
 
     usage_stmt = select(func.count()).where(QuizTemplateQuestion.question_id == question.id)
     usage_count = await session.scalar(usage_stmt)

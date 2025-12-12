@@ -17,7 +17,8 @@ class Choice(BigIntPrimaryKeyMixin, Base):
     __table_args__ = (Index("uq_choice_question_position", "question_id", "position", unique=True),)
 
     question_id: Mapped[int] = mapped_column(ForeignKey("question.id", ondelete="CASCADE"), nullable=False)
-    text: Mapped[str] = mapped_column(Text, nullable=False)
+    text_ar: Mapped[str] = mapped_column(Text, nullable=False)
+    text_fr: Mapped[str] = mapped_column(Text, nullable=False)
     is_correct: Mapped[bool] = mapped_column(Boolean, nullable=False, server_default=sql_text("false"))
     position: Mapped[int] = mapped_column(Integer, nullable=False, server_default=sql_text("0"))
 

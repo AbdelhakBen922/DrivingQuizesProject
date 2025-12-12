@@ -22,8 +22,9 @@ class Question(BigIntPrimaryKeyMixin, TimestampMixin, SoftDeleteMixin, Base):
 
     school_id: Mapped[int | None] = mapped_column(ForeignKey("school.id", ondelete="SET NULL"))
     author_id: Mapped[int | None] = mapped_column(ForeignKey("staff_user.id", ondelete="SET NULL"))
-    text: Mapped[str] = mapped_column(Text, nullable=False)
-    image_url: Mapped[str | None] = mapped_column(Text)
+    text_ar: Mapped[str] = mapped_column(Text, nullable=False)
+    text_fr: Mapped[str] = mapped_column(Text, nullable=False)
+    image_url: Mapped[str | None] = mapped_column(String(255))
     category: Mapped[QuestionCategory] = mapped_column(
         Enum(QuestionCategory, name="question_category_enum", values_callable=enum_values), nullable=False
     )

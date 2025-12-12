@@ -150,7 +150,8 @@ async def get_room_detail(
     quizzes = [
         RoomQuizSummary(
             id=quiz.id,
-            title=quiz.title,
+            title_ar=quiz.title_ar,
+            title_fr=quiz.title_fr,
             template_id=quiz.template_id,
             starts_at=quiz.starts_at,
             ends_at=quiz.ends_at,

@@ -21,7 +21,11 @@ class QuizTemplate(BigIntPrimaryKeyMixin, TimestampMixin, SoftDeleteMixin, Base)
 
     school_id: Mapped[int | None] = mapped_column(ForeignKey("school.id", ondelete="SET NULL"))
     title: Mapped[str] = mapped_column(String(255), nullable=False)
+    title_ar: Mapped[str | None] = mapped_column(String(255))
+    title_fr: Mapped[str | None] = mapped_column(String(255))
     description: Mapped[str | None] = mapped_column(Text)
+    description_ar: Mapped[str | None] = mapped_column(Text)
+    description_fr: Mapped[str | None] = mapped_column(Text)
     topic_id: Mapped[int | None] = mapped_column(Integer)
     difficulty: Mapped[QuestionDifficulty] = mapped_column(
         Enum(QuestionDifficulty, name="question_difficulty_enum", values_callable=enum_values),
