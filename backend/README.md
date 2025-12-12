@@ -85,6 +85,28 @@ python scripts/seed_data.py
 
 If you're using a named Conda environment run `conda run -n <env> python scripts/seed_data.py` instead.
 
+### Import Official Quiz/Test Bank
+
+The JSON exports in `../data/backend_quiz_data.json` mirror the public driving-school tests (road signs, priorities, and general questions). Use the async importer below to turn those fixtures into real `question`, `quiz_template`, and `quiz` rows. Supply the IDs of an existing school/staff (bootstrap via `seed_data.py` if you need throwaway entries):
+
+```bash
+python scripts/import_quiz_data.py \
+    --school-id 1 \
+    --staff-id 1 \
+    --room-id 1 \
+    --tests test-01 test-02
+```
+
+Flags:
+
+- `--data-path`: override the JSON source (defaults to `../data/backend_quiz_data.json`).
+- `--tests`: optional list to import a subset; omit to load every test in the file.
+- `--skip-existing`: leave already-imported tests untouched (matching `settings.source_test_id`).
+- `--dry-run`: validate/preview without committing changes.
+- `--vehicle-type`, `--quiz-mode`, `--room-id`: customize quiz metadata per import batch.
+
+Every imported question is tagged with `tags.source_test_id` and `tags.data_source` for easy cleanup or deduping. Rerun the script without `--skip-existing` to replace a test—the importer deletes the associated template, quiz, and tagged questions before recreating them.
+
 ## 8. Endpoint Smoke Tests
 
 After the API server is running, execute the async smoke suite to verify the main CRUD flows stay healthy. The script hits `/health`, schools, students, quiz templates, and template-question routes, failing fast on any non-2xx response.
