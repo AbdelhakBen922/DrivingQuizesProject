@@ -7,7 +7,8 @@ from app.schemas.base import ORMModel
 
 class ChoiceBase(ORMModel):
     question_id: int
-    text: str
+    text_ar: str
+    text_fr: str
     is_correct: bool = False
     position: int = Field(default=0, ge=0)
 

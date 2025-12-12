@@ -46,7 +46,14 @@ def _normalize_choice_inputs(choices: list[QuestionChoiceInput]) -> list[dict[st
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Duplicate choice positions detected")
         seen_positions.add(position)
         has_correct = has_correct or choice.is_correct
-        normalized.append({"text": choice.text, "is_correct": choice.is_correct, "position": position})
+        normalized.append(
+            {
+                "text_ar": choice.text_ar,
+                "text_fr": choice.text_fr,
+                "is_correct": choice.is_correct,
+                "position": position,
+            }
+        )
 
     if not has_correct:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Mark at least one choice as correct")
@@ -102,7 +109,12 @@ async def list_dashboard_questions(
     )
 
     if search:
-        stmt = stmt.where(Question.text.ilike(f"%{search}%"))
+        stmt = stmt.where(
+            or_(
+                Question.text_ar.ilike(f"%{search}%"),
+                Question.text_fr.ilike(f"%{search}%"),
+            )
+        )
     if category is not None:
         stmt = stmt.where(Question.category == category)
     if difficulty is not None:

@@ -28,6 +28,8 @@ class Quiz(BigIntPrimaryKeyMixin, TimestampMixin, SoftDeleteMixin, Base):
     template_id: Mapped[int | None] = mapped_column(ForeignKey("quiz_template.id", ondelete="SET NULL"))
     is_public: Mapped[bool] = mapped_column(Boolean, nullable=False, server_default=text("false"))
     title: Mapped[str] = mapped_column(String(255), nullable=False)
+    title_ar: Mapped[str | None] = mapped_column(String(255))
+    title_fr: Mapped[str | None] = mapped_column(String(255))
     description: Mapped[str | None] = mapped_column(Text)
     starts_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     ends_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))

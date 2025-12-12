@@ -14,6 +14,8 @@ class QuizBase(ORMModel):
 	room_id: int | None = None
 	is_public: bool = False
 	title: str
+	title_ar: str | None = None
+	title_fr: str | None = None
 	description: str | None = None
 	starts_at: datetime | None = None
 	ends_at: datetime | None = None
@@ -42,6 +44,8 @@ class QuizUpdate(ORMModel):
 	room_id: int | None = None
 	is_public: bool | None = None
 	title: str | None = None
+	title_ar: str | None = None
+	title_fr: str | None = None
 	description: str | None = None
 	starts_at: datetime | None = None
 	ends_at: datetime | None = None
