@@ -13,6 +13,7 @@ import "./i18n/config";
 import { useTranslation } from "react-i18next";
 import { useEffect, useLayoutEffect, useState } from "react";
 import Loading from "./components/Loading";
+import { AuthProvider } from "./contexts/AuthContext";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -62,7 +63,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <Mount isMounted={mounted}>{children}</Mount>
+        <AuthProvider>
+          <Mount isMounted={mounted}>{children}</Mount>
+        </AuthProvider>
         
         <ScrollRestoration />
         <Scripts />

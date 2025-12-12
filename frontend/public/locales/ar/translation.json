@@ -11,6 +11,20 @@
     "loginSubtitle": "مرحباً بك مجدداً! قم بتسجيل الدخول للمتابعة",
     "signupTitle": "إنشاء حساب جديد",
     "signupSubtitle": "سجّل مدرستك وابدأ في إدارة طلابك",
+    "schoolLogin": "مدرسة",
+    "studentLogin": "طالب",
+    "staffLoginTitle": "تسجيل دخول المدرسة",
+    "staffLoginSubtitle": "قم بتسجيل الدخول لإدارة مدرستك",
+    "studentLoginTitle": "تسجيل دخول الطالب",
+    "studentLoginSubtitle": "قم بتسجيل الدخول لبدء الاختبار",
+    "studentCode": "رمز الطالب",
+    "studentCodePlaceholder": "أدخل رمز الطالب",
+    "quickEntry": "دخول سريع برمز الطالب فقط",
+    "quickEntryTitle": "دخول سريع",
+    "quickEntrySubtitle": "أدخل رمز الطالب للوصول السريع للاختبارات",
+    "enterCode": "إدخال الرمز",
+    "invalidCode": "رمز الطالب غير صحيح",
+    "studentLoginError": "فشل تسجيل دخول الطالب",
     "email": "البريد الإلكتروني",
     "emailPlaceholder": "أدخل بريدك الإلكتروني",
     "password": "كلمة المرور",
@@ -142,11 +156,14 @@
       "quizScores": "نتائج الإمتحانات",
       "overall": "الكل",
       "monthly": "شهري",
-      "weekly": "أسبوعي"
+      "weekly": "أسبوعي",
+      "noData": "لا توجد بيانات"
     },
     "progress": {
       "title": "التقدم الدراسي",
-      "seeAll": "رؤية الكل"
+      "seeAll": "رؤية الكل",
+      "lessons": "دروس",
+      "noData": "لا توجد بيانات تقدم"
     },
     "upcoming": {
       "title": "الإمتحانات القادمة",
@@ -157,7 +174,9 @@
       "viewAll": "رؤية الكل"
     },
     "topStudents": {
-      "title": "أفضل التلاميذ"
+      "title": "أفضل التلاميذ",
+      "points": "نقطة",
+      "noStudents": "لا يوجد طلاب بعد"
     }
   },
   "settings": {
@@ -254,6 +273,98 @@
       "students_placeholder": "قائمة الطلاب سيتم عرضها هنا",
       "learning_placeholder": "محتوى التعلم سيتم عرضه هنا",
       "settings_placeholder": "إعدادات المجموعة سيتم عرضها هنا"
+    },
+    "viewStudents": "عرض الطلاب"
+  },
+  "students": {
+    "title": "إدارة الطلاب",
+    "subtitle": "قم بإدارة طلابك ومجموعاتهم",
+    "createStudent": "إضافة طالب",
+    "searchPlaceholder": "البحث عن طالب...",
+    "noResults": "لا توجد نتائج",
+    "noStudents": "لا يوجد طلاب",
+    "loadError": "فشل تحميل الطلاب",
+    "createSuccess": "تم إنشاء الطالب بنجاح",
+    "updateSuccess": "تم تحديث الطالب بنجاح",
+    "deleteSuccess": "تم حذف الطالب بنجاح",
+    "deleteError": "فشل حذف الطالب",
+    "stats": {
+      "total": "إجمالي الطلاب",
+      "active": "الطلاب النشطون",
+      "newMonth": "جديد هذا الشهر"
+    },
+    "table": {
+      "name": "الاسم",
+      "code": "الرمز",
+      "contact": "معلومات الاتصال",
+      "dob": "تاريخ الميلاد",
+      "groups": "المجموعات",
+      "groupsCount": "مجموعات",
+      "actions": "الإجراءات"
+    },
+    "modal": {
+      "createTitle": "إنشاء طالب جديد",
+      "editTitle": "تعديل الطالب",
+      "step": "الخطوة",
+      "of": "من",
+      "basicInfo": "المعلومات الأساسية",
+      "contactInfo": "معلومات الاتصال",
+      "accountSetup": "إعداد الحساب",
+      "assignGroups": "تعيين إلى مجموعات",
+      "assignGroupsHint": "اختر المجموعات التي سينضم إليها الطالب (اختياري)",
+      "fullName": "الاسم الكامل",
+      "fullNamePlaceholder": "محمد أحمد",
+      "dob": "تاريخ الميلاد",
+      "nationalId": "رقم التعريف الوطني",
+      "email": "البريد الإلكتروني",
+      "phone": "رقم الهاتف",
+      "studentCode": "رمز الطالب",
+      "password": "كلمة المرور",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "newPassword": "كلمة المرور الجديدة",
+      "changePassword": "تغيير كلمة المرور",
+      "optional": "اختياري",
+      "generate": "توليد",
+      "noGroups": "لا توجد مجموعات متاحة",
+      "selectedGroups": "تم اختيار {{count}} مجموعة",
+      "noGroupsSelected": "لم يتم اختيار أي مجموعة",
+      "back": "رجوع",
+      "next": "التالي",
+      "create": "إنشاء الطالب",
+      "update": "تحديث",
+      "createError": "فشل إنشاء الطالب",
+      "updateError": "فشل تحديث الطالب",
+      "errors": {
+        "nameRequired": "الاسم مطلوب",
+        "dobRequired": "تاريخ الميلاد مطلوب",
+        "emailInvalid": "البريد الإلكتروني غير صالح",
+        "phoneInvalid": "رقم الهاتف غير صالح",
+        "codeRequired": "رمز الطالب مطلوب",
+        "passwordRequired": "كلمة المرور مطلوبة",
+        "passwordShort": "كلمة المرور يجب أن تكون 8 أحرف على الأقل",
+        "passwordMismatch": "كلمات المرور غير متطابقة"
+      }
+    },
+    "deleteModal": {
+      "title": "حذف الطالب",
+      "message": "هل أنت متأكد من حذف الطالب \"{{name}}\"؟ هذا الإجراء لا يمكن التراجع عنه."
+    },
+    "groups": {
+      "title": "إدارة مجموعات الطالب",
+      "loadError": "فشل تحميل المجموعات",
+      "addToGroup": "إضافة إلى مجموعة",
+      "noAvailableRooms": "لا توجد مجموعات متاحة",
+      "selectRoom": "اختر مجموعة",
+      "add": "إضافة",
+      "currentGroups": "المجموعات الحالية",
+      "noMemberships": "الطالب غير منضم لأي مجموعة",
+      "code": "الرمز",
+      "joined": "انضم",
+      "remove": "إزالة",
+      "addSuccess": "تمت إضافة الطالب إلى المجموعة",
+      "addError": "فشلت إضافة الطالب",
+      "removeSuccess": "تمت إزالة الطالب من المجموعة",
+      "removeError": "فشلت إزالة الطالب"
     }
   },
   "exams": {
@@ -468,11 +579,121 @@
         "parking": "قواعد الوقوف"
       }
     },
+  "student": {
+    "welcome": "مرحباً",
+    "code": "الرمز",
+    "stats": {
+      "total": "إجمالي الاختبارات",
+      "completed": "مكتملة",
+      "pending": "قيد الانتظار",
+      "avgScore": "المعدل"
+    },
+    "status": {
+      "notStarted": "غير مبدوء",
+      "inProgress": "قيد التقدم",
+      "completed": "مكتمل"
+    },
+    "assignedQuizzes": "الاختبارات المخصصة",
+    "noQuizzes": "لا توجد اختبارات مخصصة",
+    "questions": "أسئلة",
+    "minutes": "دقائق",
+    "attempts": "محاولات",
+    "startQuiz": "ابدأ الاختبار",
+    "continue": "متابعة",
+    "viewResults": "عرض النتائج"
+  },
+  "learning": {
+    "title": "مساحة التعلم",
+    "subtitle": "ادرس المواد التعليمية لتحسين معرفتك",
+    "coming_soon": "قريبًا",
+    "coming_soon_message": "هذه الصفحة قيد التطوير. سيتم إضافة المحتوى التعليمي قريبًا.",
+    "lessonsCount": "دروس",
+    "completed": "مكتملة",
+    "backToDashboard": "العودة إلى لوحة التحكم"
+  },
+  "learningManagement": {
+    "title": "إدارة الوحدات التعليمية",
+    "subtitle": "أنشئ وأدر وحداتك التدريبية",
+    "createModule": "إنشاء وحدة تعليمية",
+    "searchPlaceholder": "البحث عن وحدة...",
+    "noResults": "لا توجد نتائج",
+    "noModules": "لا توجد وحدات",
+    "createFirst": "أنشئ وحدتك التدريبية الأولى",
+    "filters": {
+      "allCategories": "جميع التصنيفات",
+      "category": "التصنيف"
+    },
+    "stats": {
+      "totalModules": "إجمالي الوحدات",
+      "published": "الوحدات المنشورة",
+      "totalLessons": "إجمالي الدروس"
+    },
+    "status": {
+      "draft": "مسودة",
+      "published": "منشور"
+    },
+    "table": {
+      "name": "اسم الوحدة",
+      "lessonsCount": "عدد الدروس",
+      "category": "التصنيف",
+      "createdAt": "تاريخ الإنشاء",
+      "status": "الحالة",
+      "actions": "الإجراءات"
+    },
+    "actions": {
+      "assign": "تعيين",
+      "edit": "تعديل",
+      "delete": "حذف"
+    }
+  },
+  "quiz": {
+    "question": "سؤال",
+    "answered": "أجيب",
+    "previous": "السابق",
+    "next": "التالي",
+    "finish": "إنهاء الاختبار",
+    "submitting": "جاري التسليم...",
+    "unansweredWarning": "لديك أسئلة لم تجب عليها. هل تريد تسليم الاختبار؟",
+    "passed": "نجحت!",
+    "failed": "لم تنجح",
+    "score": "النتيجة",
+    "correct": "إجابات صحيحة",
+    "backToDashboard": "العودة للوحة التحكم"
+  },
   "common": {
     "ok": "حسنًا",
     "cancel": "إلغاء",
     "delete": "حذف",
     "save": "حفظ",
-    "close": "إغلاق"
+    "close": "إغلاق",
+    "loading": "جاري التحميل...",
+    "error": "حدث خطأ",
+    "retry": "إعادة المحاولة",
+    "logout": "تسجيل الخروج",
+    "validate": "تحقق",
+    "selectOption": "اختر خيارًا"
+  },
+  "selectQuiz": {
+    "title": "اختر نوع الاختبار",
+    "withCode": {
+      "title": "اختبار بالرمز",
+      "subtitle": "اختبار مدرستك",
+      "description": "هذا الوضع مخصص لطلاب مدرسة السياقة. الرجاء إدخال رمز الوصول للبدء.",
+      "codeLabel": "رمز الوصول",
+      "codePlaceholder": "أدخل الرمز",
+      "invalidCode": "الرمز غير صحيح. حاول مرة أخرى."
+    },
+    "practice": {
+      "title": "وضع التدريب",
+      "subtitle": "للتمرين الحر",
+      "description": "تدرب بالوتيرة التي تناسبك باختيار إعدادات الاختبار الخاصة بك.",
+      "vehicleType": "نوع المركبة",
+      "questionCount": "عدد الأسئلة",
+      "startButton": "ابدأ الاختبار"
+    },
+    "carType": {
+      "car": "سيارة",
+      "heavy": "ثقيل"
+    }
   }
 }

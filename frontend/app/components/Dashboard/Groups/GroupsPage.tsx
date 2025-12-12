@@ -411,12 +411,25 @@ export default function GroupsPage() {
       <div className={`flex-1 bg-gray-50 p-4 sm:p-6 lg:p-8 ${isRTL ? 'text-right' : 'text-left'}`}>
       {/* Header Section */}
       <div className="mb-6 sm:mb-8">
-        <h1 className="text-2xl sm:text-3xl font-bold text-primary-800 mb-2">
-          {t('groups.title')}
-        </h1>
-        <p className="text-grey text-base sm:text-lg">
-          {t('groups.subtitle')}
-        </p>
+        <div className={`flex items-center justify-between ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-bold text-primary-800 mb-2">
+              {t('groups.title')}
+            </h1>
+            <p className="text-grey text-base sm:text-lg">
+              {t('groups.subtitle')}
+            </p>
+          </div>
+          <button
+            onClick={() => navigate('/dashboard/students')}
+            className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            {t('groups.viewStudents', 'عرض الطلاب')}
+          </button>
+        </div>
       </div>
 
       {/* Create Group Button */}

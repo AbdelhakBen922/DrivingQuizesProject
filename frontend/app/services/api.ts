@@ -25,6 +25,15 @@ export interface LoginRequest {
   password: string;
 }
 
+export interface StudentLoginRequest {
+  student_code: string;
+  password: string;
+}
+
+export interface QuickCodeRequest {
+  student_code: string;
+}
+
 export interface LoginResponse {
   access_token: string;
   token_type: string;
@@ -44,6 +53,55 @@ export interface DashboardStats {
   total_students: number;
   upcoming_quizzes: number;
   active_quizzes: number;
+}
+
+// Dashboard Overview Types
+export interface DashboardOverviewMetrics {
+  total_rooms: number;
+  total_students: number;
+  upcoming_quizzes: number;
+  active_quizzes: number;
+}
+
+export interface DashboardExamResultPoint {
+  month: string;
+  average_score: number;
+  attempt_count: number;
+}
+
+export interface DashboardRoomProgress {
+  room_id: number;
+  room_name: string;
+  completion_percent: number;
+}
+
+export interface DashboardRecentRegistration {
+  student_id: number;
+  full_name: string;
+  room_name: string | null;
+  created_at: string;
+}
+
+export interface DashboardTopStudent {
+  student_id: number;
+  full_name: string;
+  average_score: number;
+  attempt_count: number;
+}
+
+export interface DashboardOverviewResponse {
+  metrics: DashboardOverviewMetrics;
+  exam_results: DashboardExamResultPoint[];
+  study_progress: DashboardRoomProgress[];
+  recent_registrations: DashboardRecentRegistration[];
+  top_students: DashboardTopStudent[];
+}
+
+export interface DashboardStatsResponse {
+  total_groups: number;
+  total_students: number;
+  total_instructors: number;
+  active_exams: number;
 }
 
 // Rooms (Groups)
@@ -98,37 +156,68 @@ export interface RoomQuizSummary {
 }
 
 // Students
+// Students
 export interface Student {
   id: number;
   school_id: number;
-  first_name: string;
-  last_name: string;
-  email: string;
-  phone: string | null;
-  date_of_birth: string | null;
+  full_name: string;
   student_code: string;
-  avatar_url: string | null;
+  password_hash: string;
+  dob: string | null;
+  national_id: string | null;
+  phone: string | null;
+  email: string | null;
+  profile_data: Record<string, any>;
+  created_by_id: number | null;
   created_at: string;
   updated_at: string;
   deleted_at: string | null;
 }
 
 export interface StudentCreateRequest {
-  school_id: number;
-  first_name: string;
-  last_name: string;
-  email: string;
+  full_name: string;
+  student_code: string;
+  password: string;
+  dob?: string | null;
+  national_id?: string | null;
   phone?: string | null;
-  date_of_birth?: string | null;
-  created_by_id?: number | null;
+  email?: string | null;
+  profile_data?: Record<string, any> | null;
 }
 
 export interface StudentUpdateRequest {
-  first_name?: string;
-  last_name?: string;
-  email?: string;
+  full_name?: string;
+  student_code?: string;
+  password?: string;
+  dob?: string | null;
+  national_id?: string | null;
   phone?: string | null;
-  date_of_birth?: string | null;
+  email?: string | null;
+  profile_data?: Record<string, any> | null;
+}
+
+export interface StudentWithRooms extends Student {
+  rooms: Array<{
+    room_id: number;
+    room_name: string;
+    room_code: string;
+    status: string;
+    joined_at: string;
+  }>;
+}
+
+// Room Members
+export interface RoomMemberAddRequest {
+  student_id: number;
+}
+
+export interface RoomMember {
+  id: number;
+  room_id: number;
+  student_id: number | null;
+  joined_at: string | null;
+  left_at: string | null;
+  status: 'active' | 'left' | 'removed';
 }
 
 // Quizzes/Exams
@@ -424,12 +513,275 @@ export function logout() {
   clearAuthToken();
 }
 
+export async function studentLogin(data: StudentLoginRequest): Promise<LoginResponse> {
+  const response = await fetch(`${API_BASE_URL}/student/auth/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    const error: ApiError = await response.json().catch(() => ({
+      detail: "Student login failed",
+    }));
+    throw new Error(error.detail);
+  }
+
+  const result = await response.json();
+  setAuthToken(result.access_token);
+  return result;
+}
+
+export async function quickCodeEntry(studentCode: string): Promise<LoginResponse> {
+  // For quick code entry, we use a temporary password or guest mode
+  // This creates a session without full authentication
+  const response = await fetch(`${API_BASE_URL}/student/auth/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      student_code: studentCode,
+      password: "", // Empty password for guest mode - backend should handle this
+    }),
+  });
+
+  if (!response.ok) {
+    const error: ApiError = await response.json().catch(() => ({
+      detail: "Invalid student code",
+    }));
+    throw new Error(error.detail);
+  }
+
+  const result = await response.json();
+  setAuthToken(result.access_token);
+  return result;
+}
+
+/**
+ * Get student dashboard overview stats
+ */
+export async function getStudentDashboardOverview(): Promise<{
+  total_quizzes: number;
+  completed_quizzes: number;
+  pending_quizzes: number;
+  average_score: number;
+  student_name: string;
+  student_code: string;
+}> {
+  const response = await fetch(`${API_BASE_URL}/student/dashboard/overview`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getAuthToken()}`,
+    },
+  });
+
+  if (!response.ok) {
+    const error: ApiError = await response.json().catch(() => ({
+      detail: "Failed to load dashboard",
+    }));
+    throw new Error(error.detail);
+  }
+
+  return response.json();
+}
+
+/**
+ * Get assigned quizzes for student
+ */
+export async function getAssignedQuizzes(): Promise<Array<{
+  quiz_id: number;
+  title: string;
+  description: string | null;
+  room_name: string;
+  due_date: string | null;
+  time_limit_minutes: number | null;
+  total_questions: number;
+  status: "not_started" | "in_progress" | "completed";
+  best_score: number | null;
+  attempts_count: number;
+  max_attempts: number | null;
+}>> {
+  const response = await fetch(`${API_BASE_URL}/student/dashboard/quizzes/assigned`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getAuthToken()}`,
+    },
+  });
+
+  if (!response.ok) {
+    const error: ApiError = await response.json().catch(() => ({
+      detail: "Failed to load quizzes",
+    }));
+    throw new Error(error.detail);
+  }
+
+  return response.json();
+}
+
+export function getUserType(): string | null {
+  return localStorage.getItem("userType");
+}
+
+/**
+ * Start a new quiz attempt
+ */
+export async function startQuiz(quizId: number): Promise<{
+  attempt_id: number;
+  quiz_id: number;
+  quiz_title: string;
+  attempt_number: number;
+  total_questions: number;
+  questions: Array<{
+    id: number;
+    text: string;
+    image_url: string | null;
+    choices: Array<{
+      id: number;
+      text: string;
+      position: number;
+    }>;
+    answered_choice_id: number | null;
+    duration_sec: number | null;
+  }>;
+}> {
+  const response = await fetch(`${API_BASE_URL}/student/quiz/${quizId}/start`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getAuthToken()}`,
+    },
+  });
+
+  if (!response.ok) {
+    const error: ApiError = await response.json().catch(() => ({
+      detail: "Failed to start quiz",
+    }));
+    throw new Error(error.detail);
+  }
+
+  return response.json();
+}
+
+/**
+ * Submit an answer for a question
+ */
+export async function submitQuizAnswer(
+  quizId: number,
+  data: { question_id: number; choice_id: number }
+): Promise<{ success: boolean; message: string; is_correct: boolean }> {
+  const response = await fetch(`${API_BASE_URL}/student/quiz/${quizId}/answer`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getAuthToken()}`,
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    const error: ApiError = await response.json().catch(() => ({
+      detail: "Failed to submit answer",
+    }));
+    throw new Error(error.detail);
+  }
+
+  return response.json();
+}
+
+/**
+ * Finish quiz and get results
+ */
+export async function finishQuiz(quizId: number): Promise<{
+  attempt_id: number;
+  score: number;
+  total_questions: number;
+  correct_answers: number;
+  percentage: number;
+  passed: boolean;
+}> {
+  const response = await fetch(`${API_BASE_URL}/student/quiz/${quizId}/finish`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getAuthToken()}`,
+    },
+  });
+
+  if (!response.ok) {
+    const error: ApiError = await response.json().catch(() => ({
+      detail: "Failed to finish quiz",
+    }));
+    throw new Error(error.detail);
+  }
+
+  return response.json();
+}
+
+/**
+ * Get quiz review with correct answers
+ */
+export async function getQuizReview(quizId: number, attemptId: number): Promise<{
+  attempt_id: number;
+  quiz_title: string;
+  score: number;
+  total_questions: number;
+  correct_answers: number;
+  percentage: number;
+  passed: boolean;
+  questions: Array<{
+    id: number;
+    text: string;
+    image_url: string | null;
+    student_answer_choice_id: number | null;
+    correct_choice_id: number;
+    is_correct: boolean;
+    choices: Array<{
+      id: number;
+      text: string;
+      position: number;
+    }>;
+  }>;
+}> {
+  const response = await fetch(
+    `${API_BASE_URL}/student/quiz/${quizId}/review/${attemptId}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${getAuthToken()}`,
+      },
+    }
+  );
+
+  if (!response.ok) {
+    const error: ApiError = await response.json().catch(() => ({
+      detail: "Failed to get quiz review",
+    }));
+    throw new Error(error.detail);
+  }
+
+  return response.json();
+}
+
 // =============================================================================
 // DASHBOARD OVERVIEW API
 // =============================================================================
 
 export async function getDashboardStats(): Promise<DashboardStats> {
   return fetchAPI<DashboardStats>("/dashboard/overview/stats");
+}
+
+export async function getDashboardOverview(): Promise<DashboardOverviewResponse> {
+  return fetchAPI<DashboardOverviewResponse>("/dashboard/overview/");
+}
+
+export async function getDashboardStatsDetailed(): Promise<DashboardStatsResponse> {
+  return fetchAPI<DashboardStatsResponse>("/dashboard/overview/stats");
 }
 
 // =============================================================================
@@ -500,8 +852,18 @@ export async function assignQuizToRoom(
 // STUDENTS API
 // =============================================================================
 
-export async function getStudents(): Promise<Student[]> {
-  return fetchAPI<Student[]>("/dashboard/students/");
+export async function listStudents(params?: {
+  limit?: number;
+  offset?: number;
+  search?: string;
+}): Promise<Student[]> {
+  const queryParams = new URLSearchParams();
+  if (params?.limit) queryParams.append("limit", params.limit.toString());
+  if (params?.offset) queryParams.append("offset", params.offset.toString());
+  if (params?.search) queryParams.append("search", params.search);
+
+  const url = `/dashboard/students/${queryParams.toString() ? `?${queryParams.toString()}` : ""}`;
+  return fetchAPI<Student[]>(url);
 }
 
 export async function getStudent(studentId: number): Promise<Student> {
@@ -511,7 +873,7 @@ export async function getStudent(studentId: number): Promise<Student> {
 export async function createStudent(
   data: StudentCreateRequest
 ): Promise<Student> {
-  return fetchAPI<Student>("/students/", {
+  return fetchAPI<Student>("/dashboard/students/", {
     method: "POST",
     body: JSON.stringify(data),
   });
@@ -521,17 +883,23 @@ export async function updateStudent(
   studentId: number,
   data: StudentUpdateRequest
 ): Promise<Student> {
-  return fetchAPI<Student>(`/students/${studentId}`, {
+  return fetchAPI<Student>(`/dashboard/students/${studentId}`, {
     method: "PUT",
     body: JSON.stringify(data),
   });
 }
 
 export async function deleteStudent(studentId: number): Promise<void> {
-  return fetchAPI<void>(`/students/${studentId}`, {
+  return fetchAPI<void>(`/dashboard/students/${studentId}`, {
     method: "DELETE",
   });
 }
+
+export async function getStudentRooms(studentId: number): Promise<RoomMember[]> {
+  // This would need a backend endpoint - for now we'll query through rooms
+  return fetchAPI<RoomMember[]>(`/dashboard/students/${studentId}/rooms`);
+}
+
 
 // =============================================================================
 // QUIZZES/EXAMS API

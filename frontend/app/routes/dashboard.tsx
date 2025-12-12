@@ -14,9 +14,18 @@ export default function DashboardLayout() {
     // Check if user is authenticated
     if (!api.isAuthenticated()) {
       navigate("/login");
-    } else {
-      setIsChecking(false);
+      return;
     }
+    
+    // Check user type - only staff can access dashboard
+    const userType = localStorage.getItem("userType");
+    if (userType === "student" || userType === "guest") {
+      // Redirect students to student dashboard
+      navigate("/student/dashboard");
+      return;
+    }
+    
+    setIsChecking(false);
   }, [navigate]);
 
   if (isChecking) {

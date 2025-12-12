@@ -72,11 +72,10 @@ export default function Sidebar() {
       )}
 
       {/* Sidebar */}
-      <div
+      <aside
         className={`
-          fixed lg:relative top-0 h-screen
-          w-[270px] bg-primary-25 shadow-lg z-40
-          border-r border-grey
+          fixed lg:sticky top-0 h-screen
+          w-64 bg-white shadow-lg z-40
           transition-transform duration-300 ease-in-out
           ${isOpen ? 'translate-x-0' : (isRTL ? 'translate-x-full' : '-translate-x-full')}
           lg:translate-x-0
@@ -85,24 +84,24 @@ export default function Sidebar() {
       >
         <div className="flex flex-col h-full">
           {/* Logo/Header */}
-          <div className="p-6 pt-[60px] pb-[60px] border-b border-grey mb-[60px]">
+          <div className="p-6 border-b border-gray-200">
             <h2 className="text-2xl font-bold text-primary-800">
               {t('dashboard.title', 'Dashboard')}
             </h2>
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1 space-y-[15px]">
+          <nav className="flex-1 p-4 space-y-2">
             {navItems.map((item) => (
               <Link
                 key={item.key}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
                 className={`
-                  flex items-center gap-[30px] pl-[30px] py-[15px] relative
+                  flex items-center gap-3 px-4 py-3 rounded-xl
                   transition-all duration-200
                   ${isActive(item.path)
-                    ? 'bg-primary-100 text-primary-800 font-semibold border-l-[7.5px] border-primary-300'
+                    ? 'bg-primary-100 text-primary-800 font-semibold'
                     : 'text-grey hover:bg-primary-25'
                   }
                   ${isRTL ? 'flex-row-reverse' : 'flex-row'}
@@ -145,18 +144,6 @@ export default function Sidebar() {
                     {ownerInfo.first_name} {ownerInfo.last_name}
                   </p>
                 </div>
-          <div className={`p-4 border-t border-grey`}>
-            <div className={`flex items-center gap-3 p-3 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
-              <div className="w-12 h-12 rounded-full bg-primary-300 flex items-center justify-center text-white font-bold text-lg">
-                {t('dashboard.user.initials', 'SN')}
-              </div>
-              <div className={`flex-1 ${isRTL ? 'text-right' : 'text-left'}`}>
-                <p className="font-semibold text-primary-800">
-                  {t('dashboard.user.name', '[School Name]')}
-                </p>
-                <p className="text-sm text-grey">
-                  {t('dashboard.user.role', '[Owner name]')}
-                </p>
               </div>
             ) : (
               <div className="text-sm text-gray-500 text-center p-3">
@@ -179,7 +166,7 @@ export default function Sidebar() {
             </button>
           </div>
         </div>
-      </div>
+      </aside>
     </>
   );
 }

@@ -1,4 +1,6 @@
 import { useTranslation } from "react-i18next";
+import { useState, useEffect } from "react";
+import * as api from "../../../services/api";
 
 interface Student {
   id: number;
@@ -12,20 +14,44 @@ interface Student {
 export default function TopStudents() {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === 'ar';
+  const [students, setStudents] = useState<Student[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  // Up to 10 students, with gold/silver/bronze for top 3
-  const students: Student[] = [
-    { id: 1, name: 'Zakaria Chetouane', points: 9782, avatar: 'ZC', color: 'bg-yellow-500', rank: 1 },
-    { id: 2, name: 'Ahmed Hassan', points: 8770, avatar: 'AH', color: 'bg-gray-400', rank: 2 },
-    { id: 3, name: 'Sarah Mohamed', points: 7654, avatar: 'SM', color: 'bg-orange-600', rank: 3 },
-    { id: 4, name: 'Omar Ali', points: 6770, avatar: 'OA', color: 'bg-primary-300', rank: 4 },
-    { id: 5, name: 'Fatima Zahra', points: 6234, avatar: 'FZ', color: 'bg-primary-300', rank: 5 },
-    { id: 6, name: 'Youssef Ibrahim', points: 5890, avatar: 'YI', color: 'bg-primary-300', rank: 6 },
-    { id: 7, name: 'Amina Karim', points: 5456, avatar: 'AK', color: 'bg-primary-300', rank: 7 },
-    { id: 8, name: 'Hassan Mahmoud', points: 5123, avatar: 'HM', color: 'bg-primary-300', rank: 8 },
-    { id: 9, name: 'Layla Abdullah', points: 4890, avatar: 'LA', color: 'bg-primary-300', rank: 9 },
-    { id: 10, name: 'Khalid Nasser', points: 4567, avatar: 'KN', color: 'bg-primary-300', rank: 10 },
-  ];
+  useEffect(() => {
+    loadTopStudents();
+  }, []);
+
+  const loadTopStudents = async () => {
+    try {
+      setLoading(true);
+      const data = await api.getDashboardOverview();
+      
+      // Transform API data to display format
+      const transformed = data.top_students.map((student, index) => {
+        const initials = student.full_name
+          .split(' ')
+          .map(n => n[0])
+          .join('')
+          .toUpperCase()
+          .substring(0, 2);
+        
+        return {
+          id: student.student_id,
+          name: student.full_name,
+          points: Math.round(student.average_score * 100), // Convert to percentage-like score
+          avatar: initials,
+          color: getRankColor(index + 1),
+          rank: index + 1,
+        };
+      });
+      
+      setStudents(transformed);
+    } catch (err) {
+      console.error('Failed to load top students:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const getRankIcon = (rank: number) => {
     if (rank === 1) return '🏆';
@@ -46,38 +72,48 @@ export default function TopStudents() {
       {/* Header */}
       <div className={`flex items-center justify-between mb-3 flex-shrink-0 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
         <h3 className="text-lg font-bold text-primary-800">
-          {t('dashboard.topStudents.title', 'Top Students')}
+          {t('dashboard.topStudents.title', 'أفضل التلاميذ')}
         </h3>
       </div>
 
-      {/* Students List - Top 3 visible, scroll for remaining 7 */}
+      {/* Students List */}
       <div className="overflow-y-auto space-y-2 pr-2 custom-scrollbar" style={{ maxHeight: '210px' }}>
-        {students.map((student) => (
-          <div
-            key={student.id}
-            className="bg-gray-50 rounded-lg p-3 hover:bg-gray-100 transition-all"
-          >
-            <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
-              {/* Avatar with rank color */}
-              <div className={`w-10 h-10 ${getRankColor(student.rank)} rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 text-sm`}>
-                {student.avatar}
-              </div>
-
-              {/* Content */}
-              <div className={`flex-1 ${isRTL ? 'text-right' : 'text-left'}`}>
-                <p className="font-semibold text-primary-800 text-sm">{student.name}</p>
-                <p className="text-xs text-grey">{student.points} Points</p>
-              </div>
-
-              {/* Rank Icon (only for top 3) */}
-              {getRankIcon(student.rank) && (
-                <div className="text-xl">
-                  {getRankIcon(student.rank)}
-                </div>
-              )}
-            </div>
+        {loading ? (
+          <div className="text-center py-4 text-grey text-sm">
+            {t('common.loading', 'جاري التحميل...')}
           </div>
-        ))}
+        ) : students.length === 0 ? (
+          <div className="text-center py-4 text-grey text-sm">
+            {t('dashboard.topStudents.noStudents', 'لا يوجد طلاب بعد')}
+          </div>
+        ) : (
+          students.map((student) => (
+            <div
+              key={student.id}
+              className="bg-gray-50 rounded-lg p-3 hover:bg-gray-100 transition-all"
+            >
+              <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+                {/* Avatar with rank color */}
+                <div className={`w-10 h-10 ${student.color} rounded-full flex items-center justify-center text-white font-bold flex-shrink-0 text-sm`}>
+                  {student.avatar}
+                </div>
+
+                {/* Content */}
+                <div className={`flex-1 ${isRTL ? 'text-right' : 'text-left'}`}>
+                  <p className="font-semibold text-primary-800 text-sm">{student.name}</p>
+                  <p className="text-xs text-grey">{student.points} {t('dashboard.topStudents.points', 'نقطة')}</p>
+                </div>
+
+                {/* Rank Icon (only for top 3) */}
+                {getRankIcon(student.rank) && (
+                  <div className="text-xl">
+                    {getRankIcon(student.rank)}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

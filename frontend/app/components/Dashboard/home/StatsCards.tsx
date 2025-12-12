@@ -1,4 +1,6 @@
 import { useTranslation } from "react-i18next";
+import { useState, useEffect } from "react";
+import * as api from "../../../services/api";
 
 interface StatCard {
   key: string;
@@ -8,19 +10,37 @@ interface StatCard {
   bgColorHex: string;
 }
 
-const stats: StatCard[] = [
-  { key: 'groups', iconPath: '/assets/icons/dashboard/statistics/groups.svg', value: 13, bgColorClass: 'bg-primary-300', bgColorHex: '#D0E7E9' },
-  { key: 'students', iconPath: '/assets/icons/dashboard/statistics/User_03.svg', value: 256, bgColorClass: 'bg-primary-800', bgColorHex: '#E8DAEA' },
-  { key: 'quizzes', iconPath: '/assets/icons/dashboard/statistics/Select_Multiple.svg', value: 13, bgColorClass: 'bg-grey', bgColorHex: '#D1DDFD' },
-];
-
 export default function StatsCards() {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === 'ar';
+  const [stats, setStats] = useState<api.DashboardStatsResponse | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadStats();
+  }, []);
+
+  const loadStats = async () => {
+    try {
+      setLoading(true);
+      const data = await api.getDashboardStatsDetailed();
+      setStats(data);
+    } catch (err) {
+      console.error('Failed to load dashboard stats:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const statsData: StatCard[] = [
+    { key: 'groups', iconPath: '/assets/icons/dashboard/statistics/groups.svg', value: stats?.total_groups || 0, bgColorClass: 'bg-primary-300', bgColorHex: '#D0E7E9' },
+    { key: 'students', iconPath: '/assets/icons/dashboard/statistics/User_03.svg', value: stats?.total_students || 0, bgColorClass: 'bg-primary-800', bgColorHex: '#E8DAEA' },
+    { key: 'quizzes', iconPath: '/assets/icons/dashboard/statistics/Select_Multiple.svg', value: stats?.active_exams || 0, bgColorClass: 'bg-grey', bgColorHex: '#D1DDFD' },
+  ];
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-      {stats.map((stat) => (
+      {statsData.map((stat) => (
         <div
           key={stat.key}
           className="bg-white rounded-xl shadow-md p-4 hover:shadow-lg transition-all duration-200"
@@ -41,7 +61,7 @@ export default function StatsCards() {
                 {t(`dashboard.stats.${stat.key}`, stat.key)}
               </p>
               <p className="text-3xl font-bold text-primary-800 mt-0.5">
-                {stat.value}
+                {loading ? '...' : stat.value}
               </p>
             </div>
           </div>
