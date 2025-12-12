@@ -23,6 +23,8 @@ from app.schemas.quiz_template_question import QuizTemplateQuestionInput
 
 router = APIRouter(prefix="/templates", tags=["dashboard-templates"])
 
+DEFAULT_SCHOOL_ID = 0
+
 
 async def _get_editable_template(
     session: AsyncSession, template_id: int, staff: StaffUser
@@ -153,6 +155,43 @@ async def list_templates(
 
     if topic_id is not None:
         stmt = stmt.where(QuizTemplate.topic_id == topic_id)
+    if difficulty is not None:
+        stmt = stmt.where(QuizTemplate.difficulty == difficulty)
+    if search:
+        stmt = stmt.where(
+            or_(
+                QuizTemplate.title.ilike(f"%{search}%"),
+                QuizTemplate.title_ar.ilike(f"%{search}%"),
+                QuizTemplate.title_fr.ilike(f"%{search}%"),
+            )
+        )
+
+    result = await session.execute(stmt)
+    rows = result.all()
+
+    templates: list[QuizTemplateListItem] = []
+    for template, question_count in rows:
+        setattr(template, "question_count", int(question_count or 0))
+        templates.append(QuizTemplateListItem.model_validate(template))
+
+    return templates
+
+
+@router.get("/defaults", response_model=list[QuizTemplateListItem])
+async def list_default_templates(
+    difficulty: QuestionDifficulty | None = Query(default=None),
+    search: str | None = Query(default=None, min_length=1),
+    session: AsyncSession = Depends(get_db),
+    current_staff: StaffUser = Depends(get_current_staff),
+) -> list[QuizTemplateListItem]:
+    stmt = (
+        select(QuizTemplate, func.count(QuizTemplateQuestion.id).label("question_count"))
+        .outerjoin(QuizTemplateQuestion, QuizTemplateQuestion.template_id == QuizTemplate.id)
+        .group_by(QuizTemplate.id)
+        .order_by(QuizTemplate.created_at.desc())
+    )
+    stmt = stmt.where(QuizTemplate.school_id == DEFAULT_SCHOOL_ID)
+
     if difficulty is not None:
         stmt = stmt.where(QuizTemplate.difficulty == difficulty)
     if search:
