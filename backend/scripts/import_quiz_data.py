@@ -290,7 +290,7 @@ class QuizDataImporter:
             ),
             default_duration_sec=test.get("default_duration_sec"),
             settings=self._build_template_settings(test),
-            is_public=bool(test.get("is_public", False)),
+            is_public=bool(test.get("is_public", True)),
             created_by_id=self.args.staff_id,
         )
         session.add(template)

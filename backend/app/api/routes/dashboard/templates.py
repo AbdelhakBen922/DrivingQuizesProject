@@ -23,8 +23,6 @@ from app.schemas.quiz_template_question import QuizTemplateQuestionInput
 
 router = APIRouter(prefix="/templates", tags=["dashboard-templates"])
 
-DEFAULT_SCHOOL_ID = 0
-
 
 async def _get_editable_template(
     session: AsyncSession, template_id: int, staff: StaffUser
@@ -190,7 +188,7 @@ async def list_default_templates(
         .group_by(QuizTemplate.id)
         .order_by(QuizTemplate.created_at.desc())
     )
-    stmt = stmt.where(QuizTemplate.school_id == DEFAULT_SCHOOL_ID)
+    stmt = stmt.where(QuizTemplate.is_public.is_(True))
 
     if difficulty is not None:
         stmt = stmt.where(QuizTemplate.difficulty == difficulty)
