@@ -1,7 +1,9 @@
 import { useState } from "react";
 import LanguageToggle from "./LanguageToggle";
+import { useTranslation } from "react-i18next";
 
 const NavBar = ({ dark }: { dark: boolean }) => {
+    const { t } = useTranslation();
     const [open, setOpen] = useState(false);
 
     const textColor = dark ? "text-white" : "text-primary-800";
@@ -18,10 +20,10 @@ const NavBar = ({ dark }: { dark: boolean }) => {
             {/* Desktop Menu */}
             <nav className="hidden md:block mx-12">
                 <ul className="flex flex-row gap-6">
-                    <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="#">Home</a></li>
-                    <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="#">Quiz</a></li>
-                    <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="#">Learn</a></li>
-                    <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="#">Q&A</a></li>
+                    <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="/">{t('nav.home')}</a></li>
+                    <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="/select-quiz">{t('nav.quiz')}</a></li>
+                    <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="#">{t('nav.learn')}</a></li>
+                    <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="#">{t('nav.qa')}</a></li>
                 </ul>
             </nav>
 
@@ -29,7 +31,7 @@ const NavBar = ({ dark }: { dark: boolean }) => {
             <div className="hidden md:flex items-center gap-6 ml-auto">
                 <LanguageToggle dark={dark} />
                 <button className="btn-primary">
-                    Se connecter (auto-école)
+                    {t('nav.login')}
                 </button>
             </div>
 
@@ -44,14 +46,14 @@ const NavBar = ({ dark }: { dark: boolean }) => {
             {/* Mobile Dropdown Menu */}
             {open && (
                 <div className={`absolute top-[12vh] left-0 w-full ${mobileBg} backdrop-blur-lg md:hidden flex flex-col items-center gap-4 py-6`}>
-                    <a className={`fancy-link text-xl ${linkColor}`} href="#">Home</a>
-                    <a className={`fancy-link text-xl ${linkColor}`} href="#">Quiz</a>
-                    <a className={`fancy-link text-xl ${linkColor}`} href="#">Learn</a>
-                    <a className={`fancy-link text-xl ${linkColor}`} href="#">Q&A</a>
+                    <a className={`fancy-link text-xl ${linkColor}`} href="#">{t('nav.home')}</a>
+                    <a className={`fancy-link text-xl ${linkColor}`} href="#">{t('nav.quiz')}</a>
+                    <a className={`fancy-link text-xl ${linkColor}`} href="#">{t('nav.learn')}</a>
+                    <a className={`fancy-link text-xl ${linkColor}`} href="#">{t('nav.qa')}</a>
 
                     <LanguageToggle dark={dark} />
                     <button className="btn-primary mt-2">
-                        Se connecter (auto-école)
+                        {t('nav.login')}
                     </button>
                 </div>
             )}

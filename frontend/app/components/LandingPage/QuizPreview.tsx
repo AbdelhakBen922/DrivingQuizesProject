@@ -1,4 +1,5 @@
 import FadeInSection from "../FadeInSection";
+import { useTranslation } from "react-i18next";
 
 const FeatureLine = ({ icon, text }: { icon: string; text: string }) => {
     return (
@@ -10,33 +11,33 @@ const FeatureLine = ({ icon, text }: { icon: string; text: string }) => {
 };
 
 const QuizPreview = ({className}: {className?: string}) => {
+    const { t } = useTranslation();
     return (
         <FadeInSection>
             <section className={` two-columns-section two-columns-section-right ${className}`}>
                 <div className="flex flex-col gap-7 justify-center items-center w-full text-center md:text-start md:items-start">
                     <h1 className="text-primary-800">
-                        Testez vos connaissances avant de prendre la route.
+                        {t('quizPreview.title')}
                     </h1>
                     <p className="font-medium text-primary-600">
-                        Préparez votre examen avec des quiz interactifs. Apprenez, et suivez
-                        vos progrès facilement.
+                        {t('quizPreview.description')}
                     </p>
                         <img src="/assets/images/quiz_preview_mobile.png" alt="Learning Preview Mobile" className="w-full h-auto rounded-lg  block md:hidden" />
                     <div className="flex flex-col justify-center items-start gap-2 text-start">
                         <FeatureLine
                             icon="/assets/icons/done_all.svg"
-                            text="Correction intelligente avec retour immédiat"
+                            text={t('quizPreview.feature1')}
                         />
                         <FeatureLine
                             icon="/assets/icons/alarm.svg"
-                            text="Mode examen avec chronomètre"
+                            text={t('quizPreview.feature2')}
                         />
                         <FeatureLine
                             icon="/assets/icons/whatshot.svg"
-                            text="Suivi des progrès et statistiques de performance"
+                            text={t('quizPreview.feature3')}
                         />
                     </div>
-                    <button className="btn-primary text-3xl py-3 mt-4">Faire le Quiz</button>
+                    <button className="btn-primary text-3xl py-3 mt-4">{t('quizPreview.btn')}</button>
                 </div>
                 <div className="w-full flex justify-center items-center">
                     <img

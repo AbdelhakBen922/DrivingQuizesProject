@@ -1,0 +1,131 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "quiz": "Quiz",
+    "learn": "Apprendre",
+    "qa": "Q&R",
+    "login": "Se connecter (auto-école)"
+  },
+  "hero": {
+    "title": "Maîtrisez la route.",
+    "subtitle": "Conduisez votre avenir en toute confiance.",
+    "description": "Apprenez le code, entraînez-vous en toute sécurité et suivez vos progrès grâce à notre plateforme complète d'auto-école. Votre réussite commence ici — sur la route de la liberté.",
+    "btnQuiz": "Faire Quiz",
+    "btnLearn": "Apprendre le code"
+  },
+  "quizPreview": {
+    "title": "Testez vos connaissances avant de prendre la route.",
+    "description": "Préparez votre examen avec des quiz interactifs. Apprenez, et suivez vos progrès facilement.",
+    "feature1": "Correction intelligente avec retour immédiat",
+    "feature2": "Mode examen avec chronomètre",
+    "feature3": "Suivi des progrès et statistiques de performance",
+    "btn": "Faire le Quiz"
+  },
+  "learningPreview": {
+    "title": "Apprenez le code avant de passer à la pratique.",
+    "description": "Maîtrisez la théorie avec des leçons simples et visuelles. Comprenez les panneaux, les priorités et les règles de conduite — étape par étape.",
+    "feature1": "Leçons interactives et illustrées pour chaque thème",
+    "feature2": "Panneaux et situations réelles expliqués en détail",
+    "feature3": "Suivi de progression pour savoir où vous en êtes",
+    "btn": "Apprendre le code"
+  },
+  "whyUs": {
+    "title": "Pourquoi choisir notre plateforme ?",
+    "feature1Title": "Apprentissage à votre rythme",
+    "feature1Desc": "Avancez à votre propre vitesse, reprenez vos leçons où vous les avez laissées.",
+    "feature2Title": "Interface moderne et intuitive",
+    "feature2Desc": "Navigation fluide, design clair et expérience agréable sur tous les appareils.",
+    "feature3Title": "Personnalisation complète",
+    "feature3Desc": "Choisissez vos thèmes, vos types de tests et vos modes d'apprentissage préférés."
+  },
+  "experts": {
+    "title": "Notre équipe d'experts",
+    "subtitle": "Des professionnels passionnés qui vous accompagnent à chaque étape de votre apprentissage.",
+    "contact": "contactez-moi",
+    "job1": "Formateur principal",
+    "job2": "Moniteur de conduite",
+    "job3": "Conseiller pédagogique",
+    "job4": "Examinateur certifié"
+  },
+  "testimonials": {
+    "title": "Ce que nos apprenants disent de nous",
+    "subtitle": "Des milliers d'élèves nous font confiance chaque année pour réussir leur code et leur conduite.",
+    "stat1": "+10 000 élèves satisfaits",
+    "stat2": "Basé sur les retours authentiques",
+    "stat3": "La meilleure formation à vos côtés."
+  },
+  "faq": {
+    "title": "Questions Fréquentes",
+    "subtitle": "Trouvez des réponses aux questions les plus courantes sur notre service.",
+    "q1": "Comment puis-je m'inscrire à la plateforme ?",
+    "a1": "Vous pouvez vous inscrire en cliquant sur le bouton 'S'inscrire' en haut à droite de la page d'accueil et en remplissant le formulaire d'inscription.",
+    "q2": "Quels types de tests sont disponibles ?",
+    "a2": "Nous proposons une variété de tests, y compris des tests de code de la route, des tests pratiques et des simulations d'examen.",
+    "q3": "Puis-je accéder à la plateforme depuis mon téléphone ?",
+    "a3": "Oui, notre plateforme est entièrement responsive et accessible depuis tous les appareils, y compris les smartphones et les tablettes.",
+    "q4": "Y a-t-il un support client disponible ?",
+    "a4": "Oui, nous avons une équipe de support dédiée prête à vous aider par chat en direct, email ou téléphone.",
+    "q5": "Comment puis-je suivre mes progrès ?",
+    "a5": "Vous pouvez suivre vos progrès via votre tableau de bord personnel, où vous trouverez des statistiques détaillées sur vos performances.",
+    "q6": "Quels sont les modes de paiement acceptés ?",
+    "a6": "Nous acceptons les paiements par carte de crédit, PayPal et virement bancaire."
+  },
+  "footer": {
+    "platform": "Plateforme",
+    "platformItems": ["Accueil", "Quiz", "Cours", "Côté auto-écoles"],
+    "students": "Pour les élèves",
+    "studentsItems": ["Commencer à apprendre", "Suivre mes progrès", "Conseils & astuces", "Guide du code"],
+    "schools": "Pour les auto-écoles",
+    "schoolsItems": ["Espace auto-école", "Gérer vos élèves", "Statistiques & performances", "Devenir partenaire"],
+    "support": "Support",
+    "supportItems": ["FAQ", "Contactez-nous", "Centre d'aide", "Mentions légales"],
+    "copyright": "© 2025 — Tous droits réservés."
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "welcome": "Bienvenue Ecole_nom !",
+    "subtitle": "voici quelques statistiques rapides sur votre école",
+    "logout": "Déconnexion",
+    "nav": {
+      "home": "Accueil",
+      "groups": "Groupes",
+      "learning": "Apprentissage",
+      "quizzes": "Examens",
+      "settings": "Paramètres"
+    },
+    "user": {
+      "name": "[Nom de l'école]",
+      "role": "[Nom du propriétaire]",
+      "initials": "NE"
+    },
+    "stats": {
+      "groups": "Nombre de Groupes",
+      "students": "Nombre d'Élèves",
+      "quizzes": "Examens Actifs"
+    },
+    "calendar": {
+      "title": "Calendrier"
+    },
+    "chart": {
+      "quizScores": "Résultats des Examens",
+      "overall": "Global",
+      "monthly": "Mensuel",
+      "weekly": "Hebdomadaire"
+    },
+    "progress": {
+      "title": "Progression de l'Apprentissage",
+      "seeAll": "Tout voir"
+    },
+    "upcoming": {
+      "title": "Examens à Venir",
+      "seeAll": "Tout voir"
+    },
+    "enrollments": {
+      "title": "Nouvelles Inscriptions",
+      "viewAll": "voir tout"
+    },
+    "topStudents": {
+      "title": "Meilleurs Élèves"
+    }
+  }
+}
