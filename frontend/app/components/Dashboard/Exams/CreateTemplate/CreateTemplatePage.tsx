@@ -290,7 +290,8 @@ export default function CreateTemplatePage() {
             
             // Create the exam with the new template
             await api.createDashboardQuiz({
-              title: pendingAssignment.examName,
+              title_ar: pendingAssignment.examName,
+              title_fr: pendingAssignment.examName,
               template_id: newTemplate.id,
               room_id: parseInt(pendingAssignment.groupId),
               starts_at: pendingAssignment.startDate,

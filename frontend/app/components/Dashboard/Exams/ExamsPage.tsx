@@ -125,9 +125,9 @@ export default function ExamsPage() {
 
     // Filter and Sort Data
     let filteredExams = mockExams.filter((exam) => {
-        const matchesSearch = exam.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            exam.group.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            exam.topic.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesSearch = (exam.name || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+            (exam.group || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+            (exam.topic || '').toLowerCase().includes(searchQuery.toLowerCase());
         const matchesFilter = filterValue === t('exams.all_topics', 'جميع المواضيع') || exam.topic === filterValue;
         return matchesSearch && matchesFilter;
     });
@@ -190,7 +190,8 @@ export default function ExamsPage() {
     }) => {
         try {
             await api.createDashboardQuiz({
-                title: data.examName,
+                title_ar: data.examName,
+                title_fr: data.examName,
                 template_id: parseInt(data.templateId),
                 room_id: parseInt(data.groupId),
                 starts_at: data.startDate.toISOString(),

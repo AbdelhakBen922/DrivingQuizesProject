@@ -126,7 +126,7 @@ async def start_quiz(
     room_member_id = room_member.id
     quiz_template_id = quiz.template_id
     quiz_school_id = quiz.school_id
-    quiz_title = quiz.title
+    quiz_title = quiz.title_ar or quiz.title_fr
     settings_question_count = settings.question_count if settings else 10
     
     # Check for existing active attempt
@@ -232,12 +232,12 @@ async def start_quiz(
         
         question_responses.append(QuestionResponse(
             id=q.id,
-            text=q.text,
+            text=q.text_ar or q.text_fr,
             image_url=q.image_url,
             choices=[
                 ChoiceResponse(
                     id=choice.id,
-                    text=choice.text,
+                    text=choice.text_ar or choice.text_fr,
                     position=choice.position
                 ) for choice in sorted(choices, key=lambda x: x.position)
             ],
@@ -504,7 +504,7 @@ async def get_quiz_review(
         
         review_questions.append(QuizReviewQuestionResponse(
             id=question.id,
-            text=question.text,
+            text=question.text_ar or question.text_fr,
             image_url=question.image_url,
             student_answer_choice_id=answer.choice_id,
             correct_choice_id=correct_choices.get(question.id, 0),
@@ -512,7 +512,7 @@ async def get_quiz_review(
             choices=[
                 ChoiceResponse(
                     id=c.id,
-                    text=c.text,
+                    text=c.text_ar or c.text_fr,
                     position=c.position
                 ) for c in choices_by_question.get(question.id, [])
             ]
@@ -532,7 +532,7 @@ async def get_quiz_review(
     
     return QuizReviewResponse(
         attempt_id=attempt.id,
-        quiz_title=quiz.title,
+        quiz_title=quiz.title_ar or quiz.title_fr,
         score=attempt.score or 0,
         total_questions=total_questions,
         correct_answers=correct_answers,

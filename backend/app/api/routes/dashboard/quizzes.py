@@ -35,7 +35,10 @@ async def _get_template_for_school(
     session: AsyncSession, template_id: int, school_id: int
 ) -> QuizTemplate:
     template = await session.get(QuizTemplate, template_id)
-    if not template or template.school_id != school_id:
+    if not template:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Template not found")
+    # Allow public templates for all schools; otherwise enforce ownership
+    if not template.is_public and template.school_id != school_id:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Template not found")
     return template
 

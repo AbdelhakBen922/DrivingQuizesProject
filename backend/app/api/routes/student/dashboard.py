@@ -200,7 +200,7 @@ async def get_assigned_quizzes(
         
         assigned_quizzes.append(AssignedQuizItem(
             quiz_id=quiz.id,
-            title=quiz.title,
+            title=quiz.title_ar or quiz.title_fr,
             description=quiz.description,
             room_name=room_names.get(quiz.room_id, "Unknown"),
             starts_at=quiz.starts_at,

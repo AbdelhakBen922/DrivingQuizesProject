@@ -33,7 +33,7 @@ export default function AssignExamModal({
 
   // State for API data
   const [groups, setGroups] = useState<api.Room[]>([]);
-  const [templates, setTemplates] = useState<api.QuizTemplate[]>([]);
+  const [templates, setTemplates] = useState<(api.QuizTemplate & { isDefault?: boolean })[]>([]);
   const [loading, setLoading] = useState(false);
 
   // Load data when modal opens
@@ -46,12 +46,16 @@ export default function AssignExamModal({
   async function loadData() {
     try {
       setLoading(true);
-      const [roomsData, templatesData] = await Promise.all([
+      const [roomsData, templatesData, defaultTemplates] = await Promise.all([
         api.getRooms(),
-        api.getQuizTemplates()
+        api.getQuizTemplates(),
+        api.getDefaultQuizTemplates(),
       ]);
       setGroups(roomsData);
-      setTemplates(templatesData);
+      setTemplates([
+        ...templatesData.map((t) => ({ ...t, isDefault: false })),
+        ...defaultTemplates.map((t) => ({ ...t, isDefault: true })),
+      ]);
     } catch (err) {
       console.error('Failed to load data:', err);
     } finally {
@@ -331,8 +335,9 @@ export default function AssignExamModal({
                   </option>
                   {templates.map((template) => (
                     <option key={template.id} value={template.id.toString()}>
-                      {template.title} ({template.question_count || 0}{" "}
-                      {t("assignExam.questions", "سؤال")})
+                      {template.title}
+                      {template.isDefault ? ` • ${t("templates.default_badge", "افتراضي")}` : ""}
+                      {` (${template.question_count || 0} ${t("assignExam.questions", "سؤال")})`}
                     </option>
                   ))}
                 </select>

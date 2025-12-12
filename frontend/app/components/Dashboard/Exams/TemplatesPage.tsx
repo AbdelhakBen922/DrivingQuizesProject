@@ -21,6 +21,7 @@ interface TemplateData {
   class: string;
   topic: string;
   difficulty: "easy" | "medium" | "hard" | "very_hard" | "very_easy";
+  isDefault: boolean;
 }
 
 export default function TemplatesPage() {
@@ -30,6 +31,7 @@ export default function TemplatesPage() {
 
   // State for API data
   const [templates, setTemplates] = useState<api.QuizTemplate[]>([]);
+  const [defaultTemplates, setDefaultTemplates] = useState<api.QuizTemplate[]>([]);
   const [loading, setLoading] = useState(true);
   const topics = getTopics();
   const licenseClasses = getLicenseClasses();
@@ -42,8 +44,12 @@ export default function TemplatesPage() {
   async function loadTemplates() {
     try {
       setLoading(true);
-      const data = await api.getQuizTemplates();
-      setTemplates(data);
+      const [schoolTemplates, defaults] = await Promise.all([
+        api.getQuizTemplates(),
+        api.getDefaultQuizTemplates(),
+      ]);
+      setTemplates(schoolTemplates);
+      setDefaultTemplates(defaults);
     } catch (err) {
       console.error('Failed to load templates:', err);
     } finally {
@@ -52,7 +58,7 @@ export default function TemplatesPage() {
   }
 
   // Transform templates to display format
-  const mockTemplates: TemplateData[] = templates.map(tpl => ({
+  const mapTemplate = (tpl: api.QuizTemplate, isDefault: boolean): TemplateData => ({
     id: tpl.id.toString(),
     name: tpl.title,
     questionsCount: tpl.question_count || 0,
@@ -60,9 +66,15 @@ export default function TemplatesPage() {
     class: isRTL 
       ? licenseClasses.find(c => c.code === 'B')?.nameAr.split(' - ')[0] || 'صنف B'
       : licenseClasses.find(c => c.code === 'B')?.nameFr.split(' - ')[0] || 'Catégorie B',
-    topic: tpl.description || topics[0]?.nameFr || t('templates.no_topic', 'لا يوجد موضوع'),
+    topic: tpl.description ?? topics[0]?.nameFr ?? t('templates.no_topic', 'لا يوجد موضوع'),
     difficulty: (tpl.difficulty?.toLowerCase() || 'medium') as "easy" | "medium" | "hard" | "very_hard" | "very_easy",
-  }));
+    isDefault,
+  });
+
+  const mockTemplates: TemplateData[] = [
+    ...templates.map((tpl) => mapTemplate(tpl, false)),
+    ...defaultTemplates.map((tpl) => mapTemplate(tpl, true)),
+  ];
 
   // State
   const [searchQuery, setSearchQuery] = useState("");
@@ -215,7 +227,8 @@ export default function TemplatesPage() {
     
     try {
       await api.createDashboardQuiz({
-        title: data.examName,
+        title_ar: data.examName,
+        title_fr: data.examName,
         template_id: parseInt(selectedTemplate.id),
         room_id: parseInt(data.groupId),
         starts_at: data.startDate.toISOString(),
@@ -247,6 +260,16 @@ export default function TemplatesPage() {
       key: "name",
       label: t('templates.table.name', 'اسم القالب'),
       type: "text",
+      render: (item) => (
+        <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+          <span>{item.name}</span>
+          {item.isDefault && (
+            <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-primary-100 text-primary-700">
+              {t('templates.default_badge', 'افتراضي')}
+            </span>
+          )}
+        </div>
+      ),
     },
     {
       key: "questionsCount",
@@ -319,8 +342,9 @@ export default function TemplatesPage() {
             />
           </button>
           <button
-            onClick={() => handleEditTemplate(item)}
-            className="p-2 hover:bg-blue-50 rounded-lg transition-colors group"
+            onClick={() => !item.isDefault && handleEditTemplate(item)}
+            disabled={item.isDefault}
+            className={`p-2 rounded-lg transition-colors group ${item.isDefault ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-50'}`}
             title={t('templates.actions.edit', 'تعديل')}
           >
             <img 
@@ -330,8 +354,9 @@ export default function TemplatesPage() {
             />
           </button>
           <button
-            onClick={() => handleDeleteTemplate(item)}
-            className="p-2 hover:bg-red-50 rounded-lg transition-colors group"
+            onClick={() => !item.isDefault && handleDeleteTemplate(item)}
+            disabled={item.isDefault}
+            className={`p-2 rounded-lg transition-colors group ${item.isDefault ? 'opacity-50 cursor-not-allowed' : 'hover:bg-red-50'}`}
             title={t('templates.actions.delete', 'حذف')}
           >
             <img 

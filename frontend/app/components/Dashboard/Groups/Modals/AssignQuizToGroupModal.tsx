@@ -27,7 +27,7 @@ export default function AssignQuizToGroupModal({
   
   const [examName, setExamName] = useState("");
   const [selectedTemplate, setSelectedTemplate] = useState<number | "new" | "">("");
-  const [templates, setTemplates] = useState<api.QuizTemplate[]>([]);
+  const [templates, setTemplates] = useState<(api.QuizTemplate & { isDefault?: boolean })[]>([]);
   const [loadingTemplates, setLoadingTemplates] = useState(false);
   const [startDate, setStartDate] = useState<Date | undefined>(new Date());
   const [endDate, setEndDate] = useState<Date | undefined>(
@@ -45,8 +45,14 @@ export default function AssignQuizToGroupModal({
   const loadTemplates = async () => {
     try {
       setLoadingTemplates(true);
-      const data = await api.getQuizTemplates();
-      setTemplates(data);
+      const [owned, defaults] = await Promise.all([
+        api.getQuizTemplates(),
+        api.getDefaultQuizTemplates(),
+      ]);
+      setTemplates([
+        ...owned.map((t) => ({ ...t, isDefault: false })),
+        ...defaults.map((t) => ({ ...t, isDefault: true })),
+      ]);
     } catch (err) {
       console.error("Failed to load templates:", err);
     } finally {
@@ -97,7 +103,8 @@ export default function AssignQuizToGroupModal({
       setIsSubmitting(true);
       
       await api.createDashboardQuiz({
-        title: examName,
+        title_ar: examName,
+        title_fr: examName,
         template_id: selectedTemplate as number,
         room_id: groupId,
         starts_at: startDate.toISOString(),
@@ -176,7 +183,9 @@ export default function AssignQuizToGroupModal({
               </option>
               {templates.map((template) => (
                 <option key={template.id} value={template.id}>
-                  {template.title} ({template.question_count} {t("groups.assignQuiz.questions", "أسئلة")})
+                  {template.title}
+                  {template.isDefault ? ` • ${t("templates.default_badge", "افتراضي")}` : ""}
+                  {` (${template.question_count} ${t("groups.assignQuiz.questions", "أسئلة")})`}
                 </option>
               ))}
             </select>

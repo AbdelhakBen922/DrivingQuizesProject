@@ -365,7 +365,8 @@ export interface QuizSettingCreate {
 
 // Dashboard Quiz Create (for assigning exams)
 export interface DashboardQuizCreateRequest {
-  title: string;
+  title_ar: string;
+  title_fr: string;
   description?: string | null;
   template_id: number;
   room_id: number;
@@ -947,6 +948,10 @@ export async function updateQuiz(quizId: number, data: Partial<{
 
 export async function getQuizTemplates(): Promise<QuizTemplate[]> {
   return fetchAPI<QuizTemplate[]>("/dashboard/templates/");
+}
+
+export async function getDefaultQuizTemplates(): Promise<QuizTemplate[]> {
+  return fetchAPI<QuizTemplate[]>("/dashboard/templates/defaults");
 }
 
 export async function getQuizTemplate(templateId: number): Promise<QuizTemplateDetail> {
