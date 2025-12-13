@@ -204,10 +204,17 @@ class QuizDataImporter:
         return result.scalar_one_or_none()
 
     async def _purge_existing_template(self, session, template: QuizTemplate) -> None:
+        from app.models.quiz_attempt import QuizAttempt
+        
         quizzes_stmt = select(Quiz).where(Quiz.template_id == template.id)
         quizzes = (await session.execute(quizzes_stmt)).scalars().all()
         for quiz in quizzes:
             print(f"  - Deleting quiz #{quiz.id} linked to template #{template.id}")
+            # Delete quiz attempts first to avoid FK constraint violations
+            attempts_delete = delete(QuizAttempt).where(QuizAttempt.quiz_id == quiz.id)
+            attempts_result = await session.execute(attempts_delete)
+            if attempts_result.rowcount:
+                print(f"    - Deleted {attempts_result.rowcount} quiz attempt(s)")
             await session.delete(quiz)
         await session.flush()
         await session.delete(template)

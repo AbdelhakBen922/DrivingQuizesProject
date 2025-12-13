@@ -34,7 +34,7 @@ interface ReviewData {
 const QuizReview = () => {
     const { quizId, attemptId } = useParams();
     const navigate = useNavigate();
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const { user, isLoading: authLoading } = useAuth();
 
     const [reviewData, setReviewData] = useState<ReviewData | null>(null);
@@ -61,7 +61,8 @@ const QuizReview = () => {
     const loadReview = async () => {
         try {
             setLoading(true);
-            const data = await api.getQuizReview(parseInt(quizId!), parseInt(attemptId!));
+            const lang = i18n.language?.startsWith("ar") ? "ar" : "fr";
+            const data = await api.getQuizReview(parseInt(quizId!), parseInt(attemptId!), lang);
             setReviewData(data);
         } catch (err: any) {
             console.error("Failed to load quiz review:", err);

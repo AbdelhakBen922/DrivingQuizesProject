@@ -44,7 +44,7 @@ interface QuizResults {
 const Quiz = () => {
     const { quizId } = useParams();
     const navigate = useNavigate();
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const { user, isLoading } = useAuth();
 
     const [quizData, setQuizData] = useState<QuizData | null>(null);
@@ -77,7 +77,8 @@ const Quiz = () => {
     const startQuiz = async () => {
         try {
             setLoading(true);
-            const data = await api.startQuiz(parseInt(quizId!));
+            const lang = i18n.language?.startsWith("ar") ? "ar" : "fr";
+            const data = await api.startQuiz(parseInt(quizId!), lang);
             setQuizData(data);
             
             // Load saved answer for first question

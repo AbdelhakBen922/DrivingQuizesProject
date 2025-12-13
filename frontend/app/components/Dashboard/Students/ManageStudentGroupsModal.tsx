@@ -55,20 +55,29 @@ export default function ManageStudentGroupsModal({ isOpen, student, onClose, onS
   };
 
   const loadStudentMemberships = async (): Promise<RoomMembership[]> => {
-    // TODO: Replace with actual API call when backend endpoint is ready
-    // For now, we'll use the rooms endpoint to check memberships
     try {
-      const rooms = await api.getRooms();
-      const memberships: RoomMembership[] = [];
+      const [memberships, rooms] = await Promise.all([
+        api.getStudentRooms(student.id),
+        api.getRooms()
+      ]);
       
-      // This is a workaround - ideally we'd have an endpoint like:
-      // GET /dashboard/students/{student_id}/rooms
-      // For now, we'll return empty array and populate on room details page
+      const enrichedMemberships: RoomMembership[] = memberships.map((m: any) => {
+        const room = rooms.find((r: any) => r.id === m.room_id);
+        return {
+          member_id: m.id,
+          room_id: m.room_id,
+          room_name: room?.name || "Unknown",
+          room_code: room?.name || "",
+          status: m.status || "active",
+          joined_at: m.created_at || new Date().toISOString(),
+        };
+      });
       
-      setCurrentMemberships(memberships);
-      return memberships;
+      setCurrentMemberships(enrichedMemberships);
+      return enrichedMemberships;
     } catch (err) {
       console.error("Failed to load student memberships:", err);
+      setCurrentMemberships([]);
       return [];
     }
   };
@@ -117,8 +126,8 @@ export default function ManageStudentGroupsModal({ isOpen, student, onClose, onS
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-xl shadow-xl max-w-3xl w-full max-h-[90vh] overflow-hidden">
+    <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-xl shadow-xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <div>

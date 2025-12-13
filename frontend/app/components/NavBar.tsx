@@ -2,10 +2,18 @@ import { useState } from "react";
 import { Link } from "react-router";
 import LanguageToggle from "./LanguageToggle";
 import { useTranslation } from "react-i18next";
+import { useAuth } from "~/contexts/AuthContext";
 
 const NavBar = ({ dark }: { dark: boolean }) => {
     const { t } = useTranslation();
+    const { user, isAuthenticated, logout } = useAuth();
     const [open, setOpen] = useState(false);
+
+    const handleLogout = () => {
+        logout();
+        // Force full page reload to clear all state
+        window.location.href = "/";
+    };
 
     const textColor = dark ? "text-white" : "text-primary-800";
     const linkColor = dark ? "text-white" : "text-primary-800";
@@ -29,11 +37,30 @@ const NavBar = ({ dark }: { dark: boolean }) => {
             </nav>
 
             {/* Desktop Right Side */}
-            <div className="hidden md:flex items-center gap-6 ml-auto">
+            <div className="hidden md:flex items-center gap-4 ml-auto">
                 <LanguageToggle dark={dark} />
-                <Link to="/login" className="btn-primary">
-                    {t('nav.login')}
-                </Link>
+                {isAuthenticated ? (
+                    <div className="flex items-center gap-3">
+                        {user?.name && (
+                            <span className={`text-sm font-semibold ${textColor}`}>{user.name}</span>
+                        )}
+                        <div className="w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold uppercase">
+                            {(user?.name || user?.studentCode || "?")
+                                .split(" ")
+                                .filter(Boolean)
+                                .map(part => part[0])
+                                .join("")
+                                .slice(0, 2)}
+                        </div>
+                        <button onClick={handleLogout} className="text-sm text-red-500 hover:text-red-600">
+                            {t('nav.logout', 'Logout')}
+                        </button>
+                    </div>
+                ) : (
+                    <Link to="/login" className="btn-primary">
+                        {t('nav.login')}
+                    </Link>
+                )}
             </div>
 
             {/* Mobile Hamburger */}
@@ -53,9 +80,25 @@ const NavBar = ({ dark }: { dark: boolean }) => {
                     <a className={`fancy-link text-xl ${linkColor}`} href="#">{t('nav.qa')}</a>
 
                     <LanguageToggle dark={dark} />
-                    <Link to="/login" className="btn-primary mt-2">
-                        {t('nav.login')}
-                    </Link>
+                    {isAuthenticated ? (
+                        <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold uppercase">
+                                {(user?.name || user?.studentCode || "?")
+                                    .split(" ")
+                                    .filter(Boolean)
+                                    .map(part => part[0])
+                                    .join("")
+                                    .slice(0, 2)}
+                            </div>
+                            <button onClick={handleLogout} className="text-sm text-red-500 hover:text-red-600">
+                                {t('nav.logout', 'Logout')}
+                            </button>
+                        </div>
+                    ) : (
+                        <Link to="/login" className="btn-primary mt-2">
+                            {t('nav.login')}
+                        </Link>
+                    )}
                 </div>
             )}
         </header>

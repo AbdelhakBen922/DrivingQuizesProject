@@ -631,7 +631,7 @@ export function getUserType(): string | null {
 /**
  * Start a new quiz attempt
  */
-export async function startQuiz(quizId: number): Promise<{
+export async function startQuiz(quizId: number, lang: string = "fr"): Promise<{
   attempt_id: number;
   quiz_id: number;
   quiz_title: string;
@@ -650,7 +650,7 @@ export async function startQuiz(quizId: number): Promise<{
     duration_sec: number | null;
   }>;
 }> {
-  const response = await fetch(`${API_BASE_URL}/student/quiz/${quizId}/start`, {
+  const response = await fetch(`${API_BASE_URL}/student/quiz/${quizId}/start?lang=${lang}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -726,7 +726,7 @@ export async function finishQuiz(quizId: number): Promise<{
 /**
  * Get quiz review with correct answers
  */
-export async function getQuizReview(quizId: number, attemptId: number): Promise<{
+export async function getQuizReview(quizId: number, attemptId: number, lang: string = "fr"): Promise<{
   attempt_id: number;
   quiz_title: string;
   score: number;
@@ -749,7 +749,7 @@ export async function getQuizReview(quizId: number, attemptId: number): Promise<
   }>;
 }> {
   const response = await fetch(
-    `${API_BASE_URL}/student/quiz/${quizId}/review/${attemptId}`,
+    `${API_BASE_URL}/student/quiz/${quizId}/review/${attemptId}?lang=${lang}`,
     {
       method: "GET",
       headers: {

@@ -153,7 +153,8 @@ export default function Sidebar() {
             <button 
               onClick={() => {
                 api.logout();
-                navigate('/login');
+                // Force full page reload to clear all state and update navbar
+                window.location.href = '/';
               }}
               className="w-full mt-2 flex items-center justify-center gap-2 px-4 py-2 text-red rounded-lg hover:bg-red-50 transition-colors cursor-pointer"
             >

@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.exc import IntegrityError
@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 from pydantic import BaseModel
 
 from app.api.deps.auth import get_current_student
+from app.core.config import settings
 from app.core.database import get_db
 from app.models.quiz import Quiz
 from app.models.quiz_attempt import QuizAttempt
@@ -78,9 +79,30 @@ class FinishQuizResponse(BaseModel):
     passed: bool
 
 
+def _resolve_text(ar: str, fr: str, lang: str) -> str:
+    return ar if lang == "ar" else fr
+
+
+def _resolve_image_url(image_path: str | None) -> str | None:
+    if not image_path:
+        return None
+    # If already absolute (http/https) return as-is
+    if image_path.startswith("http://") or image_path.startswith("https://"):
+        return image_path
+    # Normalize stored paths that may include leading slashes
+    normalized = image_path.lstrip("/")
+    # Remove "data/" prefix if present (stored paths are like "data/individual_signs/...")
+    if normalized.startswith("data/"):
+        normalized = normalized[5:]  # Remove "data/" prefix
+    # Return absolute URL with backend base URL
+    backend_url = settings.backend_url.rstrip("/")
+    return f"{backend_url}/data/{normalized}"
+
+
 @router.post("/{quiz_id}/start", response_model=StartQuizResponse)
 async def start_quiz(
     quiz_id: int,
+    lang: str = Query(default="fr"),
     current_student: Student = Depends(get_current_student),
     session: AsyncSession = Depends(get_db),
 ) -> StartQuizResponse:
@@ -126,7 +148,8 @@ async def start_quiz(
     room_member_id = room_member.id
     quiz_template_id = quiz.template_id
     quiz_school_id = quiz.school_id
-    quiz_title = quiz.title_ar or quiz.title_fr
+    lang = lang.lower()
+    quiz_title = _resolve_text(quiz.title_ar, quiz.title_fr, lang)
     settings_question_count = settings.question_count if settings else 10
     
     # Check for existing active attempt
@@ -232,12 +255,12 @@ async def start_quiz(
         
         question_responses.append(QuestionResponse(
             id=q.id,
-            text=q.text_ar or q.text_fr,
-            image_url=q.image_url,
+            text=_resolve_text(q.text_ar, q.text_fr, lang),
+            image_url=_resolve_image_url(q.image_url),
             choices=[
                 ChoiceResponse(
                     id=choice.id,
-                    text=choice.text_ar or choice.text_fr,
+                    text=_resolve_text(choice.text_ar, choice.text_fr, lang),
                     position=choice.position
                 ) for choice in sorted(choices, key=lambda x: x.position)
             ],
@@ -437,10 +460,11 @@ class QuizReviewResponse(BaseModel):
 async def get_quiz_review(
     quiz_id: int,
     attempt_id: int,
+    lang: str = Query(default="fr"),
     current_student: Student = Depends(get_current_student),
     session: AsyncSession = Depends(get_db),
 ) -> QuizReviewResponse:
-    """Get detailed quiz review with correct answers"""
+    """Get detailed quiz review with correct answers and language selection"""
     
     # Get quiz attempt - find by student, not just current room membership
     # This allows viewing results even if student left the room
@@ -496,6 +520,8 @@ async def get_quiz_review(
                 correct_choices[q_id] = choice.id
                 break
     
+    lang = lang.lower()
+
     # Build review questions
     review_questions = []
     for row in answers_data:
@@ -504,15 +530,15 @@ async def get_quiz_review(
         
         review_questions.append(QuizReviewQuestionResponse(
             id=question.id,
-            text=question.text_ar or question.text_fr,
-            image_url=question.image_url,
+            text=_resolve_text(question.text_ar, question.text_fr, lang),
+            image_url=_resolve_image_url(question.image_url),
             student_answer_choice_id=answer.choice_id,
             correct_choice_id=correct_choices.get(question.id, 0),
             is_correct=answer.is_correct,
             choices=[
                 ChoiceResponse(
                     id=c.id,
-                    text=c.text_ar or c.text_fr,
+                    text=_resolve_text(c.text_ar, c.text_fr, lang),
                     position=c.position
                 ) for c in choices_by_question.get(question.id, [])
             ]
@@ -532,7 +558,7 @@ async def get_quiz_review(
     
     return QuizReviewResponse(
         attempt_id=attempt.id,
-        quiz_title=quiz.title_ar or quiz.title_fr,
+        quiz_title=_resolve_text(quiz.title_ar, quiz.title_fr, lang),
         score=attempt.score or 0,
         total_questions=total_questions,
         correct_answers=correct_answers,

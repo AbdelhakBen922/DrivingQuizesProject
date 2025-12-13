@@ -8,6 +8,8 @@ class Settings(BaseSettings):
     secret_key: str = "change-me"
     jwt_algorithm: str = "HS256"
     access_token_expire_minutes: int = 60
+    data_dir_path: str = "data"  # Base directory where quiz assets (images) live
+    backend_url: str = "http://localhost:8001"  # Backend base URL for constructing absolute URLs
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="allow")
 

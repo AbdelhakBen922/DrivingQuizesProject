@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate, Link } from "react-router";
 import { ClipboardList, CheckCircle, Clock, TrendingUp, BookOpen, LogOut } from "lucide-react";
 import * as api from "~/services/api";
+import { useAuth } from "~/contexts/AuthContext";
 
 interface DashboardStats {
   total_quizzes: number;
@@ -33,6 +34,7 @@ interface AssignedQuiz {
 export default function StudentDashboard() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
+  const { logout } = useAuth();
   const isRTL = i18n.language === "ar";
 
   const [stats, setStats] = useState<DashboardStats | null>(null);
@@ -69,10 +71,9 @@ export default function StudentDashboard() {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userType");
-    localStorage.removeItem("studentCode");
-    navigate("/");
+    logout();
+    // Force full page reload to clear all state and update navbar
+    window.location.href = "/";
   };
 
   const getStatusBadge = (status: string) => {

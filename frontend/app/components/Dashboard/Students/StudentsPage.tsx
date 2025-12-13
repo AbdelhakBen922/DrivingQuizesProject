@@ -49,14 +49,40 @@ export default function StudentsPage() {
   const loadStudents = async () => {
     try {
       setLoading(true);
-      const data = await api.listStudents({ limit: 100 });
+      const [data, allRooms] = await Promise.all([
+        api.listStudents({ limit: 100 }),
+        api.getRooms()
+      ]);
       
-      // TODO: Enhance with room membership data
-      const studentsWithRooms: StudentWithRooms[] = data.map(student => ({
-        ...student,
-        rooms: [],
-        roomCount: 0,
-      }));
+      // Enhance with room membership data
+      const studentsWithRooms: StudentWithRooms[] = await Promise.all(
+        data.map(async (student) => {
+          try {
+            const memberships = await api.getStudentRooms(student.id);
+            console.log(`Student ${student.id} (${student.full_name}) memberships:`, memberships);
+            const roomNames = memberships
+              .map((m: any) => {
+                const room = allRooms.find((r: any) => r.id === m.room_id);
+                return room?.name || "";
+              })
+              .filter(Boolean);
+            
+            return {
+              ...student,
+              rooms: roomNames,
+              roomCount: memberships.length,
+            };
+          } catch (err) {
+            // If membership endpoint fails, return with empty rooms
+            console.error(`Failed to load memberships for student ${student.id}:`, err);
+            return {
+              ...student,
+              rooms: [],
+              roomCount: 0,
+            };
+          }
+        })
+      );
 
       setStudents(studentsWithRooms);
       setFilteredStudents(studentsWithRooms);

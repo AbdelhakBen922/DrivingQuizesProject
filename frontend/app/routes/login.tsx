@@ -11,8 +11,19 @@ type LoginMode = "staff" | "student";
 export default function LoginPage() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
-  const { setAuth } = useAuth();
+  const { setAuth, isAuthenticated, isStaff, isStudent } = useAuth();
   const isRTL = i18n.language === "ar";
+
+  // Redirect if already logged in
+  useEffect(() => {
+    if (isAuthenticated) {
+      if (isStaff) {
+        navigate("/dashboard");
+      } else if (isStudent) {
+        navigate("/student/dashboard");
+      }
+    }
+  }, [isAuthenticated, isStaff, isStudent, navigate]);
 
   // Check for pending student code from quick entry
   const pendingCode = localStorage.getItem("pendingStudentCode");

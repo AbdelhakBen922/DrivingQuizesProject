@@ -175,7 +175,7 @@ export default function AssignExamModal({
   return (
     <div className="fixed inset-0 backdrop-blur-sm bg-black/30 flex items-center justify-center z-50 p-4">
       <div
-        className={`bg-white rounded-2xl shadow-2xl w-full max-w-2xl flex flex-col ${
+        className={`bg-white rounded-2xl shadow-2xl w-full max-w-2xl flex flex-col max-h-[90vh] overflow-hidden ${
           isRTL ? "text-right" : "text-left"
         }`}
       >
@@ -204,7 +204,7 @@ export default function AssignExamModal({
         </div>
 
         {/* Content */}
-        <div className="p-6">
+        <div className="p-6 overflow-y-auto max-h-[65vh]">
           {/* Step 1: Exam Name & Group */}
           {currentStep === 1 && (
             <div className="space-y-6">
@@ -305,7 +305,7 @@ export default function AssignExamModal({
                   mode="range"
                   selected={dateRange}
                   onSelect={setDateRange}
-                  numberOfMonths={2}
+                  numberOfMonths={1}
                   className="rounded-xl border border-gray-200 p-4"
                   disabled={{ before: new Date() }}
                 />
