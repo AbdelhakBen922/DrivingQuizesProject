@@ -376,9 +376,9 @@ export default function CreateTemplatePage() {
     <div className={`min-h-screen bg-gray-50 ${isRTL ? "text-right" : "text-left"}`}>
       {/* Top Header Bar */}
       <div className="bg-white border-b border-gray-200 px-4 py-3">
-        <div className={`flex items-center justify-between max-w-7xl mx-auto ${isRTL ? "flex-row" : "flex-row-reverse"}`}>
+        <div className={`flex items-center justify-between max-w-7xl mx-auto ${isRTL ? "flex-row" : "flex-row"}`}>
           {/* Left Side: Back Button & Last Saved */}
-          <div className={`flex items-center gap-4 ${isRTL ? "flex-row" : "flex-row-reverse"}`}>
+          <div className={`flex items-center gap-4 ${isRTL ? "flex-row" : "flex-row"}`}>
             <button
               onClick={() => navigate(-1)}
               className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
@@ -393,7 +393,7 @@ export default function CreateTemplatePage() {
           </div>
 
           {/* Center: Template Name */}
-          <div className={`flex items-center gap-2 ${isRTL ? "flex-row" : "flex-row-reverse"}`}>
+          <div className={`flex items-center gap-2 ${isRTL ? "flex-row" : "flex-row"}`}>
             <img
               src="/assets/icons/create_exam/Cloud_Check.svg"
               alt="saved"
@@ -420,7 +420,7 @@ export default function CreateTemplatePage() {
           </div>
 
           {/* Right Side: Actions */}
-          <div className={`flex items-center gap-3 ${isRTL ? "flex-row" : "flex-row-reverse"}`}>
+          <div className={`flex items-center gap-3 ${isRTL ? "flex-row" : "flex-row"}`}>
             <button
               onClick={() => {}}
               className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
@@ -436,7 +436,7 @@ export default function CreateTemplatePage() {
               className={`
                 flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-xl
                 hover:bg-gray-50 transition-colors text-sm font-medium text-gray-700
-                ${isRTL ? "flex-row" : "flex-row-reverse"}              `}
+                ${isRTL ? "flex-row-reverse" : "flex-row-reverse"}              `}
             >
               <img
                 src="/assets/icons/create_exam/play.svg"
@@ -463,11 +463,11 @@ export default function CreateTemplatePage() {
       </div>
 
       {/* Main Content */}
-      <div className={`flex max-w-7xl mx-auto ${isRTL ? "flex-row-reverse" : "flex-row"}`}>
+      <div className={`flex max-w-7xl mx-auto ${isRTL ? "flex-row-reverse" : "flex-row-reverse"}`}>
         {/* Question Editor Area */}
         <div className="flex-1 p-6">
           {/* Section Header */}
-          <div className={`flex items-center justify-between mb-6 ${isRTL ? "flex-row" : "flex-row-reverse"}`}>
+          <div className={`flex items-center justify-between mb-6 ${isRTL ? "flex-row" : "flex-row"}`}>
             <h2 className="text-xl font-bold text-primary-800">
               {t("createTemplate.editQuestion", "تعديل السؤال")}
             </h2>
@@ -475,7 +475,7 @@ export default function CreateTemplatePage() {
               onClick={handleAddFromTemplates}
               className={`
                 flex items-center gap-2 text-sm text-primary-600 hover:text-primary-700
-                ${isRTL ? "flex-row" : "flex-row-reverse"}
+                ${isRTL ? "flex-row" : "flex-row"}
               `}
             >
               {t("createTemplate.addFromTemplates", "إضافة سؤال من القوالب")}
@@ -501,7 +501,7 @@ export default function CreateTemplatePage() {
         {/* Questions Sidebar */}
         <div className={`w-80 bg-white border-${isRTL ? "r" : "l"} border-gray-200 p-4 min-h-[calc(100vh-65px)]`}>
           {/* Sidebar Header */}
-          <div className={`flex items-center justify-between mb-4 ${isRTL ? "flex-row" : "flex-row-reverse"}`}>
+          <div className={`flex items-center justify-between mb-4 ${isRTL ? "flex-row" : "flex-row"}`}>
             <h3 className="text-sm font-semibold text-gray-700">
               {t("createTemplate.questions", "الأسئلة")} ({questions.length})
             </h3>

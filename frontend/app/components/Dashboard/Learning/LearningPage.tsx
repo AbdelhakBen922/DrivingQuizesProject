@@ -199,7 +199,7 @@ export default function LearningPage() {
             title={t('learningManagement.actions.assign', 'Assigner')}
           >
             <img 
-              src="/assets/icons/create_exam/Send.svg" 
+              src="/assets/icons/dashboard/exams/Send_green.svg" 
               alt="assign" 
               className="w-5 h-5 min-w-5"
             />
@@ -210,7 +210,7 @@ export default function LearningPage() {
             title={t('learningManagement.actions.edit', 'Modifier')}
           >
             <img 
-              src="/assets/icons/Edit.svg" 
+              src="/assets/icons/dashboard/exams/Edit_Pencil_01.svg" 
               alt="edit" 
               className="w-5 h-5 min-w-5"
             />
@@ -221,7 +221,7 @@ export default function LearningPage() {
             title={t('learningManagement.actions.delete', 'Supprimer')}
           >
             <img 
-              src="/assets/icons/Delete.svg" 
+              src="/assets/icons/create_exam/Trash_Full.svg" 
               alt="delete" 
               className="w-5 h-5 min-w-5"
             />

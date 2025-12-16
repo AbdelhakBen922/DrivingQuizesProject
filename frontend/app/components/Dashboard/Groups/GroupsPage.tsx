@@ -155,7 +155,7 @@ export default function GroupsPage() {
       label: t('groups.table.room_code'),
       type: "badge",
       render: (item) => (
-        <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+        <div className={`flex items-center gap-2 ${isRTL ? 'flex-row' : 'flex-row'}`}>
           <span className="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-primary-100 text-primary-800">
             {item.roomCode}
           </span>
@@ -205,7 +205,7 @@ export default function GroupsPage() {
       label: t('groups.table.actions'),
       type: "actions",
       render: (item) => (
-        <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse justify-end' : 'flex-row'}`}>
+        <div className={`flex items-center gap-2 ${isRTL ? 'flex-row justify-end' : 'flex-row'}`}>
           <button
             onClick={() => handleAssignQuiz(item.id)}
             className="p-2 hover:bg-primary-50 rounded-lg transition-colors group"
@@ -411,7 +411,7 @@ export default function GroupsPage() {
       <div className={`flex-1 bg-gray-50 p-4 sm:p-6 lg:p-8 ${isRTL ? 'text-right' : 'text-left'}`}>
       {/* Header Section */}
       <div className="mb-6 sm:mb-8">
-        <div className={`flex items-center justify-between ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+        <div className={`flex items-center justify-between ${isRTL ? 'flex-row' : 'flex-row'}`}>
           <div>
             <h1 className="text-2xl sm:text-3xl font-bold text-primary-800 mb-2">
               {t('groups.title')}

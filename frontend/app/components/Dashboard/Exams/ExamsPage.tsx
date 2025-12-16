@@ -413,7 +413,7 @@ export default function ExamsPage() {
             label: t('exams.table.actions', 'الإجراءات'),
             type: "actions",
             render: (item) => (
-                <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse justify-end' : 'flex-row'}`}>
+                <div className={`flex items-center gap-2 ${isRTL ? 'flex-row justify-end' : 'flex-row'}`}>
                     <button
                         onClick={() => handleViewStats(item)}
                         className="p-2 hover:bg-blue-50 rounded-lg transition-colors group"
@@ -547,7 +547,7 @@ export default function ExamsPage() {
                     <h2 className="text-xl font-black sm:text-2xl  text-primary-800 mb-4">
                         {t('exams.templates_list', 'القوالب')}
                     </h2>
-                    <div className={`flex items-center gap-2 p-4 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+                    <div className={`flex items-center gap-2 p-4 ${isRTL ? 'flex-row' : 'flex-row'}`}>
                         <img
                             src="/assets/icons/dashboard/exams/Info.svg"
                             alt="info"

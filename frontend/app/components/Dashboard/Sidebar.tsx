@@ -104,7 +104,7 @@ export default function Sidebar() {
                     ? 'bg-primary-100 text-primary-800 font-semibold'
                     : 'text-grey hover:bg-primary-25'
                   }
-                  ${isRTL ? 'flex-row-reverse' : 'flex-row'}
+                  ${isRTL ? 'flex-row' : 'flex-row'}
                 `}
               >
                 <img 
@@ -120,7 +120,7 @@ export default function Sidebar() {
           {/* User Profile */}
           <div className={`p-4 border-t border-gray-200`}>
             {schoolInfo && ownerInfo ? (
-              <div className={`flex items-center gap-3 p-3 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+              <div className={`flex items-center gap-3 p-3 ${isRTL ? 'flex-row' : 'flex-row'}`}>
                 <div className="w-12 h-12 rounded-full bg-primary-300 overflow-hidden flex items-center justify-center text-white font-bold text-lg">
                   {ownerInfo.avatar_url ? (
                     <img

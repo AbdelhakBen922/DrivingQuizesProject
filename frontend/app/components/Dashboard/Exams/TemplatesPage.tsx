@@ -261,7 +261,7 @@ export default function TemplatesPage() {
       label: t('templates.table.name', 'اسم القالب'),
       type: "text",
       render: (item) => (
-        <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+        <div className={`flex items-center gap-2 ${isRTL ? 'flex-row' : 'flex-row'}`}>
           <span>{item.name}</span>
           {item.isDefault && (
             <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-primary-100 text-primary-700">
@@ -329,7 +329,7 @@ export default function TemplatesPage() {
       label: t('templates.table.actions', 'الإجراءات'),
       type: "actions",
       render: (item) => (
-        <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse justify-end' : 'flex-row'}`}>
+        <div className={`flex items-center gap-2 ${isRTL ? 'flex-row justify-end' : 'flex-row'}`}>
           <button
             onClick={() => handleSendTemplate(item)}
             className="p-2 hover:bg-green-50 rounded-lg transition-colors group"
@@ -377,7 +377,7 @@ export default function TemplatesPage() {
         <h1 className="text-2xl sm:text-3xl font-bold text-primary-800 mb-2">
           {t('templates.title', 'القوالب')}
         </h1>
-        <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+        <div className={`flex items-center gap-2 ${isRTL ? 'flex-row' : 'flex-row'}`}>
           <img 
             src="/assets/icons/dashboard/exams/Info.svg" 
             alt="info" 

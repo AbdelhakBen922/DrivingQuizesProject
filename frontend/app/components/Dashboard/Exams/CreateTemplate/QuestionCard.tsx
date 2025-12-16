@@ -63,7 +63,7 @@ export default function QuestionCard({
           ? "bg-primary-100 border-2 border-primary-500" 
           : "bg-white border border-gray-200 hover:border-primary-300"
         }
-        ${isRTL ? "flex-row" : "flex-row-reverse"}
+        ${isRTL ? "flex-row" : "flex-row"}
       `}
     >
       {/* Drag Handle */}

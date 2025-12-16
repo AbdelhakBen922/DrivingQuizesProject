@@ -182,7 +182,7 @@ export default function QuestionEditor({
                     </button>
 
                     {/* Required Toggle */}
-                    <div className={`flex items-center gap-2 ${isRTL ? "flex-row-reverse" : "flex-row"}`}>
+                    <div className={`flex items-center gap-2 ${isRTL ? "flex-row" : "flex-row"}`}>
                         <span className="text-sm text-gray-600">
                             {t("createTemplate.required", "إجباري")}
                         </span>
@@ -207,7 +207,7 @@ export default function QuestionEditor({
                 </div>
 
                 {/* Right: Question Type Selector */}
-                <div className={`flex items-center gap-2 bg-gray-100 rounded-xl p-1 ${isRTL ? "flex-row" : "flex-row-reverse"}`}>
+                <div className={`flex items-center gap-2 bg-gray-100 rounded-xl p-1 ${isRTL ? "flex-row" : "flex-row"}`}>
                     <button
                         onClick={() => handleTypeChange("single")}
                         className={`
@@ -216,7 +216,7 @@ export default function QuestionEditor({
                                 ? "bg-white shadow text-primary-800"
                                 : "text-gray-500 hover:text-gray-700"
                             }
-              ${isRTL ? "flex-row" : "flex-row-reverse"}
+              ${isRTL ? "flex-row" : "flex-row"}
             `}
                     >
                         <img
@@ -234,7 +234,7 @@ export default function QuestionEditor({
                                 ? "bg-white shadow text-primary-800"
                                 : "text-gray-500 hover:text-gray-700"
                             }
-              ${isRTL ? "flex-row" : "flex-row-reverse"}
+              ${isRTL ? "flex-row" : "flex-row"}
             `}
                     >
                         <img
@@ -252,7 +252,7 @@ export default function QuestionEditor({
                                 ? "bg-white shadow text-primary-800"
                                 : "text-gray-500 hover:text-gray-700"
                             }
-              ${isRTL ? "flex-row" : "flex-row-reverse"}
+              ${isRTL ? "flex-row" : "flex-row"}
             `}
                     >
                         <span className="text-lg font-bold">{isRTL ? "خ/ص" : "T/F"}</span>
@@ -262,7 +262,7 @@ export default function QuestionEditor({
             </div>
 
             {/* Question Title */}
-            <div className={`flex items-center gap-2 mb-4 ${isRTL ? "flex-row" : "flex-row-reverse"}`}>
+            <div className={`flex items-center gap-2 mb-4 ${isRTL ? "flex-row" : "flex-row"}`}>
                 <span className="text-primary-500">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none" />
@@ -276,7 +276,7 @@ export default function QuestionEditor({
             </div>
 
             {/* Question Content Area */}
-            <div className={`flex gap-6 mb-6 ${isRTL ? "flex-row-reverse" : "flex-row"}`}>
+            <div className={`flex gap-6 mb-6 ${isRTL ? "flex-row" : "flex-row"}`}>
                 {/* Image Upload Area */}
                 <div className="w-48 flex-shrink-0">
                     {question.image ? (
@@ -419,13 +419,13 @@ export default function QuestionEditor({
             </div>
 
             {/* Bottom Settings */}
-            <div className={`flex items-center justify-between pt-4 border-t border-gray-200 ${isRTL ? "flex-row" : "flex-row-reverse"}`}>
+            <div className={`flex items-center justify-between pt-4 border-t border-gray-200 ${isRTL ? "flex-row" : "flex-row"}`}>
                 {/* Points */}
-                <div className={`flex items-center gap-2 ${isRTL ? "flex-row" : "flex-row-reverse"}`}>
+                <div className={`flex items-center gap-2 ${isRTL ? "flex-row" : "flex-row"}`}>
                     <span className="text-sm text-gray-600">
                         {t("createTemplate.points", "عدد النقاط")}
                     </span>
-                    <div className={`flex items-center gap-1 bg-yellow/10 rounded-lg px-3 py-1 ${isRTL ? "flex-row" : "flex-row-reverse"}`}>
+                    <div className={`flex items-center gap-1 bg-yellow/10 rounded-lg px-3 py-1 ${isRTL ? "flex-row" : "flex-row"}`}>
                         <img
                             src="/assets/icons/create_exam/Star.svg"
                             alt="points"
@@ -443,11 +443,11 @@ export default function QuestionEditor({
                 </div>
 
                 {/* Time Limit */}
-                <div className={`flex items-center gap-2 ${isRTL ? "flex-row" : "flex-row-reverse"}`}>
+                <div className={`flex items-center gap-2 ${isRTL ? "flex-row" : "flex-row"}`}>
                     <span className="text-sm text-gray-600">
                         {t("createTemplate.timeLimit", "الوقت المقدر")}
                     </span>
-                    <div className={`flex items-center gap-1 bg-gray-100 rounded-lg px-3 py-1 ${isRTL ? "flex-row" : "flex-row-reverse"}`}>
+                    <div className={`flex items-center gap-1 bg-gray-100 rounded-lg px-3 py-1 ${isRTL ? "flex-row" : "flex-row"}`}>
                         <img
                             src="/assets/icons/create_exam/Timer.svg"
                             alt="timer"
@@ -468,7 +468,7 @@ export default function QuestionEditor({
                 </div>
 
                 {/* Random Order Toggle */}
-                <div className={`flex items-center gap-2 ${isRTL ? "flex-row" : "flex-row-reverse"}`}>
+                <div className={`flex items-center gap-2 ${isRTL ? "flex-row" : "flex-row"}`}>
                     <span className="text-sm text-gray-600">
                         {t("createTemplate.randomOrder", "ترتيب عشوائي")}
                     </span>

@@ -101,7 +101,7 @@ export default function AnswerOption({
             ? "text-white" 
             : "text-gray-500 hover:text-primary-500"
           }
-          ${isRTL ? "flex-row-reverse" : "flex-row"}
+          ${isRTL ? "flex-row-reverse" : "flex-row-reverse"}
         `}
       >
         <span className={`text-sm ${isCorrect ? "text-white" : "text-gray-600"}`}>

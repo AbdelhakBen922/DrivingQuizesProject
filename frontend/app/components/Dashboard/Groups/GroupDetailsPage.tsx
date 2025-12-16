@@ -537,7 +537,7 @@ export default function GroupDetailsPage() {
       <div className="mb-6 sm:mb-8">
         <button
           onClick={handleBack}
-          className={`flex items-center  group gap-2 text-gray-500 hover:text-primary-800 transition-colors mb-4 cursor-pointer ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}
+          className={`flex items-center  group gap-2 text-gray-500 hover:text-primary-800 transition-colors mb-4 cursor-pointer ${isRTL ? 'flex-row' : 'flex-row'}`}
         >
           <img
             src="/assets/icons/dashboard/groups/arrow_down_table.svg"
@@ -619,7 +619,7 @@ export default function GroupDetailsPage() {
             </h2>
             <button
               onClick={handleEdit}
-              className={`flex items-center gap-2 px-3 sm:px-4 py-2 text-sm sm:text-base text-grey bg-gray-50 cursor-pointer hover:bg-gray-200 rounded-lg transition-colors ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}
+              className={`flex items-center gap-2 px-3 sm:px-4 py-2 text-sm sm:text-base text-grey bg-gray-50 cursor-pointer hover:bg-gray-200 rounded-lg transition-colors ${isRTL ? 'flex-row' : 'flex-row'}`}
             >
               <img
                 src="/assets/icons/dashboard/groups/edit_gray.svg"
@@ -776,7 +776,7 @@ export default function GroupDetailsPage() {
                       {student.email}
                     </td>
                     <td className={`px-4 py-4 ${isRTL ? 'text-right' : 'text-left'}`}>
-                      <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+                      <div className={`flex items-center gap-3 ${isRTL ? 'flex-row' : 'flex-row'}`}>
                         <span className="text-sm font-semibold text-grey min-w-[40px]">{student.progress}%</span>
                         <div className="flex-1 bg-gray-200 rounded-full h-2 min-w-[100px]">
                           <div
@@ -787,7 +787,7 @@ export default function GroupDetailsPage() {
                       </div>
                     </td>
                     <td className={`px-4 py-4 ${isRTL ? 'text-right' : 'text-left'}`}>
-                      <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+                      <div className={`flex items-center gap-3 ${isRTL ? 'flex-row' : 'flex-row'}`}>
                         <span className="text-sm font-semibold text-grey min-w-[40px]">{student.advancement}%</span>
                         <div className="flex-1 bg-gray-200 rounded-full h-2 min-w-[100px]">
                           <div
@@ -798,7 +798,7 @@ export default function GroupDetailsPage() {
                       </div>
                     </td>
                     <td className={`px-4 py-4 ${isRTL ? 'text-right' : 'text-left'}`}>
-                      <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse justify-end' : 'flex-row'}`}>
+                      <div className={`flex items-center gap-2 ${isRTL ? 'flex-row justify-end' : 'flex-row'}`}>
                         <button
                           onClick={() => handleEditStudent(student.id)}
                           className="p-2 hover:bg-blue-50 rounded-lg transition-colors"
@@ -847,7 +847,7 @@ export default function GroupDetailsPage() {
                   <th className={`px-4 py-3 text-sm font-semibold text-grey uppercase ${isRTL ? 'text-right' : 'text-left'}`}>
                     <button 
                       onClick={() => setLessonSort('name')}
-                      className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}
+                      className={`flex items-center gap-2 ${isRTL ? 'flex-row' : 'flex-row'}`}
                     >
                       {t('groups.details.learning.table.lesson', 'الدرس')}
                       <img 
@@ -860,7 +860,7 @@ export default function GroupDetailsPage() {
                   <th className={`px-4 py-3 text-sm font-semibold text-grey uppercase ${isRTL ? 'text-right' : 'text-left'}`}>
                     <button 
                       onClick={() => setLessonSort('progress')}
-                      className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}
+                      className={`flex items-center gap-2 ${isRTL ? 'flex-row' : 'flex-row'}`}
                     >
                       {t('groups.details.learning.table.completed_students', 'عدد الطلاب المكملين')}
                       <img 
@@ -873,7 +873,7 @@ export default function GroupDetailsPage() {
                   <th className={`px-4 py-3 text-sm font-semibold text-grey uppercase ${isRTL ? 'text-right' : 'text-left'}`}>
                     <button 
                       onClick={() => setLessonSort('progress')}
-                      className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}
+                      className={`flex items-center gap-2 ${isRTL ? 'flex-row' : 'flex-row'}`}
                     >
                       {t('groups.details.learning.table.progress', 'التقدم')}
                       <img 
@@ -886,7 +886,7 @@ export default function GroupDetailsPage() {
                   <th className={`px-4 py-3 text-sm font-semibold text-grey uppercase ${isRTL ? 'text-right' : 'text-left'}`}>
                     <button 
                       onClick={() => setLessonSort('grade')}
-                      className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}
+                      className={`flex items-center gap-2 ${isRTL ? 'flex-row' : 'flex-row'}`}
                     >
                       {t('groups.details.learning.table.average_grade', 'متوسط الدرجات')}
                       <img 
@@ -911,7 +911,7 @@ export default function GroupDetailsPage() {
                       {lesson.completedStudents}
                     </td>
                     <td className={`px-4 py-4 ${isRTL ? 'text-right' : 'text-left'}`}>
-                      <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+                      <div className={`flex items-center gap-3 ${isRTL ? 'flex-row' : 'flex-row'}`}>
                         <span className="text-sm font-semibold text-grey min-w-[40px]">{lesson.averageProgress}%</span>
                         <div className="flex-1 bg-gray-200 rounded-full h-2 min-w-[100px]">
                           <div
@@ -922,7 +922,7 @@ export default function GroupDetailsPage() {
                       </div>
                     </td>
                     <td className={`px-4 py-4 ${isRTL ? 'text-right' : 'text-left'}`}>
-                      <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+                      <div className={`flex items-center gap-3 ${isRTL ? 'flex-row' : 'flex-row'}`}>
                         <span className="text-sm font-semibold text-grey min-w-[40px]">{lesson.averageGrade}%</span>
                         <div className="flex-1 bg-gray-200 rounded-full h-2 min-w-[100px]">
                           <div
@@ -933,7 +933,7 @@ export default function GroupDetailsPage() {
                       </div>
                     </td>
                     <td className={`px-4 py-4 ${isRTL ? 'text-right' : 'text-left'}`}>
-                      <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse justify-end' : 'flex-row'}`}>
+                      <div className={`flex items-center gap-2 ${isRTL ? 'flex-row justify-end' : 'flex-row'}`}>
                         <button
                           onClick={() => handleEditLesson(lesson.id)}
                           className="p-2 hover:bg-blue-50 rounded-lg transition-colors"
