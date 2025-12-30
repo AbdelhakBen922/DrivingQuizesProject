@@ -10,7 +10,7 @@ export default function DashboardHome() {
   const isRTL = i18n.language === 'ar';
 
   return (
-    <div className="h-full flex flex-col gap-[15px] overflow-hidden">
+    <div className="h-full flex flex-col gap-[15px] overflow-hidden p-4 sm:p-6 lg:p-8">
       {/* HEADER */}
       <div className={`${isRTL ? 'text-right' : 'text-left'} flex-shrink-0`}>
         <h1 className="text-2xl font-bold text-primary-800">

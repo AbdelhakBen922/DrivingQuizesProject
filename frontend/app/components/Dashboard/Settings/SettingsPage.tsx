@@ -5,6 +5,7 @@ import EditSchoolModal from "./Modals/EditSchoolModal";
 import EditOwnerModal from "./Modals/EditOwnerModal";
 import { useToast, type ToastItem } from "../../../hooks/useToast";
 import ToastContainer from "../../Toast/ToastContainer";
+import LanguageToggle from "../../LanguageToggle";
 
 type SchoolInfo = api.DashboardSchoolInfo;
 type OwnerInfo = api.DashboardOwnerInfo;
@@ -76,36 +77,61 @@ export default function SettingsPage() {
   }
 
   return (
-    <div className={`space-y-6 ${isRTL ? "text-right" : "text-left"}`}>
-      {/* Page Header */}
-      <div>
-        <h1 className="text-2xl font-bold text-primary-800">
-          {t("settings.title", "الإعدادات")}
-        </h1>
-        <p className="text-gray-500 text-sm mt-1">
-          {t("settings.subtitle", "قم بتعديل معلومات المالك والمدرسة")}
-        </p>
+    <div className={`p-4 sm:p-6 lg:p-8 space-y-6 ${isRTL ? "text-right" : "text-left"}`}>
+      {/* Page Header with language selector */}
+      <div className="flex items-center justify-between gap-4">
+        {isRTL ? (
+          <>
+            <div>
+              <h1 className="text-2xl font-bold text-primary-800">
+                {t("settings.title", "الإعدادات")}
+              </h1>
+              <p className="text-gray-500 text-sm mt-1">
+                {t("settings.subtitle", "قم بتعديل معلومات المالك والمدرسة")}
+              </p>
+            </div>
+            <div className="flex-shrink-0">
+              <LanguageToggle dark={false} />
+            </div>
+          </>
+        ) : (
+          <>
+            <div>
+              <h1 className="text-2xl font-bold text-primary-800">
+                {t("settings.title", "الإعدادات")}
+              </h1>
+              <p className="text-gray-500 text-sm mt-1">
+                {t("settings.subtitle", "قم بتعديل معلومات المالك والمدرسة")}
+              </p>
+            </div>
+            <div className="flex-shrink-0">
+              <LanguageToggle dark={false} />
+            </div>
+          </>
+        )}
       </div>
 
       {/* School Information Card */}
       <div className="bg-blue-50 rounded-2xl p-6">
-        <div className={`flex items-center justify-between mb-6 ${isRTL ? "flex-row" : "flex-row-reverse"}`}>
+        <div className="flex items-center justify-between mb-6">
           <h2 className="text-lg font-bold text-primary-800">
             {t("settings.schoolInfo", "معلومات المدرسة")}
           </h2>
           <button
             onClick={() => setIsEditSchoolModalOpen(true)}
-            className={`flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 transition-colors ${isRTL ? "flex-row" : "flex-row-reverse"}`}
+            className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 transition-colors"
           >
-            <img
-              src="/assets/icons/edit.svg"
-              alt="edit"
-              className="w-4 h-4"
-              onError={(e) => {
-                (e.target as HTMLImageElement).style.display = 'none';
-              }}
-            />
-            {t("settings.edit", "تعديل")}
+            {isRTL ? (
+              <>
+                <span>{t("settings.edit", "تعديل")}</span>
+                <span className="text-lg">{"<"}</span>
+              </>
+            ) : (
+              <>
+                <span>{t("settings.edit", "Modifier")}</span>
+                <span className="text-lg">{">"}</span>
+              </>
+            )}
           </button>
         </div>
 
@@ -146,23 +172,25 @@ export default function SettingsPage() {
 
       {/* Owner Information Card */}
       <div className="bg-blue-50 rounded-2xl p-6">
-        <div className={`flex items-center justify-between mb-6 ${isRTL ? "flex-row" : "flex-row-reverse"}`}>
+        <div className="flex items-center justify-between mb-6">
           <h2 className="text-lg font-bold text-primary-800">
             {t("settings.ownerInfo", "معلومات المالك")}
           </h2>
           <button
             onClick={() => setIsEditOwnerModalOpen(true)}
-            className={`flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 transition-colors ${isRTL ? "flex-row" : "flex-row-reverse"}`}
+            className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 transition-colors"
           >
-            <img
-              src="/assets/icons/edit.svg"
-              alt="edit"
-              className="w-4 h-4"
-              onError={(e) => {
-                (e.target as HTMLImageElement).style.display = 'none';
-              }}
-            />
-            {t("settings.edit", "تعديل")}
+            {isRTL ? (
+              <>
+                <span>{t("settings.edit", "تعديل")}</span>
+                <span className="text-lg">{"<"}</span>
+              </>
+            ) : (
+              <>
+                <span>{t("settings.edit", "Modifier")}</span>
+                <span className="text-lg">{">"}</span>
+              </>
+            )}
           </button>
         </div>
 

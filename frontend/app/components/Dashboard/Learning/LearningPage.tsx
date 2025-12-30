@@ -232,7 +232,7 @@ export default function LearningPage() {
   ];
 
   return (
-    <div className="flex flex-col gap-5 w-full h-full p-5">
+    <div className="flex flex-col gap-5 w-full h-full p-4 sm:p-6 lg:p-8">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -241,11 +241,9 @@ export default function LearningPage() {
             className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
             aria-label={t('common.back', 'Retour')}
           >
-            <ArrowLeft className={`w-5 h-5 ${isRTL ? 'rotate-180' : ''}`} />
           </button>
           <div>
             <h1 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
-              <BookOpen className="w-7 h-7 text-primary-600" />
               {t('learningManagement.title', 'Gestion des Modules')}
             </h1>
             <p className="text-gray-600 text-sm mt-1">
