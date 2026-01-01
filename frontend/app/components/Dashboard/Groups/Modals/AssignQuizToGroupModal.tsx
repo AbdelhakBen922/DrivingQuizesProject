@@ -134,7 +134,14 @@ export default function AssignQuizToGroupModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 backdrop-blur-sm bg-black/30 flex items-center justify-center z-50">
+    <div
+      className="fixed inset-0 backdrop-blur-sm bg-black/30 flex items-center justify-center z-50"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          onClose();
+        }
+      }}
+    >
       <div className={`bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 ${isRTL ? "text-right" : "text-left"}`}>
         {/* Header */}
         <div className="border-b border-gray-200 px-6 py-4">

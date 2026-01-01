@@ -21,23 +21,26 @@ const NavBar = ({ dark }: { dark: boolean }) => {
     const iconColor = dark ? "text-white" : "text-primary-800";
 
     return (
-        <header className={`z-10 bg-transparent top-0 flex items-center h-[12vh] w-full px-6 md:px-24`}>
-            
-            {/* Logo */}
-            <Link to="/" className={`${textColor} text-2xl font-bold`}>Logo</Link>
+        <header className={`z-10 bg-transparent top-0 flex items-center justify-between h-[12vh] w-full px-6 md:px-24`}>
 
-            {/* Desktop Menu */}
-            <nav className="hidden md:block mx-12">
-                <ul className="flex flex-row gap-6">
-                    <li><Link className={`fancy-link text-xl font-semibold ${linkColor}`} to="/">{t('nav.home')}</Link></li>
-                    <li><Link className={`fancy-link text-xl font-semibold ${linkColor}`} to="/select-quiz">{t('nav.quiz')}</Link></li>
-                    <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="#">{t('nav.learn')}</a></li>
-                    <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="#">{t('nav.qa')}</a></li>
-                </ul>
-            </nav>
+            {/* Left side: Logo + main links */}
+            <div className="flex items-center gap-8">
+                {/* Logo */}
+                <Link to="/" className={`${textColor} text-2xl font-bold`}>Logo</Link>
+
+                {/* Desktop Menu */}
+                <nav className="hidden md:block">
+                    <ul className="flex flex-row gap-6">
+                        <li><Link className={`fancy-link text-xl font-semibold ${linkColor}`} to="/">{t('nav.home')}</Link></li>
+                        <li><Link className={`fancy-link text-xl font-semibold ${linkColor}`} to="/select-quiz">{t('nav.quiz')}</Link></li>
+                        <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="#">{t('nav.learn')}</a></li>
+                        <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="#">{t('nav.qa')}</a></li>
+                    </ul>
+                </nav>
+            </div>
 
             {/* Desktop Right Side */}
-            <div className="hidden md:flex items-center gap-4 ml-auto">
+            <div className="hidden md:flex items-center gap-4">
                 <LanguageToggle dark={dark} />
                 {isAuthenticated ? (
                     <div className="flex items-center gap-3">
@@ -65,7 +68,7 @@ const NavBar = ({ dark }: { dark: boolean }) => {
 
             {/* Mobile Hamburger */}
             <button
-                className={`md:hidden ml-auto text-3xl ${iconColor}`}
+                className={`md:hidden text-3xl ${iconColor}`}
                 onClick={() => setOpen(!open)}
             >
                 ☰
