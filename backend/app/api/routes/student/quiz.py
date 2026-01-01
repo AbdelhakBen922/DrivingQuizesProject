@@ -67,7 +67,6 @@ class SubmitAnswerResponse(BaseModel):
     success: bool
     message: str
     is_correct: bool
-    is_correct: bool
 
 
 class FinishQuizResponse(BaseModel):
