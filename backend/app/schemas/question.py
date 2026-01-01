@@ -7,10 +7,12 @@ from pydantic import Field
 
 from app.models.enums import QuestionCategory, QuestionDifficulty, QuestionType
 from app.schemas.base import ORMModel
+from app.schemas.choice import ChoiceRead
 
 
 class QuestionBase(ORMModel):
-	text: str
+	text_ar: str
+	text_fr: str
 	image_url: str | None = None
 	category: QuestionCategory
 	type: QuestionType = QuestionType.SINGLE_CHOICE
@@ -36,3 +38,38 @@ class QuestionRead(QuestionBase):
 	deleted_at: datetime | None = None
 
 	model_config = ORMModel.model_config
+
+
+class QuestionWithChoicesRead(QuestionRead):
+	choices: list[ChoiceRead] = Field(default_factory=list)
+
+
+class QuestionUpdate(ORMModel):
+	text_ar: str | None = None
+	text_fr: str | None = None
+	image_url: str | None = None
+	category: QuestionCategory | None = None
+	type: QuestionType | None = None
+	difficulty: QuestionDifficulty | None = None
+	is_required: bool | None = None
+	score: int | None = None
+	explanation: str | None = None
+	tags: dict[str, Any] | None = None
+	version: int | None = None
+	school_id: int | None = None
+	author_id: int | None = None
+
+
+class QuestionChoiceInput(ORMModel):
+	text_ar: str
+	text_fr: str
+	is_correct: bool = False
+	position: int | None = None
+
+
+class QuestionWithChoicesCreate(QuestionBase):
+	choices: list[QuestionChoiceInput]
+
+
+class QuestionWithChoicesUpdate(QuestionUpdate):
+	choices: list[QuestionChoiceInput] | None = None

@@ -1,4 +1,12 @@
-from app.api.routes import schools
-from app.api.routes import questions, quizzes, students
+from app.api.routes import dashboard, learning, questions, quizzes, rooms, schools, student, students
 
-__all__ = ["questions", "quizzes", "schools", "students"]
+__all__ = [
+	"dashboard",
+	"learning",
+	"questions",
+	"quizzes",
+	"rooms",
+	"schools",
+	"students",
+	"student",
+]

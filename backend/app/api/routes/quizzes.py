@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, HTTPException, Query, status
+from fastapi import APIRouter, Depends, HTTPException, Query, Response, status
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
@@ -8,13 +8,13 @@ from sqlalchemy.orm import selectinload
 from app.core.database import get_db
 from app.models.quiz import Quiz
 from app.models.quiz_setting import QuizSetting
+from app.models.room import Room
 from app.models.school import School
 from app.models.staff_user import StaffUser
-from app.schemas.quiz import QuizCreate, QuizRead
+from app.schemas.quiz import QuizCreate, QuizRead, QuizUpdate
 from app.schemas.quiz_setting import QuizSettingCreate, QuizSettingRead
 
-router = APIRouter()
-
+router = APIRouter(prefix="/quizzes", tags=["quizzes"])
 
 async def _ensure_school(session: AsyncSession, school_id: int | None) -> None:
     if school_id is None:
@@ -37,6 +37,15 @@ async def _ensure_quiz_setting(session: AsyncSession, setting_id: int) -> QuizSe
     if not setting:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Quiz setting not found")
     return setting
+
+
+async def _ensure_room(session: AsyncSession, room_id: int | None) -> Room | None:
+    if room_id is None:
+        return None
+    room = await session.get(Room, room_id)
+    if not room:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Room not found")
+    return room
 
 
 @router.post("/quiz-settings", response_model=QuizSettingRead, status_code=status.HTTP_201_CREATED)
@@ -76,6 +85,16 @@ async def create_quiz(payload: QuizCreate, session: AsyncSession = Depends(get_d
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="setting_id is required")
     await _ensure_quiz_setting(session, setting_id)
 
+    room = await _ensure_room(session, data.get("room_id"))
+    if room is not None:
+        if data.get("school_id") is None:
+            data["school_id"] = room.school_id
+        elif data["school_id"] != room.school_id:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Quiz school must match the room school",
+            )
+
     quiz = Quiz(**data)
     session.add(quiz)
     await session.commit()
@@ -90,10 +109,13 @@ async def create_quiz(payload: QuizCreate, session: AsyncSession = Depends(get_d
 async def list_quizzes(
     session: AsyncSession = Depends(get_db),
     school_id: int | None = Query(default=None),
+    room_id: int | None = Query(default=None),
 ) -> list[Quiz]:
     stmt = select(Quiz).options(selectinload(Quiz.setting)).order_by(Quiz.created_at.desc())
     if school_id is not None:
         stmt = stmt.where(Quiz.school_id == school_id)
+    if room_id is not None:
+        stmt = stmt.where(Quiz.room_id == room_id)
     result = await session.execute(stmt)
     return result.scalars().all()
 
@@ -107,3 +129,61 @@ async def get_quiz(quiz_id: int, session: AsyncSession = Depends(get_db)) -> Qui
     if not quiz:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Quiz not found")
     return quiz
+
+
+@router.patch("/quizzes/{quiz_id}", response_model=QuizRead)
+async def update_quiz(
+    quiz_id: int, payload: QuizUpdate, session: AsyncSession = Depends(get_db)
+) -> Quiz:
+    quiz = await session.get(Quiz, quiz_id)
+    if not quiz:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Quiz not found")
+
+    data = payload.model_dump(exclude_unset=True)
+
+    if "school_id" in data and data["school_id"] is not None:
+        await _ensure_school(session, data["school_id"])
+
+    if "created_by_id" in data and data["created_by_id"] is not None:
+        await _ensure_staff_user(session, data["created_by_id"])
+
+    if "setting_id" in data:
+        setting_id = data["setting_id"]
+        if setting_id is None:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="setting_id cannot be null",
+            )
+        await _ensure_quiz_setting(session, setting_id)
+
+    if "room_id" in data:
+        room = await _ensure_room(session, data["room_id"])
+        if room is not None:
+            target_school = data.get("school_id", quiz.school_id)
+            if target_school not in (None, room.school_id):
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Quiz school must match the room school",
+                )
+            if data.get("school_id") is None:
+                data["school_id"] = room.school_id
+
+    for field, value in data.items():
+        setattr(quiz, field, value)
+
+    await session.commit()
+    result = await session.execute(
+        select(Quiz).options(selectinload(Quiz.setting)).where(Quiz.id == quiz.id)
+    )
+    return result.scalar_one()
+
+
+@router.delete("/quizzes/{quiz_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_quiz(quiz_id: int, session: AsyncSession = Depends(get_db)) -> Response:
+    quiz = await session.get(Quiz, quiz_id)
+    if not quiz:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Quiz not found")
+
+    await session.delete(quiz)
+    await session.commit()
+    return Response(status_code=status.HTTP_204_NO_CONTENT)

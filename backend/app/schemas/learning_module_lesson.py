@@ -19,6 +19,15 @@ class LearningModuleLessonCreate(LearningModuleLessonBase):
     pass
 
 
+class LearningModuleLessonUpdate(ORMModel):
+    learning_module_id: int | None = None
+    title: str | None = None
+    content: dict[str, Any] | None = None
+    order_index: int | None = None
+
+    model_config = ORMModel.model_config
+
+
 class LearningModuleLessonRead(LearningModuleLessonBase):
     id: int
     created_at: datetime

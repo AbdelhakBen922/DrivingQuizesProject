@@ -18,6 +18,20 @@ class RoomMemberCreate(RoomMemberBase):
     pass
 
 
+class RoomMemberAddRequest(ORMModel):
+    student_id: int
+
+
+class RoomMemberUpdate(ORMModel):
+    room_id: int | None = None
+    student_id: int | None = None
+    joined_at: datetime | None = None
+    left_at: datetime | None = None
+    status: RoomMembershipStatus | None = None
+
+    model_config = ORMModel.model_config
+
+
 class RoomMemberRead(RoomMemberBase):
     id: int
 

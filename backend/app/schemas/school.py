@@ -16,6 +16,8 @@ class SchoolBase(ORMModel):
 	email: EmailStr
 	timezone: str | None = Field(default=None, max_length=50)
 	locale: str | None = Field(default=None, max_length=10)
+	address: str | None = Field(default=None, max_length=255)
+	phone: str | None = Field(default=None, max_length=50)
 	language_defaults: dict[str, Any] = Field(default_factory=dict)
 	plan_id: int | None = None
 	billing_info: dict[str, Any] = Field(default_factory=dict)
@@ -24,6 +26,21 @@ class SchoolBase(ORMModel):
 
 class SchoolCreate(SchoolBase):
 	password: str = Field(..., min_length=8)
+
+
+class SchoolUpdate(ORMModel):
+	name: str | None = Field(default=None, max_length=255)
+	legal_name: str | None = Field(default=None, max_length=255)
+	registration_number: str | None = Field(default=None, max_length=100)
+	email: EmailStr | None = None
+	timezone: str | None = Field(default=None, max_length=50)
+	locale: str | None = Field(default=None, max_length=10)
+	address: str | None = Field(default=None, max_length=255)
+	phone: str | None = Field(default=None, max_length=50)
+	language_defaults: dict[str, Any] | None = None
+	plan_id: int | None = None
+	billing_info: dict[str, Any] | None = None
+	settings: dict[str, Any] | None = None
 
 
 class SchoolRead(SchoolBase):

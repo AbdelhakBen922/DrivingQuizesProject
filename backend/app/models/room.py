@@ -10,7 +10,7 @@ from app.models.enums import RoomType, enum_values
 
 if TYPE_CHECKING:
     from app.models.room_member import RoomMember
-    from app.models.room_quiz import RoomQuiz
+    from app.models.quiz import Quiz
     from app.models.school import School
     from app.models.staff_user import StaffUser
 
@@ -31,4 +31,4 @@ class Room(BigIntPrimaryKeyMixin, TimestampMixin, SoftDeleteMixin, Base):
     school: Mapped["School"] = relationship(back_populates="rooms")
     created_by_user: Mapped["StaffUser | None"] = relationship(back_populates="created_rooms")
     members: Mapped[list["RoomMember"]] = relationship(back_populates="room", cascade="all, delete-orphan")
-    room_quizzes: Mapped[list["RoomQuiz"]] = relationship(back_populates="room", cascade="all, delete-orphan")
+    quizzes: Mapped[list["Quiz"]] = relationship(back_populates="room")

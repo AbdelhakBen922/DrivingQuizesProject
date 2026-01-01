@@ -12,7 +12,7 @@ from app.models.enums import QuestionCategory, QuestionDifficulty, QuestionType,
 if TYPE_CHECKING:
     from app.models.answer import Answer
     from app.models.choice import Choice
-    from app.models.quiz_question import QuizQuestion
+    from app.models.quiz_template_question import QuizTemplateQuestion
     from app.models.school import School
     from app.models.staff_user import StaffUser
 
@@ -22,7 +22,8 @@ class Question(BigIntPrimaryKeyMixin, TimestampMixin, SoftDeleteMixin, Base):
 
     school_id: Mapped[int | None] = mapped_column(ForeignKey("school.id", ondelete="SET NULL"))
     author_id: Mapped[int | None] = mapped_column(ForeignKey("staff_user.id", ondelete="SET NULL"))
-    text: Mapped[str] = mapped_column(Text, nullable=False)
+    text_ar: Mapped[str] = mapped_column(Text, nullable=False)
+    text_fr: Mapped[str] = mapped_column(Text, nullable=False)
     image_url: Mapped[str | None] = mapped_column(String(255))
     category: Mapped[QuestionCategory] = mapped_column(
         Enum(QuestionCategory, name="question_category_enum", values_callable=enum_values), nullable=False
@@ -46,5 +47,5 @@ class Question(BigIntPrimaryKeyMixin, TimestampMixin, SoftDeleteMixin, Base):
     school: Mapped["School | None"] = relationship(back_populates="questions")
     author: Mapped["StaffUser | None"] = relationship(back_populates="authored_questions")
     choices: Mapped[list["Choice"]] = relationship(back_populates="question", cascade="all, delete-orphan")
-    quiz_questions: Mapped[list["QuizQuestion"]] = relationship(back_populates="question")
+    template_questions: Mapped[list["QuizTemplateQuestion"]] = relationship(back_populates="question")
     answers: Mapped[list["Answer"]] = relationship(back_populates="question")

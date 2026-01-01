@@ -13,6 +13,7 @@ if TYPE_CHECKING:
     from app.models.learning_module import LearningModule
     from app.models.question import Question
     from app.models.quiz import Quiz
+    from app.models.quiz_template import QuizTemplate
     from app.models.room import Room
     from app.models.school import School
     from app.models.student import Student
@@ -31,7 +32,10 @@ class StaffUser(BigIntPrimaryKeyMixin, TimestampMixin, Base):
     role: Mapped[StaffRole] = mapped_column(
         Enum(StaffRole, name="staff_user_role_enum", values_callable=enum_values), nullable=False
     )
+    first_name: Mapped[str | None] = mapped_column(String(255))
+    last_name: Mapped[str | None] = mapped_column(String(255))
     name: Mapped[str | None] = mapped_column(String(255))
+    avatar_url: Mapped[str | None] = mapped_column(String(255))
     phone: Mapped[str | None] = mapped_column(String(50))
     last_login_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     is_active: Mapped[bool] = mapped_column(Boolean, nullable=False, server_default=text("true"))
@@ -41,4 +45,5 @@ class StaffUser(BigIntPrimaryKeyMixin, TimestampMixin, Base):
     authored_questions: Mapped[list["Question"]] = relationship(back_populates="author")
     created_quizzes: Mapped[list["Quiz"]] = relationship(back_populates="created_by_user")
     created_rooms: Mapped[list["Room"]] = relationship(back_populates="created_by_user")
+    created_templates: Mapped[list["QuizTemplate"]] = relationship(back_populates="created_by_user")
     learning_modules: Mapped[list["LearningModule"]] = relationship(back_populates="created_by_user")

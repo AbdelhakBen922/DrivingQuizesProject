@@ -22,6 +22,18 @@ class LearningProgressCreate(LearningProgressBase):
     pass
 
 
+class LearningProgressUpdate(ORMModel):
+    student_id: int | None = None
+    learning_module_id: int | None = None
+    lesson_id: int | None = None
+    completed: bool | None = None
+    started_at: datetime | None = None
+    completed_at: datetime | None = None
+    progress_data: dict[str, Any] | None = None
+
+    model_config = ORMModel.model_config
+
+
 class LearningProgressRead(LearningProgressBase):
     id: int
 

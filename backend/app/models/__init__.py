@@ -9,11 +9,11 @@ from app.models.plan import Plan
 from app.models.question import Question
 from app.models.quiz import Quiz
 from app.models.quiz_attempt import QuizAttempt
-from app.models.quiz_question import QuizQuestion
+from app.models.quiz_template import QuizTemplate
+from app.models.quiz_template_question import QuizTemplateQuestion
 from app.models.quiz_setting import QuizSetting
 from app.models.room import Room
 from app.models.room_member import RoomMember
-from app.models.room_quiz import RoomQuiz
 from app.models.school import School
 from app.models.staff_user import StaffUser
 from app.models.student import Student
@@ -29,11 +29,11 @@ __all__ = [
     "Question",
     "Quiz",
     "QuizAttempt",
-    "QuizQuestion",
+    "QuizTemplate",
+    "QuizTemplateQuestion",
     "QuizSetting",
     "Room",
     "RoomMember",
-    "RoomQuiz",
     "School",
     "StaffUser",
     "Student",

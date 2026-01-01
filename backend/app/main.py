@@ -1,13 +1,31 @@
 from fastapi import Depends, FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
+from pathlib import Path
 
 from app.api.router import api_router
 from app.core.config import settings
 from app.core.database import get_db
 
 app = FastAPI(title=settings.app_name)
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 app.include_router(api_router, prefix="/api")
+
+# Mount static files for quiz images
+data_path = Path(settings.data_dir_path)
+if data_path.exists():
+    app.mount("/data", StaticFiles(directory=str(data_path)), name="data")
 
 
 @app.get("/health")

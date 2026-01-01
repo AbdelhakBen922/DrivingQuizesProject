@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 type DropdownFieldProps = {
   label?: string;
@@ -11,16 +12,19 @@ type DropdownFieldProps = {
 
 export default function DropdownField({
   label,
-  placeholder = "Select option",
+  placeholder,
   options,
   value,
   error,
   onChange,
 }: DropdownFieldProps) {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [openUpward, setOpenUpward] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const optionsRef = useRef<HTMLDivElement>(null);
+
+  const displayPlaceholder = placeholder || t('common.selectOption', 'Select option');
 
   // Close on outside click
   useEffect(() => {
@@ -70,7 +74,7 @@ export default function DropdownField({
         `}
       >
         <span className={value ? "text-primary-800" : "text-gray-400"}>
-          {value || placeholder}
+          {value || displayPlaceholder}
         </span>
 
         <img
