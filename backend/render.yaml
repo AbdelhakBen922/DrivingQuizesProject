@@ -1,0 +1,31 @@
+services:
+  # PostgreSQL Database
+  - type: pserv
+    name: drivingquiz-db
+    env: docker
+    plan: free
+    region: frankfurt
+    dockerfilePath: ./Dockerfile.render
+    dockerContext: .
+    envVars:
+      - key: PORT
+        value: 8001
+      - key: DATABASE_URL
+        fromDatabase:
+          name: drivingquiz-postgres
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATA_DIR_PATH
+        value: /app/data
+      - key: BACKEND_URL
+        value: https://drivingquiz-backend.onrender.com
+    healthCheckPath: /health
+
+databases:
+  # PostgreSQL Database
+  - name: drivingquiz-postgres
+    databaseName: drivingquiz
+    user: postgres
+    plan: free
+    region: frankfurt
