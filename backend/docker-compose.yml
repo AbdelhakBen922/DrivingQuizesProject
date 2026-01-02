@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database Service
+  db:
+    image: postgres:16-alpine
+    container_name: drivingquiz-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: drivingquiz
+    ports:
+      - "5433:5432"  # External:Internal - Use 5433 on your machine, 5432 inside container
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Persist database data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app-network
+
+  # FastAPI Backend Service
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: drivingquiz-backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy  # Wait for database to be ready
+    ports:
+      - "8001:8001"  # Same port as your local setup
+    environment:
+      # Database connection - points to 'db' service (Docker internal networking)
+      DATABASE_URL: postgresql+asyncpg://postgres:postgres@db:5432/drivingquiz
+      # Other environment variables
+      SECRET_KEY: ${SECRET_KEY:-dev-secret-key-change-in-production}
+      DATA_DIR_PATH: /app/data
+      BACKEND_URL: http://localhost:8001
+    volumes:
+      # Mount data directory from your host machine
+      - /home/abdelhak/Desktop/Study/Y3S1/SWE/DrivingQuizesProject/data:/app/data
+      # Mount logs directory
+      - ./logs:/app/logs
+    networks:
+      - app-network
+    command: >
+      sh -c "
+        echo '🔍 Waiting for database to be fully ready...' &&
+        sleep 3 &&
+        echo '📦 Running database migrations...' &&
+        alembic upgrade head &&
+        echo '🚀 Starting FastAPI server on port 8001...' &&
+        uvicorn app.main:app --host 0.0.0.0 --port 8001 --reload
+      "
+
+# Named volume for PostgreSQL data persistence
+volumes:
+  postgres_data:
+    driver: local
+
+# Network for service communication
+networks:
+  app-network:
+    driver: bridge
