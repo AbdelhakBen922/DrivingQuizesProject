@@ -11,7 +11,12 @@ BASE_DIR = Path(__file__).resolve().parents[1]
 if str(BASE_DIR) not in sys.path:
     sys.path.append(str(BASE_DIR))
 
-from app.core.database import AsyncSessionLocal  # noqa: E402
+import os
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres:postgres@localhost:5433/drivingquiz")
+engine = create_engine(DATABASE_URL, echo=False)
+SessionLocal = sessionmaker(bind=engine, expire_on_commit=False)  # noqa: E402
 from app.core.security import get_password_hash  # noqa: E402
 from app.models.enums import StaffRole  # noqa: E402
 from app.models.room import Room  # noqa: E402
@@ -20,9 +25,9 @@ from app.models.staff_user import StaffUser  # noqa: E402
 from app.models.student import Student  # noqa: E402
 
 
-async def create_default_users() -> None:
-    async with AsyncSessionLocal() as session:
-        school = (await session.execute(select(School).where(School.id == 1))).scalars().first()
+def create_default_users() -> None:
+    with SessionLocal() as session:
+        school = (session.execute(select(School).where(School.id == 1))).scalars().first()
 
         created_any = False
 
@@ -38,13 +43,13 @@ async def create_default_users() -> None:
                 locale="fr",
             )
             session.add(school)
-            await session.flush()
+            session.flush()
             created_any = True
 
         school_id = school.id
 
-        staff_exists = await session.execute(select(StaffUser).where(StaffUser.email == "admin@example.com"))
-        student_exists = await session.execute(
+        staff_exists = session.execute(select(StaffUser).where(StaffUser.email == "admin@example.com"))
+        student_exists = session.execute(
             select(Student).where(Student.student_code == "S1001", Student.school_id == school_id)
         )
 
@@ -73,7 +78,7 @@ async def create_default_users() -> None:
             session.add(student)
             created_any = True
 
-        room_exists = await session.execute(select(Room).where(Room.school_id == school_id))
+        room_exists = session.execute(select(Room).where(Room.school_id == school_id))
         if not room_exists.scalars().first():
             room = Room(
                 school_id=school_id,
@@ -84,11 +89,11 @@ async def create_default_users() -> None:
             created_any = True
 
         if created_any:
-            await session.commit()
+            session.commit()
             print("Default school, staff, student, and room created successfully.")
         else:
             print("Default staff and student already exist.")
 
 
 if __name__ == "__main__":
-    asyncio.run(create_default_users())
+    create_default_users()

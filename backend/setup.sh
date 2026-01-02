@@ -83,25 +83,45 @@ if [ -f "alembic.ini" ]; then
     # Check if database is reachable
     print_status "Checking database connectivity..."
     python3 -c "
-import asyncio
-from sqlalchemy.ext.asyncio import create_async_engine
-from sqlalchemy import text
+import psycopg2
 import sys
 import os
+from urllib.parse import urlparse
 
-async def check_db():
-    try:
-        engine = create_async_engine(os.environ['DATABASE_URL'])
-        async with engine.connect() as conn:
-            await conn.execute(text('SELECT 1'))
-        print('Database connection successful')
-        return True
-    except Exception as e:
-        print(f'Database connection failed: {e}', file=sys.stderr)
-        return False
-
-result = asyncio.run(check_db())
-sys.exit(0 if result else 1)
+try:
+    # Parse DATABASE_URL
+    url = urlparse(os.environ['DATABASE_URL'])
+    
+    # Extract connection parameters
+    conn_params = {
+        'host': url.hostname,
+        'port': url.port or 5432,
+        'user': url.username,
+        'password': url.password,
+        'dbname': url.path[1:],  # Remove leading '/'
+    }
+    
+    # Add query parameters (sslmode, options)
+    if url.query:
+        for param in url.query.split('&'):
+            if '=' in param:
+                key, value = param.split('=', 1)
+                if key == 'sslmode':
+                    conn_params['sslmode'] = value
+                elif key == 'options':
+                    conn_params['options'] = value
+    
+    # Connect and test
+    conn = psycopg2.connect(**conn_params)
+    cur = conn.cursor()
+    cur.execute('SELECT 1')
+    cur.close()
+    conn.close()
+    print('Database connection successful')
+    sys.exit(0)
+except Exception as e:
+    print(f'Database connection failed: {e}', file=sys.stderr)
+    sys.exit(1)
 " || {
         print_error "Database is not reachable. Migrations skipped."
         print_warning "Make sure to run 'alembic upgrade head' manually after deployment"
@@ -111,6 +131,24 @@ sys.exit(0 if result else 1)
     # Run migrations
     alembic upgrade head
     print_status "Database migrations completed ✓"
+    
+    # Seed initial data
+    print_status "Seeding initial data (schools, staff, students, rooms)..."
+    timeout 30 python3 scripts/seed_data.py 2>&1 || {
+        print_warning "Seed data script timed out or failed (may already exist)"
+    }
+    
+    print_status "Creating default users (admin@example.com / admin123)..."
+    timeout 30 python3 scripts/bootstrap_users.py 2>&1 || {
+        print_warning "Bootstrap users script timed out or failed (may already exist)"
+    }
+    
+    print_status "Importing quiz bank (optional)..."
+    timeout 60 python3 scripts/import_quiz_data.py --school-id 1 --staff-id 1 --room-id 1 2>&1 || {
+        print_warning "Quiz import skipped or failed"
+    }
+    
+    print_status "Database seeding completed ✓"
 else
     print_warning "No alembic.ini found, skipping migrations"
 fi
