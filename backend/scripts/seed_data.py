@@ -1,18 +1,22 @@
 from __future__ import annotations
 
-import asyncio
+import os
 import sys
 from datetime import timedelta
 from decimal import Decimal
 from pathlib import Path
 
-from sqlalchemy import select
+from sqlalchemy import create_engine, select
+from sqlalchemy.orm import sessionmaker, Session
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 if str(BASE_DIR) not in sys.path:
     sys.path.append(str(BASE_DIR))
 
-from app.core.database import AsyncSessionLocal
+# Create sync engine for seeding (psycopg2 works perfectly with Leapcell)
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres:postgres@localhost:5433/drivingquiz")
+engine = create_engine(DATABASE_URL, echo=False)
+SessionLocal = sessionmaker(bind=engine, expire_on_commit=False)
 from app.models.answer import Answer
 from app.models.choice import Choice
 from app.models.learning_module import LearningModule
@@ -43,9 +47,9 @@ from app.models.enums import (
 )
 
 
-async def get_or_create(session, model, lookup: dict, defaults: dict):
+def get_or_create(session, model, lookup: dict, defaults: dict):
     stmt = select(model).filter_by(**lookup)
-    result = await session.execute(stmt)
+    result = session.execute(stmt)
     instance = result.scalars().first()
     created = False
     if instance:
@@ -55,13 +59,13 @@ async def get_or_create(session, model, lookup: dict, defaults: dict):
         data = {**lookup, **defaults}
         instance = model(**data)
         session.add(instance)
-        await session.flush()
+        session.flush()
         created = True
     return instance, created
 
 
-async def sync_choices(session, question_id: int, options: list[dict]) -> None:
-    existing_stmt = await session.execute(select(Choice).where(Choice.question_id == question_id))
+def sync_choices(session, question_id: int, options: list[dict]) -> None:
+    existing_stmt = session.execute(select(Choice).where(Choice.question_id == question_id))
     existing = {choice.position: choice for choice in existing_stmt.scalars()}
     seen_positions: set[int] = set()
 
@@ -74,7 +78,7 @@ async def sync_choices(session, question_id: int, options: list[dict]) -> None:
             "text_fr": option["text_fr"],
             "is_correct": option["is_correct"],
         }
-        choice, _ = await get_or_create(session, Choice, lookup, defaults)
+        choice, _ = get_or_create(session, Choice, lookup, defaults)
         # ensure updates when record already existed
         choice.text_ar = option["text_ar"]
         choice.text_fr = option["text_fr"]
@@ -82,11 +86,11 @@ async def sync_choices(session, question_id: int, options: list[dict]) -> None:
 
     for position, choice in existing.items():
         if position not in seen_positions:
-            await session.delete(choice)
+            session.delete(choice)
 
 
-async def seed() -> None:
-    async with AsyncSessionLocal() as session:
+def seed() -> None:
+    with SessionLocal() as session:
         report: list[str] = []
 
         plan_defaults = {
@@ -99,7 +103,7 @@ async def seed() -> None:
             "features": {"analytics": True, "priority_support": True},
             "is_active": True,
         }
-        plan, created = await get_or_create(
+        plan, created = get_or_create(
             session,
             Plan,
             {"name": PlanTier.PROFESSIONAL.value},
@@ -122,7 +126,7 @@ async def seed() -> None:
             "billing_info": {"tax_id": "AL-DRV-001", "contact": "Finance"},
             "settings": {"default_vehicle_type": "car"},
         }
-        school, created = await get_or_create(
+        school, created = get_or_create(
             session,
             School,
             {"registration_number": school_defaults["registration_number"]},
@@ -142,7 +146,7 @@ async def seed() -> None:
             "phone": "+213555010101",
             "is_active": True,
         }
-        staff, created = await get_or_create(
+        staff, created = get_or_create(
             session,
             StaffUser,
             {"email": staff_defaults["email"]},
@@ -160,7 +164,7 @@ async def seed() -> None:
             "profile_data": {"notes": "Prefers evening sessions"},
             "created_by_id": staff.id,
         }
-        student, created = await get_or_create(
+        student, created = get_or_create(
             session,
             Student,
             {
@@ -182,7 +186,7 @@ async def seed() -> None:
             "explanation": "Slow down and proceed only when it is safe to do so.",
             "tags": {"topic": "priority_rules"},
         }
-        question, created = await get_or_create(
+        question, created = get_or_create(
             session,
             Question,
             {"text_fr": question_defaults["text_fr"]},
@@ -216,9 +220,9 @@ async def seed() -> None:
                 "is_correct": False,
             },
         ]
-        await sync_choices(session, question.id, options)
+        sync_choices(session, question.id, options)
 
-        choice_stmt = await session.execute(
+        choice_stmt = session.execute(
             select(Choice).where(Choice.question_id == question.id).order_by(Choice.position)
         )
         choices = choice_stmt.scalars().all()
@@ -238,7 +242,7 @@ async def seed() -> None:
             "is_public": False,
             "created_by_id": staff.id,
         }
-        template, created = await get_or_create(
+        template, created = get_or_create(
             session,
             QuizTemplate,
             {"title": template_defaults["title"], "school_id": school.id},
@@ -253,7 +257,7 @@ async def seed() -> None:
             "randomize_options": True,
             "estimation_time_seconds": 45,
         }
-        _, created = await get_or_create(
+        _, created = get_or_create(
             session,
             QuizTemplateQuestion,
             {"template_id": template.id, "question_id": question.id},
@@ -270,7 +274,7 @@ async def seed() -> None:
             "passing_score": 8,
             "review_allowed": True,
         }
-        quiz_setting, created = await get_or_create(
+        quiz_setting, created = get_or_create(
             session,
             QuizSetting,
             {"vehicle_type": setting_defaults["vehicle_type"], "mode": setting_defaults["mode"]},
@@ -287,7 +291,7 @@ async def seed() -> None:
             "description": "Covers basic priority and safety rules",
             "created_by_id": staff.id,
         }
-        quiz, created = await get_or_create(
+        quiz, created = get_or_create(
             session,
             Quiz,
             {"title_fr": quiz_defaults["title_fr"]},
@@ -303,7 +307,7 @@ async def seed() -> None:
             "content": {"estimated_time_minutes": 90, "objectives": ["Understand right-of-way", "Master safe maneuvers"]},
             "tags": {"level": "beginner"},
         }
-        learning_module, created = await get_or_create(
+        learning_module, created = get_or_create(
             session,
             LearningModule,
             {"title": module_defaults["title"], "school_id": school.id},
@@ -340,7 +344,7 @@ async def seed() -> None:
                 "title": lesson_data["title"],
                 "content": lesson_data["content"],
             }
-            lesson, lesson_created = await get_or_create(
+            lesson, lesson_created = get_or_create(
                 session,
                 LearningModuleLesson,
                 lookup,
@@ -360,7 +364,7 @@ async def seed() -> None:
             "completed": False,
             "progress_data": {"percent_complete": 0.25, "last_activity": "seed"},
         }
-        _, created = await get_or_create(
+        _, created = get_or_create(
             session,
             LearningProgress,
             {"student_id": student.id, "learning_module_id": learning_module.id},
@@ -375,7 +379,7 @@ async def seed() -> None:
             "room_type": RoomType.B,
             "created_by_id": staff.id,
         }
-        room, created = await get_or_create(
+        room, created = get_or_create(
             session,
             Room,
             {"school_id": school.id, "name": room_defaults["name"]},
@@ -386,7 +390,7 @@ async def seed() -> None:
         room_member_defaults = {
             "status": RoomMembershipStatus.ACTIVE,
         }
-        room_member, created = await get_or_create(
+        room_member, created = get_or_create(
             session,
             RoomMember,
             {"room_id": room.id, "student_id": student.id},
@@ -396,7 +400,7 @@ async def seed() -> None:
 
         if quiz.room_id != room.id:
             quiz.room_id = room.id
-            await session.flush()
+            session.flush()
             report.append("Quiz assigned to room")
 
         quiz_attempt_defaults = {
@@ -404,7 +408,7 @@ async def seed() -> None:
             "score": 10,
             "extra_metadata": {"submitted_via": "seed"},
         }
-        quiz_attempt, created = await get_or_create(
+        quiz_attempt, created = get_or_create(
             session,
             QuizAttempt,
             {"quiz_id": quiz.id, "room_member_id": room_member.id, "attempt_number": 1},
@@ -416,7 +420,7 @@ async def seed() -> None:
             "choice_id": correct_choice.id,
             "is_correct": True,
         }
-        _, created = await get_or_create(
+        _, created = get_or_create(
             session,
             Answer,
             {"attempt_id": quiz_attempt.id, "question_id": question.id},
@@ -424,10 +428,10 @@ async def seed() -> None:
         )
         report.append(f"Answer: {'created' if created else 'updated'}")
 
-        await session.commit()
+        session.commit()
         for line in report:
             print(line)
 
 
 if __name__ == "__main__":
-    asyncio.run(seed())
+    seed()

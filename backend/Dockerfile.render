@@ -38,14 +38,24 @@ USER appuser
 EXPOSE 8001
 
 # Startup script
+# Startup script with seeding
 CMD ["sh", "-c", "\
+    echo '🔍 Checking DATABASE_URL...' && \
+    if [ -z \"$DATABASE_URL\" ]; then \
+        echo '❌ ERROR: DATABASE_URL not set!' && \
+        exit 1; \
+    fi && \
+    echo '✅ DATABASE_URL is set' && \
     echo '⏳ Waiting for database...' && \
-    sleep 5 && \
+    sleep 10 && \
     echo '📦 Running migrations...' && \
     alembic upgrade head && \
-    echo '🌱 Seeding initial data...' && \
-    python scripts/seed_data.py 2>/dev/null || true && \
-    python scripts/bootstrap_users.py 2>/dev/null || true && \
+    echo '🌱 Seeding initial data (schools, staff, students, rooms)...' && \
+    timeout 30 python scripts/seed_data.py 2>&1 || echo '⚠️  Seed timed out or skipped' && \
+    echo '👥 Creating default users (admin@example.com / admin123)...' && \
+    timeout 30 python scripts/bootstrap_users.py 2>&1 || echo '⚠️  Bootstrap timed out or skipped' && \
+    echo '📚 Importing quiz bank (optional)...' && \
+    timeout 60 python scripts/import_quiz_data.py --school-id 1 --staff-id 1 --room-id 1 2>&1 || echo '⚠️  Quiz import skipped' && \
     echo '🚀 Starting server...' && \
     uvicorn app.main:app --host 0.0.0.0 --port 8001 \
 "]

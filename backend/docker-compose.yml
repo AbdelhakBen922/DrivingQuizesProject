@@ -54,6 +54,10 @@ services:
         sleep 3 &&
         echo '📦 Running database migrations...' &&
         alembic upgrade head &&
+        echo '🌱 Seeding initial data...' &&
+        python scripts/seed_data.py 2>/dev/null || echo '⚠️  Seed skipped (may already exist)' &&
+        echo '👥 Creating default users...' &&
+        python scripts/bootstrap_users.py 2>/dev/null || echo '⚠️  Bootstrap skipped (may already exist)' &&
         echo '🚀 Starting FastAPI server on port 8001...' &&
         uvicorn app.main:app --host 0.0.0.0 --port 8001 --reload
       "
