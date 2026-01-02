@@ -251,14 +251,16 @@ export default function CreateTemplatePage() {
       // Convert questions to API format
       const apiQuestions: api.QuizTemplateQuestionInput[] = questions.map((q, index) => ({
         question: {
-          text: q.questionText,
+          text_ar: q.questionText,
+          text_fr: q.questionText,
           image_url: q.image,
           category: 'rule', // Default category - can be enhanced later to let user select
           type: q.type === 'T_F' ? 'single_choice' : (q.type === 'multiple' ? 'multiple_choice' : 'single_choice'),
           difficulty: 'medium',
           score: q.points,
           choices: q.answers.map((a, idx) => ({
-            text: a.text,
+            text_ar: a.text,
+            text_fr: a.text,
             is_correct: a.isCorrect,
             position: idx,
           })),
