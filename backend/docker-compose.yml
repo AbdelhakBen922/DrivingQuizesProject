@@ -36,7 +36,8 @@ services:
       - "8001:8001"  # Same port as your local setup
     environment:
       # Database connection - points to 'db' service (Docker internal networking)
-      DATABASE_URL: postgresql+asyncpg://postgres:postgres@db:5432/drivingquiz
+      # Using postgresql:// (converted to psycopg by database.py)
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/drivingquiz
       # Other environment variables
       SECRET_KEY: ${SECRET_KEY:-dev-secret-key-change-in-production}
       DATA_DIR_PATH: /app/data

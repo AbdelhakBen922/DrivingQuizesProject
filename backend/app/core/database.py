@@ -9,27 +9,36 @@ from app.core.config import settings
 
 
 def _build_async_url(database_url: str) -> str:
-    """Convert postgresql:// to postgresql+psycopg:// for async psycopg driver."""
-    if database_url.startswith("postgresql+psycopg://"):
+    """Convert postgresql:// URL to use psycopg async driver.
+    
+    psycopg (v3) async is the only driver that works with Leapcell's connection pooler.
+    Format: postgresql+psycopg://user:pass@host:port/db?sslmode=require&options=-csearch_path=schema
+    """
+    # Already has psycopg driver specified
+    if "postgresql+psycopg://" in database_url:
         return database_url
+    
+    # Convert postgresql:// to postgresql+psycopg://
     if database_url.startswith("postgresql://"):
         return database_url.replace("postgresql://", "postgresql+psycopg://", 1)
+    
     return database_url
 
 
 ASYNC_DATABASE_URL = _build_async_url(settings.database_url)
 
-# psycopg3 async driver works with Leapcell's connection pooler
-# Use NullPool to avoid connection pooling issues with external poolers
+# psycopg3 async configuration for Leapcell compatibility:
+# - NullPool: Let Leapcell's pooler handle connections (avoid double-pooling)
+# - prepare_threshold=None: Disable prepared statements (incompatible with poolers like PgBouncer/Leapcell)
 connect_args = {
-    "prepare_threshold": None,  # Disable prepared statements (incompatible with some poolers)
+    "prepare_threshold": None,  # Critical: Disables prepared statements
 }
 
 engine = create_async_engine(
     ASYNC_DATABASE_URL,
     echo=False,
     future=True,
-    poolclass=NullPool,  # Let Leapcell handle connection pooling
+    poolclass=NullPool,  # Let external pooler handle connections
     connect_args=connect_args,
 )
 AsyncSessionLocal = async_sessionmaker(engine, expire_on_commit=False)
