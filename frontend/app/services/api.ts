@@ -285,13 +285,15 @@ export interface QuestionWithChoicesRead {
 }
 
 export interface QuestionChoiceInput {
-  text: string;
+  text_ar: string;
+  text_fr: string;
   is_correct: boolean;
   position?: number;
 }
 
 export interface QuestionWithChoicesCreate {
-  text: string;
+  text_ar: string;
+  text_fr: string;
   image_url?: string | null;
   category: 'sign' | 'rule' | 'priority' | 'speed' | 'safety' | 'mechanics';
   type?: 'single_choice' | 'multiple_choice';
