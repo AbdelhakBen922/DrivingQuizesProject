@@ -8,7 +8,6 @@ from decimal import Decimal
 import sys
 from pathlib import Path
 
-DATABASE_URL = "postgresql://yrfucuvudcdbyjbwfylu:sgmsvriqkevomojytkkwkdqwxwgzzq@9qasp5v56q8ckkf5dc.leapcellpool.com:6438/rxshfspyojbbignklypk?sslmode=require"
 
 def seed_database():
     """Seed the database with initial data"""
