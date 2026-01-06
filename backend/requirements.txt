@@ -36,6 +36,7 @@ pydantic-settings==2.2.1
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
 python-jose==3.3.0
+python-multipart==0.0.21
 pyyaml==6.0.3
 rsa==4.9.1
 six==1.17.0
