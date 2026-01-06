@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, status
+import logging
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, status, Request
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from uuid import uuid4
@@ -21,6 +22,7 @@ from app.schemas.settings import (
 )
 
 router = APIRouter(prefix="/settings", tags=["dashboard-settings"])
+logger = logging.getLogger(__name__)
 
 
 async def _get_school(session: AsyncSession, staff: StaffUser) -> School:
@@ -111,6 +113,7 @@ async def update_owner_settings(
 
 @router.post("/owner/avatar")
 async def upload_owner_avatar(
+    request: Request,
     avatar: UploadFile = File(..., alias="avatar"),
     session: AsyncSession = Depends(get_db),
     current_staff: StaffUser = Depends(get_current_staff),
@@ -133,8 +136,13 @@ async def upload_owner_avatar(
     try:
         content = await avatar.read()
         destination.write_bytes(content)
-    except Exception:
+    except PermissionError as exc:
+        logger.error("Failed to save avatar (permission error)", exc_info=exc)
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Uploads directory not writable")
+    except Exception as exc:
+        logger.error("Failed to save avatar", exc_info=exc)
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Failed to save avatar")
 
-    avatar_url = f"{settings.backend_url}/uploads/avatars/{filename}"
+    base_url = settings.backend_url.rstrip("/") if settings.backend_url else str(request.base_url).rstrip("/")
+    avatar_url = f"{base_url}/uploads/avatars/{filename}"
     return {"avatar_url": avatar_url}
