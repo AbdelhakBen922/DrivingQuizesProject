@@ -115,28 +115,24 @@ async def update_owner_settings(
 @router.post("/owner/avatar")
 async def upload_avatar(
     request: Request,
-    file: UploadFile = File(...),
+    avatar: UploadFile = File(...),  # <-- match frontend field name
     db: AsyncSession = Depends(get_db),
 ):
-    # Only allow basic image types
-    if file.content_type not in {"image/jpeg", "image/png", "image/webp"}:
+    if avatar.content_type not in {"image/jpeg", "image/png", "image/webp"}:
         raise HTTPException(status_code=400, detail="Invalid image type")
 
-    # Ensure avatars subdir exists under the mounted uploads dir
     avatars_dir = os.path.join(settings.uploads_dir_path, "avatars")
     os.makedirs(avatars_dir, exist_ok=True)
 
-    # Save file
-    ext = os.path.splitext(file.filename or "")[1] or ".jpg"
+    ext = os.path.splitext(avatar.filename or "")[1] or ".jpg"
     filename = f"{uuid4().hex}{ext}"
     dest_path = os.path.join(avatars_dir, filename)
     try:
         with open(dest_path, "wb") as out:
-            content = await file.read()
+            content = await avatar.read()
             out.write(content)
     except OSError as exc:
         raise HTTPException(status_code=500, detail=f"Failed to save file: {exc}") from exc
 
-    # Build public URL using backend_url or request base
     base = (settings.backend_url or str(request.base_url)).rstrip("/")
     return {"url": f"{base}/uploads/avatars/{filename}"}
