@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 import logging
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, status, Request
+import os
+from fastapi import APIRouter, Depends, File, UploadFile, HTTPException, Request
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from uuid import uuid4
@@ -112,37 +113,30 @@ async def update_owner_settings(
 
 
 @router.post("/owner/avatar")
-async def upload_owner_avatar(
+async def upload_avatar(
     request: Request,
-    avatar: UploadFile = File(..., alias="avatar"),
-    session: AsyncSession = Depends(get_db),
-    current_staff: StaffUser = Depends(get_current_staff),
+    file: UploadFile = File(...),
+    db: AsyncSession = Depends(get_db),
 ):
-    # Basic content-type validation
-    if avatar.content_type not in {"image/jpeg", "image/png", "image/webp", "image/jpg"}:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid image type")
+    # Only allow basic image types
+    if file.content_type not in {"image/jpeg", "image/png", "image/webp"}:
+        raise HTTPException(status_code=400, detail="Invalid image type")
 
-    # Ensure owner exists
-    await _get_owner(session, current_staff)
+    # Ensure avatars subdir exists under the mounted uploads dir
+    avatars_dir = os.path.join(settings.uploads_dir_path, "avatars")
+    os.makedirs(avatars_dir, exist_ok=True)
 
-    # Prepare paths
-    avatars_dir = Path(settings.uploads_dir_path) / "avatars"
-    avatars_dir.mkdir(parents=True, exist_ok=True)
-
-    extension = Path(avatar.filename or "avatar").suffix or ".jpg"
-    filename = f"{uuid4().hex}{extension}"
-    destination = avatars_dir / filename
-
+    # Save file
+    ext = os.path.splitext(file.filename or "")[1] or ".jpg"
+    filename = f"{uuid4().hex}{ext}"
+    dest_path = os.path.join(avatars_dir, filename)
     try:
-        content = await avatar.read()
-        destination.write_bytes(content)
-    except PermissionError as exc:
-        logger.error("Failed to save avatar (permission error)", exc_info=exc)
-        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Uploads directory not writable")
-    except Exception as exc:
-        logger.error("Failed to save avatar", exc_info=exc)
-        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Failed to save avatar")
+        with open(dest_path, "wb") as out:
+            content = await file.read()
+            out.write(content)
+    except OSError as exc:
+        raise HTTPException(status_code=500, detail=f"Failed to save file: {exc}") from exc
 
-    base_url = settings.backend_url.rstrip("/") if settings.backend_url else str(request.base_url).rstrip("/")
-    avatar_url = f"{base_url}/uploads/avatars/{filename}"
-    return {"avatar_url": avatar_url}
+    # Build public URL using backend_url or request base
+    base = (settings.backend_url or str(request.base_url)).rstrip("/")
+    return {"url": f"{base}/uploads/avatars/{filename}"}
