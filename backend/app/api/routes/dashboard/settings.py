@@ -1,11 +1,14 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, status
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
+from uuid import uuid4
+from pathlib import Path
 
 from app.api.deps.auth import get_current_staff
 from app.core.database import get_db
+from app.core.config import settings
 from app.models.enums import StaffRole
 from app.models.school import School
 from app.models.staff_user import StaffUser
@@ -104,3 +107,34 @@ async def update_owner_settings(
     await session.commit()
     await session.refresh(owner)
     return _build_owner_info(owner)
+
+
+@router.post("/owner/avatar")
+async def upload_owner_avatar(
+    avatar: UploadFile = File(..., alias="avatar"),
+    session: AsyncSession = Depends(get_db),
+    current_staff: StaffUser = Depends(get_current_staff),
+):
+    # Basic content-type validation
+    if avatar.content_type not in {"image/jpeg", "image/png", "image/webp", "image/jpg"}:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid image type")
+
+    # Ensure owner exists
+    await _get_owner(session, current_staff)
+
+    # Prepare paths
+    avatars_dir = Path(settings.uploads_dir_path) / "avatars"
+    avatars_dir.mkdir(parents=True, exist_ok=True)
+
+    extension = Path(avatar.filename or "avatar").suffix or ".jpg"
+    filename = f"{uuid4().hex}{extension}"
+    destination = avatars_dir / filename
+
+    try:
+        content = await avatar.read()
+        destination.write_bytes(content)
+    except Exception:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Failed to save avatar")
+
+    avatar_url = f"{settings.backend_url}/uploads/avatars/{filename}"
+    return {"avatar_url": avatar_url}
