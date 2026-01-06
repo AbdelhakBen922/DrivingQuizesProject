@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import * as api from "../../../../services/api";
 import type { DashboardOwnerInfo } from "../../../../services/api";
 
 interface EditOwnerModalProps {
@@ -24,6 +25,7 @@ export default function EditOwnerModal({
   const [email, setEmail] = useState(ownerInfo.email);
   const [phone, setPhone] = useState(ownerInfo.phone);
   const [avatar, setAvatar] = useState(ownerInfo.avatar_url);
+  const [avatarUploading, setAvatarUploading] = useState(false);
 
   // Reset form when modal opens
   useEffect(() => {
@@ -47,13 +49,19 @@ export default function EditOwnerModal({
     });
   };
 
-  const handleAvatarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleAvatarChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      // In real implementation, upload to server and get URL
-      // For mock, we'll use object URL
-      const url = URL.createObjectURL(file);
-      setAvatar(url);
+      try {
+        setAvatarUploading(true);
+        const result = await api.uploadOwnerAvatar(file);
+        setAvatar(result.avatar_url);
+      } catch (err) {
+        console.error("Avatar upload failed", err);
+        alert(t("settings.avatarUploadError", "Échec du téléchargement de la photo"));
+      } finally {
+        setAvatarUploading(false);
+      }
     }
   };
 
@@ -103,6 +111,9 @@ export default function EditOwnerModal({
                 </div>
               )}
             </div>
+            {avatarUploading && (
+              <p className="text-xs text-gray-500 mb-2">{t("common.loading", "Chargement...")}</p>
+            )}
             <label className="cursor-pointer text-primary-600 hover:text-primary-800 text-sm flex items-center gap-1">
               <input
                 type="file"

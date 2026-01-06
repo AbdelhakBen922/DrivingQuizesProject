@@ -129,7 +129,7 @@
   },
   "dashboard": {
     "title": "Tableau de bord",
-    "welcome": "Bienvenue Ecole_nom !",
+    "welcome": "Bienvenue {{school}} !",
     "subtitle": "voici quelques statistiques rapides sur votre école",
     "logout": "Déconnexion",
     "nav": {
@@ -171,7 +171,12 @@
     },
     "enrollments": {
       "title": "Nouvelles Inscriptions",
-      "viewAll": "voir tout"
+      "viewAll": "voir tout",
+      "today": "aujourd'hui",
+      "yesterday": "hier",
+      "daysAgo": "il y a {{days}} jours",
+      "noGroup": "Aucun groupe",
+      "noEnrollments": "Pas de nouvelles inscriptions"
     },
     "topStudents": {
       "title": "Meilleurs Élèves",
@@ -201,6 +206,7 @@
     "saveInfo": "Enregistrer",
     "cancel": "Annuler",
     "changePhoto": "Changer la photo",
+    "avatarUploadError": "Échec du téléchargement de la photo",
     "schoolUpdated": "Informations de l'école mises à jour avec succès",
     "ownerUpdated": "Informations du propriétaire mises à jour avec succès"
   },
@@ -213,6 +219,7 @@
     "all_classes": "Toutes les classes",
     "all_groups": "Tous les groupes",
     "manage_description": "Gérez vos groupes et vos élèves ici",
+    "no_topic": "Pas de sujet",
     "stats": {
       "groups_count": "Nombre de groupes",
       "students_count": "Nombre d'élèves",
@@ -445,6 +452,7 @@
       "create_template": "Créer un modèle",
       "search_placeholder": "Rechercher un modèle",
       "all_topics": "Tous les sujets",
+      "no_topic": "Pas de sujet",
       "topics": {
         "traffic_priorities": "Priorités de circulation",
         "traffic_signs": "Panneaux de signalisation",
@@ -460,8 +468,12 @@
         "class": "Classe",
         "topic": "Sujet",
         "difficulty": "Difficulté",
-        "actions": "Actions"
+        "actions": "Actions",
+        "name": "Nom du modèle",
+        "questions": "Questions",
+        "created_at_short": "Créé le"
       },
+      "default_badge": "Par défaut",
       "difficulty": {
         "very_easy": "Très facile",
         "easy": "Facile",
@@ -490,7 +502,9 @@
         "searchPlaceholder": "Rechercher un groupe...",
         "selectAll": "Tout sélectionner",
         "students": "étudiant(s)",
-        "assign": "Assigner"
+        "assign": "Assigner",
+        "success": "Modèle assigné avec succès",
+        "error": "Échec de l'assignation du modèle"
       },
       "edit_modal": {
         "title_create": "Créer un nouveau modèle",
@@ -665,6 +679,7 @@
     "ok": "OK",
     "cancel": "Annuler",
     "delete": "Supprimer",
+    "edit": "Modifier",
     "save": "Enregistrer",
     "close": "Fermer",
     "loading": "Chargement...",

@@ -22,11 +22,24 @@ export default function Sidebar() {
 
   // Load settings on mount
   useEffect(() => {
+    // Load cached settings first for instant paint
+    const cached = typeof window !== 'undefined' ? sessionStorage.getItem('dashboardSettings') : null;
+    if (cached) {
+      try {
+        const parsed = JSON.parse(cached);
+        setSchoolInfo(parsed.school);
+        setOwnerInfo(parsed.owner);
+      } catch {
+        /* ignore cache parse errors */
+      }
+    }
+
     async function loadSettings() {
       try {
         const settings = await api.getDashboardSettings();
         setSchoolInfo(settings.school);
         setOwnerInfo(settings.owner);
+        sessionStorage.setItem('dashboardSettings', JSON.stringify(settings));
       } catch (err) {
         console.error('Failed to load settings:', err);
       }

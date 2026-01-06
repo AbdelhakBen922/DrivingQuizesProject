@@ -35,9 +35,23 @@ export default function SettingsPage() {
   async function loadSettings() {
     try {
       setLoading(true);
+
+      // Serve immediately from cache if present
+      const cached = typeof window !== "undefined" ? sessionStorage.getItem("dashboardSettings") : null;
+      if (cached) {
+        try {
+          const parsed = JSON.parse(cached);
+          setSchoolInfo(parsed.school);
+          setOwnerInfo(parsed.owner);
+        } catch {
+          /* ignore */
+        }
+      }
+
       const settings = await api.getDashboardSettings();
       setSchoolInfo(settings.school);
       setOwnerInfo(settings.owner);
+      sessionStorage.setItem("dashboardSettings", JSON.stringify(settings));
     } catch (err: any) {
       showError(err.message || t("settings.loadError", "فشل تحميل الإعدادات"));
     } finally {
