@@ -28,8 +28,7 @@ COPY . .
 # Create necessary directories
 RUN mkdir -p logs tmp data
 
-# Expose the port (8001 as you use locally)
-EXPOSE 8001
-
-# The command will be provided by docker-compose
-# This allows flexibility for development vs production
+# Expose the port
+EXPOSE 8080
+# Run setup.sh and then start the application
+CMD bash setup.sh && uvicorn app.main:app --host 0.0.0.0 --port 8080
