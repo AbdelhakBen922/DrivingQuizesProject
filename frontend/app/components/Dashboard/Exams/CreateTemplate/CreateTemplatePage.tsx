@@ -157,7 +157,7 @@ export default function CreateTemplatePage() {
         let imageUrl = tq.question.image_url || null;
         if (imageUrl && !imageUrl.startsWith('http')) {
           // If it's a relative path, prepend the backend URL
-          imageUrl = `http://localhost:8001/${imageUrl}`;
+          imageUrl = `${import.meta.env.VITE_API_BASE_URL}/${imageUrl}`;
         }
         
         return {
