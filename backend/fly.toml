@@ -7,7 +7,7 @@ app = 'drivingquizesproject'
 primary_region = 'iad'
 
 [build]
-  dockerfile = "backend/Dockerfile"
+  dockerfile = "./Dockerfile"
   build-target = ""
   ignorefile = ".dockerignore"
   build_context = ".."
