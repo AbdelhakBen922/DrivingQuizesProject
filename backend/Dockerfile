@@ -16,11 +16,11 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy dependency files first (for Docker layer caching)
-COPY requirements.txt pyproject.toml* ./
+COPY ./requirements.txt ./pyproject.toml* ./
 
 # Install Python dependencies (like setup.sh does)
 RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+    pip install --no-cache-dir -r ./requirements.txt
 
 # Copy the entire application
 COPY . .
@@ -34,4 +34,4 @@ RUN mkdir -p logs tmp uploads
 # Expose the port
 EXPOSE 8080
 # Run setup.sh and then start the application
-CMD bash setup.sh && uvicorn app.main:app --host 0.0.0.0 --port 8080
+CMD bash ./setup.sh && uvicorn app.main:app --host 0.0.0.0 --port 8080
