@@ -26,8 +26,11 @@ RUN pip install --no-cache-dir --upgrade pip && \
 # Copy application code
 COPY . .
 
+# Copy quiz images from root data folder to backend
+COPY ../data ./data
+
 # Create necessary directories
-RUN mkdir -p logs tmp data
+RUN mkdir -p logs tmp uploads
 
 # Create a non-root user
 RUN useradd -m -u 1000 appuser && \

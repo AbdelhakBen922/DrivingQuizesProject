@@ -25,8 +25,11 @@ RUN pip install --no-cache-dir --upgrade pip && \
 # Copy the entire application
 COPY . .
 
+# Copy quiz images from root data folder to backend
+COPY ../data ./data
+
 # Create necessary directories
-RUN mkdir -p logs tmp data
+RUN mkdir -p logs tmp uploads
 
 # Expose the port
 EXPOSE 8080
