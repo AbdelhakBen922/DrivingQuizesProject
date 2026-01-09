@@ -7,7 +7,10 @@ app = 'drivingquizesproject'
 primary_region = 'iad'
 
 [build]
-  dockerfile = "./Dockerfile"
+  dockerfile = "backend/Dockerfile"
+  build-target = ""
+  ignorefile = ".dockerignore"
+  build_context = ".."
 
 [http_service]
   internal_port = 8080
