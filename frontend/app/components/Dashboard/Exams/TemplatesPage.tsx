@@ -85,6 +85,7 @@ export default function TemplatesPage() {
   // Modal States
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [assignModalOpen, setAssignModalOpen] = useState(false);
+  const [duplicateModalOpen, setDuplicateModalOpen] = useState(false);
   const [selectedTemplate, setSelectedTemplate] = useState<TemplateData | null>(null);
 
   // Filter Options - generate from topics
@@ -171,6 +172,11 @@ export default function TemplatesPage() {
   // Handle Actions
   const handleCreateTemplate = () => {
     navigate('/dashboard/templates/create');
+  };
+
+  const handleDuplicateTemplate = (template: TemplateData) => {
+    navigate(`/dashboard/templates/create?duplicate=${template.id}`);
+    setDuplicateModalOpen(false);
   };
 
   const handleBack = () => {
@@ -354,6 +360,15 @@ export default function TemplatesPage() {
             />
           </button>
           <button
+            onClick={() => handleDuplicateTemplate(item)}
+            className="p-2 hover:bg-purple-50 rounded-lg transition-colors group"
+            title={t('templates.actions.duplicate', 'نسخ')}
+          >
+            <svg className="w-5 h-5 min-w-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+          </button>
+          <button
             onClick={() => !item.isDefault && handleDeleteTemplate(item)}
             disabled={item.isDefault}
             className={`p-2 rounded-lg transition-colors group ${item.isDefault ? 'opacity-50 cursor-not-allowed' : 'hover:bg-red-50'}`}
@@ -390,12 +405,25 @@ export default function TemplatesPage() {
       </div>
 
       {/* Create Template Button */}
-      <div className="mb-6">
+      <div className={`mb-6 flex gap-3 flex-wrap ${isRTL ? 'flex-row' : 'flex-row'}`}>
         <button
           onClick={handleCreateTemplate}
           className="btn-primary w-full sm:w-auto"
         >
           {t('templates.create_template', 'إنشاء قالب')}
+        </button>
+        <button
+          onClick={() => setDuplicateModalOpen(true)}
+          className={`
+            flex items-center gap-2 px-4 py-2 border-2 border-primary-500 text-primary-600 rounded-xl
+            hover:bg-primary-50 transition-colors text-sm font-medium w-full sm:w-auto
+            ${isRTL ? 'flex-row-reverse' : 'flex-row'}
+          `}
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+          </svg>
+          {t('templates.create_from_existing', 'إنشاء من قالب موجود')}
         </button>
       </div>
 
@@ -437,6 +465,73 @@ export default function TemplatesPage() {
         templateName={selectedTemplate?.name || ""}
         templateId={selectedTemplate?.id || ""}
       />
+
+      {/* Duplicate Template Modal */}
+      {duplicateModalOpen && (
+        <div 
+          className="fixed inset-0 flex items-center justify-center z-50"
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', backdropFilter: 'blur(4px)' }}
+          onClick={() => setDuplicateModalOpen(false)}
+        >
+          <div 
+            className={`bg-white rounded-2xl p-6 max-w-2xl w-full mx-4 max-h-[80vh] overflow-y-auto ${isRTL ? "text-right" : "text-left"}`} 
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className={`flex items-center justify-between mb-6 ${isRTL ? "flex-row-reverse" : ""}`}>
+              <h2 className="text-2xl font-bold text-primary-800">
+                {t("templates.select_template_to_clone", "اختر قالبًا للنسخ")}
+              </h2>
+              <button
+                onClick={() => setDuplicateModalOpen(false)}
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            <div className="space-y-3">
+              {mockTemplates.length === 0 ? (
+                <p className="text-gray-500 text-center py-8">
+                  {t("templates.no_templates_available", "لا توجد قوالب متاحة")}
+                </p>
+              ) : (
+                mockTemplates.map((template) => (
+                  <button
+                    key={template.id}
+                    onClick={() => handleDuplicateTemplate(template)}
+                    className={`
+                      w-full p-4 border-2 border-gray-200 rounded-xl hover:border-primary-500 
+                      hover:bg-primary-50 transition-all
+                      ${isRTL ? "text-right" : "text-left"}
+                    `}
+                  >
+                    <div className={`flex items-center justify-between ${isRTL ? "flex-row-reverse" : ""}`}>
+                      <div>
+                        <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}>
+                          <h3 className="font-semibold text-gray-900">{template.name}</h3>
+                          {template.isDefault && (
+                            <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-primary-100 text-primary-700">
+                              {t('templates.default_badge', 'افتراضي')}
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-sm text-gray-500 mt-1">
+                          {template.questionsCount} {t("templates.questions", "أسئلة")} • {template.difficulty}
+                        </p>
+                      </div>
+                      <svg className="w-5 h-5 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                  </button>
+                ))
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

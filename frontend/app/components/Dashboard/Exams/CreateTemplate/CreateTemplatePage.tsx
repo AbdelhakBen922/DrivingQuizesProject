@@ -108,6 +108,7 @@ export default function CreateTemplatePage() {
 
   // Check if editing existing template or returning to assignment workflow
   const editTemplateId = searchParams.get("edit");
+  const duplicateTemplateId = searchParams.get("duplicate");
   const returnToAssign = searchParams.get("returnToAssign") === "true";
 
   // Toast state
@@ -123,46 +124,73 @@ export default function CreateTemplatePage() {
   const [isEditingName, setIsEditingName] = useState(false);
   const [isTemplateModalOpen, setIsTemplateModalOpen] = useState(false);
   const [isLoadingTemplate, setIsLoadingTemplate] = useState(false);
+  const [isDuplicateModalOpen, setIsDuplicateModalOpen] = useState(false);
+  const [availableTemplates, setAvailableTemplates] = useState<any[]>([]);
 
-  // Load template when editing
+  // Load template when editing or duplicating
   useEffect(() => {
     if (editTemplateId) {
-      loadTemplate(parseInt(editTemplateId));
+      loadTemplate(parseInt(editTemplateId), false);
+    } else if (duplicateTemplateId) {
+      loadTemplate(parseInt(duplicateTemplateId), true);
     }
-  }, [editTemplateId]);
+  }, [editTemplateId, duplicateTemplateId]);
 
-  const loadTemplate = async (templateId: number) => {
+  const loadTemplate = async (templateId: number, isDuplicate: boolean = false) => {
     try {
       setIsLoadingTemplate(true);
+      console.log('Loading template:', templateId, 'isDuplicate:', isDuplicate);
       const template = await api.getQuizTemplate(templateId);
+      console.log('Loaded template data:', template);
       
-      // Set template name
-      setTemplateName(template.title || t('createTemplate.defaultProjectName', '[إسم المشروع]'));
+      // Set template name (add copy suffix if duplicating)
+      const namePrefix = isDuplicate ? t('createTemplate.copyOf', 'نسخة من') + ' ' : '';
+      setTemplateName(namePrefix + (template.title || t('createTemplate.defaultProjectName', '[إسم المشروع]')));
+      
+      // Get questions from either 'questions' or 'template_questions' field
+      const templateQuestions = template.questions || (template as any).template_questions || [];
+      console.log('Template questions array:', templateQuestions);
       
       // Convert API template questions to QuestionData format
-      const loadedQuestions: QuestionData[] = template.questions.map((tq, index) => ({
-        id: tq.question_id.toString(),
-        type: tq.question.type === 'single_choice' ? 'single' : 'multiple',
-        isRequired: tq.is_required,
-        questionText: tq.question.text,
-        image: tq.question.image_url || null,  // This preserves the image URL
-        answers: tq.question.choices.map((c) => ({
-          id: `answer-${c.id}`,
-          text: c.text,
-          isCorrect: c.is_correct
-        })),
-        points: tq.question.score || 3,
-        timeLimit: (tq.duration_sec || 120) / 60,
-        randomOrder: tq.randomize_options || false,
-      }));
+      const loadedQuestions: QuestionData[] = templateQuestions.map((tq: any, index: number) => {
+        // Convert relative image paths to absolute URLs
+        let imageUrl = tq.question.image_url || null;
+        if (imageUrl && !imageUrl.startsWith('http')) {
+          // If it's a relative path, prepend the backend URL
+          imageUrl = `http://localhost:8001/${imageUrl}`;
+        }
+        
+        return {
+          id: tq.question_id.toString(),
+          type: tq.question.type === 'single_choice' ? 'single' : 'multiple',
+          isRequired: tq.is_required,
+          questionText: tq.question.text_ar || tq.question.text_fr || '',
+          image: imageUrl,
+          answers: tq.question.choices.map((c) => ({
+            id: `answer-${c.id}`,
+            text: c.text_ar || c.text_fr || '',
+            isCorrect: c.is_correct
+          })),
+          points: tq.question.score || 3,
+          timeLimit: (tq.duration_sec || 120) / 60,
+          randomOrder: tq.randomize_options || false,
+        };
+      });
+      
+      console.log('Converted questions:', loadedQuestions);
       
       if (loadedQuestions.length > 0) {
         setQuestions(loadedQuestions);
         setActiveQuestionId(loadedQuestions[0].id);
       }
       
-      info(t("createTemplate.templateLoaded", "تم تحميل القالب"));
+      const message = isDuplicate 
+        ? t("createTemplate.templateDuplicated", "تم تحميل القالب للتكرار")
+        : t("createTemplate.templateLoaded", "تم تحميل القالب");
+      info(message);
     } catch (err: any) {
+      console.error('Error loading template:', err);
+      console.error('Error stack:', err.stack);
       error(err.message || t("createTemplate.loadFailed", "فشل تحميل القالب"));
       navigate('/dashboard/templates');
     } finally {
@@ -189,6 +217,29 @@ export default function CreateTemplatePage() {
   );
 
   const activeQuestion = questions.find((q) => q.id === activeQuestionId);
+
+  // Load available templates for duplication
+  const loadAvailableTemplates = async () => {
+    try {
+      const templates = await api.listQuizTemplates();
+      setAvailableTemplates(templates);
+    } catch (err) {
+      console.error('Error loading templates:', err);
+      error(t("createTemplate.loadTemplatesFailed", "فشل تحميل القوالب"));
+    }
+  };
+
+  // Handler for opening duplicate modal
+  const handleOpenDuplicateModal = async () => {
+    setIsDuplicateModalOpen(true);
+    await loadAvailableTemplates();
+  };
+
+  // Handler for selecting template to duplicate
+  const handleSelectTemplateToDuplicate = (templateId: number) => {
+    setIsDuplicateModalOpen(false);
+    navigate(`/dashboard/templates/create?duplicate=${templateId}`);
+  };
 
   // Handlers
   const handleUpdateQuestion = (updatedQuestion: QuestionData) => {
@@ -249,12 +300,13 @@ export default function CreateTemplatePage() {
 
     try {
       // Convert questions to API format
+      // Always create new question objects with updated data
       const apiQuestions: api.QuizTemplateQuestionInput[] = questions.map((q, index) => ({
         question: {
           text_ar: q.questionText,
           text_fr: q.questionText,
           image_url: q.image,
-          category: 'rule', // Default category - can be enhanced later to let user select
+          category: 'rule',
           type: q.type === 'T_F' ? 'single_choice' : (q.type === 'multiple' ? 'multiple_choice' : 'single_choice'),
           difficulty: 'medium',
           score: q.points,
@@ -271,16 +323,43 @@ export default function CreateTemplatePage() {
         randomize_options: q.randomOrder,
       }));
 
-      // Create the template via API
-      const newTemplate = await api.createQuizTemplate({
-        title: templateName,
-        description: `Template with ${questions.length} questions`,
-        difficulty: 'medium',
-        questions: apiQuestions,
-      });
+      // Create or update the template via API
+      let newTemplate;
+      if (editTemplateId) {
+        // Update existing template
+        console.log('Updating template:', editTemplateId, {
+          title: templateName,
+          description: `Template with ${questions.length} questions`,
+          difficulty: 'medium',
+          questions: apiQuestions,
+        });
+        newTemplate = await api.updateQuizTemplate(parseInt(editTemplateId), {
+          title: templateName,
+          description: `Template with ${questions.length} questions`,
+          difficulty: 'medium',
+          questions: apiQuestions,
+        });
+        console.log('Template updated successfully:', newTemplate);
+        success(t("createTemplate.updated", "تم تحديث القالب بنجاح"));
+      } else {
+        // Create new template
+        console.log('Creating new template:', {
+          title: templateName,
+          description: `Template with ${questions.length} questions`,
+          difficulty: 'medium',
+          questions: apiQuestions,
+        });
+        newTemplate = await api.createQuizTemplate({
+          title: templateName,
+          description: `Template with ${questions.length} questions`,
+          difficulty: 'medium',
+          questions: apiQuestions,
+        });
+        console.log('Template created successfully:', newTemplate);
+        success(t("createTemplate.published", "تم نشر القالب بنجاح"));
+      }
 
       setIsSaving(false);
-      success(t("createTemplate.published", "تم نشر القالب بنجاح"));
 
       // Check if we need to create an exam from this template
       if (returnToAssign) {
@@ -326,10 +405,20 @@ export default function CreateTemplatePage() {
       }
 
       // Normal flow - navigate to templates page
-      navigate("/dashboard/templates");
+      // Add timestamp to force fresh navigation and prevent caching
+      setTimeout(() => {
+        navigate("/dashboard/templates", { replace: true });
+      }, 100);
     } catch (err: any) {
+      console.error('Error publishing/updating template:', err);
       setIsSaving(false);
-      error(err.message || t("createTemplate.publishFailed", "فشل نشر القالب"));
+      const errorMessage = err.message || err.detail || t("createTemplate.publishFailed", "فشل نشر القالب");
+      error(errorMessage);
+      
+      // Log detailed error for debugging
+      if (err.response) {
+        console.error('Response error:', err.response);
+      }
     }
   };
 
@@ -376,6 +465,16 @@ export default function CreateTemplatePage() {
 
   return (
     <div className={`min-h-screen bg-gray-50 ${isRTL ? "text-right" : "text-left"}`}>
+      {/* Loading State */}
+      {isLoadingTemplate && (
+        <div className="fixed inset-0 bg-white bg-opacity-90 flex items-center justify-center z-50">
+          <div className="text-center">
+            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mb-4"></div>
+            <p className="text-gray-600 text-lg">{t("createTemplate.loadingTemplate", "جاري تحميل القالب...")}</p>
+          </div>
+        </div>
+      )}
+      
       {/* Top Header Bar */}
       <div className="bg-white border-b border-gray-200 px-4 py-3">
         <div className={`flex items-center justify-between max-w-7xl mx-auto ${isRTL ? "flex-row" : "flex-row"}`}>
@@ -423,6 +522,21 @@ export default function CreateTemplatePage() {
 
           {/* Right Side: Actions */}
           <div className={`flex items-center gap-3 ${isRTL ? "flex-row" : "flex-row"}`}>
+            {!editTemplateId && !duplicateTemplateId && (
+              <button
+                onClick={handleOpenDuplicateModal}
+                className={`
+                  flex items-center gap-2 px-4 py-2 border border-primary-500 text-primary-600 rounded-xl
+                  hover:bg-primary-50 transition-colors text-sm font-medium
+                  ${isRTL ? "flex-row-reverse" : "flex-row"}
+                `}
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                {t("createTemplate.createFromExisting", "إنشاء من قالب موجود")}
+              </button>
+            )}
             <button
               onClick={() => {}}
               className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
@@ -557,6 +671,63 @@ export default function CreateTemplatePage() {
         onClose={() => setIsTemplateModalOpen(false)}
         onSelectQuestions={handleSelectTemplateQuestions}
       />
+
+      {/* Duplicate Template Modal */}
+      {isDuplicateModalOpen && (
+        <div 
+          className="fixed inset-0 flex items-center justify-center z-50" 
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', backdropFilter: 'blur(4px)' }}
+          onClick={() => setIsDuplicateModalOpen(false)}
+        >
+          <div className={`bg-white rounded-2xl p-6 max-w-2xl w-full mx-4 max-h-[80vh] overflow-y-auto ${isRTL ? "text-right" : "text-left"}`} onClick={(e) => e.stopPropagation()}>
+            <div className={`flex items-center justify-between mb-6 ${isRTL ? "flex-row-reverse" : ""}`}>
+              <h2 className="text-2xl font-bold text-primary-800">
+                {t("createTemplate.selectTemplateToClone", "اختر قالبًا للنسخ")}
+              </h2>
+              <button
+                onClick={() => setIsDuplicateModalOpen(false)}
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            <div className="space-y-3">
+              {availableTemplates.length === 0 ? (
+                <p className="text-gray-500 text-center py-8">
+                  {t("createTemplate.noTemplatesAvailable", "لا توجد قوالب متاحة")}
+                </p>
+              ) : (
+                availableTemplates.map((template) => (
+                  <button
+                    key={template.id}
+                    onClick={() => handleSelectTemplateToDuplicate(template.id)}
+                    className={`
+                      w-full p-4 border-2 border-gray-200 rounded-xl hover:border-primary-500 
+                      hover:bg-primary-50 transition-all text-left
+                      ${isRTL ? "text-right" : "text-left"}
+                    `}
+                  >
+                    <div className={`flex items-center justify-between ${isRTL ? "flex-row-reverse" : ""}`}>
+                      <div>
+                        <h3 className="font-semibold text-gray-900">{template.title}</h3>
+                        <p className="text-sm text-gray-500 mt-1">
+                          {template.question_count} {t("createTemplate.questions", "أسئلة")} • {template.difficulty}
+                        </p>
+                      </div>
+                      <svg className="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                  </button>
+                ))
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

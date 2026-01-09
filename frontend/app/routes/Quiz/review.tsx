@@ -5,6 +5,7 @@ import { CheckCircle, XCircle, ArrowLeft } from "lucide-react";
 import * as api from "~/services/api";
 import { useAuth } from "~/contexts/AuthContext";
 import NavBar from "~/components/NavBar";
+import { ProtectedRoute } from "~/components/ProtectedRoute";
 
 interface ReviewQuestion {
     id: number;
@@ -35,28 +36,20 @@ const QuizReview = () => {
     const { quizId, attemptId } = useParams();
     const navigate = useNavigate();
     const { t, i18n } = useTranslation();
-    const { user, isLoading: authLoading } = useAuth();
+    const { user } = useAuth();
 
     const [reviewData, setReviewData] = useState<ReviewData | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
     useEffect(() => {
-        // Wait for auth to load
-        if (authLoading) return;
-
-        if (!user || user.type !== 'student') {
-            navigate("/");
-            return;
-        }
-
         if (!quizId || !attemptId) {
             navigate("/student/dashboard");
             return;
         }
 
         loadReview();
-    }, [quizId, attemptId, user, authLoading]);
+    }, [quizId, attemptId]);
 
     const loadReview = async () => {
         try {
@@ -72,7 +65,7 @@ const QuizReview = () => {
         }
     };
 
-    if (loading || authLoading) {
+    if (loading) {
         return (
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="text-gray-500">{t("common.loading", "Loading...")}</div>
@@ -96,7 +89,8 @@ const QuizReview = () => {
     if (!reviewData) return null;
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <ProtectedRoute allowedUserTypes={["student", "guest"]}>
+            <div className="min-h-screen bg-gray-50">
             <NavBar dark={false} />
             
             <div className="container mx-auto px-4 py-8">
@@ -233,7 +227,8 @@ const QuizReview = () => {
                     })}
                 </div>
             </div>
-        </div>
+            </div>
+        </ProtectedRoute>
     );
 };
 

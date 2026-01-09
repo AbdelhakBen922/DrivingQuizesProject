@@ -7,6 +7,7 @@ import QuizProgressBar from "~/components/Quiz/QuizProgressBar";
 import QuizTimer from "~/components/Quiz/QuizTimer";
 import * as api from "~/services/api";
 import { useAuth } from "~/contexts/AuthContext";
+import { ProtectedRoute } from "~/components/ProtectedRoute";
 
 interface Choice {
     id: number;
@@ -45,7 +46,7 @@ const Quiz = () => {
     const { quizId } = useParams();
     const navigate = useNavigate();
     const { t, i18n } = useTranslation();
-    const { user, isLoading } = useAuth();
+    const { user } = useAuth();
 
     const [quizData, setQuizData] = useState<QuizData | null>(null);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -58,21 +59,12 @@ const Quiz = () => {
     const [answerFeedback, setAnswerFeedback] = useState<{[key: number]: boolean}>({});
 
     useEffect(() => {
-        // Wait for auth to load
-        if (isLoading) return;
-
-        // Check authentication
-        if (!user || user.type !== 'student') {
-            navigate("/");
-            return;
-        }
-
         if (!quizId) {
             navigate("/student/dashboard");
             return;
         }
         startQuiz();
-    }, [quizId, user, isLoading]);
+    }, [quizId]);
 
     const startQuiz = async () => {
         try {
@@ -164,7 +156,7 @@ const Quiz = () => {
         }
     };
 
-    if (loading || isLoading) {
+    if (loading) {
         return (
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="text-gray-500">{t("common.loading", "Loading...")}</div>
@@ -249,8 +241,8 @@ const Quiz = () => {
     const isLastQuestion = currentQuestionIndex === quizData.questions.length - 1;
 
     return (
-        <div className="min-h-screen flex flex-col ">
-            <NavBar dark={false} />
+        <ProtectedRoute allowedUserTypes={["student", "guest"]}>
+            <div className="min-h-screen flex flex-col ">
             
             {/* Progress Bar Section */}
             <QuizProgressBar 
@@ -343,7 +335,8 @@ const Quiz = () => {
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
+        </ProtectedRoute>
     )
 }
 

@@ -220,11 +220,16 @@ async def get_template(
     session: AsyncSession = Depends(get_db),
     current_staff: StaffUser = Depends(get_current_staff),
 ) -> QuizTemplateDetail:
-    """Get a single template with all questions and choices"""
+    """Get a single template with all questions and choices. Allows accessing both school templates and default templates (school_id=1)."""
     stmt = (
         select(QuizTemplate)
         .where(QuizTemplate.id == template_id)
-        .where(QuizTemplate.school_id == current_staff.school_id)
+        .where(
+            or_(
+                QuizTemplate.school_id == current_staff.school_id,
+                QuizTemplate.school_id == 1  # Allow default templates from school ID 1
+            )
+        )
         .options(
             selectinload(QuizTemplate.template_questions)
             .selectinload(QuizTemplateQuestion.question)
@@ -307,6 +312,8 @@ async def update_template(
     session: AsyncSession = Depends(get_db),
     current_staff: StaffUser = Depends(get_current_staff),
 ) -> QuizTemplateListItem:
+    print(f"Updating template {template_id}")
+    print(f"Payload questions: {len(payload.questions) if payload.questions else 0}")
     template = await _get_editable_template(session, template_id, current_staff)
 
     if payload.title is not None:
@@ -336,10 +343,13 @@ async def update_template(
     if payload.questions is not None:
         if not payload.questions:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="At least one question is required")
+        print(f"Processing {len(payload.questions)} questions for update")
         question_entries = await _prepare_template_question_entries(session, payload.questions, current_staff)
+        print(f"Prepared {len(question_entries)} question entries")
         await session.execute(
             delete(QuizTemplateQuestion).where(QuizTemplateQuestion.template_id == template.id)
         )
+        print(f"Deleted old template questions")
         for entry in question_entries:
             template_question = QuizTemplateQuestion(
                 template_id=template.id,
@@ -351,7 +361,9 @@ async def update_template(
                 estimation_time_seconds=entry["estimation_time_seconds"],
             )
             session.add(template_question)
+            print(f"Added template question at position {entry['position']}")
         question_count = len(question_entries)
+        print(f"Final question count: {question_count}")
 
     await session.commit()
     await session.refresh(template)

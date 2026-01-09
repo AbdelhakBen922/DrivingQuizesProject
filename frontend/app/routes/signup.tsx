@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate, Link } from "react-router";
 import NavBar from "~/components/NavBar";
 import * as api from "~/services/api";
+import { PublicRoute } from "~/components/ProtectedRoute";
 
 export default function SignUpPage() {
   const { t, i18n } = useTranslation();
@@ -60,15 +61,16 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-25 to-white">
-      <NavBar dark={false} />
+    <PublicRoute redirectAuthenticated={true}>
+      <div className="min-h-screen bg-gradient-to-br from-primary-25 to-white">
+        <NavBar dark={false} />
 
-      <div className="flex items-center justify-center px-4 py-12">
-        <div
-          className={`w-full max-w-lg bg-white rounded-2xl shadow-xl p-8 ${
-            isRTL ? "text-right" : "text-left"
-          }`}
-        >
+        <div className="flex items-center justify-center px-4 py-12">
+          <div
+            className={`w-full max-w-lg bg-white rounded-2xl shadow-xl p-8 ${
+              isRTL ? "text-right" : "text-left"
+            }`}
+          >
           {/* Header */}
           <div className="text-center mb-8">
             <h2 className="text-primary-800 mb-2">
@@ -224,6 +226,7 @@ export default function SignUpPage() {
           </p>
         </div>
       </div>
-    </div>
+      </div>
+    </PublicRoute>
   );
 }

@@ -1,21 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
 import { BookOpen, FileText, Video, CheckCircle, Clock, ArrowLeft } from "lucide-react";
+import { ProtectedRoute } from "~/components/ProtectedRoute";
 
 export default function LearningPage() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const isRTL = i18n.language === "ar";
-
-  useEffect(() => {
-    // Check if user is student or guest
-    const userType = localStorage.getItem("userType");
-    if (userType !== "student" && userType !== "guest") {
-      navigate("/dashboard");
-      return;
-    }
-  }, [navigate]);
 
   const handleBack = () => {
     navigate("/student/dashboard");
@@ -59,7 +51,8 @@ export default function LearningPage() {
   ];
 
   return (
-    <div className={`min-h-screen bg-gray-50 ${isRTL ? "rtl" : "ltr"}`}>
+    <ProtectedRoute allowedUserTypes={["student", "guest"]}>
+      <div className={`min-h-screen bg-gray-50 ${isRTL ? "rtl" : "ltr"}`}>
       {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -165,6 +158,7 @@ export default function LearningPage() {
           })}
         </div>
       </main>
-    </div>
+      </div>
+    </ProtectedRoute>
   );
 }

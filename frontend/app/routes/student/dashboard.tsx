@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router";
 import { ClipboardList, CheckCircle, Clock, TrendingUp, BookOpen, LogOut } from "lucide-react";
 import * as api from "~/services/api";
 import { useAuth } from "~/contexts/AuthContext";
+import { ProtectedRoute } from "~/components/ProtectedRoute";
 
 interface DashboardStats {
   total_quizzes: number;
@@ -43,15 +44,8 @@ export default function StudentDashboard() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    // Check if user is student or guest
-    const userType = localStorage.getItem("userType");
-    if (userType !== "student" && userType !== "guest") {
-      navigate("/dashboard");
-      return;
-    }
-
     loadDashboardData();
-  }, [navigate]);
+  }, []);
 
   const loadDashboardData = async () => {
     try {
@@ -107,7 +101,8 @@ export default function StudentDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <ProtectedRoute allowedUserTypes={["student", "guest"]}>
+      <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="bg-gradient-to-r from-primary-500 to-primary-700 text-white">
         <div className="container mx-auto px-4 py-8">
@@ -286,6 +281,7 @@ export default function StudentDashboard() {
           )}
         </div>
       </div>
-    </div>
+      </div>
+    </ProtectedRoute>
   );
 }

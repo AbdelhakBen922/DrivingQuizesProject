@@ -48,14 +48,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("token");
+    localStorage.removeItem("auth_token");
     localStorage.removeItem("userType");
     localStorage.removeItem("studentCode");
     api.logout();
   };
 
   const checkAuth = () => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("auth_token");
     const storedUserType = localStorage.getItem("userType") as UserType;
     const studentCode = localStorage.getItem("studentCode");
 

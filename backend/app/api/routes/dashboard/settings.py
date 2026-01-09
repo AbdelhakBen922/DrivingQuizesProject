@@ -135,4 +135,4 @@ async def upload_avatar(
         raise HTTPException(status_code=500, detail=f"Failed to save file: {exc}") from exc
 
     base = (settings.backend_url or str(request.base_url)).rstrip("/")
-    return {"url": f"{base}/uploads/avatars/{filename}"}
+    return {"avatar_url": f"{base}/uploads/avatars/{filename}"}

@@ -1036,3 +1036,26 @@ export async function uploadOwnerAvatar(file: File): Promise<{ avatar_url: strin
 
   return response.json();
 }
+
+export async function uploadQuestionImage(file: File): Promise<{ image_url: string }> {
+  const token = getAuthToken();
+  const formData = new FormData();
+  formData.append("image", file);
+
+  const response = await fetch(`${API_BASE_URL}/dashboard/questions/upload-image`, {
+    method: "POST",
+    headers: {
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
+    body: formData,
+  });
+
+  if (!response.ok) {
+    const error: ApiError = await response.json().catch(() => ({
+      detail: "Image upload failed",
+    }));
+    throw new Error(error.detail);
+  }
+
+  return response.json();
+}

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime
 
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 from app.models.enums import QuestionDifficulty
 from app.schemas.base import ORMModel
@@ -61,7 +61,13 @@ class QuizTemplateListItem(QuizTemplateRead):
 
 class QuizTemplateDetail(QuizTemplateRead):
     """Template with full question details including choices"""
-    questions: list[QuizTemplateQuestionWithQuestion] = Field(default_factory=list)
+    questions: list[QuizTemplateQuestionWithQuestion] = Field(
+        default_factory=list, 
+        validation_alias='template_questions',
+        serialization_alias='questions'
+    )
+    
+    model_config = ConfigDict(from_attributes=True, populate_by_name=True)
 
 
 class QuizTemplateCreateRequest(ORMModel):

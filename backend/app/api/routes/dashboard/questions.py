@@ -1,11 +1,15 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, HTTPException, Query, Response, status
+import os
+from uuid import uuid4
+
+from fastapi import APIRouter, Depends, File, HTTPException, Query, Request, Response, UploadFile, status
 from sqlalchemy import Select, delete, func, or_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
 from app.api.deps.auth import get_current_staff
+from app.core.config import settings
 from app.core.database import get_db
 from app.models.choice import Choice
 from app.models.question import Question
@@ -215,3 +219,35 @@ async def delete_dashboard_question(
     await session.delete(question)
     await session.commit()
     return Response(status_code=status.HTTP_204_NO_CONTENT)
+
+
+@router.post("/upload-image")
+async def upload_question_image(
+    request: Request,
+    image: UploadFile = File(...),
+    session: AsyncSession = Depends(get_db),
+    current_staff: StaffUser = Depends(get_current_staff),
+):
+    """Upload an image for a question"""
+    if image.content_type not in {"image/jpeg", "image/png", "image/webp", "image/jpg"}:
+        raise HTTPException(status_code=400, detail="Invalid image type. Only JPEG, PNG, and WebP are allowed.")
+
+    # Create questions images directory
+    questions_dir = os.path.join(settings.uploads_dir_path, "questions")
+    os.makedirs(questions_dir, exist_ok=True)
+
+    # Generate unique filename
+    ext = os.path.splitext(image.filename or "")[1] or ".jpg"
+    filename = f"{uuid4().hex}{ext}"
+    dest_path = os.path.join(questions_dir, filename)
+    
+    try:
+        with open(dest_path, "wb") as out:
+            content = await image.read()
+            out.write(content)
+    except OSError as exc:
+        raise HTTPException(status_code=500, detail=f"Failed to save file: {exc}") from exc
+
+    # Return the URL
+    base = (settings.backend_url or str(request.base_url)).rstrip("/")
+    return {"image_url": f"{base}/uploads/questions/{filename}"}

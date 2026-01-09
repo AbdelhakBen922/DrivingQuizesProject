@@ -7,6 +7,7 @@ import OurExperts from "~/components/LandingPage/OurExperts";
 import Testimonials from "~/components/LandingPage/Testimonials";
 import FAQ from "~/components/LandingPage/FAQ";
 import Footer from "~/components/Footer";
+import { PublicRoute } from "~/components/ProtectedRoute";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -17,15 +18,17 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <div>
-      <Hero />
-      <QuizPreview />
-      <LearningPreview />
-      <WhyUs />
-      <OurExperts />
-      <Testimonials />
-      <FAQ />
-      <Footer />
-    </div>
+    <PublicRoute redirectAuthenticated={true}>
+      <div>
+        <Hero />
+        <QuizPreview />
+        <LearningPreview />
+        <WhyUs />
+        <OurExperts />
+        <Testimonials />
+        <FAQ />
+        <Footer />
+      </div>
+    </PublicRoute>
   );
 }

@@ -16,6 +16,7 @@ import {
     verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import AnswerOption from "./AnswerOption";
+import * as api from "../../../../services/api";
 
 interface Answer {
     id: string;
@@ -52,6 +53,7 @@ export default function QuestionEditor({
     const isRTL = i18n.language === "ar";
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [showImageZoom, setShowImageZoom] = useState(false);
+    const [imageUploading, setImageUploading] = useState(false);
 
     // Drag and drop sensors for answers
     const sensors = useSensors(
@@ -97,14 +99,19 @@ export default function QuestionEditor({
         onUpdate({ ...question, questionText: text });
     };
 
-    const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (file) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                onUpdate({ ...question, image: e.target?.result as string });
-            };
-            reader.readAsDataURL(file);
+            try {
+                setImageUploading(true);
+                const result = await api.uploadQuestionImage(file);
+                onUpdate({ ...question, image: result.image_url });
+            } catch (err) {
+                console.error("Image upload failed", err);
+                alert(t("createTemplate.imageUploadError", "فشل تحميل الصورة"));
+            } finally {
+                setImageUploading(false);
+            }
         }
     };
 
@@ -279,7 +286,14 @@ export default function QuestionEditor({
             <div className={`flex gap-6 mb-6 ${isRTL ? "flex-row" : "flex-row"}`}>
                 {/* Image Upload Area */}
                 <div className="w-48 flex-shrink-0">
-                    {question.image ? (
+                    {imageUploading ? (
+                        <div className="w-full h-40 border-2 border-dashed border-primary-300 rounded-xl flex flex-col items-center justify-center gap-2 bg-primary-50">
+                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>
+                            <span className="text-sm text-primary-600">
+                                {t("common.uploading", "جاري التحميل...")}
+                            </span>
+                        </div>
+                    ) : question.image ? (
                         <div className="relative rounded-xl overflow-hidden border border-gray-200">
                             <img
                                 src={question.image}
@@ -312,7 +326,8 @@ export default function QuestionEditor({
                     ) : (
                         <button
                             onClick={() => fileInputRef.current?.click()}
-                            className="w-full h-40 border-2 border-dashed border-gray-300 rounded-xl flex flex-col items-center justify-center gap-2 hover:border-primary-400 hover:bg-primary-50 transition-colors"
+                            disabled={imageUploading}
+                            className="w-full h-40 border-2 border-dashed border-gray-300 rounded-xl flex flex-col items-center justify-center gap-2 hover:border-primary-400 hover:bg-primary-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             <img
                                 src="/assets/icons/create_exam/plus.svg"
@@ -330,6 +345,7 @@ export default function QuestionEditor({
                         accept="image/*"
                         onChange={handleImageUpload}
                         className="hidden"
+                        disabled={imageUploading}
                     />
                 </div>
 

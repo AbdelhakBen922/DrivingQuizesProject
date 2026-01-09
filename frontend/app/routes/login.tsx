@@ -5,6 +5,7 @@ import { GraduationCap, Building2 } from "lucide-react";
 import NavBar from "~/components/NavBar";
 import * as api from "~/services/api";
 import { useAuth } from "~/contexts/AuthContext";
+import { PublicRoute } from "~/components/ProtectedRoute";
 
 type LoginMode = "staff" | "student";
 
@@ -83,15 +84,16 @@ export default function LoginPage() {
   const handleSubmit = mode === "staff" ? handleStaffLogin : handleStudentLogin;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-25 to-white">
-      <NavBar dark={false} />
+    <PublicRoute redirectAuthenticated={true}>
+      <div className="min-h-screen bg-gradient-to-br from-primary-25 to-white">
+        <NavBar dark={false} />
 
-      <div className="flex items-center justify-center px-4 py-12">
-        <div
-          className={`w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden ${
-            isRTL ? "text-right" : "text-left"
-          }`}
-        >
+        <div className="flex items-center justify-center px-4 py-12">
+          <div
+            className={`w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden ${
+              isRTL ? "text-right" : "text-left"
+            }`}
+          >
           {/* Mode Switcher Tabs */}
           <div className="flex border-b border-gray-200">
             <button
@@ -276,6 +278,7 @@ export default function LoginPage() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </PublicRoute>
   );
 }
