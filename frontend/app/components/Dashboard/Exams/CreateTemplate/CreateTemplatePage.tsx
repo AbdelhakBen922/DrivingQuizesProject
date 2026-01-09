@@ -156,8 +156,9 @@ export default function CreateTemplatePage() {
         // Convert relative image paths to absolute URLs
         let imageUrl = tq.question.image_url || null;
         if (imageUrl && !imageUrl.startsWith('http')) {
-          // If it's a relative path, prepend the backend URL
-          imageUrl = `${import.meta.env.VITE_API_BASE_URL}/${imageUrl}`;
+          // If it's a relative path, prepend the backend URL (remove /api suffix for static files)
+          const baseUrl = import.meta.env.VITE_API_BASE_URL.replace(/\/api$/, '');
+          imageUrl = `${baseUrl}/${imageUrl}`;
         }
         
         return {
