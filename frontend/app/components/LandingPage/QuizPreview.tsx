@@ -1,5 +1,6 @@
 import FadeInSection from "../FadeInSection";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router";
 
 const FeatureLine = ({ icon, text }: { icon: string; text: string }) => {
     return (
@@ -10,11 +11,17 @@ const FeatureLine = ({ icon, text }: { icon: string; text: string }) => {
     );
 };
 
-const QuizPreview = ({className}: {className?: string}) => {
+const QuizPreview = ({className,id}: {className?: string; id: string}) => {
     const { t } = useTranslation();
+    const navigate = useNavigate();
+    
+    const handleQuizClick = () => {
+        navigate('/login?type=student');
+    };
+    
     return (
         <FadeInSection>
-            <section className={` two-columns-section two-columns-section-right ${className}`}>
+            <section id={id} className={` two-columns-section two-columns-section-right ${className}`}>
                 <div className="flex flex-col gap-7 justify-center items-center w-full text-center md:text-start md:items-start">
                     <h1 className="text-primary-800">
                         {t('quizPreview.title')}
@@ -37,7 +44,7 @@ const QuizPreview = ({className}: {className?: string}) => {
                             text={t('quizPreview.feature3')}
                         />
                     </div>
-                    <button className="btn-primary text-3xl py-3 mt-4">{t('quizPreview.btn')}</button>
+                    <button onClick={handleQuizClick} className="btn-primary text-3xl py-3 mt-4">{t('quizPreview.btn')}</button>
                 </div>
                 <div className="w-full flex justify-center items-center">
                     <img

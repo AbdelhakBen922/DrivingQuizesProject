@@ -695,5 +695,31 @@
       "car": "سيارة",
       "heavy": "ثقيل"
     }
+  },
+  "contact": {
+    "title": "اتصل بنا",
+    "subtitle": "نحن هنا للإجابة على جميع أسئلتك. املأ النموذج أدناه وسنرد عليك في أقرب وقت ممكن.",
+    "name": "الاسم الكامل",
+    "namePlaceholder": "أدخل اسمك الكامل",
+    "email": "البريد الإلكتروني",
+    "emailPlaceholder": "your.email@example.com",
+    "phone": "رقم الهاتف",
+    "phonePlaceholder": "+213 555 000 000",
+    "address": "العنوان",
+    "subject": "الموضوع",
+    "selectSubject": "اختر موضوعاً",
+    "subjectGeneral": "سؤال عام",
+    "subjectStudent": "سؤال طالب",
+    "subjectSchool": "سؤال مدرسة سياقة",
+    "subjectTechnical": "دعم تقني",
+    "subjectPartnership": "شراكة",
+    "message": "الرسالة",
+    "messagePlaceholder": "اكتب رسالتك هنا...",
+    "send": "إرسال الرسالة",
+    "sending": "جاري الإرسال...",
+    "successMessage": "✓ تم إرسال رسالتك بنجاح! سنرد عليك قريباً.",
+    "errorRequired": "يرجى ملء جميع الحقول المطلوبة",
+    "errorInvalidEmail": "يرجى إدخال عنوان بريد إلكتروني صالح",
+    "errorSubmit": "خطأ في إرسال الرسالة"
   }
 }

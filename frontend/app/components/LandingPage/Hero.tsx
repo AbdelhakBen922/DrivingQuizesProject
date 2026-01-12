@@ -1,11 +1,25 @@
 import FadeInSection from "../FadeInSection";
 import NavBar from "../NavBar";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router";
 
-const Hero = () => {
+const Hero = ( { id }: { id: string } ) => {
     const { t } = useTranslation();
+    const navigate = useNavigate();
+    
+    const handleQuizClick = () => {
+        navigate('/login?type=student');
+    };
+    
+    const handleLearnClick = () => {
+        const element = document.getElementById('learning-preview');
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+    
     return (
-            <section className=" relative w-full h-screen flex flex-col items-center justify-start ">
+            <section id={id} className=" relative w-full h-screen flex flex-col items-center justify-start ">
                 <img
                     src="/assets/images/hero.png"
                     alt=""
@@ -22,10 +36,10 @@ const Hero = () => {
                         {t('hero.description')}
                     </p>
                     <div className="flex flex-row justify-center items-center gap-6">
-                        <button className="btn-primary max-md:w-full ">
+                        <button onClick={handleQuizClick} className="btn-primary max-md:w-full ">
                             {t('hero.btnQuiz')}
                         </button>
-                        <button className="btn-secondary max-md:w-full ">
+                        <button onClick={handleLearnClick} className="btn-secondary max-md:w-full ">
                             {t('hero.btnLearn')}
                         </button>
                     </div>

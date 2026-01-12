@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate, Link } from "react-router";
+import { useNavigate, Link, useSearchParams } from "react-router";
 import { GraduationCap, Building2 } from "lucide-react";
 import NavBar from "~/components/NavBar";
 import * as api from "~/services/api";
@@ -14,6 +14,7 @@ export default function LoginPage() {
   const navigate = useNavigate();
   const { setAuth, isAuthenticated, isStaff, isStudent } = useAuth();
   const isRTL = i18n.language === "ar";
+  const [searchParams] = useSearchParams();
 
   // Redirect if already logged in
   useEffect(() => {
@@ -29,7 +30,16 @@ export default function LoginPage() {
   // Check for pending student code from quick entry
   const pendingCode = localStorage.getItem("pendingStudentCode");
   
-  const [mode, setMode] = useState<LoginMode>(pendingCode ? "student" : "staff");
+  // Determine initial mode from URL query param, pending code, or default to staff
+  const typeParam = searchParams.get("type");
+  const initialMode: LoginMode = 
+    typeParam === "student" || typeParam === "school" 
+      ? (typeParam === "school" ? "staff" : "student")
+      : pendingCode 
+      ? "student" 
+      : "staff";
+  
+  const [mode, setMode] = useState<LoginMode>(initialMode);
   
   // Staff login fields
   const [email, setEmail] = useState("");

@@ -711,5 +711,31 @@
       "car": "Voiture",
       "heavy": "Lourd"
     }
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Nous sommes là pour répondre à toutes vos questions. Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.",
+    "name": "Nom complet",
+    "namePlaceholder": "Entrez votre nom complet",
+    "email": "Email",
+    "emailPlaceholder": "votre.email@exemple.com",
+    "phone": "Téléphone",
+    "phonePlaceholder": "+213 555 000 000",
+    "address": "Adresse",
+    "subject": "Sujet",
+    "selectSubject": "Sélectionnez un sujet",
+    "subjectGeneral": "Question générale",
+    "subjectStudent": "Question élève",
+    "subjectSchool": "Question auto-école",
+    "subjectTechnical": "Support technique",
+    "subjectPartnership": "Partenariat",
+    "message": "Message",
+    "messagePlaceholder": "Écrivez votre message ici...",
+    "send": "Envoyer le message",
+    "sending": "Envoi en cours...",
+    "successMessage": "✓ Votre message a été envoyé avec succès ! Nous vous répondrons bientôt.",
+    "errorRequired": "Veuillez remplir tous les champs obligatoires",
+    "errorInvalidEmail": "Veuillez entrer une adresse email valide",
+    "errorSubmit": "Erreur lors de l'envoi du message"
   }
 }

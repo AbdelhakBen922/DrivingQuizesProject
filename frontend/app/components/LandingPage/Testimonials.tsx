@@ -42,7 +42,7 @@ const starsReview = (review: boolean[]) => {
 const DividerBuilder = () => {
     return <img src="/assets/icons/Divider.svg" alt="" />;
 };
-const Testimonials = () => {
+const Testimonials = ({ id }: { id: string }) => {
     const usersImages = [
         "/assets/images/user1.png",
         "/assets/images/user2.png",
@@ -65,7 +65,7 @@ const Testimonials = () => {
 
     return (
         <FadeInSection>
-            <section className="flex flex-col justify-center items-center gap-14 sm:gap-20 py-16 sm:py-20 px-6 sm:px-16 lg:px-24 bg-white">
+            <section id={id} className="flex flex-col justify-center items-center gap-14 sm:gap-20 py-16 sm:py-20 px-6 sm:px-16 lg:px-24 bg-white">
                 {/* Title */}
                 <div className="flex flex-col justify-center items-center text-center gap-4 sm:gap-6 px-2">
                     <h1 className="text-primary-800 text-2xl sm:text-3xl lg:text-4xl">

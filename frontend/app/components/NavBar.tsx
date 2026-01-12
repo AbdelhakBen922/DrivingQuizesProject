@@ -21,20 +21,26 @@ const NavBar = ({ dark }: { dark: boolean }) => {
     const iconColor = dark ? "text-white" : "text-primary-800";
 
     return (
-        <header className={`z-10 bg-transparent top-0 flex items-center justify-between h-[12vh] w-full px-6 md:px-24`}>
+        <header className={`z-10 bg-transparent top-0 flex items-center justify-between h-[12vh] w-full px-6  md:px-24 md:pl-16`}>
 
             {/* Left side: Logo + main links */}
             <div className="flex items-center gap-8">
                 {/* Logo */}
-                <Link to="/" className={`${textColor} text-2xl font-bold`}>Logo</Link>
+                <Link to="/" className={`${textColor} text-2xl font-bold flex items-center`}>
+                    <img 
+                        src={dark ? "/assets/images/Logo-clean-dark.png" : "/assets/images/Logo-clean.png"} 
+                        alt="Logo" 
+                        className="h-12 w-auto" 
+                    />
+                </Link>
 
                 {/* Desktop Menu */}
                 <nav className="hidden md:block">
                     <ul className="flex flex-row gap-6">
                         <li><Link className={`fancy-link text-xl font-semibold ${linkColor}`} to="/">{t('nav.home')}</Link></li>
                         <li><Link className={`fancy-link text-xl font-semibold ${linkColor}`} to="/select-quiz">{t('nav.quiz')}</Link></li>
-                        <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="#">{t('nav.learn')}</a></li>
-                        <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="#">{t('nav.qa')}</a></li>
+                        <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="#learning-preview">{t('nav.learn')}</a></li>
+                        <li><a className={`fancy-link text-xl font-semibold ${linkColor}`} href="#faq">{t('nav.qa')}</a></li>
                     </ul>
                 </nav>
             </div>
@@ -79,8 +85,8 @@ const NavBar = ({ dark }: { dark: boolean }) => {
                 <div className={`absolute top-[12vh] left-0 w-full ${mobileBg} backdrop-blur-lg md:hidden flex flex-col items-center gap-4 py-6`}>
                     <Link className={`fancy-link text-xl ${linkColor}`} to="/">{t('nav.home')}</Link>
                     <Link className={`fancy-link text-xl ${linkColor}`} to="/select-quiz">{t('nav.quiz')}</Link>
-                    <a className={`fancy-link text-xl ${linkColor}`} href="#">{t('nav.learn')}</a>
-                    <a className={`fancy-link text-xl ${linkColor}`} href="#">{t('nav.qa')}</a>
+                    <a className={`fancy-link text-xl ${linkColor}`} href="#learning-preview">{t('nav.learn')}</a>
+                    <a className={`fancy-link text-xl ${linkColor}`} href="#faq">{t('nav.qa')}</a>
 
                     <LanguageToggle dark={dark} />
                     {isAuthenticated ? (

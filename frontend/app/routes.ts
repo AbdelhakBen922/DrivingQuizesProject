@@ -3,6 +3,7 @@ import { type RouteConfig, index, layout, route } from "@react-router/dev/routes
 export default [
     index("routes/home.tsx"),
     route("login", "routes/login.tsx"),
+    route("contact", "routes/contact.tsx"),
     route("signup", "routes/signup.tsx"),
     route("select-quiz","routes/Quiz/quiz-select.tsx"),
     route("quiz/:quizId","routes/Quiz/quiz.tsx"),

@@ -1,5 +1,6 @@
 import FadeInSection from "../FadeInSection";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router";
 
 const FeatureLine = ({ icon, text }: { icon: string; text: string }) => {
     return (
@@ -10,11 +11,17 @@ const FeatureLine = ({ icon, text }: { icon: string; text: string }) => {
     );
 };
 
-const LearningPreview = () => {
+const LearningPreview = ({ id }: { id: string }) => {
     const { t } = useTranslation();
+    const navigate = useNavigate();
+    
+    const handleLearnClick = () => {
+        navigate('/login?type=student');
+    };
+    
     return (
         <FadeInSection>
-            <section className="two-columns-section two-columns-section-left ">
+            <section id={id} className="two-columns-section two-columns-section-left ">
                 <div className="w-full flex justify-center items-center ">
                     <img
                         src="/assets/images/learning_preview.png"
@@ -48,7 +55,7 @@ const LearningPreview = () => {
                             text={t('learningPreview.feature3')}
                         />
                     </div>
-                    <button className="btn-primary text-2xl mt-4">
+                    <button onClick={handleLearnClick} className="btn-primary text-2xl mt-4">
                         {t('learningPreview.btn')}
                     </button>
                 </div>

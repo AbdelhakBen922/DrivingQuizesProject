@@ -20,13 +20,13 @@ export default function Home() {
   return (
     <PublicRoute redirectAuthenticated={true}>
       <div>
-        <Hero />
-        <QuizPreview />
-        <LearningPreview />
-        <WhyUs />
-        <OurExperts />
-        <Testimonials />
-        <FAQ />
+        <Hero id="hero" />
+        <QuizPreview id="quiz-preview" />
+        <LearningPreview id='learning-preview' />
+        <WhyUs id="why-us" />
+        <OurExperts id="our-experts" />
+        <Testimonials id="testimonials" />
+        <FAQ id="faq" />
         <Footer />
       </div>
     </PublicRoute>

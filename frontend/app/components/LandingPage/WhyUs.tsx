@@ -2,11 +2,11 @@ import FadeInSection from "../FadeInSection"
 import FeatureCard from "../FeatureCard"
 import { useTranslation } from "react-i18next";
 
-const WhyUs = () => {
+const WhyUs = ({ id }: { id: string }) => {
     const { t } = useTranslation();
     return (
         <FadeInSection>
-            <section className="bg-white  flex flex-col justify-center items-center gap-8 py-10 px-12 md:gap-15 md:py-12 md:px-20 max-md:text-center">
+            <section id={id} className="bg-white  flex flex-col justify-center items-center gap-8 py-10 px-12 md:gap-15 md:py-12 md:px-20 max-md:text-center">
                 <h2 className=" text-primary-800">
                     {t('whyUs.title')}
                 </h2>
