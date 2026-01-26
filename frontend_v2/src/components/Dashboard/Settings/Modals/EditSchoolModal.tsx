@@ -180,39 +180,6 @@ export default function EditSchoolModal({
             />
           </div>
 
-          {/* Address */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              {t("settings.address", "العنوان")}
-            </label>
-            <input
-              type="text"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              className={`w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white ${
-                isRTL ? "text-right" : "text-left"
-              }`}
-              required
-            />
-          </div>
-
-          {/* Phone */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              {t("settings.phone", "رقم الهاتف")}
-            </label>
-            <input
-              type="tel"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              dir="ltr"
-              className={`w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white ${
-                isRTL ? "text-right" : "text-left"
-              }`}
-              required
-            />
-          </div>
-
           {/* Buttons */}
           <div className={`flex items-center justify-center gap-4 pt-4 ${isRTL ? "flex-row" : "flex-row-reverse"}`}>
             <button
