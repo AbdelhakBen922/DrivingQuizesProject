@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Enum, ForeignKey, String, Text, text
+from sqlalchemy import Enum, ForeignKey, Index, String, Text, text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.models.base import Base, BigIntPrimaryKeyMixin, SoftDeleteMixin, TimestampMixin
@@ -17,6 +17,9 @@ if TYPE_CHECKING:
 
 class Room(BigIntPrimaryKeyMixin, TimestampMixin, SoftDeleteMixin, Base):
     __tablename__ = "room"
+    __table_args__ = (
+        Index("ix_room_school", "school_id"),
+    )
 
     school_id: Mapped[int] = mapped_column(ForeignKey("school.id", ondelete="CASCADE"), nullable=False)
     name: Mapped[str] = mapped_column(String(255), nullable=False)

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 from datetime import datetime, timedelta, timezone
 
 import sqlalchemy as sa
@@ -234,11 +235,15 @@ async def get_dashboard_overview(
 ) -> DashboardOverviewResponse:
     school_id = await _require_staff_school(current_staff)
 
-    metrics = await _fetch_metrics(session, school_id)
-    exam_results = await _fetch_exam_results(session, school_id)
-    study_progress = await _fetch_study_progress(session, school_id)
-    recent_regs = await _fetch_recent_registrations(session, school_id)
-    top_students = await _fetch_top_students(session, school_id)
+    # Run all queries in parallel using asyncio.gather for better performance
+    # This reduces total latency from 5 sequential queries to 1 parallel batch
+    metrics, exam_results, study_progress, recent_regs, top_students = await asyncio.gather(
+        _fetch_metrics(session, school_id),
+        _fetch_exam_results(session, school_id),
+        _fetch_study_progress(session, school_id),
+        _fetch_recent_registrations(session, school_id),
+        _fetch_top_students(session, school_id),
+    )
 
     return DashboardOverviewResponse(
         metrics=metrics,

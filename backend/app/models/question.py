@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Boolean, Enum, ForeignKey, Integer, String, Text, text as sql_text
+from sqlalchemy import Boolean, Enum, ForeignKey, Index, Integer, Text, text as sql_text
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -19,12 +19,18 @@ if TYPE_CHECKING:
 
 class Question(BigIntPrimaryKeyMixin, TimestampMixin, SoftDeleteMixin, Base):
     __tablename__ = "question"
+    __table_args__ = (
+        Index("ix_question_school", "school_id"),
+        Index("ix_question_category", "category"),
+        Index("ix_question_difficulty", "difficulty"),
+        Index("ix_question_school_category", "school_id", "category"),
+    )
 
     school_id: Mapped[int | None] = mapped_column(ForeignKey("school.id", ondelete="SET NULL"))
     author_id: Mapped[int | None] = mapped_column(ForeignKey("staff_user.id", ondelete="SET NULL"))
     text_ar: Mapped[str] = mapped_column(Text, nullable=False)
     text_fr: Mapped[str] = mapped_column(Text, nullable=False)
-    image_url: Mapped[str | None] = mapped_column(String(255))
+    image_url: Mapped[str | None] = mapped_column(Text)
     category: Mapped[QuestionCategory] = mapped_column(
         Enum(QuestionCategory, name="question_category_enum", values_callable=enum_values), nullable=False
     )

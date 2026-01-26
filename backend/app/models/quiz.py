@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Boolean, DateTime, ForeignKey, String, Text, text
+from sqlalchemy import Boolean, DateTime, ForeignKey, Index, String, Text, text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.models.base import Base, BigIntPrimaryKeyMixin, SoftDeleteMixin, TimestampMixin
@@ -19,6 +19,13 @@ if TYPE_CHECKING:
 
 class Quiz(BigIntPrimaryKeyMixin, TimestampMixin, SoftDeleteMixin, Base):
     __tablename__ = "quizze"
+    __table_args__ = (
+        Index("ix_quiz_school", "school_id"),
+        Index("ix_quiz_room", "room_id"),
+        Index("ix_quiz_template", "template_id"),
+        Index("ix_quiz_starts_at", "starts_at"),
+        Index("ix_quiz_school_dates", "school_id", "starts_at", "ends_at"),
+    )
 
     school_id: Mapped[int | None] = mapped_column(ForeignKey("school.id", ondelete="SET NULL"))
     setting_id: Mapped[int | None] = mapped_column(

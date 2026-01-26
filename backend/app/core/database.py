@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import AsyncGenerator
 
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
-from sqlalchemy.pool import NullPool
+from sqlalchemy.pool import AsyncAdaptedQueuePool
 
 from app.core.config import settings
 
@@ -28,17 +28,25 @@ def _build_async_url(database_url: str) -> str:
 ASYNC_DATABASE_URL = _build_async_url(settings.database_url)
 
 # psycopg3 async configuration for Leapcell compatibility:
-# - NullPool: Let Leapcell's pooler handle connections (avoid double-pooling)
 # - prepare_threshold=None: Disable prepared statements (incompatible with poolers like PgBouncer/Leapcell)
 connect_args = {
     "prepare_threshold": None,  # Critical: Disables prepared statements
 }
 
+# Use connection pooling to reuse connections and avoid per-request connection overhead
+# pool_size: Number of permanent connections to keep
+# max_overflow: Additional connections allowed during peak load
+# pool_pre_ping: Verify connection health before use (handles stale connections)
+# pool_recycle: Recreate connections after 1800 seconds to avoid stale connections
 engine = create_async_engine(
     ASYNC_DATABASE_URL,
     echo=False,
     future=True,
-    poolclass=NullPool,  # Let external pooler handle connections
+    poolclass=AsyncAdaptedQueuePool,
+    pool_size=5,
+    max_overflow=10,
+    pool_pre_ping=True,
+    pool_recycle=1800,
     connect_args=connect_args,
 )
 AsyncSessionLocal = async_sessionmaker(engine, expire_on_commit=False)

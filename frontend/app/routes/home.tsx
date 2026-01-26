@@ -18,7 +18,7 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <PublicRoute redirectAuthenticated={true}>
+    <PublicRoute redirectAuthenticated={false}>
       <div>
         <Hero id="hero" />
         <QuizPreview id="quiz-preview" />

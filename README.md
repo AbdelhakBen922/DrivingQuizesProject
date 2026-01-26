@@ -5,8 +5,8 @@ This is a Webapp that helps driving students learn and practice their knowledge 
 
 ## Overview:
 This a web application aims to provide users (students preparing for driving tests) with a seamless and realistic experience in *Driving Test*  while ensuring their ability to learn and practice effectively. The platform provides all of the following features:
-- User Quiz Taking (no need to register)
-- User Training Mode (with explanations for each question)
+- User Quiz Taking 
+- User Training Mode (with explanations for each question) (to be implemented in the future versions)
 - User Learning environment (with categorized questions)
 - Driving School Quiz Management (CRUD operations on quizzes)
 - Driving School Quiz User tracking (view user statistics and progress)

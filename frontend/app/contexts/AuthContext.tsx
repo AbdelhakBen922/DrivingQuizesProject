@@ -30,15 +30,17 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<AuthUser | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [hasToken, setHasToken] = useState(false);
 
   const userType = user?.type || null;
-  const isAuthenticated = !!user && user.type !== null;
+  const isAuthenticated = hasToken && !!user && user.type !== null;
   const isStaff = user?.type === "staff";
   const isStudent = user?.type === "student";
   const isGuest = user?.type === "guest";
 
   const setAuth = (authUser: AuthUser) => {
     setUser(authUser);
+    setHasToken(!!localStorage.getItem("auth_token"));
     // Store user type in localStorage for persistence
     localStorage.setItem("userType", authUser.type || "");
     if (authUser.studentCode) {
@@ -48,6 +50,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = () => {
     setUser(null);
+    setHasToken(false);
     localStorage.removeItem("auth_token");
     localStorage.removeItem("userType");
     localStorage.removeItem("studentCode");
@@ -56,6 +59,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const checkAuth = () => {
     const token = localStorage.getItem("auth_token");
+    setHasToken(!!token);
     const storedUserType = localStorage.getItem("userType") as UserType;
     const studentCode = localStorage.getItem("studentCode");
 

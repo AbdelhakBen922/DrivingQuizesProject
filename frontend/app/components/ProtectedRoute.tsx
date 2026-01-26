@@ -20,7 +20,7 @@ export function ProtectedRoute({
   allowedUserTypes, 
   redirectTo 
 }: ProtectedRouteProps) {
-  const { user, userType, isLoading } = useAuth();
+  const { user, userType, isLoading, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export function ProtectedRoute({
     if (isLoading) return;
 
     // Check if user is authenticated
-    if (!user || !userType) {
+    if (!isAuthenticated || !user || !userType) {
       // Not logged in -> redirect to landing page
       navigate(redirectTo || "/", { replace: true });
       return;
@@ -58,7 +58,7 @@ export function ProtectedRoute({
   }
 
   // If user is not allowed, don't render anything (redirect will happen)
-  if (!user || !userType || !allowedUserTypes.includes(userType)) {
+  if (!isAuthenticated || !user || !userType || !allowedUserTypes.includes(userType)) {
     return null;
   }
 
@@ -77,7 +77,7 @@ export function PublicRoute({
   children: React.ReactNode; 
   redirectAuthenticated?: boolean;
 }) {
-  const { user, userType, isLoading } = useAuth();
+  const { userType, isLoading, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -85,7 +85,7 @@ export function PublicRoute({
     if (isLoading) return;
 
     // If user is authenticated and we should redirect them
-    if (redirectAuthenticated && user && userType && userType !== null) {
+    if (redirectAuthenticated && isAuthenticated && userType && userType !== null) {
       // Redirect based on user type
       if (userType === "staff") {
         navigate("/dashboard", { replace: true });
@@ -93,7 +93,7 @@ export function PublicRoute({
         navigate("/student/dashboard", { replace: true });
       }
     }
-  }, [user, userType, isLoading, redirectAuthenticated, navigate]);
+  }, [userType, isLoading, redirectAuthenticated, navigate]);
 
   // Show loading state while checking auth
   if (isLoading) {
@@ -105,7 +105,7 @@ export function PublicRoute({
   }
 
   // If user is authenticated and should be redirected, don't render content
-  if (redirectAuthenticated && user && userType && userType !== null) {
+  if (redirectAuthenticated && isAuthenticated && userType && userType !== null) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-gray-50">
         <div className="text-gray-500">Redirecting...</div>

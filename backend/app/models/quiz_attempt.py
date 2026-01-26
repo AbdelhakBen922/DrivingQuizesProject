@@ -17,7 +17,12 @@ if TYPE_CHECKING:
 
 class QuizAttempt(BigIntPrimaryKeyMixin, Base):
     __tablename__ = "quiz_attempt"
-    __table_args__ = (Index("uq_quiz_attempt_unique", "quiz_id", "room_member_id", "attempt_number", unique=True),)
+    __table_args__ = (
+        Index("uq_quiz_attempt_unique", "quiz_id", "room_member_id", "attempt_number", unique=True),
+        Index("ix_quiz_attempt_quiz", "quiz_id"),
+        Index("ix_quiz_attempt_room_member", "room_member_id"),
+        Index("ix_quiz_attempt_finished_at", "finished_at"),
+    )
 
     quiz_id: Mapped[int] = mapped_column(ForeignKey("quizze.id", ondelete="CASCADE"), nullable=False)
     room_member_id: Mapped[int] = mapped_column(ForeignKey("room_member.id", ondelete="CASCADE"), nullable=False)
