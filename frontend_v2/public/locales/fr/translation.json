@@ -1,0 +1,741 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "quiz": "Quiz",
+    "learn": "Apprendre",
+    "qa": "Q&R",
+    "login": "Se connecter"
+  },
+  "auth": {
+    "loginTitle": "Connexion",
+    "loginSubtitle": "Bienvenue ! Connectez-vous pour continuer",
+    "signupTitle": "Créer un compte",
+    "signupSubtitle": "Inscrivez votre auto-école et commencez à gérer vos élèves",
+    "schoolLogin": "École",
+    "studentLogin": "Élève",
+    "staffLoginTitle": "Connexion École",
+    "staffLoginSubtitle": "Connectez-vous pour gérer votre auto-école",
+    "studentLoginTitle": "Connexion Élève",
+    "studentLoginSubtitle": "Connectez-vous pour commencer le test",
+    "studentCode": "Code élève",
+    "studentCodePlaceholder": "Entrez le code élève",
+    "quickEntry": "Accès rapide avec code élève uniquement",
+    "quickEntryTitle": "Accès rapide",
+    "quickEntrySubtitle": "Entrez le code élève pour accéder rapidement aux tests",
+    "enterCode": "Entrer le code",
+    "invalidCode": "Code élève invalide",
+    "studentLoginError": "Échec de connexion de l'élève",
+    "email": "Email",
+    "emailPlaceholder": "Entrez votre email",
+    "password": "Mot de passe",
+    "passwordPlaceholder": "Entrez votre mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "confirmPasswordPlaceholder": "Confirmez votre mot de passe",
+    "schoolName": "Nom de l'auto-école",
+    "schoolNamePlaceholder": "Auto-école",
+    "ownerName": "Nom du propriétaire",
+    "ownerNamePlaceholder": "Nom complet",
+    "phone": "Numéro de téléphone",
+    "phonePlaceholder": "+213 000 000 000",
+    "forgotPassword": "Mot de passe oublié ?",
+    "loginButton": "Se connecter",
+    "signupButton": "Créer un compte",
+    "loggingIn": "Connexion en cours...",
+    "creating": "Création du compte...",
+    "or": "ou",
+    "noAccount": "Pas de compte ?",
+    "signUpLink": "Inscrivez-vous",
+    "haveAccount": "Vous avez déjà un compte ?",
+    "loginLink": "Connectez-vous",
+    "loginError": "Échec de connexion. Vérifiez vos identifiants",
+    "signupError": "Échec de création du compte",
+    "passwordMismatch": "Les mots de passe ne correspondent pas",
+    "passwordTooShort": "Le mot de passe doit contenir au moins 6 caractères"
+  },
+  "hero": {
+    "title": "Maîtrisez la route.",
+    "subtitle": "Conduisez votre avenir en toute confiance.",
+    "description": "Apprenez le code, entraînez-vous en toute sécurité et suivez vos progrès grâce à notre plateforme complète d'auto-école. Votre réussite commence ici — sur la route de la liberté.",
+    "btnQuiz": "Faire Quiz",
+    "btnLearn": "Apprendre le code"
+  },
+  "quizPreview": {
+    "title": "Testez vos connaissances avant de prendre la route.",
+    "description": "Préparez votre examen avec des quiz interactifs. Apprenez, et suivez vos progrès facilement.",
+    "feature1": "Correction intelligente avec retour immédiat",
+    "feature2": "Mode examen avec chronomètre",
+    "feature3": "Suivi des progrès et statistiques de performance",
+    "btn": "Faire le Quiz"
+  },
+  "learningPreview": {
+    "title": "Apprenez le code avant de passer à la pratique.",
+    "description": "Maîtrisez la théorie avec des leçons simples et visuelles. Comprenez les panneaux, les priorités et les règles de conduite — étape par étape.",
+    "feature1": "Leçons interactives et illustrées pour chaque thème",
+    "feature2": "Panneaux et situations réelles expliqués en détail",
+    "feature3": "Suivi de progression pour savoir où vous en êtes",
+    "btn": "Apprendre le code"
+  },
+  "whyUs": {
+    "title": "Pourquoi choisir notre plateforme ?",
+    "feature1Title": "Apprentissage à votre rythme",
+    "feature1Desc": "Avancez à votre propre vitesse, reprenez vos leçons où vous les avez laissées.",
+    "feature2Title": "Interface moderne et intuitive",
+    "feature2Desc": "Navigation fluide, design clair et expérience agréable sur tous les appareils.",
+    "feature3Title": "Personnalisation complète",
+    "feature3Desc": "Choisissez vos thèmes, vos types de tests et vos modes d'apprentissage préférés."
+  },
+  "experts": {
+    "title": "Notre équipe d'experts",
+    "subtitle": "Des professionnels passionnés qui vous accompagnent à chaque étape de votre apprentissage.",
+    "contact": "contactez-moi",
+    "job1": "Formateur principal",
+    "job2": "Moniteur de conduite",
+    "job3": "Conseiller pédagogique",
+    "job4": "Examinateur certifié"
+  },
+  "testimonials": {
+    "title": "Ce que nos apprenants disent de nous",
+    "subtitle": "Des milliers d'élèves nous font confiance chaque année pour réussir leur code et leur conduite.",
+    "stat1": "+10 000 élèves satisfaits",
+    "stat2": "Basé sur les retours authentiques",
+    "stat3": "La meilleure formation à vos côtés."
+  },
+  "faq": {
+    "title": "Questions Fréquentes",
+    "subtitle": "Trouvez des réponses aux questions les plus courantes sur notre service.",
+    "q1": "Comment puis-je m'inscrire à la plateforme ?",
+    "a1": "Vous pouvez vous inscrire en cliquant sur le bouton 'S'inscrire' en haut à droite de la page d'accueil et en remplissant le formulaire d'inscription.",
+    "q2": "Quels types de tests sont disponibles ?",
+    "a2": "Nous proposons une variété de tests, y compris des tests de code de la route, des tests pratiques et des simulations d'examen.",
+    "q3": "Puis-je accéder à la plateforme depuis mon téléphone ?",
+    "a3": "Oui, notre plateforme est entièrement responsive et accessible depuis tous les appareils, y compris les smartphones et les tablettes.",
+    "q4": "Y a-t-il un support client disponible ?",
+    "a4": "Oui, nous avons une équipe de support dédiée prête à vous aider par chat en direct, email ou téléphone.",
+    "q5": "Comment puis-je suivre mes progrès ?",
+    "a5": "Vous pouvez suivre vos progrès via votre tableau de bord personnel, où vous trouverez des statistiques détaillées sur vos performances.",
+    "q6": "Quels sont les modes de paiement acceptés ?",
+    "a6": "Nous acceptons les paiements par carte de crédit, PayPal et virement bancaire."
+  },
+  "footer": {
+    "platform": "Plateforme",
+    "platformItems": ["Accueil", "Quiz", "Cours", "Côté auto-écoles"],
+    "students": "Pour les élèves",
+    "studentsItems": ["Commencer à apprendre", "Suivre mes progrès", "Conseils & astuces", "Guide du code"],
+    "schools": "Pour les auto-écoles",
+    "schoolsItems": ["Espace auto-école", "Gérer vos élèves", "Statistiques & performances", "Devenir partenaire"],
+    "support": "Support",
+    "supportItems": ["FAQ", "Contactez-nous", "Centre d'aide", "Mentions légales"],
+    "copyright": "© 2025 — Tous droits réservés."
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "welcome": "Bienvenue {{school}} !",
+    "subtitle": "voici quelques statistiques rapides sur votre école",
+    "logout": "Déconnexion",
+    "nav": {
+      "home": "Accueil",
+      "groups": "Groupes",
+      "learning": "Apprentissage",
+      "quizzes": "Examens",
+      "settings": "Paramètres"
+    },
+    "user": {
+      "name": "[Nom de l'école]",
+      "role": "[Nom du propriétaire]",
+      "initials": "NE"
+    },
+    "stats": {
+      "groups": "Nombre de Groupes",
+      "students": "Nombre d'Élèves",
+      "quizzes": "Examens Actifs"
+    },
+    "calendar": {
+      "title": "Calendrier"
+    },
+    "chart": {
+      "quizScores": "Résultats des Examens",
+      "overall": "Global",
+      "monthly": "Mensuel",
+      "weekly": "Hebdomadaire",
+      "noData": "Aucune donnée"
+    },
+    "progress": {
+      "title": "Progression de l'Apprentissage",
+      "seeAll": "Tout voir",
+      "lessons": "leçons",
+      "noData": "Aucune donnée de progression"
+    },
+    "upcoming": {
+      "title": "Examens à Venir",
+      "seeAll": "Tout voir"
+    },
+    "enrollments": {
+      "title": "Nouvelles Inscriptions",
+      "viewAll": "voir tout",
+      "today": "aujourd'hui",
+      "yesterday": "hier",
+      "daysAgo": "il y a {{days}} jours",
+      "noGroup": "Aucun groupe",
+      "noEnrollments": "Pas de nouvelles inscriptions"
+    },
+    "topStudents": {
+      "title": "Meilleurs Élèves",
+      "points": "points",
+      "noStudents": "Aucun élève pour le moment"
+    }
+  },
+ 
+  "settings": {
+    "title": "Paramètres",
+    "subtitle": "Modifiez les informations du propriétaire et de l'école",
+    "schoolInfo": "Informations de l'école",
+    "ownerInfo": "Informations du propriétaire",
+    "edit": "Modifier",
+    "schoolName": "Nom de l'école",
+    "email": "Email",
+    "phone": "Numéro de téléphone",
+    "address": "Adresse",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "profilePhoto": "Photo de profil",
+    "editPhoto": "Modifier",
+    "editSchoolInfo": "Modifier les informations de l'école",
+    "editSchoolSubtitle": "Entrez les informations du groupe et le code du groupe sera généré automatiquement",
+    "editOwnerInfo": "Modifier les informations du propriétaire",
+    "editOwnerSubtitle": "Mettez à jour les informations personnelles du propriétaire",
+    "saveInfo": "Enregistrer",
+    "cancel": "Annuler",
+    "changePhoto": "Changer la photo",
+    "avatarUploadError": "Échec du téléchargement de la photo",
+    "schoolUpdated": "Informations de l'école mises à jour avec succès",
+    "ownerUpdated": "Informations du propriétaire mises à jour avec succès"
+  },
+  "groups": {
+    "title": "Gestion des groupes",
+    "subtitle": "Gérez vos groupes et vos élèves",
+    "create_group": "Créer un groupe",
+    "search_placeholder": "Rechercher un groupe",
+    "code_copied": "Code copié avec succès",
+    "all_classes": "Toutes les classes",
+    "all_groups": "Tous les groupes",
+    "manage_description": "Gérez vos groupes et vos élèves ici",
+    "no_topic": "Pas de sujet",
+    "stats": {
+      "groups_count": "Nombre de groupes",
+      "students_count": "Nombre d'élèves",
+      "progress_rate": "Taux de progression"
+    },
+    "table": {
+      "group": "Groupe",
+      "creation_date": "Date de création",
+      "room_code": "Code de salle",
+      "class": "Classe",
+      "topic": "Sujet",
+      "progress": "Progression",
+      "actions": "Actions"
+    },
+    "modal": {
+      "create_title": "Créer un nouveau groupe",
+      "create_subtitle": "Entrez les informations du groupe et le code sera créé automatiquement",
+      "edit_title": "Modifier le groupe",
+      "edit_subtitle": "Modifiez les informations du groupe",
+      "group_name": "Nom du groupe",
+      "group_name_placeholder": "Groupe 10",
+      "student_count": "Nombre d'élèves",
+      "class": "Classe",
+      "class_a": "Classe -A-",
+      "class_b": "Classe -B-",
+      "class_c": "Classe -C-",
+      "description": "Description du groupe",
+      "description_placeholder": "Fournissez une description pour le groupe",
+      "add_group": "Ajouter le groupe",
+      "update_group": "Mettre à jour le groupe",
+      "cancel": "Annuler"
+    },
+    "details": {
+      "back": "Retour",
+      "subtitle": "Gérer le groupe et les étudiants",
+      "edit": "Modifier",
+      "copy_code": "Copier le code",
+      "group_info": "Informations du groupe",
+      "tabs": {
+        "overview": "Aperçu",
+        "students": "Étudiants",
+        "learning": "Apprentissage",
+        "settings": "Paramètres"
+      },
+      "stats": {
+        "average_grade": "Note moyenne",
+        "total_exams": "Total d'examens",
+        "progress_rate": "Taux de progression",
+        "student_count": "Nombre d'étudiants"
+      },
+      "fields": {
+        "group_name": "Nom du groupe",
+        "class": "Classe",
+        "status": "État",
+        "student_count": "Nombre d'élèves",
+        "room_code": "Code de la salle",
+        "description": "Description du groupe"
+      },
+      "students_placeholder": "La liste des étudiants sera affichée ici",
+      "learning_placeholder": "Le contenu d'apprentissage sera affiché ici",
+      "settings_placeholder": "Les paramètres du groupe seront affichés ici"
+    },
+    "viewStudents": "Voir les élèves"
+  },
+  "students": {
+    "title": "Gestion des Élèves",
+    "subtitle": "Gérez vos élèves et leurs groupes",
+    "createStudent": "Ajouter un élève",
+    "searchPlaceholder": "Rechercher un élève...",
+    "noResults": "Aucun résultat",
+    "noStudents": "Aucun élève",
+    "loadError": "Échec du chargement des élèves",
+    "createSuccess": "Élève créé avec succès",
+    "updateSuccess": "Élève mis à jour avec succès",
+    "deleteSuccess": "Élève supprimé avec succès",
+    "deleteError": "Échec de la suppression de l'élève",
+    "stats": {
+      "total": "Total des élèves",
+      "active": "Élèves actifs",
+      "newMonth": "Nouveaux ce mois"
+    },
+    "table": {
+      "name": "Nom",
+      "code": "Code",
+      "contact": "Contact",
+      "dob": "Date de naissance",
+      "groups": "Groupes",
+      "groupsCount": "groupes",
+      "actions": "Actions"
+    },
+    "modal": {
+      "createTitle": "Créer un nouvel élève",
+      "editTitle": "Modifier l'élève",
+      "step": "Étape",
+      "of": "de",
+      "basicInfo": "Informations de base",
+      "contactInfo": "Coordonnées",
+      "accountSetup": "Configuration du compte",
+      "assignGroups": "Assigner aux groupes",
+      "assignGroupsHint": "Choisissez les groupes auxquels l'élève sera inscrit (facultatif)",
+      "fullName": "Nom complet",
+      "fullNamePlaceholder": "Mohamed Ahmed",
+      "dob": "Date de naissance",
+      "nationalId": "Numéro d'identité national",
+      "email": "Email",
+      "phone": "Téléphone",
+      "studentCode": "Code élève",
+      "password": "Mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
+      "newPassword": "Nouveau mot de passe",
+      "changePassword": "Changer le mot de passe",
+      "optional": "facultatif",
+      "generate": "Générer",
+      "noGroups": "Aucun groupe disponible",
+      "selectedGroups": "{{count}} groupe(s) sélectionné(s)",
+      "noGroupsSelected": "Aucun groupe sélectionné",
+      "back": "Retour",
+      "next": "Suivant",
+      "create": "Créer l'élève",
+      "update": "Mettre à jour",
+      "createError": "Échec de création de l'élève",
+      "updateError": "Échec de mise à jour de l'élève",
+      "errors": {
+        "nameRequired": "Le nom est requis",
+        "dobRequired": "La date de naissance est requise",
+        "emailInvalid": "L'email n'est pas valide",
+        "phoneInvalid": "Le téléphone n'est pas valide",
+        "codeRequired": "Le code élève est requis",
+        "passwordRequired": "Le mot de passe est requis",
+        "passwordShort": "Le mot de passe doit contenir au moins 8 caractères",
+        "passwordMismatch": "Les mots de passe ne correspondent pas"
+      }
+    },
+    "deleteModal": {
+      "title": "Supprimer l'élève",
+      "message": "Êtes-vous sûr de vouloir supprimer l'élève \"{{name}}\" ? Cette action est irréversible."
+    },
+    "groups": {
+      "title": "Gérer les groupes de l'élève",
+      "loadError": "Échec du chargement des groupes",
+      "addToGroup": "Ajouter à un groupe",
+      "noAvailableRooms": "Aucun groupe disponible",
+      "selectRoom": "Choisir un groupe",
+      "add": "Ajouter",
+      "currentGroups": "Groupes actuels",
+      "noMemberships": "L'élève n'est inscrit à aucun groupe",
+      "code": "Code",
+      "joined": "Inscrit le",
+      "remove": "Retirer",
+      "addSuccess": "Élève ajouté au groupe",
+      "addError": "Échec de l'ajout de l'élève",
+      "removeSuccess": "Élève retiré du groupe",
+      "removeError": "Échec du retrait de l'élève"
+    }
+  },
+  "exams": {
+      "title": "Gestion des Examens",
+      "stats": {
+        "current_exams": "Examens en cours",
+        "scheduled_exams": "Examens programmés",
+        "templates": "Nombre de modèles"
+      },
+      "exams_list": "Examens",
+      "assign_exam": "Assigner un examen",
+      "search_placeholder": "Rechercher un examen",
+      "all_topics": "Tous les sujets",
+      "table": {
+        "exam_name": "Nom de l'examen",
+        "group": "Groupe",
+        "start_date": "Date de début",
+        "end_date": "Date de fin",
+        "topic": "Sujet",
+        "status": "Statut",
+        "actions": "Actions"
+      },
+      "status": {
+        "active": "Actif",
+        "closed": "Fermé",
+        "scheduled": "Programmé"
+      },
+      "actions": {
+        "view_stats": "Voir les statistiques",
+        "edit": "Modifier",
+        "delete": "Supprimer",
+        "start": "Démarrer",
+        "stop": "Arrêter"
+      },
+      "deleteModal": {
+        "title": "Supprimer l'examen",
+        "message": "Êtes-vous sûr de vouloir supprimer l'examen \"{{name}}\" ? Cette action est irréversible."
+      },
+      "editWarningModal": {
+        "title": "Modifier un examen actif",
+        "message": "L'examen \"{{name}}\" est actuellement actif. Le modifier peut affecter les étudiants qui le passent. Voulez-vous continuer ?",
+        "continue": "Continuer la modification"
+      },
+      "templates_list": "Modèles",
+      "templates_info": "Créer des modèles réutilisables",
+      "create_template": "Créer un modèle"
+    },
+    "assignExam": {
+      "title": "Assigner un examen",
+      "step1Subtitle": "Entrez les informations de l'examen et il sera automatiquement assigné au groupe",
+      "step2Subtitle": "Entrez la date de début et de fin de l'examen",
+      "step3Subtitle": "Choisissez un modèle ou créez un nouvel examen",
+      "examName": "Nom de l'examen",
+      "examNamePlaceholder": "Par défaut: Groupe 10",
+      "defaultName": "Par défaut",
+      "group": "Groupe",
+      "selectGroup": "Entrez le nom du groupe",
+      "startDate": "Date de début",
+      "endDate": "Date de fin",
+      "clickToChange": "Cliquez sur la durée pour la modifier",
+      "duration": "Durée",
+      "examDuration": "Durée de l'examen",
+      "durationHint": "Par défaut: de la date d'aujourd'hui à 3 jours après",
+      "selectTemplate": "Choisir un modèle",
+      "templatePlaceholder": "Par défaut: Premier modèle d'examen",
+      "questions": "question(s)",
+      "noTemplates": "Pas de modèles appropriés? Créer un nouvel examen",
+      "next": "Suivant",
+      "back": "Retour",
+      "confirm": "Confirmer",
+      "assign": "Assigner",
+      "cancel": "Annuler"
+    },
+    "templates": {
+      "title": "Gestion des Modèles",
+      "back_to_exams": "Retour aux examens",
+      "create_template": "Créer un modèle",
+      "search_placeholder": "Rechercher un modèle",
+      "all_topics": "Tous les sujets",
+      "no_topic": "Pas de sujet",
+      "topics": {
+        "traffic_priorities": "Priorités de circulation",
+        "traffic_signs": "Panneaux de signalisation",
+        "road_rules": "Code de la route",
+        "driving_basics": "Bases de la conduite",
+        "speeds": "Vitesses",
+        "congestion": "Embouteillages"
+      },
+      "table": {
+        "template_name": "Nom du modèle",
+        "questions_count": "Nombre de questions",
+        "created_at": "Date de création",
+        "class": "Classe",
+        "topic": "Sujet",
+        "difficulty": "Difficulté",
+        "actions": "Actions",
+        "name": "Nom du modèle",
+        "questions": "Questions",
+        "created_at_short": "Créé le"
+      },
+      "default_badge": "Par défaut",
+      "difficulty": {
+        "very_easy": "Très facile",
+        "easy": "Facile",
+        "medium": "Moyen",
+        "hard": "Difficile",
+        "very_hard": "Très difficile"
+      },
+      "actions": {
+        "edit": "Modifier",
+        "delete": "Supprimer",
+        "send": "Assigner"
+      },
+      "delete_modal": {
+        "title": "Supprimer le modèle",
+        "message": "Êtes-vous sûr de vouloir supprimer ce modèle ? Cette action est irréversible.",
+        "confirm": "Supprimer",
+        "cancel": "Annuler"
+      },
+      "deleteModal": {
+        "title": "Supprimer le modèle",
+        "message": "Êtes-vous sûr de vouloir supprimer le modèle \"{{name}}\" ? Cette action est irréversible."
+      },
+      "assignModal": {
+        "title": "Assigner le modèle à un groupe",
+        "subtitle": "Sélectionnez les groupes auxquels vous souhaitez assigner \"{{name}}\"",
+        "searchPlaceholder": "Rechercher un groupe...",
+        "selectAll": "Tout sélectionner",
+        "students": "étudiant(s)",
+        "assign": "Assigner",
+        "success": "Modèle assigné avec succès",
+        "error": "Échec de l'assignation du modèle"
+      },
+      "edit_modal": {
+        "title_create": "Créer un nouveau modèle",
+        "title_edit": "Modifier le modèle",
+        "name_label": "Nom du modèle",
+        "name_placeholder": "Entrez le nom du modèle",
+        "questions_count_label": "Nombre de questions",
+        "save": "Enregistrer",
+        "cancel": "Annuler"
+      },
+      "toast": {
+        "created": "Modèle créé avec succès",
+        "updated": "Modèle mis à jour avec succès",
+        "deleted": "Modèle supprimé avec succès"
+      }
+    },
+    "createTemplate": {
+      "defaultProjectName": "[Nom du projet]",
+      "justNow": "Modifié à l'instant",
+      "minutesAgo": "Il y a {{minutes}} minutes",
+      "hoursAgo": "Il y a {{hours}} heures",
+      "preview": "Aperçu",
+      "publish": "Publier",
+      "saving": "Enregistrement en cours...",
+      "editQuestion": "Modifier la question",
+      "addFromTemplates": "Ajouter une question depuis les modèles",
+      "questions": "Questions",
+      "untitledQuestion": "Question sans titre",
+      "questionTypes": {
+        "single": "Choix unique",
+        "multiple": "Choix multiples"
+      },
+      "required": "Obligatoire",
+      "singleChoice": "Choix unique",
+      "multipleChoice": "Choix multiples",
+      "trueFalse": "Vrai/Faux",
+      "trueAnswer": "Vrai",
+      "falseAnswer": "Faux",
+      "questionLabel": "Question",
+      "first": "Première",
+      "addImage": "Ajouter une image",
+      "questionPlaceholder": "Écrivez le texte de la question ici...",
+      "quickSuggestions": "Suggestions rapides",
+      "suggestions": {
+        "whatSign": "À quoi fait référence le panneau dans l'image",
+        "priority": "Choisissez l'ordre de priorité correct",
+        "whatToDo": "Que devez-vous faire dans cette situation"
+      },
+      "defaultAnswers": {
+        "first": "Première option",
+        "correct": "La bonne réponse",
+        "third": "Troisième option",
+        "fourth": "Quatrième option"
+      },
+      "options": "Options",
+      "addOption": "Ajouter une option",
+      "defaultAnswerLabel": "Option",
+      "points": "Nombre de points",
+      "timeLimit": "Temps estimé",
+      "minutes": "minute",
+      "randomOrder": "Ordre aléatoire",
+      "randomEnabled": "Activé",
+      "keepOrder": "Conserver l'ordre actuel",
+      "cannotDeleteLast": "Impossible de supprimer la dernière question",
+      "questionDeleted": "Question supprimée avec succès",
+      "saved": "Enregistré avec succès",
+      "emptyQuestions": "Il y a des questions vides",
+      "noCorrectAnswer": "Il y a des questions sans bonne réponse",
+      "published": "Modèle publié avec succès",
+      "previewNotAvailable": "L'aperçu n'est pas disponible actuellement",
+      "templatesNotAvailable": "L'ajout depuis les modèles n'est pas disponible actuellement",
+      "questionsAdded": "Questions ajoutées avec succès",
+      "searchQuestions": "Rechercher une question...",
+      "questionType": "Type de question",
+      "all": "Tous",
+      "selectAll": "Tout sélectionner",
+      "addQuestions": "Ajouter les questions",
+      "question": "Question",
+      "hasImage": "Image",
+      "resumingAssignment": "L'affectation de l'examen sera complétée après la publication",
+      "examAssigned": "Examen affecté avec succès",
+      "examAssignmentFailed": "Échec de l'affectation de l'examen",
+      "templates": {
+        "roadsigns": "Panneaux routiers",
+        "rules": "Code de la route",
+        "safety": "Sécurité routière",
+        "parking": "Règles de stationnement"
+      }
+    },
+  "student": {
+    "welcome": "Bienvenue",
+    "code": "Code",
+    "stats": {
+      "total": "Total des quiz",
+      "completed": "Complétés",
+      "pending": "En attente",
+      "avgScore": "Moyenne"
+    },
+    "status": {
+      "notStarted": "Non commencé",
+      "inProgress": "En cours",
+      "completed": "Terminé"
+    },
+    "assignedQuizzes": "Quiz assignés",
+    "noQuizzes": "Aucun quiz assigné",
+    "questions": "questions",
+    "minutes": "minutes",
+    "attempts": "tentatives",
+    "startQuiz": "Commencer le quiz",
+    "continue": "Continuer",
+    "viewResults": "Voir les résultats"
+  },
+  "learning": {
+    "title": "Espace d'Apprentissage",
+    "subtitle": "Étudiez le contenu pour améliorer vos connaissances",
+    "coming_soon": "Bientôt disponible",
+    "coming_soon_message": "Cette page est en cours de développement. Le contenu pédagogique sera ajouté prochainement.",
+    "lessonsCount": "leçons",
+    "completed": "complétées",
+    "backToDashboard": "Retour au tableau de bord"
+  },
+  "learningManagement": {
+    "title": "Gestion des Modules",
+    "subtitle": "Créez et gérez vos modules de formation",
+    "createModule": "Créer un Module",
+    "searchPlaceholder": "Rechercher un module...",
+    "noResults": "Aucun résultat",
+    "noModules": "Aucun module",
+    "createFirst": "Créez votre premier module de formation",
+    "filters": {
+      "allCategories": "Toutes les catégories",
+      "category": "Catégorie"
+    },
+    "stats": {
+      "totalModules": "Total des modules",
+      "published": "Modules publiés",
+      "totalLessons": "Total des leçons"
+    },
+    "status": {
+      "draft": "Brouillon",
+      "published": "Publié"
+    },
+    "table": {
+      "name": "Nom du module",
+      "lessonsCount": "Nombre de leçons",
+      "category": "Catégorie",
+      "createdAt": "Date de création",
+      "status": "Statut",
+      "actions": "Actions"
+    },
+    "actions": {
+      "assign": "Assigner",
+      "edit": "Modifier",
+      "delete": "Supprimer"
+    }
+  },
+  "quiz": {
+    "question": "Question",
+    "answered": "Répondu",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "finish": "Terminer le quiz",
+    "submitting": "Envoi en cours...",
+    "unansweredWarning": "Vous avez des questions sans réponse. Voulez-vous soumettre le quiz?",
+    "passed": "Réussi!",
+    "failed": "Échoué",
+    "score": "Score",
+    "correct": "Réponses correctes",
+    "backToDashboard": "Retour au tableau de bord"
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "save": "Enregistrer",
+    "close": "Fermer",
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "retry": "Réessayer",
+    "logout": "Déconnexion",
+    "validate": "Valider",
+    "selectOption": "Sélectionner une option"
+  },
+  "selectQuiz": {
+    "title": "Choisissez votre mode de quiz",
+    "withCode": {
+      "title": "Quiz avec Code",
+      "subtitle": "Votre auto-école quiz",
+      "description": "Ce mode est réservé aux élèves de l'auto-école. Veuillez entrer votre code d'accès pour commencer.",
+      "codeLabel": "Code d'accès",
+      "codePlaceholder": "Entrez votre code",
+      "invalidCode": "Code invalide. Veuillez réessayer."
+    },
+    "practice": {
+      "title": "Mode Entraînement",
+      "subtitle": "Pour s'exercer librement",
+      "description": "Pratiquez à votre rythme en choisissant vos propres paramètres de quiz.",
+      "vehicleType": "Type de véhicule",
+      "questionCount": "Nombre de questions",
+      "startButton": "Lancer Le Quiz"
+    },
+    "carType": {
+      "car": "Voiture",
+      "heavy": "Lourd"
+    }
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Nous sommes là pour répondre à toutes vos questions. Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.",
+    "name": "Nom complet",
+    "namePlaceholder": "Entrez votre nom complet",
+    "email": "Email",
+    "emailPlaceholder": "votre.email@exemple.com",
+    "phone": "Téléphone",
+    "phonePlaceholder": "+213 555 000 000",
+    "address": "Adresse",
+    "subject": "Sujet",
+    "selectSubject": "Sélectionnez un sujet",
+    "subjectGeneral": "Question générale",
+    "subjectStudent": "Question élève",
+    "subjectSchool": "Question auto-école",
+    "subjectTechnical": "Support technique",
+    "subjectPartnership": "Partenariat",
+    "message": "Message",
+    "messagePlaceholder": "Écrivez votre message ici...",
+    "send": "Envoyer le message",
+    "sending": "Envoi en cours...",
+    "successMessage": "✓ Votre message a été envoyé avec succès ! Nous vous répondrons bientôt.",
+    "errorRequired": "Veuillez remplir tous les champs obligatoires",
+    "errorInvalidEmail": "Veuillez entrer une adresse email valide",
+    "errorSubmit": "Erreur lors de l'envoi du message"
+  }
+}
