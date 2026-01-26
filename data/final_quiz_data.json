@@ -6,97 +6,97 @@
       "road_signs": [
         {
           "sign_number": 1,
-          "image_path": "data/individual_signs/test-01/test-01_sign_01.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/France_road_sign_A14.svg/2560px-France_road_sign_A14.svg.png",
           "answer_ar": "1- حذار، خطر غير معين.",
           "answer_fr": "1- Attention, risque non spécifié."
         },
         {
           "sign_number": 2,
-          "image_path": "data/individual_signs/test-01/test-01_sign_02.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/France_road_sign_B2b.svg/250px-France_road_sign_B2b.svg.png",
           "answer_ar": "2- الدوران إلى اليمين ممنوع.",
           "answer_fr": "2- Il est interdit de tourner à droite."
         },
         {
           "sign_number": 3,
-          "image_path": "data/individual_signs/test-01/test-01_sign_03.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/France_road_sign_B6a3.svg/2560px-France_road_sign_B6a3.svg.png",
           "answer_ar": "3- التوقف ممنوع من 16 لـ 31 من كل شهر.",
           "answer_fr": "3- L'arrêt est interdit du 16 au 31 de chaque mois."
         },
         {
           "sign_number": 4,
-          "image_path": "data/individual_signs/test-01/test-01_sign_04.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/France_road_sign_B21-1.svg/2560px-France_road_sign_B21-1.svg.png",
           "answer_ar": "4- التزام السير باتجاه اليمين إجباري.",
           "answer_fr": "4- L'obligation de rouler à droite est obligatoire."
         },
         {
           "sign_number": 5,
-          "image_path": "data/individual_signs/test-01/test-01_sign_05.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/France_road_sign_B31.svg/2560px-France_road_sign_B31.svg.png",
           "answer_ar": "5- نهاية كل الممنوعات ماعدا الوقوف و التوقف.",
           "answer_fr": "5- La fin de toutes les interdictions sauf celle de s'arrêter et de s'arrêter."
         },
         {
           "sign_number": 6,
-          "image_path": "data/individual_signs/test-01/test-01_sign_06.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/France_road_sign_AB1.svg/2560px-France_road_sign_AB1.svg.png",
           "answer_ar": "6- حذار، تقاطع طرق (الأولوية لليمين).",
           "answer_fr": "6- Attention, carrefour routier (priorité à droite)."
         },
         {
           "sign_number": 7,
-          "image_path": "data/individual_signs/test-01/test-01_sign_07.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/France_road_sign_B34a.svg/2560px-France_road_sign_B34a.svg.png",
           "answer_ar": "7- نهاية منع التجاوز بالنسبة للشاحنات.",
           "answer_fr": "7- La fin de l'interdiction de dépasser pour les camions."
         },
         {
           "sign_number": 8,
-          "image_path": "data/individual_signs/test-01/test-01_sign_08.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/France_road_sign_C5.svg/1280px-France_road_sign_C5.svg.png",
           "answer_ar": "8- موقف سيارات الأجرة.",
           "answer_fr": "8- Stationnement des taxis."
         },
         {
           "sign_number": 9,
-          "image_path": "data/individual_signs/test-01/test-01_sign_09.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/France_road_sign_B40.svg/2560px-France_road_sign_B40.svg.png",
           "answer_ar": "9- نهاية الممر الإجباري للدراجات.",
           "answer_fr": "9 - Fin de la piste cyclable obligatoire."
         },
         {
           "sign_number": 10,
-          "image_path": "data/individual_signs/test-01/test-01_sign_10.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/France_road_sign_B6b1.svg/2560px-France_road_sign_B6b1.svg.png",
           "answer_ar": "10- الدخول إلى منطقة التوقف فيها ممنوع.",
           "answer_fr": "10- Pénétrer dans une zone d'arrêt interdite."
         },
         {
           "sign_number": 11,
-          "image_path": "data/individual_signs/test-01/test-01_sign_11.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/France_road_sign_B22a.svg/2560px-France_road_sign_B22a.svg.png",
           "answer_ar": "11- ممر إجباري للدراجات.",
           "answer_fr": "11- Bande cyclable obligatoire."
         },
         {
           "sign_number": 12,
-          "image_path": "data/individual_signs/test-01/test-01_sign_12.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/France_road_sign_B50a.svg/2560px-France_road_sign_B50a.svg.png",
           "answer_ar": "12- الخروج من منطقة التوقف فيها ممنوع.",
           "answer_fr": "12- La sortie du parking est interdite."
         },
         {
           "sign_number": 13,
-          "image_path": "data/individual_signs/test-01/test-01_sign_13.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Italian_traffic_signs_-_pericolo_di_incendio.svg/1920px-Italian_traffic_signs_-_pericolo_di_incendio.svg.png?20110205223729",
           "answer_ar": "13- غابة سريعة الاشتعال.",
           "answer_fr": "13- Une forêt inflammable."
         },
         {
           "sign_number": 14,
-          "image_path": "data/individual_signs/test-01/test-01_sign_14.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/France_road_sign_B9b.svg/2560px-France_road_sign_B9b.svg.png",
           "answer_ar": "14- مرور الدرجات والدراجات النارية ممنوع.",
           "answer_fr": "14- Le passage des bicyclettes et des motos est interdit."
         },
         {
           "sign_number": 15,
-          "image_path": "data/individual_signs/test-01/test-01_sign_15.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/France_road_sign_A18.svg/2560px-France_road_sign_A18.svg.png",
           "answer_ar": "15- حذار، طريق ذو اتجاهين.",
           "answer_fr": "15- Attention, route à double sens."
         },
         {
           "sign_number": 16,
-          "image_path": "data/individual_signs/test-01/test-01_sign_16.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/France_road_sign_B30_%2830%29.svg/960px-France_road_sign_B30_%2830%29.svg.png",
           "answer_ar": "16- الدخول إلى منطقة يمنع فيها تجاوز السرعة 30كم/سا.",
           "answer_fr": "16- Entrer dans une zone où la vitesse est limitée à 30 km/h."
         }
@@ -204,97 +204,97 @@
       "road_signs": [
         {
           "sign_number": 1,
-          "image_path": "data/individual_signs/test-02/test-02_sign_01.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "1- السرعة الأدنى الإجبارية 30 كلم/سا.",
           "answer_fr": "1- Vitesse minimale obligatoire de 30 km/h."
         },
         {
           "sign_number": 2,
-          "image_path": "data/individual_signs/test-02/test-02_sign_02.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "2- نهاية منع تجاوز السرعة 50 كلم/سا.",
           "answer_fr": "2- La fin de la limitation de vitesse à 50 km/h."
         },
         {
           "sign_number": 3,
-          "image_path": "data/individual_signs/test-02/test-02_sign_03.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/bd/France_road_sign_AB6.svg",
           "answer_ar": "3- طريق ذات أولوية.",
           "answer_fr": "3- Route prioritaire."
         },
         {
           "sign_number": 4,
-          "image_path": "data/individual_signs/test-02/test-02_sign_04.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b2/FR_road_sign_G1.svg",
           "answer_ar": "4- حذار، محور دوراني.",
           "answer_fr": "4- Attention, axe de rotation."
         },
         {
           "sign_number": 5,
-          "image_path": "data/individual_signs/test-02/test-02_sign_05.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "5- نهاية أولويّة الطريق.",
           "answer_fr": "5- Priorité à la fin de la route."
         },
         {
           "sign_number": 6,
-          "image_path": "data/individual_signs/test-02/test-02_sign_06.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/bd/France_road_sign_AB4.svg",
           "answer_ar": "6- الاتجاه إلى اليمين إجباري.",
           "answer_fr": "6- Le virage à droite est obligatoire."
         },
         {
           "sign_number": 7,
-          "image_path": "data/individual_signs/test-02/test-02_sign_07.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "7- ترك المرور على بعد 150م.",
           "answer_fr": "7- Laisser le trafic à 150 mètres."
         },
         {
           "sign_number": 8,
-          "image_path": "data/individual_signs/test-02/test-02_sign_08.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "8- الدوران إلى اليمين ممنوع.",
           "answer_fr": "8- Il est interdit de tourner à droite."
         },
         {
           "sign_number": 9,
-          "image_path": "data/individual_signs/test-02/test-02_sign_09.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/a2/France_road_sign_A1c.svg",
           "answer_ar": "9- حذار، تعاقب عدة منعرجات أولها إلى اليمين.",
           "answer_fr": "9- Attention, plusieurs virages dont le premier à droite."
         },
         {
           "sign_number": 10,
-          "image_path": "data/individual_signs/test-02/test-02_sign_10.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Algeria_road_sign-A12.svg",
           "answer_ar": "10- حذار، ممهل في نفس مكان الإشارة.",
           "answer_fr": "10- Attention, ralentissez au même endroit que le signal."
         },
         {
           "sign_number": 11,
-          "image_path": "data/individual_signs/test-02/test-02_sign_11.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "11- مرور الشاحنات ممنوع.",
           "answer_fr": "11- Le passage des camions est interdit."
         },
         {
           "sign_number": 12,
-          "image_path": "data/individual_signs/test-02/test-02_sign_12.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "12- اتجاه ممنوع.",
           "answer_fr": "12- Direction interdite."
         },
         {
           "sign_number": 13,
-          "image_path": "data/individual_signs/test-02/test-02_sign_13.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "13- تجاوز السرعة 30 ممنوع.",
           "answer_fr": "13- Le dépassement de la vitesse 30 est interdit."
         },
         {
           "sign_number": 14,
-          "image_path": "data/individual_signs/test-02/test-02_sign_14.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "14- التجاوز ممنوع.",
           "answer_fr": "14- L'intrusion est interdite."
         },
         {
           "sign_number": 15,
-          "image_path": "data/individual_signs/test-02/test-02_sign_15.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "15- نهاية منع التجاوز.",
           "answer_fr": "15- Fin de la prévention de l'annulation."
         },
         {
           "sign_number": 16,
-          "image_path": "data/individual_signs/test-02/test-02_sign_16.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "16- التجاوز ممنوع بالنسبة للشاحنات.",
           "answer_fr": "16- Le dépassement est interdit pour les camions."
         }
@@ -402,91 +402,91 @@
       "road_signs": [
         {
           "sign_number": 1,
-          "image_path": "data/individual_signs/test-03/test-03_sign_01.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "1- يستحسن السير بسرعة 70 كلم/سا.",
           "answer_fr": "1- Il est recommandé de rouler à une vitesse de 70 km/h."
         },
         {
           "sign_number": 2,
-          "image_path": "data/individual_signs/test-03/test-03_sign_02.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "2- نهاية الطريق السريع.",
           "answer_fr": "2- Fin de l'autoroute."
         },
         {
           "sign_number": 3,
-          "image_path": "data/individual_signs/test-03/test-03_sign_03.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b2/FR_road_sign_G1.svg",
           "answer_ar": "3- حذار، ممر للراجلين.",
           "answer_fr": "3- Attention, voie piétonne."
         },
         {
           "sign_number": 4,
-          "image_path": "data/individual_signs/test-03/test-03_sign_04.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "4- حاجز أشغال مؤقتة.",
           "answer_fr": "4- Barrière de chantier temporaire."
         },
         {
           "sign_number": 5,
-          "image_path": "data/individual_signs/test-03/test-03_sign_05.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/96/Algeria_road_sign-B4.svg",
           "answer_ar": "5- حذار، تقاطع طرق (الأولوية لليمين).",
           "answer_fr": "5- Attention, carrefour routier (priorité à droite)."
         },
         {
           "sign_number": 6,
-          "image_path": "data/individual_signs/test-03/test-03_sign_06.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "6- نهاية السرعة الأدنى الإجبارية 30 كلم/سا.",
           "answer_fr": "6- Limite de vitesse minimale obligatoire de 30 km/h."
         },
         {
           "sign_number": 7,
-          "image_path": "data/individual_signs/test-03/test-03_sign_07.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "7- مسلك طوارئ على اليمين.",
           "answer_fr": "7- Voie d'urgence à droite."
         },
         {
           "sign_number": 8,
-          "image_path": "data/individual_signs/test-03/test-03_sign_08.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "8- يمنع تجاوز السرعة 70 كلم/سا.",
           "answer_fr": "8- Pas de vitesse supérieure à 70 kilomètres par heure."
         },
         {
           "sign_number": 9,
-          "image_path": "data/individual_signs/test-03/test-03_sign_09.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "9- الدوران إلى الخلف ممنوع.",
           "answer_fr": "9- La rotation vers l'arrière est interdite."
         },
         {
           "sign_number": 10,
-          "image_path": "data/individual_signs/test-03/test-03_sign_10.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "10- الدوران إلى اليمين ممنوع.",
           "answer_fr": "10 - Il est interdit de tourner à droite."
         },
         {
           "sign_number": 11,
-          "image_path": "data/individual_signs/test-03/test-03_sign_11.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/bd/France_road_sign_AB4.svg",
           "answer_ar": "11- تفادي الحاجز إلى اليمين إجباري.",
           "answer_fr": "11- L'évitement de la barrière de droite est obligatoire."
         },
         {
           "sign_number": 12,
-          "image_path": "data/individual_signs/test-03/test-03_sign_12.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "12- نهاية منع استعمال المنبه الصوتي.",
           "answer_fr": "12. la fin de l'interdiction d'utiliser des alarmes sonores."
         },
         {
           "sign_number": 13,
-          "image_path": "data/individual_signs/test-03/test-03_sign_13.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "13- اتجاه ممنوع.",
           "answer_fr": "13- Direction interdite."
         },
         {
           "sign_number": 14,
-          "image_path": "data/individual_signs/test-03/test-03_sign_14.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "14- نهاية منع تجاوز السرعة 110 كلم/سا.",
           "answer_fr": "14. fin de la limitation de vitesse à 110 km/h."
         },
         {
           "sign_number": 15,
-          "image_path": "data/individual_signs/test-03/test-03_sign_15.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "15- نهاية أولوية الطريق.",
           "answer_fr": "15 - Priorité à la fin de la route."
         },
@@ -606,19 +606,19 @@
         },
         {
           "sign_number": 2,
-          "image_path": "data/individual_signs/test-04/test-04_sign_02.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c1/France_road_sign_A1a.svg",
           "answer_ar": "2- تجاوز السرعة 90 ممنوع. السهم المرفق يعني أنّ المنع يخص المسار الذي يحمل الإشارة فقط.",
           "answer_fr": "2- Le dépassement de la vitesse de 90 est interdit. La flèche ci-jointe signifie que l'interdiction ne concerne que la voie signalée."
         },
         {
           "sign_number": 3,
-          "image_path": "data/individual_signs/test-04/test-04_sign_03.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c1/France_road_sign_AK4.svg",
           "answer_ar": "3- حذار، طريق زلقة (إشارة مؤقتة).",
           "answer_fr": "3- Attention, route glissante (signal temporaire)."
         },
         {
           "sign_number": 4,
-          "image_path": "data/individual_signs/test-04/test-04_sign_04.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "4- مرور الشاحنات التي يزيد طولها عن 10 أمتار ممنوع.",
           "answer_fr": "4- Le passage des camions de plus de 10 mètres de long est interdit."
         },
@@ -630,67 +630,67 @@
         },
         {
           "sign_number": 6,
-          "image_path": "data/individual_signs/test-04/test-04_sign_06.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "6- التجاوز ممنوع على امتداد 500 متر.",
           "answer_fr": "6- Les dépassements sont interdits sur les 500 mètres."
         },
         {
           "sign_number": 7,
-          "image_path": "data/individual_signs/test-04/test-04_sign_07.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "7- نهاية منع تجاوز السرعة 90.",
           "answer_fr": "7- La fin de la limitation à 90 vitesses."
         },
         {
           "sign_number": 8,
-          "image_path": "data/individual_signs/test-04/test-04_sign_08.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/6/6c/France_road_sign_B15.svg",
           "answer_ar": "8- معلومات خاصة بالخدمات أو النشاطات السياحية على يمين الطريق على بعد 50 متر.",
           "answer_fr": "8- Information sur les services ou activités touristiques sur la droite de la route à une distance de 50 mètres."
         },
         {
           "sign_number": 9,
-          "image_path": "data/individual_signs/test-04/test-04_sign_09.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/5/59/France_road_sign_B51_%2830%29.svg",
           "answer_ar": "9- طريق ذو مسلكين، الأيمن يمنع فيه تجاوز السرعة 70 و الأيسر يمنع فيه تجاوز السرعة 90.",
           "answer_fr": "9- Sur une route à deux voies, la vitesse est limitée à 70 sur la voie de droite et à 90 sur la voie de gauche."
         },
         {
           "sign_number": 10,
-          "image_path": "data/individual_signs/test-04/test-04_sign_10.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Algeria_road_sign-C2e.svg",
           "answer_ar": "10- حذار، ممر للراجلين مع ممهل.",
           "answer_fr": "10 - Attention, voie piétonne avec rampe d'accès."
         },
         {
           "sign_number": 11,
-          "image_path": "data/individual_signs/test-04/test-04_sign_11.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "11- نهاية منع استعمال المنبه الصوتي.",
           "answer_fr": "11. la fin de l'interdiction d'utiliser des alarmes sonores."
         },
         {
           "sign_number": 12,
-          "image_path": "data/individual_signs/test-04/test-04_sign_12.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "12- مخروط أشغال مؤقتة.",
           "answer_fr": "12- Cône de chantier temporaire."
         },
         {
           "sign_number": 13,
-          "image_path": "data/individual_signs/test-04/test-04_sign_13.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b6/France_road_sign_C64b_new.svg",
           "answer_ar": "13- علامات متكررة على بعد 150م، 100 م، 50 م.",
           "answer_fr": "13- Marques répétées à 150m, 100m, 50m."
         },
         {
           "sign_number": 14,
-          "image_path": "data/individual_signs/test-04/test-04_sign_14.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "14- الوقوف و التوقف ممنوعان.",
           "answer_fr": "14- Il est interdit de s'arrêter et de s'immobiliser."
         },
         {
           "sign_number": 15,
-          "image_path": "data/individual_signs/test-04/test-04_sign_15.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "15- الخروج من الطريق السريع.",
           "answer_fr": "15- Sortir de l'autoroute."
         },
         {
           "sign_number": 16,
-          "image_path": "data/individual_signs/test-04/test-04_sign_16.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Algeria_road_sign-A8.svg",
           "answer_ar": "16- حذار، طريق زلق بسبب الجليد.",
           "answer_fr": "16- Attention, route glissante à cause du verglas."
         }
@@ -798,25 +798,25 @@
       "road_signs": [
         {
           "sign_number": 1,
-          "image_path": "data/individual_signs/test-05/test-05_sign_01.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "1- اتجاه ممنوع.",
           "answer_fr": "1- Sens interdit."
         },
         {
           "sign_number": 2,
-          "image_path": "data/individual_signs/test-05/test-05_sign_02.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "2- الخروج من منطقة التوقف فيها ممنوع.",
           "answer_fr": "2- La sortie d'une zone d'arrêt interdite."
         },
         {
           "sign_number": 3,
-          "image_path": "data/individual_signs/test-05/test-05_sign_03.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/96/Algeria_road_sign-B4.svg",
           "answer_ar": "3- طريق ذو اتجاهين، الأولوية للاتجاه المعاكس.",
           "answer_fr": "3- Une route à double sens, la direction opposée est prioritaire."
         },
         {
           "sign_number": 4,
-          "image_path": "data/individual_signs/test-05/test-05_sign_04.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/41/France_road_sign_AK3.svg",
           "answer_ar": "4- حذار، خطر غير معين مؤقت.",
           "answer_fr": "4- Attention, risque temporaire non spécifié."
         },
@@ -828,67 +828,67 @@
         },
         {
           "sign_number": 6,
-          "image_path": "data/individual_signs/test-05/test-05_sign_06.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "6- مركز خاص بالمعاقين.",
           "answer_fr": "6. un centre spécialisé pour les personnes handicapées."
         },
         {
           "sign_number": 7,
-          "image_path": "data/individual_signs/test-05/test-05_sign_07.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/98/Route_nationale_fran%C3%A7aise_159.svg",
           "answer_ar": "7- حذار، محور دوراني.",
           "answer_fr": "7 - Attention, axe de rotation."
         },
         {
           "sign_number": 8,
-          "image_path": "data/individual_signs/test-05/test-05_sign_08.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "8- هاتف عمومي.",
           "answer_fr": "8. téléphone public."
         },
         {
           "sign_number": 9,
-          "image_path": "data/individual_signs/test-05/test-05_sign_09.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "9- ممر إجباري للراجلين.",
           "answer_fr": "9- Passage obligatoire pour les piétons."
         },
         {
           "sign_number": 10,
-          "image_path": "data/individual_signs/test-05/test-05_sign_10.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "10- ممر مخصص للراجلين.",
           "answer_fr": "10. une voie réservée aux piétons."
         },
         {
           "sign_number": 11,
-          "image_path": "data/individual_signs/test-05/test-05_sign_11.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "11- قف على بعد 150 متر.",
           "answer_fr": "11- Stand à 150 mètres."
         },
         {
           "sign_number": 12,
-          "image_path": "data/individual_signs/test-05/test-05_sign_12.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "12- نهاية منع تجاوز السرعة 110 كلم/سا.",
           "answer_fr": "12. fin de la limitation de vitesse à 110 km/h."
         },
         {
           "sign_number": 13,
-          "image_path": "data/individual_signs/test-05/test-05_sign_13.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/aa/France_road_sign_C1a.svg",
           "answer_ar": "13- حذار، طريق زلق بشكل مؤقت.",
           "answer_fr": "13- Attention, route temporairement glissante."
         },
         {
           "sign_number": 14,
-          "image_path": "data/individual_signs/test-05/test-05_sign_14.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "14- موقف سيارات الأجرة.",
           "answer_fr": "14- Station de taxis."
         },
         {
           "sign_number": 15,
-          "image_path": "data/individual_signs/test-05/test-05_sign_15.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "15- سكة حديدية غير محروسة مع إشارة.",
           "answer_fr": "15- Chemin de fer non gardé avec signal."
         },
         {
           "sign_number": 16,
-          "image_path": "data/individual_signs/test-05/test-05_sign_16.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "16- نهاية السرعة الأدنى الإجبارية 30 كلم/سا.",
           "answer_fr": "16- Limite de vitesse minimale obligatoire de 30 km/h."
         }
@@ -996,37 +996,37 @@
       "road_signs": [
         {
           "sign_number": 1,
-          "image_path": "data/individual_signs/test-06/test-06_sign_01.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "1- مرور الشاحنات ممنوع.",
           "answer_fr": "1- Le passage des camions est interdit."
         },
         {
           "sign_number": 2,
-          "image_path": "data/individual_signs/test-06/test-06_sign_02.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "2- مرور المركبات التي يزيد وزنها عن 5.5 طن ممنوع.",
           "answer_fr": "2- Le passage des véhicules de plus de 5,5 tonnes est interdit."
         },
         {
           "sign_number": 3,
-          "image_path": "data/individual_signs/test-06/test-06_sign_03.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "3- موقف حافلات.",
           "answer_fr": "3- Un arrêt de bus."
         },
         {
           "sign_number": 4,
-          "image_path": "data/individual_signs/test-06/test-06_sign_04.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b2/FR_road_sign_G1.svg",
           "answer_ar": "4- حذار، ممر للراجلين.",
           "answer_fr": "4- Attention, voie piétonne."
         },
         {
           "sign_number": 5,
-          "image_path": "data/individual_signs/test-06/test-06_sign_05.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "5- معلم منعرج جبلي.",
           "answer_fr": "5- Un point de repère sur un versant de montagne."
         },
         {
           "sign_number": 6,
-          "image_path": "data/individual_signs/test-06/test-06_sign_06.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "6- موقف خاص بالعربات التي تجرّ مقطورة.",
           "answer_fr": "6- Stationnement spécial pour les véhicules tirant une remorque."
         },
@@ -1038,55 +1038,55 @@
         },
         {
           "sign_number": 8,
-          "image_path": "data/individual_signs/test-06/test-06_sign_08.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "8- استعمال المنبه الصوتي ممنوع.",
           "answer_fr": "8- L'utilisation d'une alarme sonore est interdite."
         },
         {
           "sign_number": 9,
-          "image_path": "data/individual_signs/test-06/test-06_sign_09.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/96/Algeria_road_sign-B4.svg",
           "answer_ar": "9- دخول مدينة من خلال طريق وطني ذات أولوية.",
           "answer_fr": "9 - Entrer dans une ville par une route nationale prioritaire."
         },
         {
           "sign_number": 10,
-          "image_path": "data/individual_signs/test-06/test-06_sign_10.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/96/Algeria_road_sign-B4.svg",
           "answer_ar": "10- دخول مدينة من خلال طريق وطني ليست ذات أولوية.",
           "answer_fr": "10- L'entrée dans une ville par une route nationale n'est pas prioritaire."
         },
         {
           "sign_number": 11,
-          "image_path": "data/individual_signs/test-06/test-06_sign_11.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b2/FR_road_sign_G1.svg",
           "answer_ar": "11- معلم منعرج خطير إلى اليمين.",
           "answer_fr": "11- Point de repère dangereux pour les virages à droite."
         },
         {
           "sign_number": 12,
-          "image_path": "data/individual_signs/test-06/test-06_sign_12.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "12- تجاوز السرعة 90 كلم/سا ممنوع.",
           "answer_fr": "12- Il est interdit de dépasser une vitesse de 90 kilomètres par heure."
         },
         {
           "sign_number": 13,
-          "image_path": "data/individual_signs/test-06/test-06_sign_13.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "13- السرعة الأدنى الإجبارية 30 كلم/سا.",
           "answer_fr": "13- Vitesse minimale obligatoire de 30 km/h."
         },
         {
           "sign_number": 14,
-          "image_path": "data/individual_signs/test-06/test-06_sign_14.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "14- نهاية منع تجاوز السرعة 30 كلم/سا.",
           "answer_fr": "14. fin de la limitation de vitesse à 30 km/h."
         },
         {
           "sign_number": 15,
-          "image_path": "data/individual_signs/test-06/test-06_sign_15.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "15- التجاوز ممنوع.",
           "answer_fr": "15- Les intrusions sont interdites."
         },
         {
           "sign_number": 16,
-          "image_path": "data/individual_signs/test-06/test-06_sign_16.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "16- نهاية منع التجاوز بالنسبة للشاحنات.",
           "answer_fr": "16 - Fin de l'interdiction de dépasser pour les camions."
         }
@@ -1194,79 +1194,79 @@
       "road_signs": [
         {
           "sign_number": 1,
-          "image_path": "data/individual_signs/test-07/test-07_sign_01.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b2/FR_road_sign_G1.svg",
           "answer_ar": "1- حذار، محور دوراني.",
           "answer_fr": "1- Attention, axe de rotation."
         },
         {
           "sign_number": 2,
-          "image_path": "data/individual_signs/test-07/test-07_sign_02.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "2- ممر مخصص للراجلين.",
           "answer_fr": "2- Une voie piétonne dédiée."
         },
         {
           "sign_number": 3,
-          "image_path": "data/individual_signs/test-07/test-07_sign_03.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "3- نهاية الممر الإجباري للراجلين.",
           "answer_fr": "3- Fin de la voie piétonne obligatoire."
         },
         {
           "sign_number": 4,
-          "image_path": "data/individual_signs/test-07/test-07_sign_04.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "4- ترك المرور.",
           "answer_fr": "4- Sortir du trafic."
         },
         {
           "sign_number": 5,
-          "image_path": "data/individual_signs/test-07/test-07_sign_05.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "5- الدخول إلى الطريق السريع.",
           "answer_fr": "5- Entrer sur l'autoroute."
         },
         {
           "sign_number": 6,
-          "image_path": "data/individual_signs/test-07/test-07_sign_06.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "6- مطعم (يعمل على مدار أيام الأسبوع).",
           "answer_fr": "6- Restaurant (ouvert 7 jours sur 7)."
         },
         {
           "sign_number": 7,
-          "image_path": "data/individual_signs/test-07/test-07_sign_07.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b2/FR_road_sign_G1.svg",
           "answer_ar": "7- حذار، ممر للراجلين.",
           "answer_fr": "7- Attention, voie piétonne."
         },
         {
           "sign_number": 8,
-          "image_path": "data/individual_signs/test-07/test-07_sign_08.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c5/France_road_sign_A18.svg",
           "answer_ar": "8- يمنع ترك مسافة أمان أقل من 70 متر.",
           "answer_fr": "8- Il est interdit de laisser une distance de sécurité inférieure à 70 mètres."
         },
         {
           "sign_number": 9,
-          "image_path": "data/individual_signs/test-07/test-07_sign_09.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Algeria_road_sign-C7.svg",
           "answer_ar": "9- حذار، منعرج إلى اليسار.",
           "answer_fr": "9- Attention, tournez à gauche."
         },
         {
           "sign_number": 10,
-          "image_path": "data/individual_signs/test-07/test-07_sign_10.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "10- التوقف ممنوع.",
           "answer_fr": "10 - Il est interdit de s'arrêter."
         },
         {
           "sign_number": 11,
-          "image_path": "data/individual_signs/test-07/test-07_sign_11.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "11- ممر إجباري للراجلين.",
           "answer_fr": "11- Voie piétonne obligatoire."
         },
         {
           "sign_number": 12,
-          "image_path": "data/individual_signs/test-07/test-07_sign_12.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "12- نهاية منع التجاوز.",
           "answer_fr": "12- Fin de la prévention de la dérogation."
         },
         {
           "sign_number": 13,
-          "image_path": "data/individual_signs/test-07/test-07_sign_13.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "13- مرور الدراجات ممنوع.",
           "answer_fr": "13- La circulation des bicyclettes est interdite."
         },
@@ -1284,7 +1284,7 @@
         },
         {
           "sign_number": 16,
-          "image_path": "data/individual_signs/test-07/test-07_sign_16.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "16- موقف مخصص للدراجات.",
           "answer_fr": "16- Stationnement réservé aux vélos."
         }
@@ -1392,43 +1392,43 @@
       "road_signs": [
         {
           "sign_number": 1,
-          "image_path": "data/individual_signs/test-08/test-08_sign_01.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "1- مرور العربات التي يزيد وزنها عن 5.5 طن ممنوع.",
           "answer_fr": "1- Le passage des véhicules de plus de 5,5 tonnes est interdit."
         },
         {
           "sign_number": 2,
-          "image_path": "data/individual_signs/test-08/test-08_sign_02.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/8/81/Algeria_road_sign-B1.svg",
           "answer_ar": "2- طريق مسدود بدون منفذ.",
           "answer_fr": "2- Une impasse sans débouché."
         },
         {
           "sign_number": 3,
-          "image_path": "data/individual_signs/test-08/test-08_sign_03.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "3- معلم رياح جانبية قوية.",
           "answer_fr": "3- Un repère de vent latéral fort."
         },
         {
           "sign_number": 4,
-          "image_path": "data/individual_signs/test-08/test-08_sign_04.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "4- الدوران إلى اليسار ممنوع على الحافلات.",
           "answer_fr": "4- Les virages à gauche sont interdits dans les bus."
         },
         {
           "sign_number": 5,
-          "image_path": "data/individual_signs/test-08/test-08_sign_05.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "5- نهاية منع تجاوز السرعة 110 كلم/سا.",
           "answer_fr": "5- Fin de la limitation de vitesse à 110 km/h."
         },
         {
           "sign_number": 6,
-          "image_path": "data/individual_signs/test-08/test-08_sign_06.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Algeria_road_sign-C8.svg",
           "answer_ar": "6- حذار، ممر للرّاجلين.",
           "answer_fr": "6- Attention, chemin piétonnier."
         },
         {
           "sign_number": 7,
-          "image_path": "data/individual_signs/test-08/test-08_sign_07.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "7- موقف خاص بالدراجات.",
           "answer_fr": "7- Parking à vélos."
         },
@@ -1440,49 +1440,49 @@
         },
         {
           "sign_number": 9,
-          "image_path": "data/individual_signs/test-08/test-08_sign_09.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "9- تجاوز السرعة 90 كلم/سا ممنوع.",
           "answer_fr": "9- Il est interdit de dépasser 90 kilomètres par heure."
         },
         {
           "sign_number": 10,
-          "image_path": "data/individual_signs/test-08/test-08_sign_10.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "10- مرور العربات التي تحمل مواد ملوثّة للمياه ممنوع.",
           "answer_fr": "10) Les véhicules transportant des substances polluant l'eau sont interdits."
         },
         {
           "sign_number": 11,
-          "image_path": "data/individual_signs/test-08/test-08_sign_11.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/aa/France_road_sign_C1a.svg",
           "answer_ar": "11- حذار، طريق زلقة مؤقتة.",
           "answer_fr": "11- Attention, route temporairement glissante."
         },
         {
           "sign_number": 12,
-          "image_path": "data/individual_signs/test-08/test-08_sign_12.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "12- ممر إجباري للدرّاجات.",
           "answer_fr": "12- Bande cyclable obligatoire."
         },
         {
           "sign_number": 13,
-          "image_path": "data/individual_signs/test-08/test-08_sign_13.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "13- نهاية الممر الإجباري للدراجات.",
           "answer_fr": "13 - Fin de la piste cyclable obligatoire."
         },
         {
           "sign_number": 14,
-          "image_path": "data/individual_signs/test-08/test-08_sign_14.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c5/France_road_sign_A18.svg",
           "answer_ar": "14- نهاية أولويّة الطريق على بعد 400 متر.",
           "answer_fr": "14- Priorité à la fin de la route à 400 mètres."
         },
         {
           "sign_number": 15,
-          "image_path": "data/individual_signs/test-08/test-08_sign_15.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "15- سكة حديدية غير محروسة مع إشارة.",
           "answer_fr": "15- Chemin de fer non gardé avec signal."
         },
         {
           "sign_number": 16,
-          "image_path": "data/individual_signs/test-08/test-08_sign_16.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/98/Route_nationale_fran%C3%A7aise_159.svg",
           "answer_ar": "16- حذار، طريق ضيقة على اليسار.",
           "answer_fr": "16- Attention, route étroite à gauche."
         }
@@ -1583,31 +1583,31 @@
       "road_signs": [
         {
           "sign_number": 1,
-          "image_path": "data/individual_signs/test-09/test-09_sign_01.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "1- مرور الراجلين ممنوع.",
           "answer_fr": "1- La circulation des piétons est interdite."
         },
         {
           "sign_number": 2,
-          "image_path": "data/individual_signs/test-09/test-09_sign_02.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/6/61/Algeria_road_sign-C14d.svg",
           "answer_ar": "2- نهاية كل الممنوعات ماعدا الوقوف و التوقف.",
           "answer_fr": "2- La fin de toutes les interdictions sauf celle de s'arrêter et de s'arrêter."
         },
         {
           "sign_number": 3,
-          "image_path": "data/individual_signs/test-09/test-09_sign_03.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b2/FR_road_sign_G1.svg",
           "answer_ar": "3- معلم منعرج خطير إلى اليمين.",
           "answer_fr": "3- Un repère dangereux de virage à droite."
         },
         {
           "sign_number": 4,
-          "image_path": "data/individual_signs/test-09/test-09_sign_04.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Attention_Radar_-_Alg%C3%A9rie.svg",
           "answer_ar": "4- حذار، منعرج إلى اليمين.",
           "answer_fr": "4- Attention, tournez à droite."
         },
         {
           "sign_number": 5,
-          "image_path": "data/individual_signs/test-09/test-09_sign_05.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "5- الوقوف والتوقف ممنوعان.",
           "answer_fr": "5- Il est interdit de se tenir debout et de s'arrêter."
         },
@@ -1619,61 +1619,61 @@
         },
         {
           "sign_number": 7,
-          "image_path": "data/individual_signs/test-09/test-09_sign_07.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/France_road_sign_B43_%2830%29.svg",
           "answer_ar": "7- حذار، طريق رئيسي يقطعه طريق ثانوي (الأولوية للطريق الرئيسي).",
           "answer_fr": "7- Attention, une route principale traversée par une route secondaire (prioritaire à la route principale)."
         },
         {
           "sign_number": 8,
-          "image_path": "data/individual_signs/test-09/test-09_sign_08.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "8- ممر مخصص للراجلين.",
           "answer_fr": "8- Une voie piétonne dédiée."
         },
         {
           "sign_number": 9,
-          "image_path": "data/individual_signs/test-09/test-09_sign_09.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b2/FR_road_sign_G1.svg",
           "answer_ar": "9- حذار، ممر للراجلين.",
           "answer_fr": "9- Attention, voie piétonne."
         },
         {
           "sign_number": 10,
-          "image_path": "data/individual_signs/test-09/test-09_sign_10.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "10- نهاية السرعة الأدنى الإجبارية 30 كلم/سا.",
           "answer_fr": "10 - Limite de vitesse minimale obligatoire de 30 km/h."
         },
         {
           "sign_number": 11,
-          "image_path": "data/individual_signs/test-09/test-09_sign_11.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "11- نهاية منع تجاوز السرعة 30 كلم/سا.",
           "answer_fr": "11. la fin de la limitation de vitesse à 30 km/h."
         },
         {
           "sign_number": 12,
-          "image_path": "data/individual_signs/test-09/test-09_sign_12.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "12- نهاية أولوية الطريق.",
           "answer_fr": "12 - Priorité à la fin de la route."
         },
         {
           "sign_number": 13,
-          "image_path": "data/individual_signs/test-09/test-09_sign_13.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "13- التوقف ممنوع.",
           "answer_fr": "13- Il est interdit de s'arrêter."
         },
         {
           "sign_number": 14,
-          "image_path": "data/individual_signs/test-09/test-09_sign_14.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c1/France_road_sign_B1.svg",
           "answer_ar": "14- حذار، طريق زلق.",
           "answer_fr": "14- Attention, route glissante."
         },
         {
           "sign_number": 15,
-          "image_path": "data/individual_signs/test-09/test-09_sign_15.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "15- الدخول إلى الطريق السريع.",
           "answer_fr": "15- Entrée sur l'autoroute."
         },
         {
           "sign_number": 16,
-          "image_path": "data/individual_signs/test-09/test-09_sign_16.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "16- السير ممنوع في كلا الاتجاهين.",
           "answer_fr": "16- La circulation est interdite dans les deux sens."
         }
@@ -1781,13 +1781,13 @@
       "road_signs": [
         {
           "sign_number": 1,
-          "image_path": "data/individual_signs/test-10/test-10_sign_01.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "1- يستحسن السير بسرعة 70 كلم/سا.",
           "answer_fr": "1- Il est recommandé de rouler à une vitesse de 70 km/h."
         },
         {
           "sign_number": 2,
-          "image_path": "data/individual_signs/test-10/test-10_sign_02.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "2- السرعة الأدنى الإجبارية 30 كلم/سا.",
           "answer_fr": "2- Vitesse minimale obligatoire de 30 km/h."
         },
@@ -1799,79 +1799,79 @@
         },
         {
           "sign_number": 4,
-          "image_path": "data/individual_signs/test-10/test-10_sign_04.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "4- حاجز أشغال مؤقتة.",
           "answer_fr": "4- Barrière de chantier temporaire."
         },
         {
           "sign_number": 5,
-          "image_path": "data/individual_signs/test-10/test-10_sign_05.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/96/Algeria_road_sign-B4.svg",
           "answer_ar": "5- حذار، تقاطع طرق (الأولوية لليمين).",
           "answer_fr": "5- Attention, carrefour routier (priorité à droite)."
         },
         {
           "sign_number": 6,
-          "image_path": "data/individual_signs/test-10/test-10_sign_06.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Attention_Radar_-_Alg%C3%A9rie.svg",
           "answer_ar": "6- حذار، منعرج إلى اليمين.",
           "answer_fr": "6- Attention, tournez à droite."
         },
         {
           "sign_number": 7,
-          "image_path": "data/individual_signs/test-10/test-10_sign_07.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "7- مسلك طوارئ على اليمين.",
           "answer_fr": "7- Voie d'urgence à droite."
         },
         {
           "sign_number": 8,
-          "image_path": "data/individual_signs/test-10/test-10_sign_08.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "8- تجاوز السرعة 70 كلم/سا ممنوع.",
           "answer_fr": "8- Le dépassement de la vitesse de 70 km/h est interdit."
         },
         {
           "sign_number": 9,
-          "image_path": "data/individual_signs/test-10/test-10_sign_09.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "9- الدروان إلى الخلف ممنوع.",
           "answer_fr": "9- Le retour en arrière est interdit."
         },
         {
           "sign_number": 10,
-          "image_path": "data/individual_signs/test-10/test-10_sign_10.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Signal_AK30.svg",
           "answer_ar": "10- حذار، خطر غير معين مؤقت.",
           "answer_fr": "10. prudence, risque temporaire non spécifié."
         },
         {
           "sign_number": 11,
-          "image_path": "data/individual_signs/test-10/test-10_sign_11.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/bd/France_road_sign_AB4.svg",
           "answer_ar": "11- تفادي الحاجز إلى اليمين إجباري.",
           "answer_fr": "11- L'évitement de la barrière de droite est obligatoire."
         },
         {
           "sign_number": 12,
-          "image_path": "data/individual_signs/test-10/test-10_sign_12.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "12- نهاية منع استعمال المنبه الصوتي.",
           "answer_fr": "12. la fin de l'interdiction d'utiliser des alarmes sonores."
         },
         {
           "sign_number": 13,
-          "image_path": "data/individual_signs/test-10/test-10_sign_13.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "13- اتجاه ممنوع.",
           "answer_fr": "13- Direction interdite."
         },
         {
           "sign_number": 14,
-          "image_path": "data/individual_signs/test-10/test-10_sign_14.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/96/Algeria_road_sign-B4.svg",
           "answer_ar": "14- طريق ذو اتجاهين، الأولوية للاتجاه المعاكس.",
           "answer_fr": "14 - Route à double sens, la direction opposée est prioritaire."
         },
         {
           "sign_number": 15,
-          "image_path": "data/individual_signs/test-10/test-10_sign_15.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "15- نهاية أولوية الطريق.",
           "answer_fr": "15 - Priorité à la fin de la route."
         },
         {
           "sign_number": 16,
-          "image_path": "data/individual_signs/test-10/test-10_sign_16.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Algeria_road_sign-C4.svg",
           "answer_ar": "16- طريق مستحسن للعربات التي يزيد طولها عن 10 متر.",
           "answer_fr": "16- Un itinéraire recommandé pour les véhicules de plus de 10 mètres de long."
         }
@@ -1979,97 +1979,97 @@
       "road_signs": [
         {
           "sign_number": 1,
-          "image_path": "data/individual_signs/test-11/test-11_sign_01.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "1- مركز مخصص للمعاقين.",
           "answer_fr": "1- Un centre dédié aux personnes handicapées."
         },
         {
           "sign_number": 2,
-          "image_path": "data/individual_signs/test-11/test-11_sign_02.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "2- مرور الدراجات ممنوع.",
           "answer_fr": "2- La circulation des vélos est interdite."
         },
         {
           "sign_number": 3,
-          "image_path": "data/individual_signs/test-11/test-11_sign_03.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "3- ممر إجباري للدراجات.",
           "answer_fr": "3- Bande cyclable obligatoire."
         },
         {
           "sign_number": 4,
-          "image_path": "data/individual_signs/test-11/test-11_sign_04.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Attention_Radar_-_Alg%C3%A9rie.svg",
           "answer_ar": "4- حذار، منعرج إلى اليمين.",
           "answer_fr": "4- Attention, tournez à droite."
         },
         {
           "sign_number": 5,
-          "image_path": "data/individual_signs/test-11/test-11_sign_05.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "5- التوقف ممنوع من 1 إلى 15 من كل شهر.",
           "answer_fr": "5- L'arrêt est interdit du 1er au 15 de chaque mois."
         },
         {
           "sign_number": 6,
-          "image_path": "data/individual_signs/test-11/test-11_sign_06.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c1/France_road_sign_B1.svg",
           "answer_ar": "6- حذار، طريق زلق.",
           "answer_fr": "6- Attention, route glissante."
         },
         {
           "sign_number": 7,
-          "image_path": "data/individual_signs/test-11/test-11_sign_07.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "7- نهاية أولويّة الطريق.",
           "answer_fr": "7- La fin de la priorité routière."
         },
         {
           "sign_number": 8,
-          "image_path": "data/individual_signs/test-11/test-11_sign_08.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/aa/France_road_sign_C1a.svg",
           "answer_ar": "8- حذار، طريق زلق مؤقت.",
           "answer_fr": "8- Attention, route temporairement glissante."
         },
         {
           "sign_number": 9,
-          "image_path": "data/individual_signs/test-11/test-11_sign_09.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "9- موقف محروس.",
           "answer_fr": "9- Position Mahrous."
         },
         {
           "sign_number": 10,
-          "image_path": "data/individual_signs/test-11/test-11_sign_10.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/96/Algeria_road_sign-B4.svg",
           "answer_ar": "10- حذار، طريق ضيق من الجهتين.",
           "answer_fr": "10 - Attention, route étroite des deux côtés."
         },
         {
           "sign_number": 11,
-          "image_path": "data/individual_signs/test-11/test-11_sign_11.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "11- مرور الراجلين ممنوع.",
           "answer_fr": "11- La circulation des piétons est interdite."
         },
         {
           "sign_number": 12,
-          "image_path": "data/individual_signs/test-11/test-11_sign_12.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Algeria_road_sign-C7.svg",
           "answer_ar": "12- حذار، منعرج إلى اليسار.",
           "answer_fr": "12- Attention, tourner à gauche."
         },
         {
           "sign_number": 13,
-          "image_path": "data/individual_signs/test-11/test-11_sign_13.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/1/1e/France_road_sign_A15a1.svg",
           "answer_ar": "13- حذار، خروج حيوانات أليفة.",
           "answer_fr": "13- Attention, les animaux ne sont pas admis."
         },
         {
           "sign_number": 14,
-          "image_path": "data/individual_signs/test-11/test-11_sign_14.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "14- مرور الحافلات ممنوع.",
           "answer_fr": "14- Le passage des bus est interdit."
         },
         {
           "sign_number": 15,
-          "image_path": "data/individual_signs/test-11/test-11_sign_15.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "15- ممر إجباري للحافلات.",
           "answer_fr": "15- Voie de bus obligatoire."
         },
         {
           "sign_number": 16,
-          "image_path": "data/individual_signs/test-11/test-11_sign_16.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "16- موقف خاص بالحافلات.",
           "answer_fr": "16- Stationnement des bus."
         }
@@ -2177,85 +2177,85 @@
       "road_signs": [
         {
           "sign_number": 1,
-          "image_path": "data/individual_signs/test-12/test-12_sign_01.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b2/FR_road_sign_G1.svg",
           "answer_ar": "1- حذار، ممر للراجلين.",
           "answer_fr": "1- Attention, voie piétonne."
         },
         {
           "sign_number": 2,
-          "image_path": "data/individual_signs/test-12/test-12_sign_02.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "2- اتجاه ممنوع.",
           "answer_fr": "2- Direction interdite."
         },
         {
           "sign_number": 3,
-          "image_path": "data/individual_signs/test-12/test-12_sign_03.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Algeria_road_sign-C7.svg",
           "answer_ar": "3- التزام السير باتجاه اليسار إجباري.",
           "answer_fr": "3- L'obligation de rouler à gauche est obligatoire."
         },
         {
           "sign_number": 4,
-          "image_path": "data/individual_signs/test-12/test-12_sign_04.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "4- موقف سيارات الأجرة.",
           "answer_fr": "4- Station de taxis."
         },
         {
           "sign_number": 5,
-          "image_path": "data/individual_signs/test-12/test-12_sign_05.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/98/Route_nationale_fran%C3%A7aise_159.svg",
           "answer_ar": "5- حجر كيلومتري على طريق وطني.",
           "answer_fr": "5- Une pierre kilométrique sur une route nationale."
         },
         {
           "sign_number": 6,
-          "image_path": "data/individual_signs/test-12/test-12_sign_06.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "6- مرور العربات التي تحمل مواد ملوثّة للمياه ممنوع.",
           "answer_fr": "6- Le passage de véhicules transportant des substances polluantes pour l'eau est interdit."
         },
         {
           "sign_number": 7,
-          "image_path": "data/individual_signs/test-12/test-12_sign_07.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/aa/France_road_sign_C1a.svg",
           "answer_ar": "7- حذار، طريق زلق مؤقت.",
           "answer_fr": "7- Attention, route temporairement glissante."
         },
         {
           "sign_number": 8,
-          "image_path": "data/individual_signs/test-12/test-12_sign_08.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "8- اتجاه ممنوع.",
           "answer_fr": "8- Direction interdite."
         },
         {
           "sign_number": 9,
-          "image_path": "data/individual_signs/test-12/test-12_sign_09.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "9- مرور العربات التي تحمل مواد متفجرة ممنوع.",
           "answer_fr": "9) Le passage de véhicules transportant des matières explosives est interdit."
         },
         {
           "sign_number": 10,
-          "image_path": "data/individual_signs/test-12/test-12_sign_10.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "10- نهاية السرعة الأدنى الإجبارية 30 كلم/سا.",
           "answer_fr": "10 - Limite de vitesse minimale obligatoire de 30 km/h."
         },
         {
           "sign_number": 11,
-          "image_path": "data/individual_signs/test-12/test-12_sign_11.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "11- نهاية منع تجاوز السرعة 110 كلم/سا.",
           "answer_fr": "11. la fin de la limitation de vitesse à 110 km/h."
         },
         {
           "sign_number": 12,
-          "image_path": "data/individual_signs/test-12/test-12_sign_12.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "12- مسلك طوارئ على اليمين.",
           "answer_fr": "12- Voie d'urgence à droite."
         },
         {
           "sign_number": 13,
-          "image_path": "data/individual_signs/test-12/test-12_sign_13.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/98/Route_nationale_fran%C3%A7aise_159.svg",
           "answer_ar": "13- حجر كيلومتري على طريق ولائي.",
           "answer_fr": "13- Une pierre kilométrique sur une route nationale."
         },
         {
           "sign_number": 14,
-          "image_path": "data/individual_signs/test-12/test-12_sign_14.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "14- معلم تقاطع طرق.",
           "answer_fr": "14- Enseignant à l'intersection."
         },
@@ -2267,7 +2267,7 @@
         },
         {
           "sign_number": 16,
-          "image_path": "data/individual_signs/test-12/test-12_sign_16.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "16- ممهل في نفس المكان.",
           "answer_fr": "16- Mamlouh au même endroit."
         }
@@ -2375,73 +2375,73 @@
       "road_signs": [
         {
           "sign_number": 1,
-          "image_path": "data/individual_signs/test-13/test-13_sign_01.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Attention_Radar_-_Alg%C3%A9rie.svg",
           "answer_ar": "1- حذار، منعرج إلى اليسار.",
           "answer_fr": "1- Attention, virage à gauche."
         },
         {
           "sign_number": 2,
-          "image_path": "data/individual_signs/test-13/test-13_sign_02.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Attention_Radar_-_Alg%C3%A9rie.svg",
           "answer_ar": "2- حذار، منعرج إلى اليمين.",
           "answer_fr": "2- Attention, tourne à droite."
         },
         {
           "sign_number": 3,
-          "image_path": "data/individual_signs/test-13/test-13_sign_03.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "3- السير ممنوع في كلا الاتجاهين.",
           "answer_fr": "3- La circulation est interdite dans les deux sens."
         },
         {
           "sign_number": 4,
-          "image_path": "data/individual_signs/test-13/test-13_sign_04.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "4- نهاية منع التجاوز.",
           "answer_fr": "4- Fin de la prévention de l'annulation."
         },
         {
           "sign_number": 5,
-          "image_path": "data/individual_signs/test-13/test-13_sign_05.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "5- نهاية الممر الإجباري للراجلين.",
           "answer_fr": "5- Fin de la voie piétonne obligatoire."
         },
         {
           "sign_number": 6,
-          "image_path": "data/individual_signs/test-13/test-13_sign_06.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b2/FR_road_sign_G1.svg",
           "answer_ar": "6- حذار، محور دوراني.",
           "answer_fr": "6- Attention, axe de rotation."
         },
         {
           "sign_number": 7,
-          "image_path": "data/individual_signs/test-13/test-13_sign_07.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Algeria_road_sign-B2.svg",
           "answer_ar": "7- مطعم.",
           "answer_fr": "7- Restaurant."
         },
         {
           "sign_number": 8,
-          "image_path": "data/individual_signs/test-13/test-13_sign_08.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "8- معلم رياح جانبية.",
           "answer_fr": "8- Un professeur de vent latéral."
         },
         {
           "sign_number": 9,
-          "image_path": "data/individual_signs/test-13/test-13_sign_09.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "9- اتجاه ممنوع.",
           "answer_fr": "9- Direction interdite."
         },
         {
           "sign_number": 10,
-          "image_path": "data/individual_signs/test-13/test-13_sign_10.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "10- التوقف ممنوع.",
           "answer_fr": "10 - Il est interdit de s'arrêter."
         },
         {
           "sign_number": 11,
-          "image_path": "data/individual_signs/test-13/test-13_sign_11.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "11- ممر إجباري للراجلين.",
           "answer_fr": "11- Voie piétonne obligatoire."
         },
         {
           "sign_number": 12,
-          "image_path": "data/individual_signs/test-13/test-13_sign_12.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "12- ممر مخصص للراجلين.",
           "answer_fr": "12- Voie piétonne dédiée."
         },
@@ -2453,19 +2453,19 @@
         },
         {
           "sign_number": 14,
-          "image_path": "data/individual_signs/test-13/test-13_sign_14.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "14- ترك المرور (افسح الطريق).",
           "answer_fr": "14- Lâcher le trafic (faire place nette)."
         },
         {
           "sign_number": 15,
-          "image_path": "data/individual_signs/test-13/test-13_sign_15.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "15- الدخول إلى الطريق السريع.",
           "answer_fr": "15- Entrée sur l'autoroute."
         },
         {
           "sign_number": 16,
-          "image_path": "data/individual_signs/test-13/test-13_sign_16.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Algeria_road_sign-B2.svg",
           "answer_ar": "16- قف.",
           "answer_fr": "16- Whoa."
         }
@@ -2573,97 +2573,97 @@
       "road_signs": [
         {
           "sign_number": 1,
-          "image_path": "data/individual_signs/test-14/test-14_sign_01.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/d/db/France_road_sign_A1d.svg",
           "answer_ar": "1- حذار، تعاقب عدة منعرجات أولها إلى اليسار.",
           "answer_fr": "1- Attention, plusieurs virages dont le premier à gauche."
         },
         {
           "sign_number": 2,
-          "image_path": "data/individual_signs/test-14/test-14_sign_02.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/bd/France_road_sign_AB4.svg",
           "answer_ar": "2- تفادي الحاجز إلى اليمين إجباري.",
           "answer_fr": "2- L'évitement de la barrière de droite est obligatoire."
         },
         {
           "sign_number": 3,
-          "image_path": "data/individual_signs/test-14/test-14_sign_03.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "3- نهاية منع التجاوز.",
           "answer_fr": "3- Fin de la prévention de la dérogation."
         },
         {
           "sign_number": 4,
-          "image_path": "data/individual_signs/test-14/test-14_sign_04.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b2/FR_road_sign_G1.svg",
           "answer_ar": "4- حذار، محور دوراني.",
           "answer_fr": "4- Attention, axe de rotation."
         },
         {
           "sign_number": 5,
-          "image_path": "data/individual_signs/test-14/test-14_sign_05.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "5- الوقوف و التوقف ممنوعان.",
           "answer_fr": "5- Il est interdit de se tenir debout et de s'arrêter."
         },
         {
           "sign_number": 6,
-          "image_path": "data/individual_signs/test-14/test-14_sign_06.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "6- نهاية منع تجاوز السرعة 30 كلم/سا.",
           "answer_fr": "6. fin de la limitation de vitesse à 30 km/h."
         },
         {
           "sign_number": 7,
-          "image_path": "data/individual_signs/test-14/test-14_sign_07.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "7- ترك المرور على بعد 150 متر.",
           "answer_fr": "7- Laisser le trafic à 150 mètres."
         },
         {
           "sign_number": 8,
-          "image_path": "data/individual_signs/test-14/test-14_sign_08.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Algeria_road_sign-B2.svg",
           "answer_ar": "8- مستشفى.",
           "answer_fr": "8. l'hôpital."
         },
         {
           "sign_number": 9,
-          "image_path": "data/individual_signs/test-14/test-14_sign_09.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/a2/France_road_sign_A1c.svg",
           "answer_ar": "9- حذار، تعاقب عدة منعرجات أولها إلى اليمين.",
           "answer_fr": "9- Attention, plusieurs virages dont le premier à droite."
         },
         {
           "sign_number": 10,
-          "image_path": "data/individual_signs/test-14/test-14_sign_10.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "10- ممهل في نفس المكان.",
           "answer_fr": "10 - Ralentir au même endroit."
         },
         {
           "sign_number": 11,
-          "image_path": "data/individual_signs/test-14/test-14_sign_11.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e9/France_road_sign_AB7.svg",
           "answer_ar": "11- طريق ذات أولوية.",
           "answer_fr": "11- Itinéraire prioritaire."
         },
         {
           "sign_number": 12,
-          "image_path": "data/individual_signs/test-14/test-14_sign_12.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "12- اتجاه ممنوع.",
           "answer_fr": "12- Direction interdite."
         },
         {
           "sign_number": 13,
-          "image_path": "data/individual_signs/test-14/test-14_sign_13.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "13- تجاوز السرعة 30 كلم/سا ممنوع.",
           "answer_fr": "13- Il est interdit de dépasser la vitesse de 30 kilomètres par heure."
         },
         {
           "sign_number": 14,
-          "image_path": "data/individual_signs/test-14/test-14_sign_14.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "14- السرعة الأدنى الإجبارية 30 كلم/سا.",
           "answer_fr": "14- Vitesse minimale obligatoire de 30 km/h."
         },
         {
           "sign_number": 15,
-          "image_path": "data/individual_signs/test-14/test-14_sign_15.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Algeria_road_sign-A11.svg",
           "answer_ar": "15- حذار ممر للراجلين.",
           "answer_fr": "15- Attention au passage des piétons."
         },
         {
           "sign_number": 16,
-          "image_path": "data/individual_signs/test-14/test-14_sign_16.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "16- قف على بعد 150 متر.",
           "answer_fr": "16- Stand à 150 mètres."
         }
@@ -2771,97 +2771,97 @@
       "road_signs": [
         {
           "sign_number": 1,
-          "image_path": "data/individual_signs/test-15/test-15_sign_01.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "1- مركز خاص بالمعاقين.",
           "answer_fr": "1- Un centre spécialisé pour les personnes handicapées."
         },
         {
           "sign_number": 2,
-          "image_path": "data/individual_signs/test-15/test-15_sign_02.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "2- مرور الدراجات ممنوع.",
           "answer_fr": "2- La circulation des vélos est interdite."
         },
         {
           "sign_number": 3,
-          "image_path": "data/individual_signs/test-15/test-15_sign_03.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "3- ممر إجباري للدراجات.",
           "answer_fr": "3- Bande cyclable obligatoire."
         },
         {
           "sign_number": 4,
-          "image_path": "data/individual_signs/test-15/test-15_sign_04.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Attention_Radar_-_Alg%C3%A9rie.svg",
           "answer_ar": "4- حذار، منعرج إلى اليمين.",
           "answer_fr": "4- Attention, tournez à droite."
         },
         {
           "sign_number": 5,
-          "image_path": "data/individual_signs/test-15/test-15_sign_05.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "5- التوقف ممنوع من 1 إلى 15 من كل شهر.",
           "answer_fr": "5- L'arrêt est interdit du 1er au 15 de chaque mois."
         },
         {
           "sign_number": 6,
-          "image_path": "data/individual_signs/test-15/test-15_sign_06.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c1/France_road_sign_B1.svg",
           "answer_ar": "6- حذار، طريق زلق.",
           "answer_fr": "6- Attention, route glissante."
         },
         {
           "sign_number": 7,
-          "image_path": "data/individual_signs/test-15/test-15_sign_07.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "7- نهاية أولية الطريق.",
           "answer_fr": "7- La fin de l'itinéraire initial."
         },
         {
           "sign_number": 8,
-          "image_path": "data/individual_signs/test-15/test-15_sign_08.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b2/FR_road_sign_G1.svg",
           "answer_ar": "8- حذار، منحدر بنسبة 10%.",
           "answer_fr": "8- Attention, pente de 10%."
         },
         {
           "sign_number": 9,
-          "image_path": "data/individual_signs/test-15/test-15_sign_09.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Algeria_road_sign-B2.svg",
           "answer_ar": "9- موقف.",
           "answer_fr": "9- Position."
         },
         {
           "sign_number": 10,
-          "image_path": "data/individual_signs/test-15/test-15_sign_10.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Attention_Radar_-_Alg%C3%A9rie.svg",
           "answer_ar": "10- حذار، خروج أطفال.",
           "answer_fr": "10 - Attention, enfants dehors."
         },
         {
           "sign_number": 11,
-          "image_path": "data/individual_signs/test-15/test-15_sign_11.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "11- مرور الراجلين ممنوع.",
           "answer_fr": "11- La circulation des piétons est interdite."
         },
         {
           "sign_number": 12,
-          "image_path": "data/individual_signs/test-15/test-15_sign_12.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Algeria_road_sign-C7.svg",
           "answer_ar": "12- حذار، منعرج إلى اليسار.",
           "answer_fr": "12- Attention, tourner à gauche."
         },
         {
           "sign_number": 13,
-          "image_path": "data/individual_signs/test-15/test-15_sign_13.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/1/1e/France_road_sign_A15a1.svg",
           "answer_ar": "13- حذار، خروج حيوانات أليفة.",
           "answer_fr": "13- Attention, les animaux ne sont pas admis."
         },
         {
           "sign_number": 14,
-          "image_path": "data/individual_signs/test-15/test-15_sign_14.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "14- مرور الحافلات ممنوع.",
           "answer_fr": "14- Le passage des bus est interdit."
         },
         {
           "sign_number": 15,
-          "image_path": "data/individual_signs/test-15/test-15_sign_15.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "15- ممر إجباري للحافلات.",
           "answer_fr": "15- Voie de bus obligatoire."
         },
         {
           "sign_number": 16,
-          "image_path": "data/individual_signs/test-15/test-15_sign_16.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "16- موقف حافلات.",
           "answer_fr": "16- Arrêt de bus."
         }
@@ -2975,91 +2975,91 @@
         },
         {
           "sign_number": 2,
-          "image_path": "data/individual_signs/test-16/test-16_sign_02.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "2- الدوران إلى اليمين ممنوع.",
           "answer_fr": "2- Il est interdit de tourner à droite."
         },
         {
           "sign_number": 3,
-          "image_path": "data/individual_signs/test-16/test-16_sign_03.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c5/France_road_sign_A18.svg",
           "answer_ar": "3- يمنع التوقف من 16 إلى 31 من كل شهر.",
           "answer_fr": "3- Pas d'arrêt du 16 au 31 de chaque mois."
         },
         {
           "sign_number": 4,
-          "image_path": "data/individual_signs/test-16/test-16_sign_04.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Algeria_road_sign-D1a.svg",
           "answer_ar": "4- إلتزام السير باتجاه اليمين إجباري.",
           "answer_fr": "4- L'obligation de rouler à droite est obligatoire."
         },
         {
           "sign_number": 5,
-          "image_path": "data/individual_signs/test-16/test-16_sign_05.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/6/61/Algeria_road_sign-C14d.svg",
           "answer_ar": "5- نهاية كل الممنوعات ماعدا الوقوف و التوقف.",
           "answer_fr": "5- La fin de toutes les interdictions sauf celle de s'arrêter et de s'arrêter."
         },
         {
           "sign_number": 6,
-          "image_path": "data/individual_signs/test-16/test-16_sign_06.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/96/Algeria_road_sign-B4.svg",
           "answer_ar": "6- حذار تقاطع طرق (الأولوية على اليمين).",
           "answer_fr": "6- Attention à un carrefour routier (priorité à droite)."
         },
         {
           "sign_number": 7,
-          "image_path": "data/individual_signs/test-16/test-16_sign_07.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "7- نهاية منع التجاوز بالنسبة للشاحنات.",
           "answer_fr": "7- La fin de l'interdiction de dépasser pour les camions."
         },
         {
           "sign_number": 8,
-          "image_path": "data/individual_signs/test-16/test-16_sign_08.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "8- موقف سيارات الأجرة.",
           "answer_fr": "8- Stationnement des taxis."
         },
         {
           "sign_number": 9,
-          "image_path": "data/individual_signs/test-16/test-16_sign_09.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "9- نهاية الممر الإجباري للدراجات.",
           "answer_fr": "9 - Fin de la piste cyclable obligatoire."
         },
         {
           "sign_number": 10,
-          "image_path": "data/individual_signs/test-16/test-16_sign_10.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "10- الدخول إلى منطقة التوقف فيها ممنوع.",
           "answer_fr": "10- Pénétrer dans une zone d'arrêt interdite."
         },
         {
           "sign_number": 11,
-          "image_path": "data/individual_signs/test-16/test-16_sign_11.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "11- ممر إجباري للدراجات.",
           "answer_fr": "11- Bande cyclable obligatoire."
         },
         {
           "sign_number": 12,
-          "image_path": "data/individual_signs/test-16/test-16_sign_12.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "12- الخروج من منطقة التوقف فيها ممنوع.",
           "answer_fr": "12- La sortie du parking est interdite."
         },
         {
           "sign_number": 13,
-          "image_path": "data/individual_signs/test-16/test-16_sign_13.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "13- غابة سريعة الاشتعال.",
           "answer_fr": "13- Une forêt inflammable."
         },
         {
           "sign_number": 14,
-          "image_path": "data/individual_signs/test-16/test-16_sign_14.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "14- مرور الدراجات ممنوع.",
           "answer_fr": "14- La circulation des bicyclettes est interdite."
         },
         {
           "sign_number": 15,
-          "image_path": "data/individual_signs/test-16/test-16_sign_15.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/98/Route_nationale_fran%C3%A7aise_159.svg",
           "answer_ar": "15- حذار، طريق ذو اتجاهين.",
           "answer_fr": "15- Attention, route à double sens."
         },
         {
           "sign_number": 16,
-          "image_path": "data/individual_signs/test-16/test-16_sign_16.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b6/France_road_sign_C64b_new.svg",
           "answer_ar": "16- الدخول إلى منطقة يمنع فيها تجاوز السرعة 30 كلم/سا.",
           "answer_fr": "16. pénétrer dans une zone où la vitesse est limitée à 30 kilomètres par heure."
         }
@@ -3167,25 +3167,25 @@
       "road_signs": [
         {
           "sign_number": 1,
-          "image_path": "data/individual_signs/test-17/test-17_sign_01.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "1- التجاوز ممنوع بالنسبة للشاحنات.",
           "answer_fr": "1- Le dépassement est interdit pour les camions."
         },
         {
           "sign_number": 2,
-          "image_path": "data/individual_signs/test-17/test-17_sign_02.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "2- تمهل، نقطة تفتيش (الدرك الوطني).",
           "answer_fr": "2- Tamhil, poste de contrôle (gendarmerie nationale)."
         },
         {
           "sign_number": 3,
-          "image_path": "data/individual_signs/test-17/test-17_sign_03.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b2/FR_road_sign_G1.svg",
           "answer_ar": "3- حذار، خطر جوي.",
           "answer_fr": "3- Attention, danger aérien."
         },
         {
           "sign_number": 4,
-          "image_path": "data/individual_signs/test-17/test-17_sign_04.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "4- تمهل، نقطة تفتيش (الشرطة).",
           "answer_fr": "4- Attendez, poste de contrôle (police)."
         },
@@ -3197,67 +3197,67 @@
         },
         {
           "sign_number": 6,
-          "image_path": "data/individual_signs/test-17/test-17_sign_06.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "6- وضع السلاسل الثلجية إجباري.",
           "answer_fr": "6- Le port de chaînes à neige est obligatoire."
         },
         {
           "sign_number": 7,
-          "image_path": "data/individual_signs/test-17/test-17_sign_07.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/98/Route_nationale_fran%C3%A7aise_159.svg",
           "answer_ar": "7- حجر كيلومتري على طريق وطني.",
           "answer_fr": "7- Une borne kilométrique sur une route nationale."
         },
         {
           "sign_number": 8,
-          "image_path": "data/individual_signs/test-17/test-17_sign_08.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b2/FR_road_sign_G1.svg",
           "answer_ar": "8- معلم منعرج خطير إلى اليسار.",
           "answer_fr": "8- Un repère dangereux de virage à gauche."
         },
         {
           "sign_number": 9,
-          "image_path": "data/individual_signs/test-17/test-17_sign_09.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/98/Route_nationale_fran%C3%A7aise_159.svg",
           "answer_ar": "9- حذار، خروج الخيالة.",
           "answer_fr": "9- Attention, la cavalerie est sortie."
         },
         {
           "sign_number": 10,
-          "image_path": "data/individual_signs/test-17/test-17_sign_10.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b2/FR_road_sign_G1.svg",
           "answer_ar": "10- حذار، جسر متحرك.",
           "answer_fr": "10- Attention, pont-levis."
         },
         {
           "sign_number": 11,
-          "image_path": "data/individual_signs/test-17/test-17_sign_11.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b2/FR_road_sign_G1.svg",
           "answer_ar": "11- حذار، رياح جانبية.",
           "answer_fr": "11- Attention, vents latéraux."
         },
         {
           "sign_number": 12,
-          "image_path": "data/individual_signs/test-17/test-17_sign_12.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "12- الدوران إلى الخلف ممنوع.",
           "answer_fr": "12- La rotation vers l'arrière est interdite."
         },
         {
           "sign_number": 13,
-          "image_path": "data/individual_signs/test-17/test-17_sign_13.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/bd/France_road_sign_AB4.svg",
           "answer_ar": "13- التزام السير باتجاه اليسار إجباري.",
           "answer_fr": "13- Il est obligatoire de conduire à gauche."
         },
         {
           "sign_number": 14,
-          "image_path": "data/individual_signs/test-17/test-17_sign_14.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "14- نهاية منع تجاوز السرعة 50 كلم/سا.",
           "answer_fr": "14. fin de la limitation de vitesse à 50 km/h."
         },
         {
           "sign_number": 15,
-          "image_path": "data/individual_signs/test-17/test-17_sign_15.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/98/Route_nationale_fran%C3%A7aise_159.svg",
           "answer_ar": "15- طريق معبّد.",
           "answer_fr": "15- Route pavée."
         },
         {
           "sign_number": 16,
-          "image_path": "data/individual_signs/test-17/test-17_sign_16.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/96/Algeria_road_sign-B4.svg",
           "answer_ar": "16- حذار، طريق ضيق على اليمين.",
           "answer_fr": "16- Attention, route étroite à droite."
         }
@@ -3365,97 +3365,97 @@
       "road_signs": [
         {
           "sign_number": 1,
-          "image_path": "data/individual_signs/test-18/test-18_sign_01.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/41/France_road_sign_AK3.svg",
           "answer_ar": "1- حذار، طريق ضيقة من الجهتين - إشارة مؤقتة.",
           "answer_fr": "1- Attention, route étroite des deux côtés - signal temporaire."
         },
         {
           "sign_number": 2,
-          "image_path": "data/individual_signs/test-18/test-18_sign_02.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Algeria_road_sign-E12.svg",
           "answer_ar": "2- طريق ذو اتجاه واحد.",
           "answer_fr": "2- Une route à sens unique."
         },
         {
           "sign_number": 3,
-          "image_path": "data/individual_signs/test-18/test-18_sign_03.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/0/0f/France_road_sign_B2b.svg",
           "answer_ar": "3- الدوران إلى اليمين أو إلى اليسار إجباري عند التقاطع القادم.",
           "answer_fr": "3- Tourner à droite ou à gauche est obligatoire à la prochaine intersection."
         },
         {
           "sign_number": 4,
-          "image_path": "data/individual_signs/test-18/test-18_sign_04.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "4- استعمال المنبه الصوتي ممنوع.",
           "answer_fr": "4- L'utilisation d'une alarme sonore est interdite."
         },
         {
           "sign_number": 5,
-          "image_path": "data/individual_signs/test-18/test-18_sign_05.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "5- معلم تقاطع طرق.",
           "answer_fr": "5- Un professeur d'intersection."
         },
         {
           "sign_number": 6,
-          "image_path": "data/individual_signs/test-18/test-18_sign_06.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "6- نهاية منع تجاوز السرعة 110 كلم/سا.",
           "answer_fr": "6- Fin de la limitation de vitesse à 110 km/h."
         },
         {
           "sign_number": 7,
-          "image_path": "data/individual_signs/test-18/test-18_sign_07.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "7- نهاية السرعة الأدنى الإجبارية 30 كلم/سا.",
           "answer_fr": "7 - Limite de vitesse minimale obligatoire de 30 km/h."
         },
         {
           "sign_number": 8,
-          "image_path": "data/individual_signs/test-18/test-18_sign_08.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Algeria_road_sign-C8.svg",
           "answer_ar": "8- حذار، ممر للرّاجلين.",
           "answer_fr": "8 - Attention, chemin piétonnier."
         },
         {
           "sign_number": 9,
-          "image_path": "data/individual_signs/test-18/test-18_sign_09.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/96/Algeria_road_sign-B4.svg",
           "answer_ar": "9- حذار، طريق ضيّقة من الجهتين.",
           "answer_fr": "9- Attention, route étroite des deux côtés."
         },
         {
           "sign_number": 10,
-          "image_path": "data/individual_signs/test-18/test-18_sign_10.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "10- السير إلى الأمام إجباري.",
           "answer_fr": "10 - La marche en avant est obligatoire."
         },
         {
           "sign_number": 11,
-          "image_path": "data/individual_signs/test-18/test-18_sign_11.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/96/Algeria_road_sign-B4.svg",
           "answer_ar": "11- حذار، تقاطع طريق (الأولوية لليمين).",
           "answer_fr": "11- Attention, intersection de routes (Priorité à droite)."
         },
         {
           "sign_number": 12,
-          "image_path": "data/individual_signs/test-18/test-18_sign_12.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/98/Route_nationale_fran%C3%A7aise_159.svg",
           "answer_ar": "12- طريق وطني رقم 89.",
           "answer_fr": "12- Route nationale n° 89."
         },
         {
           "sign_number": 13,
-          "image_path": "data/individual_signs/test-18/test-18_sign_13.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "13- محطة بنزين.",
           "answer_fr": "13- Station-service."
         },
         {
           "sign_number": 14,
-          "image_path": "data/individual_signs/test-18/test-18_sign_14.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/ac/France_road_sign_A13b.svg",
           "answer_ar": "14- نهاية منع تجاوز السرعة 30 كلم/سا.",
           "answer_fr": "14. fin de la limitation de vitesse à 30 km/h."
         },
         {
           "sign_number": 15,
-          "image_path": "data/individual_signs/test-18/test-18_sign_15.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "15- السرعة الأدنى الإجبارية 30 كلم/سا.",
           "answer_fr": "15- Vitesse minimale obligatoire de 30 km/h."
         },
         {
           "sign_number": 16,
-          "image_path": "data/individual_signs/test-18/test-18_sign_16.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "16- تجاوز السرعة 30 كلم/سا ممنوع.",
           "answer_fr": "16- Il est interdit de dépasser la vitesse de 30 kilomètres par heure."
         }
@@ -3563,25 +3563,25 @@
       "road_signs": [
         {
           "sign_number": 1,
-          "image_path": "data/individual_signs/test-19/test-19_sign_01.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "1- اتجاه ممنوع.",
           "answer_fr": "1- Sens interdit."
         },
         {
           "sign_number": 2,
-          "image_path": "data/individual_signs/test-19/test-19_sign_02.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "2- الخروج من منطقة التوقف فيها ممنوع.",
           "answer_fr": "2- La sortie d'une zone d'arrêt interdite."
         },
         {
           "sign_number": 3,
-          "image_path": "data/individual_signs/test-19/test-19_sign_03.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/96/Algeria_road_sign-B4.svg",
           "answer_ar": "3- طريق ذو اتجاهين، الأولوية للاتجاه المعاكس.",
           "answer_fr": "3- Une route à double sens, la direction opposée est prioritaire."
         },
         {
           "sign_number": 4,
-          "image_path": "data/individual_signs/test-19/test-19_sign_04.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/41/France_road_sign_AK3.svg",
           "answer_ar": "4- حذار، خطر غير معين مؤقت.",
           "answer_fr": "4- Attention, risque temporaire non spécifié."
         },
@@ -3593,67 +3593,67 @@
         },
         {
           "sign_number": 6,
-          "image_path": "data/individual_signs/test-19/test-19_sign_06.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b2/FR_road_sign_G1.svg",
           "answer_ar": "6- حذار، ممر للراجلين.",
           "answer_fr": "6- Attention, voie piétonne."
         },
         {
           "sign_number": 7,
-          "image_path": "data/individual_signs/test-19/test-19_sign_07.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "7- انحراف الطريق إلى اليمين.",
           "answer_fr": "7- La route dévie vers la droite."
         },
         {
           "sign_number": 8,
-          "image_path": "data/individual_signs/test-19/test-19_sign_08.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "8- هاتف عمومي.",
           "answer_fr": "8. téléphone public."
         },
         {
           "sign_number": 9,
-          "image_path": "data/individual_signs/test-19/test-19_sign_09.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "9- ممر إجباري للراجلين.",
           "answer_fr": "9- Passage obligatoire pour les piétons."
         },
         {
           "sign_number": 10,
-          "image_path": "data/individual_signs/test-19/test-19_sign_10.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "10- ممر مخصص للراجلين.",
           "answer_fr": "10. une voie réservée aux piétons."
         },
         {
           "sign_number": 11,
-          "image_path": "data/individual_signs/test-19/test-19_sign_11.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "11- نقطة تفتيش (الجمارك).",
           "answer_fr": "11- Point de contrôle (douanes)."
         },
         {
           "sign_number": 12,
-          "image_path": "data/individual_signs/test-19/test-19_sign_12.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c1/France_road_sign_B1.svg",
           "answer_ar": "12- حذار، طريق زلق.",
           "answer_fr": "12- Attention, route glissante."
         },
         {
           "sign_number": 13,
-          "image_path": "data/individual_signs/test-19/test-19_sign_13.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/a/aa/France_road_sign_C1a.svg",
           "answer_ar": "13- حذار، طريق زلق مؤقت.",
           "answer_fr": "13- Attention, route temporairement glissante."
         },
         {
           "sign_number": 14,
-          "image_path": "data/individual_signs/test-19/test-19_sign_14.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "14- موقف سيارات الأجرة.",
           "answer_fr": "14- Station de taxis."
         },
         {
           "sign_number": 15,
-          "image_path": "data/individual_signs/test-19/test-19_sign_15.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b3/France_road_sign_AK14.svg",
           "answer_ar": "15- حذار، سكة حديدية غير محروسة مع إشارة ضوئية.",
           "answer_fr": "15- Attention, voie ferrée non gardée avec feux de signalisation."
         },
         {
           "sign_number": 16,
-          "image_path": "data/individual_signs/test-19/test-19_sign_16.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "16- انحراف الطريق إلى اليمين.",
           "answer_fr": "16- La route dévie vers la droite."
         }
@@ -3761,13 +3761,13 @@
       "road_signs": [
         {
           "sign_number": 1,
-          "image_path": "data/individual_signs/test-20/test-20_sign_01.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "1- يستحسن السير بسرعة 70 كلم/سا",
           "answer_fr": "1- Vitesse recommandée de 70 km/h"
         },
         {
           "sign_number": 2,
-          "image_path": "data/individual_signs/test-20/test-20_sign_02.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Algeria_road_sign-C7.svg",
           "answer_ar": "2- حذار، منعرج إلى اليسار.",
           "answer_fr": "2- Attention, tourner à gauche."
         },
@@ -3779,79 +3779,79 @@
         },
         {
           "sign_number": 4,
-          "image_path": "data/individual_signs/test-20/test-20_sign_04.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "4- حاجز أشغال مؤقتة.",
           "answer_fr": "4- Barrière de chantier temporaire."
         },
         {
           "sign_number": 5,
-          "image_path": "data/individual_signs/test-20/test-20_sign_05.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b2/FR_road_sign_G1.svg",
           "answer_ar": "5- حذار تقاطع طرق.",
           "answer_fr": "5- Attention aux carrefours."
         },
         {
           "sign_number": 6,
-          "image_path": "data/individual_signs/test-20/test-20_sign_06.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "6- محطة تراموي.",
           "answer_fr": "6- Une station de tramway."
         },
         {
           "sign_number": 7,
-          "image_path": "data/individual_signs/test-20/test-20_sign_07.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9c/France_road_sign_AB2.svg",
           "answer_ar": "7- مسلك طوارئ على اليمين.",
           "answer_fr": "7- Voie d'urgence à droite."
         },
         {
           "sign_number": 8,
-          "image_path": "data/individual_signs/test-20/test-20_sign_08.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "8- تجاوز السرعة 70 كلم/سا ممنوع.",
           "answer_fr": "8- Le dépassement de la vitesse de 70 km/h est interdit."
         },
         {
           "sign_number": 9,
-          "image_path": "data/individual_signs/test-20/test-20_sign_09.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/4/47/France_road_sign_B0.svg",
           "answer_ar": "9- الدوران إلى الخلف ممنوع.",
           "answer_fr": "9- La rotation vers l'arrière est interdite."
         },
         {
           "sign_number": 10,
-          "image_path": "data/individual_signs/test-20/test-20_sign_10.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/b2/FR_road_sign_G1.svg",
           "answer_ar": "10- حذار، ممرّ للراجلين.",
           "answer_fr": "10 - Attention, voie piétonne."
         },
         {
           "sign_number": 11,
-          "image_path": "data/individual_signs/test-20/test-20_sign_11.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/b/bd/France_road_sign_AB4.svg",
           "answer_ar": "11- تفادي الحاجز إلى اليمين إجباري.",
           "answer_fr": "11- L'évitement de la barrière de droite est obligatoire."
         },
         {
           "sign_number": 12,
-          "image_path": "data/individual_signs/test-20/test-20_sign_12.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/f/f4/France_road_sign_A14.svg",
           "answer_ar": "12- نهاية منع استعمال المنبه الصوتي.",
           "answer_fr": "12. la fin de l'interdiction d'utiliser des alarmes sonores."
         },
         {
           "sign_number": 13,
-          "image_path": "data/individual_signs/test-20/test-20_sign_13.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/e/e7/France_road_sign_AB25.svg",
           "answer_ar": "13- اتجاه ممنوع.",
           "answer_fr": "13- Direction interdite."
         },
         {
           "sign_number": 14,
-          "image_path": "data/individual_signs/test-20/test-20_sign_14.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/96/Algeria_road_sign-B4.svg",
           "answer_ar": "14- طريق ذو اتجاهين، الأولوية للاتجاه المعاكس.",
           "answer_fr": "14 - Route à double sens, la direction opposée est prioritaire."
         },
         {
           "sign_number": 15,
-          "image_path": "data/individual_signs/test-20/test-20_sign_15.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Autoroute_fran%C3%A7aise_14.svg",
           "answer_ar": "15- نهاية أولويّة الطريق.",
           "answer_fr": "15 - Priorité à la fin de la route."
         },
         {
           "sign_number": 16,
-          "image_path": "data/individual_signs/test-20/test-20_sign_16.png",
+          "image_path": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Algeria_road_sign-C4.svg",
           "answer_ar": "16- طريق مخصص للعربات التي يزيد طولها عن 10 متر.",
           "answer_fr": "16- Une route réservée aux véhicules de plus de 10 mètres de long."
         }
