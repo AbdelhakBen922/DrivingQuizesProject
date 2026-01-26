@@ -9,6 +9,7 @@ from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.deps.auth import get_current_staff
+from app.core.cache import cache, cache_key
 from app.core.database import get_db
 from app.models.enums import RoomMembershipStatus
 from app.models.learning_progress import LearningProgress
@@ -30,6 +31,9 @@ from app.schemas.dashboard_overview import (
 
 router = APIRouter(prefix="/overview", tags=["dashboard-overview"])
 
+# Cache TTL in seconds (30 seconds for dashboard data)
+DASHBOARD_CACHE_TTL = 30
+
 
 async def _require_staff_school(staff: StaffUser) -> int:
     if staff.school_id is None:
@@ -38,40 +42,57 @@ async def _require_staff_school(staff: StaffUser) -> int:
 
 
 async def _fetch_metrics(session: AsyncSession, school_id: int) -> DashboardOverviewMetrics:
+    """Fetch all metrics with reduced queries using conditional aggregation."""
     now = datetime.now(timezone.utc)
 
-    rooms_stmt = select(func.count()).select_from(Room).where(
-        Room.school_id == school_id,
-        Room.deleted_at.is_(None),
-    )
-    students_stmt = select(func.count()).select_from(Student).where(
-        Student.school_id == school_id,
-        Student.deleted_at.is_(None),
-    )
-    upcoming_stmt = select(func.count()).select_from(Quiz).where(
-        Quiz.school_id == school_id,
-        Quiz.deleted_at.is_(None),
-        Quiz.starts_at.is_not(None),
-        Quiz.starts_at >= now,
-    )
-    active_stmt = select(func.count()).select_from(Quiz).where(
-        Quiz.school_id == school_id,
-        Quiz.deleted_at.is_(None),
-        Quiz.starts_at.is_not(None),
-        Quiz.starts_at <= now,
-        sa.or_(Quiz.ends_at.is_(None), Quiz.ends_at >= now),
-    )
+    # Run room + student counts in parallel (2 simple queries)
+    # and quiz counts with conditional aggregation (1 query with 2 counts)
+    async def get_room_count():
+        stmt = select(func.count()).select_from(Room).where(
+            Room.school_id == school_id,
+            Room.deleted_at.is_(None),
+        )
+        return await session.scalar(stmt) or 0
 
-    rooms_count = await session.scalar(rooms_stmt) or 0
-    students_count = await session.scalar(students_stmt) or 0
-    upcoming_count = await session.scalar(upcoming_stmt) or 0
-    active_count = await session.scalar(active_stmt) or 0
+    async def get_student_count():
+        stmt = select(func.count()).select_from(Student).where(
+            Student.school_id == school_id,
+            Student.deleted_at.is_(None),
+        )
+        return await session.scalar(stmt) or 0
+
+    async def get_quiz_counts():
+        # Single query for both upcoming and active quiz counts
+        stmt = select(
+            func.count().filter(
+                Quiz.starts_at.is_not(None),
+                Quiz.starts_at >= now,
+            ).label("upcoming"),
+            func.count().filter(
+                Quiz.starts_at.is_not(None),
+                Quiz.starts_at <= now,
+                sa.or_(Quiz.ends_at.is_(None), Quiz.ends_at >= now),
+            ).label("active"),
+        ).where(
+            Quiz.school_id == school_id,
+            Quiz.deleted_at.is_(None),
+        )
+        result = await session.execute(stmt)
+        row = result.one()
+        return row.upcoming or 0, row.active or 0
+
+    # Run all 3 queries in parallel (down from 4 sequential queries)
+    rooms_count, students_count, (upcoming, active) = await asyncio.gather(
+        get_room_count(),
+        get_student_count(),
+        get_quiz_counts(),
+    )
 
     return DashboardOverviewMetrics(
         total_rooms=rooms_count,
         total_students=students_count,
-        upcoming_quizzes=upcoming_count,
-        active_quizzes=active_count,
+        upcoming_quizzes=upcoming,
+        active_quizzes=active,
     )
 
 
@@ -234,6 +255,12 @@ async def get_dashboard_overview(
     current_staff: StaffUser = Depends(get_current_staff),
 ) -> DashboardOverviewResponse:
     school_id = await _require_staff_school(current_staff)
+    
+    # Check cache first
+    cache_k = cache_key("dashboard", "overview", school_id)
+    cached_result = await cache.get(cache_k)
+    if cached_result is not None:
+        return cached_result
 
     # Run all queries in parallel using asyncio.gather for better performance
     # This reduces total latency from 5 sequential queries to 1 parallel batch
@@ -245,13 +272,18 @@ async def get_dashboard_overview(
         _fetch_top_students(session, school_id),
     )
 
-    return DashboardOverviewResponse(
+    result = DashboardOverviewResponse(
         metrics=metrics,
         exam_results=exam_results,
         study_progress=study_progress,
         recent_registrations=recent_regs,
         top_students=top_students,
     )
+    
+    # Cache the result for 30 seconds
+    await cache.set(cache_k, result, DASHBOARD_CACHE_TTL)
+    
+    return result
 
 
 @router.get("/stats", response_model=DashboardStatsResponse)
@@ -260,11 +292,27 @@ async def get_dashboard_stats(
     current_staff: StaffUser = Depends(get_current_staff),
 ) -> DashboardStatsResponse:
     school_id = await _require_staff_school(current_staff)
-    metrics = await _fetch_metrics(session, school_id)
-    staff_count = await _fetch_staff_count(session, school_id)
-    return DashboardStatsResponse(
+    
+    # Check cache first
+    cache_k = cache_key("dashboard", "stats", school_id)
+    cached_result = await cache.get(cache_k)
+    if cached_result is not None:
+        return cached_result
+    
+    # Fetch metrics and staff count in parallel
+    metrics, staff_count = await asyncio.gather(
+        _fetch_metrics(session, school_id),
+        _fetch_staff_count(session, school_id),
+    )
+    
+    result = DashboardStatsResponse(
         total_groups=metrics.total_rooms,
         total_students=metrics.total_students,
         total_instructors=staff_count,
         active_exams=metrics.active_quizzes,
     )
+    
+    # Cache the result
+    await cache.set(cache_k, result, DASHBOARD_CACHE_TTL)
+    
+    return result
