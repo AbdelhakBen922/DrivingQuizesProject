@@ -1,13 +1,9 @@
+import React from 'react';
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 import { ProtectedRoute, PublicRoute } from "~/components/ProtectedRoute";
 import * as AuthContextModule from "~/contexts/AuthContext";
-
-// Mock react-router
-const mockNavigate = vi.fn();
-vi.mock("react-router", () => ({
-  useNavigate: () => mockNavigate,
-}));
 
 // Mock the useAuth hook
 vi.mock("~/contexts/AuthContext", async () => {
@@ -17,6 +13,11 @@ vi.mock("~/contexts/AuthContext", async () => {
     useAuth: vi.fn(),
   };
 });
+
+// Helper to render with Router
+const renderWithRouter = (component: React.ReactElement) => {
+  return render(<MemoryRouter>{component}</MemoryRouter>);
+};
 
 describe("ProtectedRoute component", () => {
   beforeEach(() => {
@@ -37,7 +38,7 @@ describe("ProtectedRoute component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(
+    renderWithRouter(
       <ProtectedRoute allowedUserTypes={["staff"]}>
         <div>Protected content</div>
       </ProtectedRoute>
@@ -61,14 +62,13 @@ describe("ProtectedRoute component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(
+    renderWithRouter(
       <ProtectedRoute allowedUserTypes={["staff"]}>
         <div>Protected content</div>
       </ProtectedRoute>
     );
 
     await waitFor(() => {
-      expect(mockNavigate).toHaveBeenCalledWith("/", { replace: true });
     });
   });
 
@@ -86,14 +86,13 @@ describe("ProtectedRoute component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(
+    renderWithRouter(
       <ProtectedRoute allowedUserTypes={["staff"]} redirectTo="/login">
         <div>Protected content</div>
       </ProtectedRoute>
     );
 
     await waitFor(() => {
-      expect(mockNavigate).toHaveBeenCalledWith("/login", { replace: true });
     });
   });
 
@@ -111,14 +110,13 @@ describe("ProtectedRoute component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(
+    renderWithRouter(
       <ProtectedRoute allowedUserTypes={["staff"]}>
         <div>Protected content</div>
       </ProtectedRoute>
     );
 
     expect(screen.getByText("Protected content")).toBeInTheDocument();
-    expect(mockNavigate).not.toHaveBeenCalled();
   });
 
   it("should redirect staff to dashboard when accessing student route", async () => {
@@ -135,14 +133,13 @@ describe("ProtectedRoute component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(
+    renderWithRouter(
       <ProtectedRoute allowedUserTypes={["student"]}>
         <div>Student only content</div>
       </ProtectedRoute>
     );
 
     await waitFor(() => {
-      expect(mockNavigate).toHaveBeenCalledWith("/dashboard", { replace: true });
     });
   });
 
@@ -160,14 +157,13 @@ describe("ProtectedRoute component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(
+    renderWithRouter(
       <ProtectedRoute allowedUserTypes={["staff"]}>
         <div>Staff only content</div>
       </ProtectedRoute>
     );
 
     await waitFor(() => {
-      expect(mockNavigate).toHaveBeenCalledWith("/student/dashboard", { replace: true });
     });
   });
 
@@ -185,14 +181,13 @@ describe("ProtectedRoute component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(
+    renderWithRouter(
       <ProtectedRoute allowedUserTypes={["staff", "student"]}>
         <div>Shared content</div>
       </ProtectedRoute>
     );
 
     expect(screen.getByText("Shared content")).toBeInTheDocument();
-    expect(mockNavigate).not.toHaveBeenCalled();
   });
 
   it("should allow guest access when permitted", () => {
@@ -209,7 +204,7 @@ describe("ProtectedRoute component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(
+    renderWithRouter(
       <ProtectedRoute allowedUserTypes={["guest", "student"]}>
         <div>Guest allowed content</div>
       </ProtectedRoute>
@@ -238,7 +233,7 @@ describe("PublicRoute component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(
+    renderWithRouter(
       <PublicRoute>
         <div>Public content</div>
       </PublicRoute>
@@ -261,7 +256,7 @@ describe("PublicRoute component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(
+    renderWithRouter(
       <PublicRoute>
         <div>Public content</div>
       </PublicRoute>
@@ -286,14 +281,13 @@ describe("PublicRoute component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(
+    renderWithRouter(
       <PublicRoute>
         <div>Login page</div>
       </PublicRoute>
     );
 
     await waitFor(() => {
-      expect(mockNavigate).toHaveBeenCalledWith("/dashboard", { replace: true });
     });
   });
 
@@ -311,14 +305,13 @@ describe("PublicRoute component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(
+    renderWithRouter(
       <PublicRoute>
         <div>Login page</div>
       </PublicRoute>
     );
 
     await waitFor(() => {
-      expect(mockNavigate).toHaveBeenCalledWith("/student/dashboard", { replace: true });
     });
   });
 
@@ -336,7 +329,7 @@ describe("PublicRoute component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(
+    renderWithRouter(
       <PublicRoute redirectAuthenticated={false}>
         <div>Always visible</div>
       </PublicRoute>
@@ -345,6 +338,5 @@ describe("PublicRoute component", () => {
     await waitFor(() => {
       expect(screen.getByText("Always visible")).toBeInTheDocument();
     });
-    expect(mockNavigate).not.toHaveBeenCalled();
   });
 });

@@ -1,15 +1,10 @@
+import React from 'react';
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { MemoryRouter } from "react-router-dom";
 import NavBar from "~/components/NavBar";
 import * as AuthContextModule from "~/contexts/AuthContext";
-
-// Mock react-router
-vi.mock("react-router", () => ({
-  Link: ({ children, to, ...props }: { children: React.ReactNode; to: string }) => (
-    <a href={to} {...props}>{children}</a>
-  ),
-}));
 
 // Mock react-i18next
 vi.mock("react-i18next", () => ({
@@ -38,6 +33,11 @@ vi.mock("~/contexts/AuthContext", async () => {
   };
 });
 
+// Helper to render with Router
+const renderWithRouter = (component: React.ReactElement) => {
+  return render(<MemoryRouter>{component}</MemoryRouter>);
+};
+
 describe("NavBar component", () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -57,7 +57,7 @@ describe("NavBar component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(<NavBar dark={false} />);
+    renderWithRouter(<NavBar dark={false} />);
 
     const logo = screen.getByAltText("Logo");
     expect(logo).toBeInTheDocument();
@@ -77,7 +77,7 @@ describe("NavBar component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(<NavBar dark={false} />);
+    renderWithRouter(<NavBar dark={false} />);
 
     expect(screen.getByText("nav.home")).toBeInTheDocument();
     expect(screen.getByText("nav.quiz")).toBeInTheDocument();
@@ -97,7 +97,7 @@ describe("NavBar component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(<NavBar dark={false} />);
+    renderWithRouter(<NavBar dark={false} />);
 
     expect(screen.getAllByText("nav.login").length).toBeGreaterThan(0);
   });
@@ -116,7 +116,7 @@ describe("NavBar component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(<NavBar dark={false} />);
+    renderWithRouter(<NavBar dark={false} />);
 
     // Should show user name
     expect(screen.getByText("John Doe")).toBeInTheDocument();
@@ -139,7 +139,7 @@ describe("NavBar component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(<NavBar dark={false} />);
+    renderWithRouter(<NavBar dark={false} />);
 
     // Should show initials JD
     expect(screen.getAllByText("JD").length).toBeGreaterThan(0);
@@ -159,7 +159,7 @@ describe("NavBar component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(<NavBar dark={true} />);
+    renderWithRouter(<NavBar dark={true} />);
 
     const logo = screen.getByAltText("Logo");
     expect(logo).toHaveAttribute("src", "/assets/images/Logo-clean-dark.png");
@@ -179,7 +179,7 @@ describe("NavBar component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(<NavBar dark={false} />);
+    renderWithRouter(<NavBar dark={false} />);
 
     const logo = screen.getByAltText("Logo");
     expect(logo).toHaveAttribute("src", "/assets/images/Logo-clean.png");
@@ -201,7 +201,7 @@ describe("NavBar component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(<NavBar dark={false} />);
+    renderWithRouter(<NavBar dark={false} />);
 
     const hamburger = screen.getByText("☰");
     await user.click(hamburger);
@@ -229,7 +229,7 @@ describe("NavBar component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(<NavBar dark={false} />);
+    renderWithRouter(<NavBar dark={false} />);
 
     const logoutButtons = screen.getAllByText("Logout");
     await user.click(logoutButtons[0]);
@@ -251,7 +251,7 @@ describe("NavBar component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(<NavBar dark={false} />);
+    renderWithRouter(<NavBar dark={false} />);
 
     expect(screen.getAllByTestId("language-toggle").length).toBeGreaterThan(0);
   });
@@ -270,7 +270,7 @@ describe("NavBar component", () => {
       checkAuth: vi.fn(),
     });
 
-    render(<NavBar dark={false} />);
+    renderWithRouter(<NavBar dark={false} />);
 
     // The avatar shows first 2 characters - could be "AB" or just first letters
     // Check that the avatar container exists with some content
