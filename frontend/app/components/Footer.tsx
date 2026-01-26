@@ -46,7 +46,7 @@ const Footer = () => {
           <ItemsListBuilder title={t('footer.support')} items={t('footer.supportItems', { returnObjects: true }) as string[]} links={supportLinks} />
         </div>
         <div className="flex flex-col justify-center items-center md:flex-row ">
-            <img src="/assets/images/Logo-clean.png" alt="Logo" className="h-12 w-auto mb-4 md:mb-0 md:mr-4" />
+            <img src="/assets/images/Logo-clean-dark.png" alt="Logo" className="h-12 w-auto mb-4 md:mb-0 md:mr-4" />
             <p className="font-bold text-xl mx-auto" >{t('footer.copyright')}</p>
             <div className="flex flex-row gap-2">
               <a href="#" className="text-primary-100">
