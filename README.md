@@ -10,6 +10,43 @@ This a web application aims to provide users (students preparing for driving tes
 - User Learning environment (with categorized questions)
 - Driving School Quiz Management (CRUD operations on quizzes)
 - Driving School Quiz User tracking (view user statistics and progress)
+  
+## Features
+
+### 👤 User Management
+- Separate authentication flows:
+- **Staff** (Email + Password)
+- **Students** (Student Code + Password)
+- Role-Based Access Control:
+- OWNER
+- ADMIN
+- INSTRUCTOR
+- SECRETARY
+
+### 🏫 School & Classroom Management
+- Multi-tenant system (each driving school has isolated data)
+- Staff can:
+- Create and manage students
+- Organize students into virtual rooms (classes)
+- Manage different license categories (A, B, C, D)
+
+### 📝 Quiz System
+- Question bank with:
+- Arabic (RTL) and French (LTR) support
+- Categories (Signs, Rules, Priorities, etc.)
+- Image-based questions
+- Quiz Templates for reuse
+- Quiz Modes:
+- **Training Mode** (instant feedback)
+- **Exam Mode** (feedback after submission)
+- Automatic grading for objective questions
+
+### 📊 Tracking & Progress
+- Track quiz attempts and status:
+- IN_PROGRESS
+- SUBMITTED
+- GRADED
+- Student progress monitoring (planned extensions)
 
 ## System Architecture:
 - **Frontend:** ReactJS, Shadcn/UI, TailwindCSS
