@@ -23,7 +23,7 @@ export default function AnswerOption({
   onCorrectChange,
   onDelete,
 }: AnswerOptionProps) {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const isRTL = i18n.language === "ar";
 
   const {
