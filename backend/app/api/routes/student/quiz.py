@@ -489,7 +489,7 @@ async def start_training_quiz(
     )
 
 
-
+@router.post("/{quiz_id}/answer", response_model=SubmitAnswerResponse)
 async def submit_answer(
     quiz_id: int,
     answer_data: SubmitAnswerRequest,
