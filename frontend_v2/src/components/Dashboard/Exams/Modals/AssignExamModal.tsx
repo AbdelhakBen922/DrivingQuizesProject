@@ -34,7 +34,7 @@ export default function AssignExamModal({
   // State for API data
   const [groups, setGroups] = useState<api.Room[]>([]);
   const [templates, setTemplates] = useState<(api.QuizTemplate & { isDefault?: boolean })[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [, setLoading] = useState(false);
 
   // Load data when modal opens
   useEffect(() => {

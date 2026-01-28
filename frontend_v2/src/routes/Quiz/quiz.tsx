@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import RadioForm from "../../components/ui/RadioForm";
-import NavBar from "~/components/NavBar";
 import QuizProgressBar from "~/components/Quiz/QuizProgressBar";
 import QuizTimer from "~/components/Quiz/QuizTimer";
 import * as api from "~/services/api";
@@ -46,7 +45,7 @@ const Quiz = () => {
     const { quizId } = useParams();
     const navigate = useNavigate();
     const { t, i18n } = useTranslation();
-    const { user } = useAuth();
+    useAuth();
 
     const [quizData, setQuizData] = useState<QuizData | null>(null);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -57,6 +56,9 @@ const Quiz = () => {
     const [showResults, setShowResults] = useState(false);
     const [results, setResults] = useState<QuizResults | null>(null);
     const [answerFeedback, setAnswerFeedback] = useState<{[key: number]: boolean}>({});
+    
+    // Check if this is training mode
+    const isTrainingMode = sessionStorage.getItem("isTrainingMode") === "true";
 
     useEffect(() => {
         if (!quizId) {
@@ -148,11 +150,31 @@ const Quiz = () => {
             const resultsData = await api.finishQuiz(parseInt(quizId!));
             setResults(resultsData);
             setShowResults(true);
-            // Navigate to review page with attempt_id
-            navigate(`/quiz/${quizId}/review/${resultsData.attempt_id}`);
+            
+            // If training mode, navigate to review page
+            // Otherwise, redirect according to mode
+            if (isTrainingMode) {
+                navigate(`/quiz/${quizId}/review/${resultsData.attempt_id}`);
+            } else {
+                navigate(`/quiz/${quizId}/review/${resultsData.attempt_id}`);
+            }
         } catch (err: any) {
             console.error("Failed to finish quiz:", err);
             setError(err.message || "Failed to submit quiz");
+        }
+    };
+    
+    // Clean up training mode flags when navigating back
+    const handleBackNavigation = () => {
+        if (isTrainingMode) {
+            // Clear training mode flags
+            sessionStorage.removeItem("isTrainingMode");
+            sessionStorage.removeItem("trainingQuizId");
+            // Navigate to select quiz page
+            navigate("/quiz-select");
+        } else {
+            // Navigate to dashboard for regular quizzes
+            navigate("/student/dashboard");
         }
     };
 
@@ -169,8 +191,11 @@ const Quiz = () => {
             <div className="min-h-screen flex items-center justify-center p-4">
                 <div className="text-center">
                     <p className="text-red-600 mb-4">{error}</p>
-                    <button onClick={() => navigate("/student/dashboard")} className="btn-primary">
-                        {t("common.backToDashboard", "Retour au tableau de bord")}
+                    <button onClick={handleBackNavigation} className="btn-primary">
+                        {isTrainingMode 
+                            ? t("common.backToSelect", "Retour à la sélection")
+                            : t("common.backToDashboard", "Retour au tableau de bord")
+                        }
                     </button>
                 </div>
             </div>
@@ -203,10 +228,13 @@ const Quiz = () => {
                         </div>
 
                         <button
-                            onClick={() => navigate("/student/dashboard")}
+                            onClick={handleBackNavigation}
                             className="w-full btn-primary"
                         >
-                            {t("common.backToDashboard", "Retour au tableau de bord")}
+                            {isTrainingMode 
+                                ? t("common.backToSelect", "Retour à la sélection")
+                                : t("common.backToDashboard", "Retour au tableau de bord")
+                            }
                         </button>
                     </div>
                 </div>

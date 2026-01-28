@@ -20,7 +20,7 @@ interface AssignedQuiz {
   title: string;
   description: string | null;
   room_name: string;
-  starts_at: string | null;
+  starts_at?: string | null;
   due_date: string | null;
   time_limit_minutes: number | null;
   total_questions: number;
@@ -34,7 +34,7 @@ interface AssignedQuiz {
 
 export default function StudentDashboard() {
   const { t, i18n } = useTranslation();
-  const navigate = useNavigate();
+  useNavigate();
   const { logout } = useAuth();
   const isRTL = i18n.language === "ar";
 
@@ -55,7 +55,11 @@ export default function StudentDashboard() {
         api.getAssignedQuizzes(),
       ]);
       setStats(statsData);
-      setQuizzes(quizzesData);
+      setQuizzes(quizzesData.map(quiz => ({
+        ...quiz,
+        latest_attempt_id: null,
+        is_active: true
+      })));
     } catch (err: any) {
       console.error("Failed to load dashboard:", err);
       setError(err.message || "Failed to load dashboard");

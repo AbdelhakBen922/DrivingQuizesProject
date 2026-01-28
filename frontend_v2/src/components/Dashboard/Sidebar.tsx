@@ -12,7 +12,7 @@ interface NavItem {
 export default function Sidebar() {
   const { t, i18n } = useTranslation();
   const location = useLocation();
-  const navigate = useNavigate();
+  useNavigate();
   const isRTL = i18n.language === 'ar';
   const [isOpen, setIsOpen] = useState(false);
 

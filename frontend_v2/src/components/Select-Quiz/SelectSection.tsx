@@ -77,13 +77,13 @@ const SelectionCard = ({
 
 const SelectSection = () => {
     const { t, i18n } = useTranslation();
-    const isRTL = i18n.language === 'ar';
     const navigate = useNavigate();
     const { setAuth } = useAuth();
     const [QuizCode, setQuizCode] = useState("");
     const [QuizOptions, setQuizOptions] = useState<QuizOptions>({ carType: t('selectQuiz.carType.car', 'Voiture'), numQuestions: 10 });
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+    const [trainingLoading, setTrainingLoading] = useState(false);
 
     const handleCodeEntry = async () => {
         if (!QuizCode.trim()) {
@@ -108,11 +108,59 @@ const SelectSection = () => {
         }
     };
 
+    const handleTrainingStart = async () => {
+        // Check if user is authenticated
+        const token = localStorage.getItem("auth_token");
+        
+        if (!token) {
+            // Show message and redirect to login
+            setError(t('selectQuiz.errors.loginRequired', 'Veuillez vous connecter pour accéder au mode entraînement'));
+            // Store training intent for after login
+            localStorage.setItem("trainingIntent", JSON.stringify({
+                numQuestions: QuizOptions.numQuestions,
+                carType: QuizOptions.carType
+            }));
+            // Redirect to login after short delay so user sees the message
+            setTimeout(() => {
+                navigate("/login?type=student&returnTo=/quiz-select");
+            }, 1500);
+            return;
+        }
+
+        setTrainingLoading(true);
+        setError("");
+
+        try {
+            const lang = i18n.language?.startsWith("ar") ? "ar" : "fr";
+            const response = await api.startTrainingQuiz(QuizOptions.numQuestions, "car", lang);
+            
+            // Store training mode flag in sessionStorage
+            sessionStorage.setItem("isTrainingMode", "true");
+            sessionStorage.setItem("trainingQuizId", response.quiz_id.toString());
+            
+            // Navigate to quiz with the training quiz ID
+            navigate(`/quiz/${response.quiz_id}`);
+        } catch (err: any) {
+            console.error("Failed to start training quiz:", err);
+            setError(err.message || t('selectQuiz.errors.trainingFailed', 'Échec du démarrage du quiz d\'entraînement'));
+        } finally {
+            setTrainingLoading(false);
+        }
+    };
+
     return (
         <section className="max-h-screen relative  z-0 flex flex-col bg-white justify-center items-center px-30">
             <h1 className="font-bold mt-12 mb-15 text-primary-600">
                 {t('selectQuiz.title', 'Choisissez votre mode de quiz')}
             </h1>
+            
+            {/* Error message display */}
+            {error && (
+                <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 max-w-2xl w-full mx-auto text-center">
+                    {error}
+                </div>
+            )}
+            
             <div className="flex flex-col md:flex-row gap-7 h-fit">
                 <SelectionCard
                     {...{
@@ -149,7 +197,7 @@ const SelectSection = () => {
                                 key={2}
                                 label={t('selectQuiz.practice.vehicleType', 'Type de véhicule')}
                                 value={QuizOptions.carType}
-                                options={[t('selectQuiz.carType.car', 'Voiture'), t('selectQuiz.carType.heavy', 'Lourd')]}
+                                options={[t('selectQuiz.carType.car', 'Voiture')]}
                                 placeholder={t('selectQuiz.carType.car', 'Voiture')}
                                 onChange={(value) => setQuizOptions((prev) => ({ ...prev, carType: value }))}
                             />,
@@ -162,7 +210,8 @@ const SelectSection = () => {
                                 onChange={(value) => setQuizOptions((prev) => ({ ...prev, numQuestions: parseInt(value) }))}
                             />,
                         ],
-                        button: t('selectQuiz.practice.startButton', 'Lancer Le Quiz'),
+                        button: trainingLoading ? t('common.loading', 'Chargement...') : t('selectQuiz.practice.startButton', 'Lancer Le Quiz'),
+                        onSubmit: handleTrainingStart,
                     }}
                 />
             </div>

@@ -26,7 +26,7 @@ export default function AssignGroupModal({
   
   // State for API data
   const [groups, setGroups] = useState<GroupData[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [, setLoading] = useState(false);
   
   // Load groups when modal opens
   useEffect(() => {

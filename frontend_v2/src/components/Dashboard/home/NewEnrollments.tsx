@@ -27,7 +27,7 @@ export default function NewEnrollments() {
       const data = await api.getDashboardOverview();
       
       // Transform API data to display format
-      const transformed = data.recent_registrations.slice(0, 3).map((reg, index) => {
+      const transformed = data.recent_registrations.slice(0, 3).map((reg) => {
         const initials = reg.full_name
           .split(' ')
           .map(n => n[0])

@@ -47,7 +47,7 @@ export default function QuestionEditor({
     question,
     questionNumber,
     onUpdate,
-    onAddFromTemplates,
+    // onAddFromTemplates,
 }: QuestionEditorProps) {
     const { t, i18n } = useTranslation();
     const isRTL = i18n.language === "ar";
@@ -397,7 +397,7 @@ export default function QuestionEditor({
                         strategy={verticalListSortingStrategy}
                     >
                         <div className="space-y-3">
-                            {question.answers.map((answer, idx) => (
+                            {question.answers.map((answer) => (
                                 <AnswerOption
                                     key={answer.id}
                                     id={answer.id}

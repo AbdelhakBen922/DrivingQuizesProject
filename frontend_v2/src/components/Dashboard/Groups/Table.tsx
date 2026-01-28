@@ -44,7 +44,7 @@ export default function Table<T extends Record<string, any>>({
           </tr>
         </thead>
         <tbody>
-          {data.map((item, rowIdx) => (
+          {data.map((item) => (
             <tr
               key={String(item[rowKey])}
               onClick={() => onRowClick?.(item)}

@@ -32,17 +32,17 @@ interface ChartDataPoint {
 
 export default function QuizzesScoreChart() {
   const { t, i18n } = useTranslation();
-  const isRTL = i18n.language === 'ar';
+
   const [chartData, setChartData] = useState<ChartDataPoint[]>([]);
   const [loading, setLoading] = useState(true);
 
   // Month names in French and Arabic
-  const monthNames = {
+  /* const monthNames = {
     fr: ["Jan", "Fév", "Mar", "Avr", "Mai", "Jun", "Jul", "Aoû", "Sep", "Oct", "Nov", "Déc"],
     ar: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"]
-  };
+  }; */
 
-  const currentMonths = i18n.language === 'ar' ? monthNames.ar : monthNames.fr;
+
 
   useEffect(() => {
     loadChartData();
@@ -55,12 +55,8 @@ export default function QuizzesScoreChart() {
       
       // Transform API data to chart format
       const transformed = data.exam_results.map((item) => {
-        const date = new Date(item.date);
-        const monthIndex = date.getMonth();
-        const monthName = currentMonths[monthIndex];
-        
         return {
-          month: monthName,
+          month: item.month,
           score: Math.round(item.average_score * 10) / 10, // Round to 1 decimal
         };
       });

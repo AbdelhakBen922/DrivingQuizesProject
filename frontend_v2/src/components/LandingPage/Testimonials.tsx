@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import FadeInSection from "../FadeInSection";
-import { useTranslation } from "react-i18next";
+
 
 const TestimonialElement = ({
     image,

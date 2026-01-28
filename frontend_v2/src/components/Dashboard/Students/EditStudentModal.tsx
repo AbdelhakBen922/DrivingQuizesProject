@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { X, User, Mail, Phone, Calendar, Lock } from "lucide-react";
 import * as api from "../../../services/api";
@@ -15,7 +15,7 @@ export default function EditStudentModal({ isOpen, student, onClose, onSuccess }
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === "ar";
   const [toasts, setToasts] = useState<any[]>([]);
-  const { success, error } = useToast({ toasts, setToasts });
+  const { error } = useToast({ toasts, setToasts });
 
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({

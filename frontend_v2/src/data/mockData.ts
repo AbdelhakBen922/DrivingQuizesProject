@@ -815,7 +815,7 @@ export const getGroupStudents = (groupId: string): Student[] =>
 /**
  * GET /api/groups/:id/lessons
  */
-export const getGroupLessons = (groupId: string): Lesson[] => MOCK_LESSONS;
+export const getGroupLessons = (_groupId: string): Lesson[] => MOCK_LESSONS;
 
 /**
  * GET /api/students
@@ -842,7 +842,7 @@ export const getTemplateById = (id: string): Template | undefined =>
 /**
  * GET /api/templates/:id/questions
  */
-export const getTemplateQuestions = (templateId: string): Question[] => MOCK_QUESTIONS;
+export const getTemplateQuestions = (_templateId: string): Question[] => MOCK_QUESTIONS;
 
 /**
  * POST /api/templates

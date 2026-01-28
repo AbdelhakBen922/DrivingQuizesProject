@@ -32,7 +32,7 @@ export default function TemplatesPage() {
   // State for API data
   const [templates, setTemplates] = useState<api.QuizTemplate[]>([]);
   const [defaultTemplates, setDefaultTemplates] = useState<api.QuizTemplate[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
   const topics = getTopics();
   const licenseClasses = getLicenseClasses();
 
@@ -179,9 +179,9 @@ export default function TemplatesPage() {
     setDuplicateModalOpen(false);
   };
 
-  const handleBack = () => {
+  /* const handleBack = () => {
     navigate('/dashboard/exams');
-  };
+  }; */
 
   const handleSendTemplate = (template: TemplateData) => {
     setSelectedTemplate(template);

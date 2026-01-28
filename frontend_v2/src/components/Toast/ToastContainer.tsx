@@ -14,8 +14,8 @@ interface ToastContainerProps {
 }
 
 export default function ToastContainer({ toasts, onRemove }: ToastContainerProps) {
-  const { i18n } = useTranslation();
-  const isRTL = i18n.language === 'ar';
+  const { i18n: _i18n } = useTranslation();
+
 
   return (
     <div

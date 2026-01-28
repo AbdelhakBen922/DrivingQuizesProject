@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { X, User, Mail, Phone, Calendar, Lock, Users, Search } from "lucide-react";
+import { X, User, Mail, Phone, Calendar, Lock, Users, CreditCard } from "lucide-react";
 import * as api from "../../../services/api";
 import { useToast } from "../../../hooks/useToast";
 import { validateEmail, validatePassword, validatePasswordMatch, validatePhoneNumber, validateRequired, validateStudentCode } from "../../../lib/validators";
@@ -15,7 +15,7 @@ export default function CreateStudentModal({ isOpen, onClose, onSuccess }: Creat
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === "ar";
   const [toasts, setToasts] = useState<any[]>([]);
-  const { success, error } = useToast({ toasts, setToasts });
+  const { error } = useToast({ toasts, setToasts });
 
   const [currentStep, setCurrentStep] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -411,7 +411,7 @@ export default function CreateStudentModal({ isOpen, onClose, onSuccess }: Creat
                 <div className="flex items-center">
                   <User size={16} className="mr-2" />
                   <span className="font-medium">{t("students.modal.fullName", "الاسم الكامل")}:</span>
-                  <span className="ml-2">{formData.first_name} {formData.last_name}</span>
+                  <span className="ml-2">{formData.full_name}</span>
                 </div>
                 <div className="flex items-center">
                   <Calendar size={16} className="mr-2" />

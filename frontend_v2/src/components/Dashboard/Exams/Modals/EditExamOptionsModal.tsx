@@ -17,7 +17,7 @@ export default function EditExamOptionsModal({
     onEditQuestions,
     onDelete,
     examName,
-    examStatus 
+    examStatus: _ 
 }: EditExamOptionsModalProps) {
     const { t, i18n } = useTranslation();
     const isRTL = i18n.language === 'ar';

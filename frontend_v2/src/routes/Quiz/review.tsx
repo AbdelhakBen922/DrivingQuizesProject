@@ -36,11 +36,14 @@ const QuizReview = () => {
     const { quizId, attemptId } = useParams();
     const navigate = useNavigate();
     const { t, i18n } = useTranslation();
-    const { user } = useAuth();
+    useAuth();
 
     const [reviewData, setReviewData] = useState<ReviewData | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+    
+    // Check if this is training mode
+    const isTrainingMode = sessionStorage.getItem("isTrainingMode") === "true";
 
     useEffect(() => {
         if (!quizId || !attemptId) {
@@ -64,6 +67,20 @@ const QuizReview = () => {
             setLoading(false);
         }
     };
+    
+    // Clean up training mode flags and navigate back
+    const handleBackNavigation = () => {
+        if (isTrainingMode) {
+            // Clear training mode flags
+            sessionStorage.removeItem("isTrainingMode");
+            sessionStorage.removeItem("trainingQuizId");
+            // Navigate to select quiz page
+            navigate("/quiz-select");
+        } else {
+            // Navigate to dashboard for regular quizzes
+            navigate("/student/dashboard");
+        }
+    };
 
     if (loading) {
         return (
@@ -78,8 +95,11 @@ const QuizReview = () => {
             <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
                 <div className="text-center">
                     <p className="text-red-600 mb-4">{error}</p>
-                    <button onClick={() => navigate("/student/dashboard")} className="btn-primary">
-                        {t("common.backToDashboard", "Back to Dashboard")}
+                    <button onClick={handleBackNavigation} className="btn-primary">
+                        {isTrainingMode 
+                            ? t("common.backToSelect", "Retour à la sélection")
+                            : t("common.backToDashboard", "Back to Dashboard")
+                        }
                     </button>
                 </div>
             </div>
@@ -121,11 +141,14 @@ const QuizReview = () => {
                     </div>
 
                     <button
-                        onClick={() => navigate("/student/dashboard")}
+                        onClick={handleBackNavigation}
                         className="w-full md:w-auto px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded-lg transition-colors flex items-center justify-center gap-2"
                     >
                         <ArrowLeft size={20} />
-                        {t("common.backToDashboard", "Back to Dashboard")}
+                        {isTrainingMode 
+                            ? t("common.backToSelect", "Retour à la sélection")
+                            : t("common.backToDashboard", "Back to Dashboard")
+                        }
                     </button>
                 </div>
 

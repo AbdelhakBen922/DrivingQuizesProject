@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import FadeInSection from "../FadeInSection";
 import { useTranslation } from "react-i18next";

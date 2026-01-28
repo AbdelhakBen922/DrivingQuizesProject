@@ -1,13 +1,13 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "../Groups/SearchBar";
 import FilterSelect from "../Groups/FilterSelect";
 import Table from "../Groups/Table";
 import type { ColumnProps } from "../Groups/Table";
-import SortableHeader from "../Groups/SortableHeader";
+
 import type { SortDirection } from "../Groups/SortableHeader";
-import { BookOpen, Plus, ArrowLeft } from "lucide-react";
+import { BookOpen, Plus } from "lucide-react";
 
 interface ModuleData {
   id: string;
@@ -24,7 +24,7 @@ export default function LearningPage() {
   const navigate = useNavigate();
 
   // Mock data for now - will be replaced with API calls
-  const [modules, setModules] = useState<ModuleData[]>([
+  const [modules] = useState<ModuleData[]>([
     {
       id: "1",
       name: isRTL ? "قواعد المرور الأساسية" : "Règles de circulation de base",
@@ -51,13 +51,13 @@ export default function LearningPage() {
     },
   ]);
 
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
 
   // State
   const [searchQuery, setSearchQuery] = useState("");
   const [filterValue, setFilterValue] = useState(t('learningManagement.filters.allCategories', 'Toutes les catégories'));
-  const [sortColumn, setSortColumn] = useState<string | null>(null);
-  const [sortDirection, setSortDirection] = useState<SortDirection>(null);
+  const [_sortColumn, _setSortColumn] = useState<string | null>(null);
+  const [_sortDirection, _setSortDirection] = useState<SortDirection>(null);
 
   // Filter Options
   const filterOptions = useMemo(() => [
@@ -68,7 +68,7 @@ export default function LearningPage() {
   ], [isRTL, t]);
 
   // Sorting Logic
-  const handleSort = (column: string) => {
+  /* const handleSort = (column: string) => {
     if (sortColumn === column) {
       setSortDirection(sortDirection === 'asc' ? 'desc' : sortDirection === 'desc' ? null : 'asc');
       if (sortDirection === 'desc') {
@@ -78,7 +78,7 @@ export default function LearningPage() {
       setSortColumn(column);
       setSortDirection('asc');
     }
-  };
+  }; */
 
   // Filter and Sort Data
   let filteredModules = modules.filter((module) => {
@@ -89,7 +89,7 @@ export default function LearningPage() {
     return matchesSearch && matchesFilter;
   });
 
-  if (sortColumn && sortDirection) {
+  /* if (sortColumn && sortDirection) {
     filteredModules = [...filteredModules].sort((a, b) => {
       const aValue = a[sortColumn as keyof ModuleData];
       const bValue = b[sortColumn as keyof ModuleData];
@@ -104,7 +104,7 @@ export default function LearningPage() {
       }
       return 0;
     });
-  }
+  } */
 
   // Status Badge Component
   const StatusBadge = ({ status }: { status: "draft" | "published" }) => {

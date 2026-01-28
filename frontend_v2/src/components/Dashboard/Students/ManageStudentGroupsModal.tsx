@@ -41,7 +41,7 @@ export default function ManageStudentGroupsModal({ isOpen, student, onClose, onS
   const loadData = async () => {
     try {
       setLoading(true);
-      const [rooms, memberships] = await Promise.all([
+      const [rooms] = await Promise.all([
         api.getRooms(),
         loadStudentMemberships(),
       ]);

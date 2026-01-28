@@ -671,6 +671,55 @@ export async function startQuiz(quizId: number, lang: string = "fr"): Promise<{
 }
 
 /**
+ * Start a training quiz session with random questions
+ */
+export async function startTrainingQuiz(
+  questionCount: number = 10,
+  vehicleType: string = "car",
+  lang: string = "fr"
+): Promise<{
+  attempt_id: number;
+  quiz_id: number;
+  quiz_title: string;
+  attempt_number: number;
+  total_questions: number;
+  questions: Array<{
+    id: number;
+    text: string;
+    image_url: string | null;
+    choices: Array<{
+      id: number;
+      text: string;
+      position: number;
+    }>;
+    answered_choice_id: number | null;
+    duration_sec: number | null;
+  }>;
+}> {
+  const response = await fetch(`${API_BASE_URL}/student/quiz/training/start?lang=${lang}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getAuthToken()}`,
+    },
+    body: JSON.stringify({
+      question_count: questionCount,
+      vehicle_type: vehicleType,
+    }),
+  });
+
+  if (!response.ok) {
+    const error: ApiError = await response.json().catch(() => ({
+      detail: "Failed to start training quiz",
+    }));
+    throw new Error(error.detail);
+  }
+
+  return response.json();
+}
+
+
+/**
  * Submit an answer for a question
  */
 export async function submitQuizAnswer(

@@ -41,10 +41,10 @@ interface QuestionData {
   randomOrder: boolean;
 }
 
-interface TemplateData {
-  name: string;
-  questions: QuestionData[];
-}
+// interface TemplateData {
+//   name: string;
+//   questions: QuestionData[];
+// }
 
 // Default question factory - will be created with proper translations in component
 const createDefaultQuestion = (t: any): QuestionData => ({
@@ -120,7 +120,7 @@ export default function CreateTemplatePage() {
   const [questions, setQuestions] = useState<QuestionData[]>(() => createMockInitialQuestions(t));
   const [activeQuestionId, setActiveQuestionId] = useState<string>(questions[0]?.id || "");
   const [isSaving, setIsSaving] = useState(false);
-  const [lastSaved, setLastSaved] = useState<Date | null>(new Date());
+  const [lastSaved, _setLastSaved] = useState<Date | null>(new Date());
   const [isEditingName, setIsEditingName] = useState(false);
   const [isTemplateModalOpen, setIsTemplateModalOpen] = useState(false);
   const [isLoadingTemplate, setIsLoadingTemplate] = useState(false);
@@ -152,7 +152,7 @@ export default function CreateTemplatePage() {
       console.log('Template questions array:', templateQuestions);
       
       // Convert API template questions to QuestionData format
-      const loadedQuestions: QuestionData[] = templateQuestions.map((tq: any, index: number) => {
+      const loadedQuestions: QuestionData[] = templateQuestions.map((tq: any) => {
         // Convert relative image paths to absolute URLs
         let imageUrl = tq.question.image_url || null;
         if (imageUrl && !imageUrl.startsWith('http')) {
@@ -167,7 +167,7 @@ export default function CreateTemplatePage() {
           isRequired: tq.is_required,
           questionText: tq.question.text_ar || tq.question.text_fr || '',
           image: imageUrl,
-          answers: tq.question.choices.map((c) => ({
+          answers: tq.question.choices.map((c: any) => ({
             id: `answer-${c.id}`,
             text: c.text_ar || c.text_fr || '',
             isCorrect: c.is_correct
@@ -222,7 +222,7 @@ export default function CreateTemplatePage() {
   // Load available templates for duplication
   const loadAvailableTemplates = async () => {
     try {
-      const templates = await api.listQuizTemplates();
+      const templates = await api.getQuizTemplates();
       setAvailableTemplates(templates);
     } catch (err) {
       console.error('Error loading templates:', err);
@@ -271,14 +271,14 @@ export default function CreateTemplatePage() {
     success(t("createTemplate.questionDeleted", "تم حذف السؤال بنجاح"));
   };
 
-  const handleSave = async () => {
+  /* const handleSave = async () => {
     setIsSaving(true);
     // Simulate save
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setIsSaving(false);
     setLastSaved(new Date());
     success(t("createTemplate.saved", "تم الحفظ بنجاح"));
-  };
+  }; */
 
   const handlePublish = async () => {
     // Validate

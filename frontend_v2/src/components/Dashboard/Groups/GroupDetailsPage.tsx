@@ -240,9 +240,9 @@ export default function GroupDetailsPage() {
     setIsEditModalOpen(false);
   };
 
-  const handleDeleteGroup = () => {
+  /* const handleDeleteGroup = () => {
     setIsDeleteGroupModalOpen(true);
-  };
+  }; */
 
   const confirmDeleteGroup = () => {
     if (!groupData) return;

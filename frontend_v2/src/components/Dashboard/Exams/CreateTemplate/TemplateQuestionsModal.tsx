@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { 
   getTemplates, 
   MOCK_QUESTIONS,
-  type Question as MockQuestion 
+ 
 } from "../../../../data/mockData";
 
 interface Answer {

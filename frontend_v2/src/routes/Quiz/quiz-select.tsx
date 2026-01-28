@@ -1,4 +1,3 @@
-import React from 'react'
 import Footer from '~/components/Footer'
 import FAQ from '~/components/LandingPage/FAQ'
 import QuizPreview from '~/components/LandingPage/QuizPreview'
@@ -10,8 +9,8 @@ const QuizSelect = () => {
     <div className="min-h-screen flex flex-col bg-white">
         <NavBar dark={false} />
         <SelectSection />
-        <QuizPreview className='bg-primary-25 my-30' />
-        <FAQ />
+        <QuizPreview id="quiz-preview" className='bg-primary-25 my-30' />
+        <FAQ id="faq" />
         <Footer />
     </div>
   )

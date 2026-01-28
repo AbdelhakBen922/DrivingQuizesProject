@@ -26,11 +26,11 @@ export default function LearningProgress() {
       const data = await api.getDashboardOverview();
       
       // Transform API data to display format
-      const transformed = data.study_progress.map((item, index) => ({
+      const transformed = data.study_progress.map((item) => ({
         key: `room-${item.room_id}`,
         group: item.room_name,
-        subject: `${item.completed_lessons}/${item.total_lessons} ${t('dashboard.progress.lessons', 'دروس')}`,
-        percentage: Math.round(item.progress_percentage),
+        subject: `${Math.round(item.completion_percent)}% ${t('dashboard.progress.completion', 'مكتمل')}`,
+        percentage: Math.round(item.completion_percent),
         color: 'bg-blue-500',
       }));
       
