@@ -256,7 +256,7 @@ const Quiz = () => {
     const options = currentQuestion.choices.map(choice => ({
         label: choice.text,
         value: `option${choice.id}`,
-        isCorrect: false, // We don't know this on client side
+        isCorrect: isConfirmed && choice.id === parseInt(selectedOption.replace("option", "")) && currentAnswerIsCorrect,
     }));
 
     const isCorrect = hasAnswerFeedback && currentAnswerIsCorrect;
@@ -319,7 +319,7 @@ const Quiz = () => {
                                         <img 
                                             src={currentQuestion.image_url} 
                                             alt="Question" 
-                                            className="w-full h-full object-cover rounded-2xl"
+                                            className="w-full h-full object-contain rounded-2xl"
                                         />
                                         {/* Zoom Button - positioned inside the image, clipped by border radius */}
                                         <button className={`absolute bottom-0 right-0 p-3 ${progressColor} text-white transition-colors rounded-tl-2xl ${progressColor === 'bg-green' ? 'hover:bg-green-700' : progressColor === 'bg-red' ? 'hover:bg-red-700' : 'hover:bg-primary-600'} cursor-pointer `}>

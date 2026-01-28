@@ -104,9 +104,6 @@ export default function AnswerOption({
           ${isRTL ? "flex-row-reverse" : "flex-row-reverse"}
         `}
       >
-        <span className={`text-sm ${isCorrect ? "text-white" : "text-gray-600"}`}>
-          {text || t('createTemplate.defaultAnswerLabel', isRTL ? 'خيار' : 'Option')}
-        </span>
         {isMultiple ? (
           // Checkbox for multiple choice
           <div

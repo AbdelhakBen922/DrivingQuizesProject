@@ -73,6 +73,7 @@ export default function AssignExamModal({
   });
   const [selectedTemplateId, setSelectedTemplateId] = useState("");
   const [isEditingDates, setIsEditingDates] = useState(false); // Toggle calendar view in step 2
+  const [isTemplateDropdownOpen, setIsTemplateDropdownOpen] = useState(false); // Custom dropdown state
 
   // Get selected group name for default exam name
   const selectedGroup = groups.find((g) => g.id.toString() === selectedGroupId);
@@ -146,6 +147,7 @@ export default function AssignExamModal({
     });
     setSelectedTemplateId("");
     setIsEditingDates(false);
+    setIsTemplateDropdownOpen(false);
     onClose();
   };
 
@@ -323,31 +325,76 @@ export default function AssignExamModal({
           {/* Step 3: Template Selection */}
           {currentStep === 3 && (
             <div className="space-y-6">
-              <div>
+              <div className="relative">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   {t("assignExam.selectTemplate", "اختر قالب")}
                 </label>
-                <select
-                  value={selectedTemplateId}
-                  onChange={(e) => setSelectedTemplateId(e.target.value)}
-                  className={`w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-gray-50 appearance-none cursor-pointer ${
-                    isRTL ? "text-right" : "text-left"
+                {/* Custom Dropdown Button */}
+                <button
+                  type="button"
+                  onClick={() => setIsTemplateDropdownOpen(!isTemplateDropdownOpen)}
+                  className={`w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-gray-50 cursor-pointer flex items-center justify-between ${
+                    isRTL ? "text-right flex-row-reverse" : "text-left"
                   }`}
                 >
-                  <option value="">
-                    {t(
-                      "assignExam.templatePlaceholder",
-                      "افتراضي: قالب الامتحان الأول"
-                    )}
-                  </option>
-                  {templates.map((template) => (
-                    <option key={template.id} value={template.id.toString()}>
-                      {template.title}
-                      {template.isDefault ? ` • ${t("templates.default_badge", "افتراضي")}` : ""}
-                      {` (${template.question_count || 0} ${t("assignExam.questions", "سؤال")})`}
-                    </option>
-                  ))}
-                </select>
+                  <span className={selectedTemplateId ? "text-gray-900" : "text-gray-500"}>
+                    {selectedTemplateId
+                      ? (() => {
+                          const selected = templates.find(t => t.id.toString() === selectedTemplateId);
+                          return selected 
+                            ? `${selected.title}${selected.isDefault ? ` • ${t("templates.default_badge", "افتراضي")}` : ""} (${selected.question_count || 0} ${t("assignExam.questions", "سؤال")})`
+                            : t("assignExam.templatePlaceholder", "اختر قالب");
+                        })()
+                      : t("assignExam.templatePlaceholder", "اختر قالب")
+                    }
+                  </span>
+                  <svg 
+                    className={`w-5 h-5 text-gray-400 transition-transform ${isTemplateDropdownOpen ? "rotate-180" : ""}`} 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                
+                {/* Custom Dropdown List */}
+                {isTemplateDropdownOpen && (
+                  <div className="absolute z-50 w-full mt-1 bg-white border border-gray-200 rounded-xl shadow-lg max-h-60 overflow-y-auto">
+                    {/* Empty option */}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSelectedTemplateId("");
+                        setIsTemplateDropdownOpen(false);
+                      }}
+                      className={`w-full px-4 py-3 text-gray-500 hover:bg-gray-50 transition-colors ${
+                        isRTL ? "text-right" : "text-left"
+                      } ${!selectedTemplateId ? "bg-primary-50" : ""}`}
+                    >
+                      {t("assignExam.templatePlaceholder", "اختر قالب")}
+                    </button>
+                    
+                    {/* Template options */}
+                    {templates.map((template) => (
+                      <button
+                        key={template.id}
+                        type="button"
+                        onClick={() => {
+                          setSelectedTemplateId(template.id.toString());
+                          setIsTemplateDropdownOpen(false);
+                        }}
+                        className={`w-full px-4 py-3 hover:bg-gray-50 transition-colors border-t border-gray-100 ${
+                          isRTL ? "text-right" : "text-left"
+                        } ${selectedTemplateId === template.id.toString() ? "bg-primary-50 text-primary-700" : "text-gray-900"}`}
+                      >
+                        {template.title}
+                        {template.isDefault ? ` • ${t("templates.default_badge", "افتراضي")}` : ""}
+                        {` (${template.question_count || 0} ${t("assignExam.questions", "سؤال")})`}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Create New Template Link */}

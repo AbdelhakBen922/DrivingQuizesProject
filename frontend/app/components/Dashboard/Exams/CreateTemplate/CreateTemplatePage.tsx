@@ -695,7 +695,7 @@ export default function CreateTemplatePage() {
               </button>
             </div>
             
-            <div className="space-y-3">
+            <div className="space-y-3 max-h-[50vh] overflow-y-auto">
               {availableTemplates.length === 0 ? (
                 <p className="text-gray-500 text-center py-8">
                   {t("createTemplate.noTemplatesAvailable", "لا توجد قوالب متاحة")}
